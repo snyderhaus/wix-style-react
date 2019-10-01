@@ -14,10 +14,6 @@ import { storySettings } from './storySettings';
 import * as examples from './examples';
 import { baseScope } from '../utils/LiveCodeExample';
 
-import InputArea from 'wix-style-react/InputArea';
-import FormField from 'wix-style-react/FormField';
-import { RichTextInputArea } from '../../src';
-
 const code = config =>
   baseCode({ components: baseScope, compact: true, ...config });
 
@@ -30,13 +26,6 @@ export default {
 
   sections: [
     header({
-      component: (
-        <div style={{ width: '50%' }}>
-          <FormField label="Rich Text Area">
-            <RichTextInputArea placeholder="Placeholder" />
-          </FormField>
-        </div>
-      ),
       issueUrl: 'https://github.com/wix/wix-style-react/issues/new',
       sourceUrl:
         'https://github.com/wix/wix-style-react/tree/master/src/RichTextInputArea/',
