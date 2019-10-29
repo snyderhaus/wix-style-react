@@ -5,4 +5,4 @@ This process allows multiple developers to merge their commits into a shared rep
 
 The next phase, after all of the build steps finish successfully, is releasing to production manually. This practice called _Continuous Delivery_.
 
-This article describes the process starting the moment we merge a commit into master by the time the package is published to npm with a deployed Storybook files.
+This article describes the process (which implements the concepts above) starting the moment we merge a commit into master, by the time the package is published to npm with a deployed Storybook files.
