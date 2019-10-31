@@ -41,4 +41,10 @@ Anyway, this build configuration depends on another **composite** build configur
 - On failed composite dependency: make entry build failed to start
 - On failed to start/canceled composite dependency: make entry build failed to start
 
+Here's a diagram that demonstrates the dependency:
+
+<p align="center">
+  <img width="80%" src="../assets/wsr-composite-build.png">
+</p>
+
 The next thing we're going to do is understanding how `wix-style-react-tests-composite` works.
