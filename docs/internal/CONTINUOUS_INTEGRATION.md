@@ -21,3 +21,10 @@ Before we start, we should understand the following TeamCity terms:
 <p align="center">
   <img width="80%" src="../assets/teamcity-terminology.png">
 </p>
+
+## Linking TeamCity to WSR
+
+As we know, Wix has more than one server of TeamCity. That's actually why we have two different TeamCity projects for WSR:
+
+1. [wix-style-react](http://tc.dev.wixpress.com/project.html?projectId=Wix_Angular_WixStyleReact&branch_Wix_Angular_WixStyleReact=__all_branches__) - the main project that's associated with the master branch
+2. [FedInfra WixStyleReac WixStyleReactNew Parallel](http://pullrequest-tc.dev.wixpress.com/project.html?projectId=FedInfra_WixStyleReac_WixStyleReactNew_Parallel&branch_FedInfra_WixStyleReac_WixStyleReactNew_Parallel=4401%2Fmerge) - a project that's associated with the other branches and triggered when creating a pull request
