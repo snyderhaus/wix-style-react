@@ -31,12 +31,14 @@ As we know, Wix has more than one server of TeamCity. That's actually why we hav
 
 Also, there are a few differences between them, which we'll mention during the article, however both consists of similar build configurations.
 
-The entry **build configuration**, that actually triggers everything, is called "[wix-style-react](http://tc.dev.wixpress.com/viewType.html?buildTypeId=CommonComponent_WixStyleReact)" (what a surprise 😉).
+The entry **build configuration**, that actually triggers everything, is called [`wix-style-react`](http://tc.dev.wixpress.com/viewType.html?buildTypeId=CommonComponent_WixStyleReact) (what a surprise 😉).
 Notice that we differentiate between the project (which has an identical name) and the build configuration. Builds of this configuration are started and associated with a new commit (or bulk of commits) of the branch.
 
-Anyway, this build configuration depends on another **composite** build configuration - which is "[wix-style-react-tests-composite](http://tc.dev.wixpress.com/viewType.html?buildTypeId=Wix_Angular_WixStyleReact_WixStyleReactTests_WixStyleReactTestsComposite)". In case you're curious, the dependency is defined by the following rules:
+Anyway, this build configuration depends on another **composite** build configuration - which is [`wix-style-react-tests-composite`](http://tc.dev.wixpress.com/viewType.html?buildTypeId=Wix_Angular_WixStyleReact_WixStyleReactTests_WixStyleReactTestsComposite). In case you're curious, the dependency is defined by the following rules:
 
 - Do not run new build if there is a suitable one
 - Only use successful builds from suitable ones
 - On failed dependency: make build failed to start
 - On failed to start/canceled dependency: make build failed to start
+
+The next thing we're going to do is understanding how `wix-style-react-tests-composite` works.
