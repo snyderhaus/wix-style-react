@@ -12,8 +12,8 @@ This article describes the flow process (which implements the concepts above) st
 Before we start, we should understand the following TeamCity terms:
 
 - Build Step - a task to be executed (for instance, `npm run build`)
-- Build - an instance of a process that executes list of build steps
-- Build Chain - an instance of a process that depends on several build processes
+- Build - a process that executes list of build steps
+- Build Chain - a process that refers to several build processes as a single pipeline
 - Build Configuration - a collection of settings that define the build process
 - Composite Build Configuration - a type of build configuration that aggregates results from several build processes which could be executed in parallel
 - Project - a collection of build configurations (a project could be contained inside another project)
