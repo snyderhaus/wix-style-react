@@ -12,4 +12,5 @@ This article describes the flow process (which implements the concepts above) st
 Before we start, we should understand the following TeamCity terms:
 
 - Build Step - a task to be executed (for instance, `npm run build`)
-- Build - a process that executes list of build steps
+- Build - an instance of process that executes list of build steps
+- Build Configuration - a collection of settings that define the build process
