@@ -14,3 +14,4 @@ Before we start, we should understand the following TeamCity terms:
 - Build Step - a task to be executed (for instance, `npm run build`)
 - Build - an instance of process that executes list of build steps
 - Build Configuration - a collection of settings that define the build process
+- Project - a collection of build configurations (a project could be contained inside another project)
