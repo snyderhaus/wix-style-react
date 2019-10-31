@@ -15,3 +15,7 @@ Before we start, we should understand the following TeamCity terms:
 - Build - an instance of process that executes list of build steps
 - Build Configuration - a collection of settings that define the build process
 - Project - a collection of build configurations (a project could be contained inside another project)
+
+<p align="center">
+  <img width="700" src="../assets/teamcity-terminology.png">
+</p>
