@@ -30,3 +30,6 @@ As we know, Wix has more than one server of TeamCity. That's actually why we hav
 - [FedInfra WixStyleReac WixStyleReactNew Parallel](http://pullrequest-tc.dev.wixpress.com/project.html?projectId=FedInfra_WixStyleReac_WixStyleReactNew_Parallel&branch_FedInfra_WixStyleReac_WixStyleReactNew_Parallel=4401%2Fmerge) - a project that's associated with the other branches and triggered when creating a pull request
 
 Also, there are a few differences between them, which we'll mention during the article, however both consists of similar build configurations.
+
+The entry **build configuration**, that actually triggers everything, is called "[wix-style-react](http://tc.dev.wixpress.com/viewType.html?buildTypeId=CommonComponent_WixStyleReact)" (what a surprise 😉).
+Notice that we differentiate between the project (which has an identical name) and the build configuration.
