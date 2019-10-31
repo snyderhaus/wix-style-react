@@ -22,7 +22,7 @@ Before we start, we should understand the following TeamCity terms:
   <img width="80%" src="../assets/teamcity-terminology.png">
 </p>
 
-## Linking TeamCity to WSR
+## Integrating TeamCity with WSR
 
 As we know, Wix has more than one server of TeamCity. That's actually why we have two different TeamCity projects for WSR:
 
