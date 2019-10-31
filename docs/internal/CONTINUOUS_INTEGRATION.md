@@ -36,9 +36,9 @@ Notice that we differentiate between the project (which has an identical name) a
 
 Anyway, this build configuration depends on another **composite** build configuration - which is [`wix-style-react-tests-composite`](http://tc.dev.wixpress.com/viewType.html?buildTypeId=Wix_Angular_WixStyleReact_WixStyleReactTests_WixStyleReactTestsComposite). In case you're curious, the dependency is defined by the following rules:
 
-- Do not run new build if there is a suitable one
-- Only use successful builds from suitable ones
-- On failed dependency: make build failed to start
-- On failed to start/canceled dependency: make build failed to start
+- Do not run new entry build if there is a suitable composite one
+- Only use successful builds from suitable composite ones
+- On failed composite dependency: make entry build failed to start
+- On failed to start/canceled composite dependency: make entry build failed to start
 
 The next thing we're going to do is understanding how `wix-style-react-tests-composite` works.
