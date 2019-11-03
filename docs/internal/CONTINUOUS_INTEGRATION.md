@@ -47,4 +47,6 @@ Here's a diagram that demonstrates the dependency:
   <img width="80%" src="../assets/wsr-composite-build.png">
 </p>
 
-The next thing we're going to do is understanding how `wix-style-react-tests-composite` works.
+The next thing we're going to do is understanding how `wix-style-react-tests-composite` works under the hood.
+
+##
