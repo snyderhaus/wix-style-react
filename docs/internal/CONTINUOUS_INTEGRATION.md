@@ -24,7 +24,7 @@ Before we start, we better recognize the following TeamCity terms:
 
 ## Integrating TeamCity with WSR
 
-As we know, Wix has more than one server of TeamCity. That's actually why we have two different TeamCity projects for WSR:
+As we know, Wix owns multiple TeamCity servers. Moreover, WSR uses two of them, and that's actually why we have two different TeamCity projects:
 
 - [wix-style-react](http://tc.dev.wixpress.com/project.html?projectId=Wix_Angular_WixStyleReact&branch_Wix_Angular_WixStyleReact=__all_branches__) - the main project that's associated with the master branch
 - [FedInfra WixStyleReac WixStyleReactNew Parallel](http://pullrequest-tc.dev.wixpress.com/project.html?projectId=FedInfra_WixStyleReac_WixStyleReactNew_Parallel&branch_FedInfra_WixStyleReac_WixStyleReactNew_Parallel=4401%2Fmerge) - a project that's associated with the other branches and triggered when creating a pull request
