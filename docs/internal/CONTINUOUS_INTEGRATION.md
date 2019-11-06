@@ -50,3 +50,5 @@ The next thing we're going to do is understanding how `wix-style-react-tests-com
 ## The Composite Build
 
 Well, we already said that the composite build configuration is typically triggered by `wix-style-react`. The point is, this build configuration depends on several other build configurations itself.
+
+Let's categorize them:
