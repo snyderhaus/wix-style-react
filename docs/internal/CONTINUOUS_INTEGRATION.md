@@ -53,4 +53,5 @@ Well, we already said that the composite build configuration is typically trigge
 
 Let's categorize them:
 
-- Testing - these configurations are responsible to ensure there are no issues in various aspects (unit, visual, e2e, performance, etc.).
+- Testing - these configurations are responsible to run build steps that ensure there are no issues in various aspects (unit, visual, e2e, performance, etc.).
+- Promoting - these configurations are responsible to run build steps that actually publish artifacts (package, docs, etc.).
