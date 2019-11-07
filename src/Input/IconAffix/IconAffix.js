@@ -30,6 +30,7 @@ const IconAffix = ({ children, dataHook }) => (
 IconAffix.displayName = 'Input.IconAffix';
 IconAffix.propTypes = {
   children: PropTypes.element.isRequired,
+  dataHook: PropTypes.string,
 };
 
 export default IconAffix;

@@ -136,7 +136,7 @@ describe('Swatches', () => {
       const addButton = await driver.getAddButton();
       await addButton.click();
 
-      const colorpicker = await driver.gerColorPicker();
+      const colorpicker = await driver.getColorPicker();
       await colorpicker.confirm();
 
       expect(onAdd).not.toHaveBeenCalled();
@@ -151,12 +151,58 @@ describe('Swatches', () => {
       const addButton = await driver.getAddButton();
       await addButton.click();
 
-      const colorpicker = await driver.gerColorPicker();
+      const colorpicker = await driver.getColorPicker();
       await colorpicker.selectBlackColor();
       await colorpicker.confirm();
 
       expect(addSpy).toHaveBeenCalledTimes(1);
       expect(addSpy).toBeCalledWith('#000000');
+    });
+
+    it('should call onChange callback when change color in color picker', async () => {
+      const changeSpy = jest.fn();
+      const { driver } = render(
+        <Swatches colors={['#000000']} showAddButton onChange={changeSpy} />,
+      );
+
+      const addButton = await driver.getAddButton();
+      await addButton.click();
+
+      const colorpicker = await driver.getColorPicker();
+      await colorpicker.selectBlackColor();
+
+      expect(changeSpy).toHaveBeenCalledTimes(1);
+      expect(changeSpy).toBeCalledWith('#000000');
+    });
+
+    it('should call onCancel callback when cancel button clicked in color picker', async () => {
+      const cancelSpy = jest.fn();
+      const { driver } = render(
+        <Swatches colors={['#000000']} showAddButton onCancel={cancelSpy} />,
+      );
+
+      const addButton = await driver.getAddButton();
+      await addButton.click();
+
+      const colorpicker = await driver.getColorPicker();
+      await colorpicker.clickCancelButton();
+
+      expect(cancelSpy).toHaveBeenCalledTimes(1);
+      expect(cancelSpy).toBeCalledWith();
+    });
+
+    it('should call onCancel callback when closed color picker by clicking outside', async () => {
+      const cancelSpy = jest.fn();
+      const { driver } = render(
+        <Swatches colors={['#000000']} showAddButton onCancel={cancelSpy} />,
+      );
+
+      const addButton = await driver.getAddButton();
+      await addButton.click();
+      await driver.clickOutsideColorPicker();
+
+      expect(cancelSpy).toHaveBeenCalledTimes(1);
+      expect(cancelSpy).toBeCalledWith();
     });
 
     it('should close color picker when clicking cancel button', async () => {
@@ -168,7 +214,7 @@ describe('Swatches', () => {
       const addButton = await driver.getAddButton();
       await addButton.click();
 
-      const colorpicker = await driver.gerColorPicker();
+      const colorpicker = await driver.getColorPicker();
       await colorpicker.selectBlackColor();
       await colorpicker.cancel();
 

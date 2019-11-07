@@ -15,20 +15,21 @@ import {
 } from 'wix-storybook-utils/Sections';
 import icons from '../../../stories/utils/icons-for-story';
 
-import { baseScope } from '../../../stories/utils/LiveCodeExample';
 import * as examples from './examples';
 
 import { storySettings } from '../test/storySettings';
 
 import ListItemAction from '..';
+import allComponents from '../../../stories/utils/allComponents';
 
+const Link = ({ children, ...rest }) => <a {...rest}>{children}</a>;
 const liveCode = config =>
   baseLiveCode({
     previewProps: {
       style: { backgroundColor: '#f0f4f7' },
     },
     compact: true,
-    components: baseScope,
+    components: { ...allComponents, Link },
     ...config,
   });
 
@@ -116,9 +117,16 @@ export default {
               source: examples.wrap,
             },
             {
-              title: 'Custom render element',
-              text: 'Supports rendering with custom html tag.',
-              source: examples.as,
+              title: 'Custom HTML tag',
+              text: `
+                  This component can be rendered as any given HTML tag – \`<button/>\`, \`<a/>\`, \`<Link/>\` (from react router), \`<div/>\`, \`<span/>\` etc.<br/>
+                  All props/attributes will pass to the <em>rendered</em> HTML tag.<br/>
+                  <br/>
+                  For example:<br/>
+                  - as an \`<a/>\`, the component can have attributes like \`href\`, \`target\`, etc.<br/>
+                  - as a \`<Link/>\` from react router, the component can have props like \`to\`, \`replace\`, etc.
+                `,
+              source: examples.custom,
             },
           ].map(example),
         ],

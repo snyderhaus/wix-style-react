@@ -30,5 +30,6 @@ export const inputWithLabelDriverFactory = base => {
     clickInput: () => inputDriver.click(),
     enterText: value => inputDriver.enterText(value),
     getLabelText: () => labelledElementDriver.getLabelText(),
+    isCustomInput: () => inputDriver.isCustomInput(),
   };
 };

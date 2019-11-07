@@ -1,0 +1,54 @@
+:import {
+  -st-from: "../Sidebar/colors.st.css";
+  -st-named: sidebarBackgroundColor, sidebarLightBackgroundColor, lightTextColor, textColor;
+}
+
+@keyframes backAndForth {
+  0% {
+    transform: translateX(0px);
+  }
+  8% {
+    transform: translateX(-5px);
+  }
+  16% {
+    transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+
+.BackButton {
+  -st-states: lightSkin;
+  cursor: pointer;
+  padding: 15px 18px;
+  display: flex;
+  align-items: center;
+  background: value(sidebarBackgroundColor);
+}
+.BackButton:lightSkin {
+  background: value(sidebarLightBackgroundColor); 
+}
+
+.arrow {
+  -st-states: animated;
+  transition: transform 0.5s;
+  position: relative;
+  color: value(textColor);
+}
+.BackButton:lightSkin .arrow {
+  color: value(lightTextColor)
+}
+.BackButton:hover .arrow {
+  transition: transform 0.5s;
+  transform: translateX(-5px);
+}
+
+.BackButton:not(:hover) .arrow:animated {
+  animation-name: backAndForth;
+  animation-duration: 4s;
+  animation-delay: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}

@@ -41,8 +41,6 @@ class TextButton extends Component {
     children: node,
     /** String based data hook */
     dataHook: string,
-    /** Link target */
-    target: string,
   };
 
   static defaultProps = {

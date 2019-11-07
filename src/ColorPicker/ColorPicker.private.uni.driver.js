@@ -9,4 +9,7 @@ export const colorPickerUniDriverFactory = base => ({
       clientX: 1,
       clientY: 1,
     }),
+
+  clickCancelButton: () =>
+    base.$('[data-hook="color-picker-cancel-button"]').click(),
 });

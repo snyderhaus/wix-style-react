@@ -44,6 +44,7 @@ export const swatchesPrivateDriverFactory = (base, body) => {
         body,
       ),
     isColorPickerShown: () => popoverTestkit.isContentElementExists(),
-    gerColorPicker: async () => colorPickerTestkit(),
+    clickOutsideColorPicker: () => popoverTestkit.clickOutside(),
+    getColorPicker: async () => colorPickerTestkit(),
   };
 };

@@ -37,12 +37,23 @@
   background: transparent;
   border: 0;
   border-radius: value(borderRadius);
-  box-shadow: 0 0 0 1px value(B30) inset;
   box-sizing: border-box;
   outline: none;
 }
 
-.thumbnail:hover {
+.thumbnail::after {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  box-shadow: 0 0 0 1px value(B30) inset;
+  border-radius: value(borderRadius);
+  content: ' ';
+}
+
+.thumbnail:hover::after {
   box-shadow: 0 0 0 1px value(B20) inset;
 }
 
@@ -61,15 +72,15 @@
   padding: 15px;
 }
 
-.thumbnail:selected {
+.thumbnail:selected::after {
   box-shadow: 0 0 0 2px value(B10) inset;
 }
 
-.thumbnail:selected:disabled {
+.thumbnail:selected:disabled::after {
   box-shadow: 0 0 0 2px value(D10-30) inset;
 }
 
-.thumbnail:disabled {
+.thumbnail:disabled::after {
   box-shadow: 0 0 0 1px value(D10-30) inset;
   cursor: default;
 }
@@ -97,30 +108,8 @@
 
 .thumbnail:hasBackground,
 .thumbnail:hasChildren {
-  height: 100%;
   padding: 0;
   background-color: white;
-  box-shadow: 0 0 0 1px value(B30);
-}
-
-.thumbnail:hasBackground:hover,
-.thumbnail:hasChildren:hover {
-  box-shadow: 0 0 0 1px value(B20);
-}
-
-.thumbnail:hasBackground:selected,
-.thumbnail:hasChildren:selected {
-  box-shadow: 0 0 0 2px value(B10);
-}
-
-.thumbnail:hasBackground:selected:disabled,
-.thumbnail:hasChildren:selected:disabled {
-  box-shadow: 0 0 0 2px value(D10-30);
-}
-
-.thumbnail:hasBackground:disabled,
-.thumbnail:hasChildren:disabled {
-  box-shadow: 0 0 0 1px value(D10-30);
 }
 
 .customChild {

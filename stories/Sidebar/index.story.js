@@ -69,6 +69,13 @@ export default {
             >{`<SidebarSectionItem/>`}</LinkTo>,
             'An item for the section within the sidebar',
           ],
+          [
+            <LinkTo
+              kind="Components"
+              story="SidebarBackButton"
+            >{`<SidebarBackButton/>`}</LinkTo>,
+            'An animated back button within the sidebar',
+          ],
         ],
       }),
     ]),

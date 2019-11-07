@@ -1,7 +1,7 @@
 {
   "name": "wix-style-react",
   "description": "wix-style-react",
-  "version": "7.10.0",
+  "version": "7.14.1",
   "main": "./dist/src/index.js",
   "module": "./dist/es/src/index.js",
   "sideEffects": [
@@ -28,43 +28,34 @@
     "generate-autodocs-registry": "node scripts/generate-autodocs-registry",
     "storybook:build": "npm run prestorybook && build-storybook",
     "proxy-wix-ui-icons": "node scripts/proxy-wix-ui-icons",
-
     "------new components generators": "",
     "generate": "wuf generate --output src --codemods .wuf/generator/codemods --templates .wuf/generator/templates",
     "postgenerate": "npm run update-components",
     "generate:beta": "wuf generate --output src/beta --codemods .wuf/beta/generator/codemods --templates .wuf/generator/templates/src",
     "postgenerate:beta": "npm run update-components:beta",
-
     "------start/watch modes (can also be used for testing against start)": "",
     "start": "./scripts/npm-start.sh",
     "storybook": "npm run prestorybook && start-storybook -p 6006",
     "storybook:visual": "start-storybook -c ./.storybook/visual -p 6007",
     "storybook:e2e": "start-storybook -c ./.storybook/e2e -p 6008",
-
     "------test": "",
     "pretest": "if [ ! \"$agentType\" = \"pullrequest\" ]; then npm run lint && ./scripts/ensure-dist.sh; fi",
     "test": "if [ ! \"$agentType\" = \"pullrequest\" ]; then npm run test:unit && npm run test:visual && npm run test:e2e && npm run test:types && npm run sanity; fi",
-
     "test:unit": "yoshi test --jest",
     "test:watch": "yoshi test --jest --watch",
-
     "pretest:e2e": "./scripts/ensure-dist.sh",
     "test:e2e": "npm run test:e2e-runtime && concurrently 'npm run test:e2e-only' 'npm run storybook:e2e -- --ci' --names 'protractor,e2e-server' --success first --kill-others",
     "test:e2e-only": "NODE_ENV=production yoshi test --protractor",
     "test:e2e-runtime": "cd ./test-runtime/imports && NODE_ENV=production npm run test",
-
     "test:visual": "eyes-storybook -c ./.storybook/visual",
     "test:types": "tsc --noEmit -p tsconfig.declarations.json && npm run pr-storybook:publish",
-
     "test:performance": "npm run proxy-wix-ui-icons && npm run bundles:generate && npm install --no-save @wix/perfer && perfer --verbose",
     "bundles:generate": "node ./scripts/bundlify-components/bundlify.js",
     "sanity": "autotools-sanity --files './src/**/*.meta.js'",
-
     "------build steps": "",
     "prebuild": "npm run update-components && npm run update-components:beta",
     "build": "npm run proxy-wix-ui-icons && npm run transpile && npm run build-puppeteer-testkit",
     "postbuild": "npm run copy-public-styles && npm run export-components",
-
     "update-components": ".wuf/update-components.sh",
     "update-components:beta": ".wuf/update-components-beta.sh",
     "lint": "yoshi lint --fix",
@@ -73,13 +64,11 @@
     "transpile": "node ./scripts/transpile.js",
     "build-puppeteer-testkit": "webpack --config ./testkit/webpack.config.js",
     "export-components": "import-path --path src --dts",
-
     "------publish": "",
     "prepublishOnly": "npm run bundle",
     "postpublish": "if [ \"$NPM_PUBLISH_TYPE\" == \"re-publish\" ]; then npm install && npm run build && npm run storybook:build && npm run zeit-storybook-deploy; fi",
     "pr-storybook:publish": "if [  \"$agentType\" = \"pullrequest\" ]; then npm run storybook:build && npm install @wix/teamcity-surge-autorelease@^1.0.0 --no-save && teamcity-surge-autorelease; fi;",
     "zeit-storybook-deploy": "node ./scripts/zeit-deploy.js ",
-
     "------CI Parallel tasks (as in .ci_config)": "",
     "test1:unit": "npm run test:unit",
     "test2:visual": "npm run test:visual",
@@ -88,16 +77,13 @@
     "test5:types": "npm run test:types",
     "test6:sanity": "npm run lint && npm run sanity",
     "test7:performance": "npm run test:performance",
-
     "------performance analysis tools": "",
     "bundles:analyse": "node ./scripts/bundlify-components/bundles-analyze.js",
-
     "------can be removed?": "",
     "travis": "npm run lint && npm run proxy-wix-ui-icons && npm run transpile && npm run test:unit -- --maxWorkers=4",
     "transpile:watch": "babel src --out-dir dist/es/src --copy-files --watch --plugins=@babel/plugin-syntax-dynamic-import",
     "components-size": "npm run generate-components-bundles && source-map-explorer ./bundles/*.js",
     "make-async-spec": "npx jscodeshift -t scripts/unidriver-migration/src/make-async/make-async.js",
-
     "------END": ""
   },
   "husky": {
@@ -190,7 +176,7 @@
     "wait-for-cond": "^1.0.3",
     "webpack": "^4.41.1",
     "webpack-cli": "^3.2.3",
-    "wix-storybook-utils": "^3.0.0",
+    "wix-storybook-utils": "^3.0.25",
     "wix-ui-framework": "^3.1.1",
     "yoshi": "^4.10.4",
     "yoshi-config": "^4.10.2",
@@ -244,7 +230,7 @@
     "wix-eventually": "^2.2.0",
     "wix-ui-backoffice": "^1.0.339",
     "wix-ui-core": "^2.0.174",
-    "wix-ui-icons-common": "^2.0.9",
+    "wix-ui-icons-common": "^2.0.60",
     "wix-ui-test-utils": "^1.0.151"
   },
   "lint-staged": {

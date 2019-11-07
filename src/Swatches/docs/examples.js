@@ -34,6 +34,12 @@ class SwatchesExamples extends React.Component {
         onAdd={this.addColor}
         selected={selected}
         onClick={this.selectColor}
+        onChange={color => {
+          console.log('Color changed', color);
+        }}
+        onCancel={() => {
+          console.log('Cancel picking color');
+        }}
         colors={colors}
       />
       </Box>

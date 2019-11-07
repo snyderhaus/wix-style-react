@@ -2,9 +2,13 @@
   -st-from: "../Foundation/stylable/colors.st.css";
   -st-named: D60;
 }
+:import {
+  -st-from: "../Foundation/stylable/shadows.st.css";
+  -st-named: shadow20;
+}
 
 .root {
-  -st-states: size(enum(small, medium));
+  -st-states: size(enum(small, medium)), dropShadow;
   padding-left: 24px;
   padding-right: 24px;
   height: 36px;
@@ -15,6 +19,10 @@
   display: flex;
   align-items: center;
   box-shadow: inset 0 -1px 0 0 value(D60);
+}
+
+.root:dropShadow {
+  box-shadow: value(shadow20);
 }
 
 .root:size(small) {

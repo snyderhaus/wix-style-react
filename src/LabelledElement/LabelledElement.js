@@ -60,11 +60,13 @@ class LabelledElement extends React.Component {
     childrenOnChange && childrenOnChange(event);
   };
 
-  render() {
-    const { hasFocus, inputId } = this.state;
-    const { dataHook, label, children } = this.props;
+  _placeLabelOnTop = () => this.state.hasFocus || !this._isInputEmpty();
 
-    const placeLabelOnTop = hasFocus || !this._isInputEmpty();
+  _getPlaceholder = placeholder => (this._placeLabelOnTop() ? placeholder : '');
+
+  render() {
+    const { inputId } = this.state;
+    const { dataHook, label, children } = this.props;
 
     return (
       <div className={styles.root} data-hook={dataHook}>
@@ -72,13 +74,13 @@ class LabelledElement extends React.Component {
           data-hook={DataHooks.label}
           htmlFor={inputId}
           className={classNames(styles.label, {
-            [styles.labelTop]: placeLabelOnTop,
+            [styles.labelTop]: this._placeLabelOnTop(),
           })}
         >
           <Text
             size="medium"
-            light={!placeLabelOnTop}
-            secondary={!placeLabelOnTop}
+            light={!this._placeLabelOnTop()}
+            secondary={!this._placeLabelOnTop()}
             weight="normal"
             className={styles.labelText}
           >
@@ -92,6 +94,9 @@ class LabelledElement extends React.Component {
               onFocus: this._handleFocus,
               onBlur: this._handleBlur,
               onChange: this._handleOnChange,
+              placeholder: children.props.placeholder
+                ? this._getPlaceholder(children.props.placeholder)
+                : undefined,
             })}
           </div>
         )}

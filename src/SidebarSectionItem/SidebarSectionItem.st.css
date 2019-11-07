@@ -5,9 +5,9 @@
 
 :import {
   -st-from: "../Sidebar/colors.st.css";
-  -st-named: 
-    sidebarBackgroundColor, hoveredBackgroundColor, selectedBackgroundColor, disabledBackgroundColor,
-    sidebarLightBackgroundColor, lightTextColor, selectedLightBackgroundColor, selectedLightTextColor, hoveredLightBackgroundColor, hoveredLightTextColor, disabledLightBackgroundColor
+  -st-named:
+    sidebarBackgroundColor, hoveredBackgroundColor, selectedBackgroundColor, disabledBackgroundColor, textColor,
+    sidebarLightBackgroundColor, lightTextColor, selectedLightBackgroundColor, hoveredLightBackgroundColor, hoveredLightTextColor, disabledLightBackgroundColor
 }
 
 :import {
@@ -22,7 +22,7 @@
 }
 
 :vars {
-  paddingWithoutSuffix: 6px 42px 6px 24px;
+  paddingWithoutSuffix: 6px 24px 6px 24px;
   paddingWithSuffix: 6px 18px 6px 24px;
   chevronPartialOpacity: 0.3;
 }
@@ -35,7 +35,7 @@
   justify-content: space-between;
   align-items: center;
   padding: value(paddingWithoutSuffix);
-  max-width: 222px;
+  max-width: 228px;
   min-height: 36px;
   box-sizing: border-box;
   color: value(D80);
@@ -65,10 +65,6 @@
 
 .root:skin(light):selected {
   background-color: value(selectedLightBackgroundColor)
-}
-
-.root:skin(light):selected .text:size(small) {
-  color: value(selectedLightTextColor);
 }
 
 /* Hovered */
@@ -107,6 +103,9 @@
 .root:focus {
   -st-mixin: focus-box;
 }
+.root:drillable {
+  padding-right: 42px;
+}
 
 .root:drillable:hover, .root:drillable:alwaysDisplayChevron {
   padding: value(paddingWithSuffix);
@@ -134,6 +133,7 @@
 
 .root:suffix, .root:prefix:drillable:hover {
   padding: value(paddingWithSuffix);
+  min-width: 24px;
 }
 
 .prefix {
@@ -145,6 +145,5 @@
 
   display: block;
   flex-grow: 1;
-  max-width: 154px;
   word-break: break-word;
 }

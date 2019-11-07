@@ -9,6 +9,7 @@ export interface CardProps {
   stretchVertically?: boolean,
   hideOverflow?: boolean,
   dataHook?: string,
+  className?: string
 }
 
 declare const Card: React.FunctionComponent<CardProps> & {

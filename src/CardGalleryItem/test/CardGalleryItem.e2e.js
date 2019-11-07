@@ -1,10 +1,10 @@
-import { eyesItInstance } from '../../../test/utils/eyes-it';
 import {
   waitForVisibilityOf,
   scrollToElement,
 } from 'wix-ui-test-utils/protractor';
-import { createTestStoryUrl } from '../../../test/utils/storybook-helpers';
 
+import { eyesItInstance } from '../../../test/utils/eyes-it';
+import { createTestStoryUrl } from '../../../test/utils/storybook-helpers';
 import { cardGalleryItemTestkitFactory } from '../../../testkit/protractor';
 import { storySettings, testStories } from '../docs/storySettings';
 

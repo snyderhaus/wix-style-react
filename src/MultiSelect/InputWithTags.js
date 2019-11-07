@@ -16,6 +16,9 @@ class InputWithTags extends React.Component {
     this.blur = this.blur.bind(this);
     this.select = this.select.bind(this);
     this.renderReorderableTag = this.renderReorderableTag.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+    this.handleInputFocus = this.handleInputFocus.bind(this);
+    this.handleInputBlur = this.handleInputBlur.bind(this);
 
     this.state = { inputValue: '', inputHasFocus: false };
   }
@@ -104,7 +107,7 @@ class InputWithTags extends React.Component {
       <div
         className={className}
         style={{ maxHeight }}
-        onClick={() => this.handleClick()}
+        onClick={this.handleClick}
         data-hook={this.props.dataHook}
       >
         {onReorder ? (
@@ -129,12 +132,6 @@ class InputWithTags extends React.Component {
           ))
         )}
 
-        {this.props.customSuffix && !this.props.hideCustomSuffix && (
-          <span data-hook="custom-suffix" className={styles.customSuffix}>
-            {this.props.customSuffix}
-          </span>
-        )}
-
         <span
           className={classNames(styles.input, !tags.length)}
           data-hook="inner-input-with-tags"
@@ -146,8 +143,8 @@ class InputWithTags extends React.Component {
           <Input
             width={this.props.width}
             ref={input => (this.input = input)}
-            onFocus={e => this.handleInputFocus(e)}
-            onBlur={e => this.handleInputBlur(e)}
+            onFocus={this.handleInputFocus}
+            onBlur={this.handleInputBlur}
             placeholder={tags.length === 0 ? placeholder : ''}
             {...desiredProps}
             dataHook="inputWithTags-input"
@@ -160,6 +157,15 @@ class InputWithTags extends React.Component {
               }
             }}
             withSelection
+            prefix={
+              this.props.customSuffix &&
+              !this.props.hideCustomSuffix &&
+              !this.state.inputHasFocus && (
+                <span data-hook="custom-suffix" className={styles.customSuffix}>
+                  {this.props.customSuffix}
+                </span>
+              )
+            }
           />
         </span>
 

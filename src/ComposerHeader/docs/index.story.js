@@ -149,6 +149,14 @@ export default {
             compact: true,
             source: examples.size,
           }),
+
+          code({
+            title: 'Shadow',
+            subtitle:
+              'ComposerHeader can be "elevated" state by having a shadow effect',
+            compact: true,
+            source: examples.shadow,
+          }),
         ],
       }),
 

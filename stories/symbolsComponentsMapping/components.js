@@ -87,6 +87,7 @@ export const modalsComponentsNames = {
   Modal: 'Modal',
   MessageBoxMarketerialLayout: 'MessageBoxMarketerialLayout',
   ModalPreviewLayout: 'ModalPreviewLayout',
+  ModalMobileLayout: 'ModalMobileLayout',
 };
 
 export const pickerComponentsNames = {

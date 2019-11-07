@@ -19,6 +19,7 @@ const source = {
     item,
     onMoveOut,
     onDragStart,
+    onDrop,
   }) => {
     if (onDragStart) {
       onDragStart({
@@ -40,15 +41,17 @@ const source = {
       onMoveOut,
       realTime: {
         onMoveOut,
+        onDrop,
         containerId,
       },
     };
   },
   endDrag: (
-    { id, index, containerId, groupName, item, onDrop, onDragEnd },
+    { id, index, containerId, groupName, item, onDragEnd },
     monitor,
   ) => {
     /** if drop was called, on drop target and drag is end, then we notify parent about this */
+    const { onDrop } = monitor.getItem().realTime;
     if (onDragEnd) {
       onDragEnd({
         id,

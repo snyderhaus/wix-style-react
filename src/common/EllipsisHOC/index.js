@@ -1,4 +1,5 @@
-import React, { memo } from 'react';
+import React from 'react';
+
 import {
   bool,
   oneOf,
@@ -34,22 +35,27 @@ const omit = (props, remove) => {
     .reduce((res, key) => ({ ...res, [key]: props[key] }), {});
 };
 
+const LazyEllipsisHOC = loadable(() => retry(() => import('./EllipsisHOC')));
+
 const Comp /** @autodocs-component */ = Component => {
-  return React.forwardRef(({ ellipsis, ...props }, ref) => {
-    const rest = omit(props, validTooltipProps);
+  return React.memo(
+    React.forwardRef(({ ellipsis, ...props }, ref) => {
+      const rest = omit(props, validTooltipProps);
 
-    if (ellipsis) {
-      const LazyEllipsis = memo(
-        loadable(() => retry(() => import('./EllipsisHOC')), {
-          fallback: <Component data-fallback ref={ref} {...rest} />,
-        }),
-      );
+      if (ellipsis) {
+        return (
+          <LazyEllipsisHOC
+            ref={ref}
+            fallback={<Component data-fallback ref={ref} {...rest} />}
+            Component={Component}
+            props={props}
+          />
+        );
+      }
 
-      return <LazyEllipsis ref={ref} Component={Component} props={props} />;
-    }
-
-    return <Component ref={ref} {...rest} />;
-  });
+      return <Component ref={ref} {...rest} />;
+    }),
+  );
 };
 
 Comp.propTypes = {

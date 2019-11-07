@@ -1,9 +1,5 @@
-import ReactDOM from 'react-dom';
 import Color from 'color';
 import mapValue from '../utils/operators/mapValue';
-
-export const getBoundingRect = node =>
-  ReactDOM.findDOMNode(node).getBoundingClientRect();
 
 export function safeColor(input, allowEmpty = false) {
   try {

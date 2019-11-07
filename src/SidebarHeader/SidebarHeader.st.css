@@ -5,8 +5,8 @@
 
 :import {
   -st-from: "../Sidebar/colors.st.css";
-  -st-named: 
-    sidebarBackgroundColor, textColor, 
+  -st-named:
+    sidebarBackgroundColor, textColor,
     sidebarLightBackgroundColor, lightTextColor
 }
 
@@ -19,7 +19,7 @@
   -st-states: skin(enum(dark, light));
 
   padding: 24px;
-  max-width: 222px;
+  max-width: 228px;
   box-sizing: border-box;
 }
 

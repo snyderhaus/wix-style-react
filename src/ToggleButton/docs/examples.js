@@ -30,3 +30,20 @@ export const disabled = `
   </ToggleButton>
 </Layout>
 `;
+
+export const custom = `
+<Layout cols={3} gap={0} justifyItems="center">
+  <Box direction="vertical" align="center">
+    <p>An &lt;a/&gt; tag</p>
+    <ToggleButton as="a" href="https://www.wix.com" target="_blank"><Icons.CropRotate /></ToggleButton>
+  </Box>
+  <Box direction="vertical" align="center">
+    <p>A react router &lt;Link/&gt; tag</p>
+    <ToggleButton as={Link} skin="premium" to="/home"><Icons.CropRotate /></ToggleButton>
+  </Box>
+  <Box direction="vertical" align="center">
+    <p>A native &lt;button/&gt; tag</p>
+    <ToggleButton as="button" onClick={() => alert('yay')}><Icons.CropRotate /></ToggleButton>
+  </Box>
+</Layout>
+`;

@@ -120,7 +120,13 @@ export class Draggable extends React.Component {
   }
 }
 
+Draggable.defaultProps = {
+  droppable: true,
+};
+
 Draggable.propTypes = {
+  /** indicates if element can be drop at this place */
+  droppable: PropTypes.bool,
   /** decide whether to render a handle using `connectHandle` (see below) */
   withHandle: PropTypes.bool,
   /** uniq id of container that contain current draggable item */

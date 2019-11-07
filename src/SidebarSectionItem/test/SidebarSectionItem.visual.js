@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import Sound from 'wix-ui-icons-common/Sound';
 
 import SidebarSectionItem from '../SidebarSectionItem';
-import Sidebar from '../../Sidebar';
+import { SidebarContext } from '../../Sidebar/SidebarAPI';
 import Box from '../../Box';
 
 const skins = ['dark', 'light'];
@@ -147,9 +147,9 @@ tests.forEach(({ describe, its }) =>
         <Box backgroundColor="D70">
           {skins.map(skin => (
             <Box direction="vertical" marginBottom={5} marginRight={5}>
-              <Sidebar skin={skin}>
+              <SidebarContext.Provider value={{ getSkin: () => skin }}>
                 <SidebarSectionItem {...props} />
-              </Sidebar>
+              </SidebarContext.Provider>
             </Box>
           ))}
         </Box>

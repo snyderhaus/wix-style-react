@@ -47,6 +47,14 @@ class InputWithLabel extends React.Component {
     maxLength: PropTypes.number,
     /** Placeholder to display */
     placeholder: PropTypes.string,
+    /** Use a customized input component instead of the default html input tag */
+    customInput: PropTypes.elementType
+      ? PropTypes.oneOfType([
+          PropTypes.func,
+          PropTypes.node,
+          PropTypes.elementType,
+        ])
+      : PropTypes.oneOfType([PropTypes.func, PropTypes.node]),
   };
 
   static defaultProps = {
@@ -73,6 +81,7 @@ class InputWithLabel extends React.Component {
       className,
       maxLength,
       placeholder,
+      customInput,
     } = this.props;
     const suffixContainer = suffix
       ? suffix.map((item, index) => {
@@ -111,6 +120,7 @@ class InputWithLabel extends React.Component {
             value={value}
             suffix={suffixContainer}
             status={status}
+            customInput={customInput}
             hideStatusSuffix
           />
         </LabelledElement>

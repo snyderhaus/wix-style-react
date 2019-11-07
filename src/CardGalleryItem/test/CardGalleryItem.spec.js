@@ -1,8 +1,9 @@
 import React from 'react';
+import { createUniDriverFactory } from 'wix-ui-test-utils/uni-driver-factory';
+
 import CardGalleryItem from '..';
 import Badge from '../../Badge';
-import { createUniDriverFactory } from 'wix-ui-test-utils/uni-driver-factory';
-import cardGalleryItemDriverFactory from '../CardGalleryItem.private.uni.driver';
+import cardGalleryItemDriverFactory from './CardGalleryItem.private.uni.driver';
 
 describe('CardGalleryItem', () => {
   const createDriver = createUniDriverFactory(cardGalleryItemDriverFactory);

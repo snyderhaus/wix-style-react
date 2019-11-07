@@ -228,12 +228,12 @@ class ImageViewer extends Component {
   );
 
   _renderButtons = () => {
-    const { showUpdateButton } = this.props;
+    const { showUpdateButton, showRemoveButton } = this.props;
 
     return (
       <div className={styles.buttons}>
         {showUpdateButton && this._renderUpdateButton()}
-        {this._renderRemoveButton()}
+        {showRemoveButton && this._renderRemoveButton()}
       </div>
     );
   };

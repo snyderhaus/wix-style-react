@@ -82,4 +82,14 @@ describe('InputWithLabel', () => {
       }),
     );
   });
+
+  it('should render Input with customInput', async () => {
+    const customInputWithRef = React.forwardRef((props, ref) => (
+      <input {...props} ref={ref} maxLength={3} />
+    ));
+    const { driver } = render(
+      <InputWithLabel customInput={customInputWithRef} />,
+    );
+    expect(await driver.isCustomInput()).toEqual(true);
+  });
 });

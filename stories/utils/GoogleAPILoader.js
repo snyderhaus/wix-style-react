@@ -18,7 +18,7 @@ export default class GoogleMapsLoader extends React.Component {
     children: PropTypes.node.isRequired,
   };
 
-  UNSAFE_componentWillMount() {
+  componentDidMount() {
     if (!window.google) {
       const googleScript = document.createElement('script');
       googleScript.src =

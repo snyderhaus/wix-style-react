@@ -36,6 +36,7 @@ require('./PopoverMenu/index.story'); // 7.3 PopoverMenu
 
 // 9. Modals
 require('../src/MessageBox/docs');
+require('./ModalMobileLayout/index.story'); // 9.5 Mobile Modal
 
 // Components API
 require('../src/Accordion/docs/index.story');
@@ -106,8 +107,10 @@ require('../src/Layout/docs/index.story');
 require('../src/LinearProgressBar/docs/index.story');
 require('../src/ListItemAction/docs/index.story');
 require('../src/Loader/docs/index.story');
+require('../src/MediaOverlay/docs/index.story');
 require('../src/MessageBox/FunctionalLayout/docs/index.story');
 require('../src/Modal/docs/index.story');
+require('../src/ModalMobileLayout/docs/index.story');
 require('../src/ModalPreviewLayout/docs/index.story');
 require('../src/ModalSelectorLayout/docs/index.story');
 require('../src/MultiSelect/docs/index.story');
@@ -121,6 +124,7 @@ require('../src/Page/docs/index.story');
 require('../src/PageHeader/docs/index.story');
 require('../src/Popover/docs/index.story');
 require('../src/PopoverMenu/docs/index.story');
+require('../src/PreviewWidget/docs/index.story');
 require('../src/Proportion/docs/index.story');
 require('../src/RadioGroup/docs/index.story');
 require('../src/Range/docs');
@@ -133,6 +137,7 @@ require('../src/SidebarDivider/docs/index.story');
 require('../src/SidebarHeader/docs/index.story');
 require('../src/SidebarSectionItem/docs/index.story');
 require('../src/SidebarSectionTitle/docs/index.story');
+require('../src/SidebarBackButton/docs/index.story');
 require('../src/Skeleton/docs/index.story');
 require('../src/Slider/docs/index.story');
 require('../src/SocialPreview/docs/index.story.js');
@@ -143,7 +148,7 @@ require('../src/Swatches/docs/index.story');
 require('../src/Table/docs/index.story');
 require('../src/TableActionCell/docs/index.story');
 require('../src/TableToolbar/docs/ToolbarStory');
-require('../src/Tabs/docs');
+require('../src/Tabs/docs/index.story');
 require('../src/Tag/docs/index.story');
 require('../src/Text/docs/index.story');
 require('../src/TextButton/docs/index.story');

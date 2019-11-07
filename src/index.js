@@ -150,3 +150,7 @@ export { default as FillButton } from './FillButton';
 export { default as BarChart } from './BarChart';
 export { default as AutoCompleteWithLabel } from './AutoCompleteWithLabel';
 export { default as Divider } from './Divider';
+export { default as ModalMobileLayout } from './ModalMobileLayout';
+export { default as MediaOverlay } from './MediaOverlay';
+export { default as SidebarBackButton } from './SidebarBackButton';
+export { default as PreviewWidget } from './PreviewWidget';

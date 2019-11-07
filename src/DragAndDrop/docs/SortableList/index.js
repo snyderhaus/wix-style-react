@@ -6,9 +6,15 @@ export {
 export { default as ListWithDelay } from './ListWithDelay';
 export { default as MultiAreaList } from './MultiAreaList';
 export {
+  default as MultiAreaListPreventOfDropping,
+} from './MultiAreaListPreventOfDropping';
+export {
   default as MultiAreaListWithSortableColumns,
 } from './MultiAreaListWithSortableColumns';
 export { default as Styles } from './Styles';
+export {
+  default as MultiAreaListWithInsertionRules,
+} from './MultiAreaListWithInsertionRules';
 export {
   default as MultiAreaListWithSortableColumnsWithAnimations,
 } from './MultiAreaListWithSortableColumnsWithAnimations';

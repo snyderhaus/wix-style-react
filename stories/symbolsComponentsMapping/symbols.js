@@ -90,6 +90,7 @@ export const modalsSymbols = {
   content: '9.2 Content',
   marketing: '9.3 Marketing',
   preview: '9.4 Preview',
+  mobile: '9.5 Mobile Modal',
 };
 
 export const pickerSymbols = {

@@ -43,6 +43,7 @@ Ticker.propTypes = {
   onDown: PropTypes.func,
   upDisabled: PropTypes.bool,
   downDisabled: PropTypes.bool,
+  dataHook: PropTypes.string,
 };
 
 export default Ticker;

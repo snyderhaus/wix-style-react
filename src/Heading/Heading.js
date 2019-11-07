@@ -1,5 +1,5 @@
 import React from 'react';
-import { oneOf, bool, any } from 'prop-types';
+import { oneOf, bool, any, string } from 'prop-types';
 import ellipsisHOC from '../common/EllipsisHOC';
 import style from './Heading.st.css';
 
@@ -28,6 +28,7 @@ const Heading = ({ light, appearance, children, ...rest }) => {
 Heading.displayName = 'Heading';
 
 Heading.propTypes = {
+  dataHook: string,
   /** any nodes to be rendered (usually text nodes) */
   children: any,
 

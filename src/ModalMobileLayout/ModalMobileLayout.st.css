@@ -1,0 +1,84 @@
+:import {
+    -st-from: "../Foundation/stylable/colors.st.css";
+    -st-named: G30, R30, D80;
+}
+
+:import {
+    -st-from: "../Foundation/stylable/default-scroll-bar.st.css";
+    -st-named: defaultScrollBar;
+}
+
+.root {
+    -st-states: fullscreen, stickyTitle, stickyFooter, noTitle, noFooter;
+    height: 100%;
+    width: 100%;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.root:fullscreen {
+    padding: 0;
+}
+
+.container {
+    max-height: 100%;
+    width: 100%;
+    position: relative;
+    background-color: value(D80);
+    display: flex;
+    flex-direction: column;
+}
+
+.root:not(:fullscreen) .container {
+    box-shadow: 0 8px 8px 0 rgba(22, 45, 61, 0.12), 0 3px 24px 0 rgba(22, 45, 61, 0.18);
+    border-radius: 8px;
+}
+
+.root:fullscreen .container {
+    height: 100%;
+}
+
+.close {
+    position: absolute;
+    right: 12px;
+    top: 18px;
+    z-index: 1000;
+}
+
+.root:fullscreen .close {
+    top: 12px;
+}
+
+.title {
+    padding: 24px 0 18px;
+}
+
+.root:stickyTitle .title {
+    padding: 24px 24px 18px;
+}
+
+.content {
+    -st-mixin: defaultScrollBar;
+    overflow: auto;
+    position: relative;
+    padding: 0 24px;
+    box-sizing: border-box;
+}
+
+.root:noTitle .content {
+    padding-top: 24px;
+}
+
+.root:noFooter .content {
+  padding-bottom: 24px;
+}
+
+.footer {
+    padding: 24px 0;
+}
+
+.root:stickyFooter .footer {
+    padding: 24px;
+}

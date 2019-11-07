@@ -25,6 +25,7 @@ class Sidebar extends Component {
       content: PropTypes.string,
       slider: PropTypes.string,
       sliderOutToLeft: PropTypes.string,
+      sliderOutToRight: PropTypes.string,
       sliderInFromLeft: PropTypes.string,
       sliderInFromRight: PropTypes.string,
     }),
@@ -44,6 +45,7 @@ class Sidebar extends Component {
 
   static defaultProps = {
     skin: sidebarSkins.dark,
+    isHidden: false,
   };
 
   itemKey2Children = {};
@@ -202,18 +204,18 @@ class Sidebar extends Component {
 
     const sliderClasses = classnames({
       [css.sliderOutToLeft]: this.state.drivenInChildren.length !== 0,
-      [css.sliderInFromLeft]: this.state.drivenInChildren.length === 0,
+      [css.sliderInFromLeft]:
+        this.state.drivenInChildren.length === 0 &&
+        this.state.drivenOutChildren.length !== 0,
       [css.slider]: true,
     });
 
-    const sliderOutToRightClasses = classnames(
-      css.sliderOutToRight,
-      css.slider,
-    );
-    const sliderInFromRightClasses = classnames(
-      css.sliderInFromRight,
-      css.slider,
-    );
+    const sliderOutToRightClasses = classnames(css.slider, {
+      [css.sliderOutToRight]: !this.props.isHidden,
+    });
+    const sliderInFromRightClasses = classnames(css.slider, {
+      [css.sliderInFromRight]: !this.props.isHidden,
+    });
 
     const rootClasses = classnames({
       [css.sideBar]: true,

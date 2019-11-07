@@ -336,10 +336,7 @@
     ]
   },
   "Tabs": {
-    "path": "src/Tabs",
-    "missingFiles": [
-      "docs/index.story.js"
-    ]
+    "path": "src/Tabs"
   },
   "Tag": {
     "path": "src/Tag"
@@ -370,6 +367,9 @@
   },
   "SidebarDivider": {
     "path": "src/SidebarDivider"
+  },
+  "SidebarBackButton": {
+    "path": "src/SidebarBackButton"
   },
   "SidebarHeader": {
     "path": "src/SidebarHeader"
@@ -403,5 +403,14 @@
   },
   "LabelledElement": {
     "path": "src/LabelledElement"
+  },
+  "PreviewWidget": {
+    "path": "src/PreviewWidget"
+  },
+  "ModalMobileLayout": {
+    "path": "src/ModalMobileLayout"
+  },
+  "MediaOverlay": {
+    "path": "src/MediaOverlay"
   }
 }

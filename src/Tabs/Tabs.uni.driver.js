@@ -47,8 +47,10 @@ export const tabsUniDriverFactory = base => {
     },
     getSideContent: async () => findFirst(`.${styles.sideContent}`),
     getItemsMaxWidths: async () =>
-      (await getItems()).map(item =>
-        item._prop('style').then(style => style.maxWidth),
+      Promise.all(
+        (await getItems()).map(item =>
+          item._prop('style').then(style => style),
+        ),
       ),
   };
 };

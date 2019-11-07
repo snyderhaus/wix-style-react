@@ -8,6 +8,7 @@ settingsMenu={<PopoverMenu
       onClick={e => { e.stopPropagation(); toggle()}}
       onMouseLeave={close}
       skin="light"
+      size="small"
       priority="secondary"
     >
       <Icons.More />

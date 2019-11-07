@@ -5,13 +5,8 @@
 
 :import {
   -st-from: "../Sidebar/colors.st.css";
-  -st-named: 
+  -st-named:
     sidebarBackgroundColor, sidebarLightBackgroundColor
-}
-
-:import {
-  -st-from: "../Sidebar/colors.st.css";
-  -st-named: sidebarBackgroundColor
 }
 
 :import {
@@ -25,7 +20,7 @@
 
   display: block;
   padding: 9px 24px;
-  max-width: 222px;
+  max-width: 228px;
   box-sizing: border-box;
 }
 

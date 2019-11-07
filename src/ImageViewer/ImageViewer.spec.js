@@ -251,6 +251,44 @@ describe('ImageViewer', () => {
         });
       });
 
+      describe('`showRemoveButton` prop', () => {
+        it('should render remove button when prop is not passed', async () => {
+          const props = { imageUrl };
+          const { driver } = render(buildComponent(props));
+          const privateDriver = imageViewerPrivateDriver({
+            element: await driver.element(),
+          });
+
+          await privateDriver.simulateImageLoad();
+
+          expect(await driver.removeButtonExists()).toBe(true);
+        });
+
+        it('should render remove button when prop equals to "true"', async () => {
+          const props = { showRemoveButton: true, imageUrl };
+          const { driver } = render(buildComponent(props));
+          const privateDriver = imageViewerPrivateDriver({
+            element: await driver.element(),
+          });
+
+          await privateDriver.simulateImageLoad();
+
+          expect(await driver.removeButtonExists()).toBe(true);
+        });
+
+        it('should NOT render remove button when prop equals to "false"', async () => {
+          const props = { showRemoveButton: false, imageUrl };
+          const { driver } = render(buildComponent(props));
+          const privateDriver = imageViewerPrivateDriver({
+            element: await driver.element(),
+          });
+
+          await privateDriver.simulateImageLoad();
+
+          expect(await driver.removeButtonExists()).toBe(false);
+        });
+      });
+
       describe('tooltip', () => {
         it('should display provided content', async () => {
           const removeImageInfo = 'remove image info';

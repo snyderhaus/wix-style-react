@@ -127,3 +127,26 @@ export const size = `
 </ComposerHeader>
 </Layout>
 `;
+
+export const shadow = `
+<ComposerHeader backButtonValue="Back to Social Posts" dropShadow>
+<ComposerHeader.Actions  >
+  <TextButton skin="premium">
+    Upgrade
+  </TextButton>
+</ComposerHeader.Actions>
+<ComposerHeader.Actions justifyContent="flex-end">
+<ComposerHeader.SaveStatus saveStatusValue="Saving..." />
+<ToggleButton tooltipContent="Undo">
+  <Icons.Undo />
+</ToggleButton>
+<ToggleButton tooltipContent="Redo">
+  <Icons.Redo />
+</ToggleButton>
+</ComposerHeader.Actions>
+<ComposerHeader.MainActions>
+  <Button skin="inverted">Preview</Button>
+  <Button>Next</Button>
+</ComposerHeader.MainActions>
+</ComposerHeader>
+`;

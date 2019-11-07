@@ -4,7 +4,6 @@ import color from 'color';
 import clamp from 'lodash/clamp';
 
 import WixComponent from '../BaseComponents/WixComponent';
-import { getBoundingRect } from './utils';
 
 import css from './ColorPickerHue.scss';
 
@@ -22,7 +21,7 @@ export default class ColorPickerHue extends WixComponent {
     window.addEventListener('touchcancel', this.onMarkerDragEnd);
     window.addEventListener('touchend', this.onMarkerDragEnd);
 
-    this.sliderRect = getBoundingRect(this.slider);
+    this.sliderRect = this.slider.getBoundingClientRect();
     this.setNewColorByMouseEvent(e);
   };
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import SidebarHeader from '../SidebarHeader';
-import Sidebar from '../../Sidebar';
+import { SidebarContext } from '../../Sidebar/SidebarAPI';
 import Box from '../../Box';
 import LinearProgressBar from '../../LinearProgressBar';
 import Avatar from '../../Avatar';
@@ -76,9 +76,9 @@ tests.forEach(({ describe, its }) =>
         <Box backgroundColor="D70">
           {skins.map(skin => (
             <Box direction="vertical" marginBottom={5} marginRight={5}>
-              <Sidebar skin={skin}>
+              <SidebarContext.Provider value={{ getSkin: () => skin }}>
                 <SidebarHeader {...props} />
-              </Sidebar>
+              </SidebarContext.Provider>
             </Box>
           ))}
         </Box>

@@ -1,8 +1,10 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+
 import { storySettings } from '../docs/storySettings';
 import CardGalleryItem from '../CardGalleryItem';
 import Badge from '../../Badge';
+import { RTLWrapper } from '../../../stories/utils/RTLWrapper';
 
 const { dataHook } = storySettings;
 
@@ -15,6 +17,25 @@ const badge = (
   </Badge>
 );
 
+const commonProps = {
+  title: 'Card Title',
+  subtitle: 'Card subtitle',
+  primaryActionProps: {
+    label: 'Button',
+    onClick: () => {
+      alert('Primary action clicked');
+    },
+  },
+  secondaryActionProps: {
+    label: 'Text link',
+    onClick: () => {
+      alert('Secondary action clicked');
+    },
+  },
+  backgroundImageUrl,
+  badge,
+};
+
 const tests = [
   {
     describe: 'basic',
@@ -22,130 +43,41 @@ const tests = [
       {
         it: 'without badge',
         props: {
-          title: 'Card Title',
-          subtitle: 'Card subtitle',
-          primaryActionProps: {
-            label: 'Button',
-            onClick: () => {
-              alert('Primary action clicked');
-            },
-          },
-          secondaryActionProps: {
-            label: 'Text link',
-            onClick: () => {
-              alert('Secondary action clicked');
-            },
-          },
-          backgroundImageUrl,
+          ...commonProps,
+          badge: undefined,
         },
       },
       {
         it: 'with badge',
-        props: {
-          title: 'Card Title',
-          badge: badge,
-          subtitle: 'Card subtitle',
-          primaryActionProps: {
-            label: 'Button',
-            onClick: () => {
-              alert('Primary action clicked');
-            },
-          },
-          secondaryActionProps: {
-            label: 'Text link',
-            onClick: () => {
-              alert('Secondary action clicked');
-            },
-          },
-          backgroundImageUrl,
-        },
+        props: commonProps,
       },
       {
         it: 'without titles',
         props: {
-          primaryActionProps: {
-            label: 'Button',
-            onClick: () => {
-              alert('Primary action clicked');
-            },
-          },
-          secondaryActionProps: {
-            label: 'Text link',
-            onClick: () => {
-              alert('Secondary action clicked');
-            },
-          },
-          backgroundImageUrl,
-        },
-      },
-      {
-        it: 'with titles',
-        props: {
-          title: 'Card Title',
-          badge: badge,
-          subtitle: 'Card subtitle',
-          primaryActionProps: {
-            label: 'Button',
-            onClick: () => {
-              alert('Primary action clicked');
-            },
-          },
-          secondaryActionProps: {
-            label: 'Text link',
-            onClick: () => {
-              alert('Secondary action clicked');
-            },
-          },
-          backgroundImageUrl,
+          ...commonProps,
+          title: undefined,
+          subtitle: undefined,
+          badge: undefined,
         },
       },
       {
         it: 'without subtitle',
         props: {
-          title: 'Card Title',
-          badge: badge,
-          primaryActionProps: {
-            label: 'Button',
-            onClick: () => {
-              alert('Primary action clicked');
-            },
-          },
-          secondaryActionProps: {
-            label: 'Text link',
-            onClick: () => {
-              alert('Secondary action clicked');
-            },
-          },
-          backgroundImageUrl,
+          ...commonProps,
+          subtitle: undefined,
         },
       },
       {
-        it: 'with subtitle',
-        props: {
-          title: 'Card Title',
-          badge: badge,
-          subtitle: 'Card subtitle',
-          primaryActionProps: {
-            label: 'Button',
-            onClick: () => {
-              alert('Primary action clicked');
-            },
-          },
-          secondaryActionProps: {
-            label: 'Text link',
-            onClick: () => {
-              alert('Secondary action clicked');
-            },
-          },
-          backgroundImageUrl,
-        },
+        it: 'RTL',
+        rtl: true,
+        props: commonProps,
       },
     ],
   },
 ];
 
 tests.forEach(({ describe, its }) => {
-  its.forEach(({ it, props }) => {
+  its.forEach(({ it, props, rtl }) => {
     storiesOf(`CardGalleryItem/${describe}`, module).add(it, () => (
       <div
         style={{
@@ -158,7 +90,9 @@ tests.forEach(({ describe, its }) => {
         }}
       >
         <div style={{ width: '40%' }}>
-          <CardGalleryItem {...props} dataHook={dataHook} />
+          <RTLWrapper rtl={rtl}>
+            <CardGalleryItem {...props} dataHook={dataHook} />
+          </RTLWrapper>
         </div>
       </div>
     ));

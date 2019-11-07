@@ -1,11 +1,12 @@
 import React from 'react';
+import eventually from 'wix-eventually';
 import { mount } from 'enzyme';
 import {
   createRendererWithDriver,
   createRendererWithUniDriver,
   cleanup,
 } from '../../../test/utils/react';
-
+import { enzymeUniTestkitFactoryCreator } from 'wix-ui-test-utils/enzyme';
 import DataTable from '../DataTable';
 import dataTableDriverFactory from '../DataTable.driver';
 import { dataTableUniDriverFactory } from '../DataTable.uni.driver';
@@ -385,11 +386,47 @@ describe('Table', () => {
         // When we clicking second time to collapse content will disappear after a while (based on animation speed)
         expect(await driver.getRowDetailsText(0)).not.toBe('');
 
-        return new Promise(resolve => {
-          setTimeout(async () => {
+        return eventually(
+          async () => {
             expect(await driver.getRowDetailsText(0)).toBe('');
-          }, animationSpeed);
-          resolve();
+          },
+          { timeout: animationSpeed },
+        );
+      });
+
+      it('should position rowDetails correctly when adding rows to the top of the table', async () => {
+        const props = {
+          data: [{ a: 'foo', b: 'bar' }],
+          columns: [
+            { title: 'Row Num', render: (row, rowNum) => rowNum },
+            { title: 'A', render: row => row.a },
+            { title: 'B', render: row => row.b },
+          ],
+          rowDetails: row => row.a,
+        };
+
+        const dataHook = 'myDataHook';
+        const wrapper = mount(<DataTable {...props} dataHook={dataHook} />);
+
+        const dataTableEnzymeTestkitFactory = enzymeUniTestkitFactoryCreator(
+          dataTableUniDriverFactory,
+        );
+        const dataTableTestkit = dataTableEnzymeTestkitFactory({
+          wrapper,
+          dataHook,
+        });
+
+        expect(await dataTableTestkit.getRowDetailsText(0)).toBe('');
+        await dataTableTestkit.clickRow(0);
+        expect(await dataTableTestkit.getRowDetailsText(0)).toBe('foo');
+
+        wrapper.setProps({
+          data: [{ a: 'value 5', b: 'value 6' }, ...props.data],
+        });
+
+        await eventually(async () => {
+          expect(await dataTableTestkit.getRowDetailsText(0)).toBe('');
+          expect(await dataTableTestkit.getRowDetailsText(1)).toBe('foo');
         });
       });
 

@@ -42,8 +42,6 @@ export default {
 
   componentProps,
 
-  // exampleProps,
-
   sections: [
     header(),
     tabs([
@@ -57,9 +55,9 @@ export default {
           title('Examples'),
           ...[
             {
-              title: 'SettingsMenu',
+              title: 'Settings Menu',
               text:
-                'SettingsMenu can be constrocted with IconButton, TextButton or any other trigger based component.',
+                'Settings menu can be provided with `settingsMenu` prop and can be an `IconButton`, `TextButton` or any other trigger based component.',
               source: examples.iconButton,
             },
 
@@ -71,12 +69,12 @@ export default {
             {
               title: 'Background Image Node',
               text:
-                'Component can display with background image node component instead background image URL.',
+                'Component can display a background image node instead of image URL.',
               source: examples.backgroundImageNode,
             },
             {
               title: 'Disabled Primary Action',
-              text: 'Primary Action can be disabled',
+              text: 'Primary Action can be disabled.',
               source: examples.disabledPrimaryAction,
             },
           ].map(example),

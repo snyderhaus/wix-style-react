@@ -1,16 +1,16 @@
 @import "../common";
 
-$sidebarWidth: 222px;
+$sidebarWidth: 228px;
 $mainBackgroundColor: #23263e;
 $scrollbarThumbHoverColor : #555;
 $scrollbarThumbColor: rgba(255, 255, 255, 0.4);
 
 @keyframes inFromLeft {
   from {
-    margin-left: -$sidebarWidth;
+    left: -$sidebarWidth;
   }
   to {
-    margin-left: 0;
+    left: 0;
   }
 }
 
@@ -46,13 +46,7 @@ $scrollbarThumbColor: rgba(255, 255, 255, 0.4);
   width: $sidebarWidth;
   height: 100%;
   position: relative;
-  border-right: 1px solid $D60; 
-
-  animation-name: inFromLeft;
-  animation-delay: 0.1s;
-  animation-duration: 0.6s;
-  animation-fill-mode: backwards;
-  animation-timing-function: ease-in-out;
+  border-right: 1px solid $D60;
 
   overflow: hidden;
   min-height: 0;
@@ -62,18 +56,37 @@ $scrollbarThumbColor: rgba(255, 255, 255, 0.4);
 
   z-index: 2;
   margin-left: 0;
+  margin-right: 0;
 
   &.light {
     background-color: $D80;
   }
+
+  transition-property: margin-left, margin-right;
+  transition-duration: 0.6s;
 }
 
 .hiddenSideBar {
   margin-left: -$sidebarWidth;
+  margin-right: 0;
+
+  [dir='rtl'] & {
+    margin-left: 0;
+    margin-right: -$sidebarWidth;
+  }
+}
+
+.content {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+  display: grid;
+  grid-auto-flow: column;
 }
 
 .slider {
-  position: relative;
+  position: absolute;
   width: $sidebarWidth;
   overflow-y: auto;
   height: 100%;
@@ -85,24 +98,34 @@ $scrollbarThumbColor: rgba(255, 255, 255, 0.4);
 
 .sliderInFromRight {
   animation-name: inFromRight;
-  z-index: 2;
+
+  [dir='rtl'] & {
+    animation-name: inFromLeft;
+  }
+}
+
+.sliderOutToRight {
+  animation-name: outToRight;
+
+  [dir='rtl'] & {
+    animation-name: outToLeft;
+  }
 }
 
 .sliderInFromLeft {
   animation-name: inFromLeft;
-  z-index: 2;
-}
 
-.sliderOutToRight {
-  position: absolute;
-  animation-name: outToRight;
-  z-index: 2;
-  left: $sidebarWidth;
+  [dir='rtl'] & {
+    animation-name: inFromRight;
+  }
 }
 
 .sliderOutToLeft {
-  position: absolute;
   animation-name: outToLeft;
+
+  [dir='rtl'] & {
+    animation-name: outToRight;
+  }
 }
 
 .slider::-webkit-scrollbar {
@@ -117,11 +140,4 @@ $scrollbarThumbColor: rgba(255, 255, 255, 0.4);
 
 .slider::-webkit-scrollbar-thumb:hover {
   background: $scrollbarThumbHoverColor;
-}
-
-.content {
-  height: 100%;
-  overflow-y: auto;
-  overflow-x: hidden;
-  position: relative;
 }

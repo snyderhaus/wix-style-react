@@ -4,6 +4,9 @@ const uninstall = () => {
 };
 
 const install = () => {
+  if (typeof window === 'undefined') {
+    return;
+  }
   let lastTime = 0;
   const vendors = ['ms', 'moz', 'webkit', 'o'];
 

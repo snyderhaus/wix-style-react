@@ -4,6 +4,7 @@ import SidebarHeader from 'wix-style-react/SidebarHeader';
 import SidebarDivider from 'wix-style-react/SidebarDivider';
 import SidebarSectionTitle from 'wix-style-react/SidebarSectionTitle';
 import SidebarSectionItem from 'wix-style-react/SidebarSectionItem';
+import SidebarBackButton from 'wix-style-react/SidebarBackButton';
 `;
 
 export const businessManagerSidebar = `
@@ -31,14 +32,6 @@ class DesignedSidebar extends React.Component {
         </Text>
       </Box>
       <Icons.Sound />
-    </Box>
-  );
-
-  _renderBackButton = text => (
-    <Box margin="18px 24px">
-      <TextButton prefixIcon={<Icons.ChevronLeft />} size="small" weight="normal">
-        {text}
-      </TextButton>
     </Box>
   );
 
@@ -98,7 +91,9 @@ class DesignedSidebar extends React.Component {
           <Sidebar.Item
             itemKey={'apps'}
             innerMenu={[
-              <Sidebar.BackButton>{this._renderBackButton('Main menu')}</Sidebar.BackButton>,
+              <Sidebar.BackButton>
+                <SidebarBackButton>Main Menu</SidebarBackButton>
+              </Sidebar.BackButton>,
               <SidebarSectionTitle>Apps</SidebarSectionTitle>,
               <Sidebar.Item itemKey={'app-market'}>
                 <SidebarItemContextConsumer>
@@ -170,11 +165,11 @@ export const accountManagerSidebar = `
   <Sidebar.Item itemKey={'domains'}>
     <SidebarSectionItem>Domains</SidebarSectionItem>
   </Sidebar.Item>
-  
+
   <Sidebar.Item itemKey={'mailboxes'}>
     <SidebarSectionItem>Mailboxes</SidebarSectionItem>
   </Sidebar.Item>
-            
+
   <SidebarDivider />
 
   <Sidebar.Item itemKey={'hire-an-expert'}>

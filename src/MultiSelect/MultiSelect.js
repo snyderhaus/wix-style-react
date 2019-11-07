@@ -199,18 +199,36 @@ MultiSelect.propTypes = {
   selectedId: DropdownLayout.propTypes.selectedId,
   closeOnSelect: DropdownLayout.propTypes.closeOnSelect,
   selectedHighlight: DropdownLayout.propTypes.selectedHighlight,
+
+  /** Callback predicate for the filtering options function */
   predicate: PropTypes.func,
+
+  /** Optional list of strings that are selected suggestions. */
   tags: PropTypes.array,
+
+  /** Max number of visible lines */
   maxNumRows: PropTypes.number,
+
+  /** Delimiters that will trigger a Submit action (call to `onTagsAdded`). By default it is `[,]` but also
+   * <kbd>enter</kbd> and <kbd>tab</kbd> keys work. */
   delimiters: PropTypes.array,
+
+  /** passing `'select'`  will render a readOnly input with menuArrow suffix */
   mode: PropTypes.string,
+
   error: PropTypes.bool,
   errorMessage: PropTypes.string,
+
+  /** When this callback function is set, tags can be reordered.
+   * The expected callback signature is `onReorder({addedIndex: number, removedIndex: number}) => void`
+   */
   onReorder: PropTypes.func,
+
   /** A callback which is called when the user performs a Submit-Action.
    * Submit-Action triggers are: "Enter", "Tab", [typing any defined delimiters], Paste action.
    * `onManuallyInput(values: Array<string>): void - The array of strings is the result of splitting the input value by the given delimiters */
   onManuallyInput: PropTypes.func,
+
   /** A callback which is called when the user selects an option from the list.
    * `onSelect(option: Option): void` - Option is the original option from the provided `options` prop.
    */
@@ -218,7 +236,17 @@ MultiSelect.propTypes = {
   customInput: PropTypes.elementType
     ? PropTypes.oneOfType([PropTypes.func, PropTypes.elementType])
     : PropTypes.oneOfType([PropTypes.func]),
+
+  /** a node to display as input suffix when the dropdown is closed*/
   customSuffix: PropTypes.node,
+
+  /** When set to true this component is disabled */
+  disabled: PropTypes.bool,
+
+  /** A callback function to be called when a tag should be removed.
+   * The expected callback signature is `onRemoveTag(tagId: number | string) => void`.
+   */
+  onRemoveTag: PropTypes.func,
 };
 
 MultiSelect.defaultProps = {

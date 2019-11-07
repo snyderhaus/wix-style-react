@@ -26,14 +26,25 @@ class AddColor extends React.PureComponent {
       color: EMPTY_COLOR,
     });
 
-  setColor = color =>
+  setColor = color => {
     this.setState({
       color,
     });
+    if (this.props.onChange) {
+      this.props.onChange(color.hex());
+    }
+  };
 
   confirm = () => {
     this.hideColorPicker();
     this.props.onAdd(this.state.color.hex());
+  };
+
+  cancel = () => {
+    this.hideColorPicker();
+    if (this.props.onCancel) {
+      this.props.onCancel();
+    }
   };
 
   render() {
@@ -50,7 +61,7 @@ class AddColor extends React.PureComponent {
         placement="top"
         showArrow
         shown={shown}
-        onClickOutside={this.hideColorPicker}
+        onClickOutside={this.cancel}
       >
         <Popover.Element>
           <FillButton
@@ -66,7 +77,7 @@ class AddColor extends React.PureComponent {
           <ColorPicker
             allowEmpty={false}
             dataHook={dataHooks.addButtonColorPicker}
-            onCancel={this.hideColorPicker}
+            onCancel={this.cancel}
             onChange={this.setColor}
             onConfirm={this.confirm}
             showConverter={false}

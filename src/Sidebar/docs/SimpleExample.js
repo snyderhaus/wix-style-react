@@ -1,9 +1,15 @@
 /* eslint-disable */
 class SimpleSidebar extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state =  {isHidden: false};
+    this.onClick = this.onClick.bind(this);
+  }
   render() {
     return (
-      <div style={{ height: '500px', color: 'white' }}>
-        <Sidebar selectedKey={'item1'}>
+      <div style={{ overflow: 'hidden', height: '500px', color: 'white' }}>
+        <Sidebar selectedKey={'item1'} isHidden={this.state.isHidden}>
           <Sidebar.PersistentHeader>
             <div
               style={{ textAlign: 'center', fontSize: '20px', margin: '10px' }}
@@ -12,27 +18,23 @@ class SimpleSidebar extends React.Component {
             </div>
           </Sidebar.PersistentHeader>
 
-          <Sidebar.Item
-            itemKey={'item1'}
-            innerMenu={[
-              <Sidebar.BackButton>
-                <div>Back</div>
-              </Sidebar.BackButton>,
-              <Sidebar.Item itemKey={'item4'}>
-                <div>Inner Item 1</div>
-              </Sidebar.Item>,
-              <Sidebar.Item itemKey={'item5'}>
-                <div>Inner Item 2</div>
-              </Sidebar.Item>,
-            ]}
-          >
-            <div>Item with internal navigation</div>
+          <Sidebar.Item itemKey={'item1'} disable="true">
+            This is just a long text without any margins or padding that will break into several lines
           </Sidebar.Item>
+
           <Sidebar.Item itemKey={'item2'} disable="true">
-            <div disable="true">Disabled item</div>
+            <Box margin={1} backgroundColor={"#eee"} padding={1}>
+              <Checkbox disabled>
+                Disabled
+              </Checkbox>
+            </Box>
           </Sidebar.Item>
           <Sidebar.Item itemKey={'item3'}>
-            <div>A simple clickable item</div>
+            <Box margin={3}>
+              <Button size="small" skin="premium">
+                A button
+              </Button>
+            </Box>
           </Sidebar.Item>
 
           <Sidebar.PersistentFooter>
@@ -43,7 +45,14 @@ class SimpleSidebar extends React.Component {
             </div>
           </Sidebar.PersistentFooter>
         </Sidebar>
+
+        <button style={{position: 'absolute', left: '300px', top: '50%'}}
+                onClick={this.onClick}>Toggle</button>
       </div>
     );
+  }
+
+  onClick() {
+    this.setState({isHidden: !this.state.isHidden});
   }
 }

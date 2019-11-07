@@ -34,14 +34,14 @@
 
 .value {
   overflow: hidden;
-  padding: 0 10px;
+  padding: 0 12px;
   height: value(height);
   display: flex;
   margin-bottom: 12px;
 }
 
 .value > * {
-  padding: 0 10px;
+  padding: 0 12px;
   margin: auto;
 }
 
@@ -98,5 +98,5 @@
 }
 
 .description {
-  padding: 0 10px;
+  padding: 0 12px;
 }

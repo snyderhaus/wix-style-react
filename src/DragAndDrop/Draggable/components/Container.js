@@ -32,6 +32,9 @@ const target = {
       index: monitor.getItem().index,
     };
   },
+  canDrop(props) {
+    return props.droppable;
+  },
   hover(props, monitor, component) {
     if (!component) {
       return;
@@ -61,7 +64,7 @@ const target = {
       props.groupName &&
       monitorItem.groupName &&
       props.groupName === monitorItem.groupName;
-    if (!isSameGroup || !component) {
+    if (!props.droppable || !isSameGroup || !component) {
       return;
     }
     /** end of block */
@@ -87,6 +90,7 @@ const target = {
       after any hovers, we need to save also real position of monitor, with real links to current container
     */
     monitorItem.realTime.onMoveOut = props.onMoveOut;
+    monitorItem.realTime.onDrop = props.onDrop;
     monitorItem.realTime.containerId = props.containerId;
     /**
       call callback, to ask parent to do some action, for example swap items or add new one,
@@ -128,7 +132,13 @@ Container.propTypes = {
   groupName: PropTypes.string,
   index: PropTypes.number,
   onMoveOut: PropTypes.func,
+  onDrop: PropTypes.func,
   onHover: PropTypes.func,
+  droppable: PropTypes.bool,
+};
+
+Container.defaultProps = {
+  droppable: true,
 };
 
 export default DropTarget(ItemTypes.DRAGGABLE, target, connect => ({

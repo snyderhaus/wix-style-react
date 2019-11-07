@@ -32,3 +32,20 @@ export const sizesExamples = `
   <CloseButton size="medium" />
 </Layout>
 `;
+
+export const custom = `
+<Layout cols={3} gap={0} justifyItems="center">
+  <Box direction="vertical" align="center">
+    <p>An &lt;a/&gt; tag</p>
+    <CloseButton as="a" href="https://www.wix.com" target="_blank" skin="transparent" />
+  </Box>
+  <Box direction="vertical" align="center">
+    <p>A react router &lt;Link/&gt; tag</p>
+    <CloseButton as={Link} skin="premium" to="/home" skin="transparent" />
+  </Box>
+  <Box direction="vertical" align="center">
+    <p>A native &lt;button/&gt; tag</p>
+    <CloseButton as="button" onClick={() => alert('yay')} skin="transparent" />
+  </Box>
+</Layout>
+`;

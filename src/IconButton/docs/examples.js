@@ -98,12 +98,18 @@ export const disabled = `
 `;
 
 export const custom = `
-<Layout cols={2} gap={0} justifyItems="center">
-  <IconButton as="a">
-    <Icons.More />
-  </IconButton>
-  <IconButton as={Link}  to="/wix">
-    <Icons.More />
-  </IconButton>
+<Layout cols={3} gap={0} justifyItems="center">
+  <Box direction="vertical" align="center">
+    <p>An &lt;a/&gt; tag</p>
+    <IconButton as="a" href="https://www.wix.com" target="_blank" skin="transparent"><Icons.More /></IconButton>
+  </Box>
+  <Box direction="vertical" align="center">
+    <p>A react router &lt;Link/&gt; tag</p>
+    <IconButton as={Link} skin="premium" to="/home" skin="transparent"><Icons.More /></IconButton>
+  </Box>
+  <Box direction="vertical" align="center">
+    <p>A native &lt;button/&gt; tag</p>
+    <IconButton as="button" onClick={() => alert('yay')} skin="transparent"><Icons.More /></IconButton>
+  </Box>
 </Layout>
 `;

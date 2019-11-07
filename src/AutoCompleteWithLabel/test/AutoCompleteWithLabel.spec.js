@@ -76,4 +76,73 @@ describe('AutoCompleteWithLabel', () => {
       }),
     );
   });
+
+  it('should trigger onSelect if provided', async () => {
+    const onSelect = jest.fn();
+    const options = [
+      { id: 0, value: 'aaa' },
+      { id: 1, value: 'abb' },
+      { id: 2, value: 'bbb' },
+      { id: 3, value: 'bcc' },
+    ];
+    const { driver } = render(
+      <AutoCompleteWithLabel
+        label="my autocomplete"
+        options={options}
+        onSelect={onSelect}
+      />,
+    );
+    await driver.clickAtOption(0);
+    expect(onSelect).toHaveBeenCalledTimes(1);
+    expect(onSelect).toHaveBeenCalledWith({ id: 0, value: 'aaa' });
+  });
+
+  describe('controlled mode', () => {
+    it('should render dictated value', async () => {
+      const options = [
+        { id: 0, value: 'aaa' },
+        { id: 1, value: 'abb' },
+        { id: 2, value: 'bbb' },
+        { id: 3, value: 'bcc' },
+      ];
+      const Fixture = () => {
+        const [value, setValue] = React.useState('initial');
+        return (
+          <AutoCompleteWithLabel
+            label="my autocomplete"
+            options={options}
+            onChange={() => setValue('foo')}
+            value={value}
+          />
+        );
+      };
+      const { driver } = render(<Fixture />);
+      expect(await driver.getValue()).toEqual('initial');
+      await driver.enterText('a');
+      expect(await driver.getValue()).toEqual('foo');
+    });
+
+    it('should filter options', async () => {
+      const options = [
+        { id: 0, value: 'foo' },
+        { id: 1, value: 'abb' },
+        { id: 2, value: 'bbb' },
+        { id: 3, value: 'bcc' },
+      ];
+      const Fixture = () => {
+        const [value, setValue] = React.useState('initial');
+        return (
+          <AutoCompleteWithLabel
+            label="my autocomplete"
+            options={options}
+            onChange={() => setValue('foo')}
+            value={value}
+          />
+        );
+      };
+      const { driver } = render(<Fixture />);
+      await driver.enterText('a');
+      expect(await driver.optionsLength()).toEqual(1);
+    });
+  });
 });

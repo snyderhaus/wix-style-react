@@ -20,4 +20,8 @@ export const modalsSymbolsToComponents = {
     componentsNames.ModalPreviewLayout,
     componentsNames.Modal,
   ],
+  [modalsSymbols.mobile]: [
+    componentsNames.ModalMobileLayout,
+    componentsNames.Modal,
+  ],
 };

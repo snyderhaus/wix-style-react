@@ -254,7 +254,7 @@ export const wrap = `
 </div>
 `;
 
-export const as = `
+export const custom = `
 <div
   style={{
     width: '284px',
@@ -266,18 +266,22 @@ export const as = `
     options={[
       listItemActionBuilder({
         id: 0,
-        as: "button",
-        title: 'option 1',
+        as: 'a',
+        title: 'An <a/> tag',
+        href: 'https://www.wix.com',
+        target: '_blank',
       }),
       listItemActionBuilder({
         id: 1,
-        as: "button",
-        title: 'option 2',
+        as: Link,
+        title: 'A react router <Link/> tag',
+        to: '/home'
       }),
       listItemActionBuilder({
         id: 2,
         as: "button",
-        title: 'option 3',
+        title: 'A native <button/> tag',
+        onClick: () => alert('yay')
       }),
     ]}
 />

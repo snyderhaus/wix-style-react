@@ -43,13 +43,14 @@ export default {
   secondaryActionProps: getSecondaryActionProps('Text Link'),
   settingsMenu: (
     <PopoverMenu
-      triggerElement={({ onClick }) => (
+      triggerElement={({ toggle }) => (
         <IconButton
           onClick={e => {
-            onClick(e);
-            e.stopPropogation();
+            e.stopPropagation();
+            toggle();
           }}
           skin="light"
+          size="small"
           priority="secondary"
         >
           <More />
@@ -58,7 +59,7 @@ export default {
     >
       <PopoverMenu.MenuItem text="Edit" prefixIcon={<Edit />} />
       <PopoverMenu.MenuItem text="Delete" prefixIcon={<Delete />} />
-      <PopoverMenu.MenuItem text="Delete" prefixIcon={<Email />} />
+      <PopoverMenu.MenuItem text="Email" prefixIcon={<Email />} />
       <PopoverMenu.MenuItem text="Something" disabled />
     </PopoverMenu>
   ),

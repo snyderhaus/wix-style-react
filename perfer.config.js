@@ -1,5 +1,3 @@
-const maxDegradation = '10%';
-
 const files = [
   ['Accordion.js', 33],
   ['AddItem.js', 44],
@@ -17,7 +15,7 @@ const files = [
   ['CalendarPanel.js', 73],
   ['CalendarPanelFooter.js', 79],
   ['Card.js', 23],
-  ['CardGalleryItem.js', 62],
+  ['CardGalleryItem.js', 65],
   ['Carousel.js', 68],
   ['Checkbox.js', 44],
   ['CircularProgressBar.js', 34],
@@ -43,7 +41,7 @@ const files = [
   ['FilePicker.js', 6],
   ['FillButton.js', 52],
   ['FillPreview.js', 18],
-  ['FloatingHelper.js', 47],
+  ['FloatingHelper.js', 49],
   ['FloatingNotification.js', 25],
   ['FormField.js', 42],
   ['FullTextView.js', 31],
@@ -66,6 +64,7 @@ const files = [
   ['LinearProgressBar.js', 33],
   ['ListItemAction.js', 13],
   ['Loader.js', 44],
+  ['MediaOverlay.js', 14],
   ['Modal.js', 11],
   ['ModalPreviewLayout.js', 20],
   ['ModalSelectorLayout.js', 84],
@@ -112,14 +111,13 @@ const files = [
   ['Thumbnail.js', 14],
   ['TimeInput.js', 80],
   ['ToggleButton.js', 43],
-  ['ToggleSwitch.js', 15],
+  ['ToggleSwitch.js', 17],
   ['Tooltip.js', 40],
 ];
 
 module.exports = {
   bundleSize: {
     files: files.map(([name, size]) => ({
-      maxDegradation,
       maxSize: `${size}kb`,
       glob: `bundles/${name}`,
     })),

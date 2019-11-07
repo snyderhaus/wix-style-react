@@ -115,9 +115,15 @@ export default {
                 source: examples.disabled,
               },
               {
-                title: 'Custom rendering',
-                text:
-                  'This component can appear in different HTML tag names – `button`, `a`, `span`, `div`.',
+                title: 'Custom HTML tag',
+                text: `
+                  This component can be rendered as any given HTML tag – \`<button/>\`, \`<a/>\`, \`<Link/>\` (from react router), \`<div/>\`, \`<span/>\` etc.<br/>
+                  All props/attributes will pass to the <em>rendered</em> HTML tag.<br/>
+                  <br/>
+                  For example:<br/>
+                  - as an \`<a/>\`, the component can have attributes like \`href\`, \`target\`, etc.<br/>
+                  - as a \`<Link/>\` from react router, the component can have props like \`to\`, \`replace\`, etc.
+                `,
                 source: examples.custom,
               },
             ].map(example),

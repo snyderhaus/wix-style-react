@@ -1,0 +1,51 @@
+:vars {
+  footerHeight: 90px;
+  dividerHeight: 1px;
+}
+
+.root {
+  -st-states: withFooter;
+  position: relative;
+  cursor: pointer;
+  height: 100%;
+  width: 100%
+}
+
+.root:withFooter .overlay {
+  height: calc(100% - value(footerHeight) + value(dividerHeight));
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.primaryAction {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.secondaryAction {
+  position: absolute;
+  top: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 6px;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: value(footerHeight);
+  padding: 0 30px;
+}
+
+.badgeWrapper {
+  position: absolute;
+  left: -6px;
+  top: 12px;
+}
+:global([dir="rtl"]) .badgeWrapper {
+  left: auto;
+  right: -6px;
+}

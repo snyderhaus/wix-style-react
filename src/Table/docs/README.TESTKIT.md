@@ -161,5 +161,5 @@ const page = await browser.newPage();
 const testkit = await tableTestkitFactory({ dataHook: 'myDataHook', page });
 await page.goto(appUrl); //Your application url
 
-expect(await testkit.getCellValue(2, 3)).to.equal('my test');
+expect(await testkit.getCellTextValue(2, 3)).to.equal('my test');
 ```

@@ -3,8 +3,8 @@ export const simple = `
   { id: 0, value: 'First option' },
   { id: 1, value: 'Second option' },
   { id: 2, value: 'Third option' },
-  { id: 3, value: 'Fifth option' },
-  { id: 4, value: 'Fourth option' },
+  { id: 3, value: 'Fourth option' },
+  { id: 4, value: 'Fifth option' },
 ]}
 />
 `;
@@ -29,8 +29,8 @@ class ControlledAutoCompleteWithLabel extends React.Component {
           { id: 0, value: 'First option' },
           { id: 1, value: 'Second option' },
           { id: 2, value: 'Third option' },
-          { id: 3, value: 'Fifth option' },
-          { id: 4, value: 'Fourth option' },
+          { id: 3, value: 'Fourth option' },
+          { id: 4, value: 'Fifth option' },
         ]}
         value={value}
         label="my label"
@@ -46,19 +46,19 @@ export const states = `
     { id: 0, value: 'First option' },
     { id: 1, value: 'Second option' },
     { id: 2, value: 'Third option' },
-    { id: 3, value: 'Fifth option' },
-    { id: 4, value: 'Fourth option' },
+    { id: 3, value: 'Fourth option' },
+    { id: 4, value: 'Fifth option' },
   ]}
-  disabled 
+  disabled
   />
   <AutoCompleteWithLabel label="my label" options={[
     { id: 0, value: 'First option' },
     { id: 1, value: 'Second option' },
     { id: 2, value: 'Third option' },
-    { id: 3, value: 'Fifth option' },
-    { id: 4, value: 'Fourth option' },
+    { id: 3, value: 'Fourth option' },
+    { id: 4, value: 'Fifth option' },
   ]}
-  status="error" 
+  status="error"
   statusMessage="This field is required"
   />
 </Layout>

@@ -11,6 +11,7 @@ export { default as InputWithOptions } from './InputWithOptions';
 export { default as Checkbox } from './Checkbox';
 export { default as ToggleSwitch } from './ToggleSwitch';
 export { default as Modal } from './Modal';
+export { default as MediaOverlay, MediaOverlayProps } from './MediaOverlay';
 export { default as ModalSelectorLayout } from './ModalSelectorLayout';
 export {
   MessageBoxMarketerialLayout,

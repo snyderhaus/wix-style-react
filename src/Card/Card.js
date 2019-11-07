@@ -34,6 +34,8 @@ Card.propTypes = {
   stretchVertically: bool,
   /** makes the card's overflow content to be hidden */
   hideOverflow: bool,
+  /** additional css classes */
+  className: string,
   dataHook: string,
 };
 

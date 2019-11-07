@@ -1,5 +1,4 @@
 import React from 'react';
-import LiveCodeExample from '../../../stories/utils/LiveCodeExample';
 import MultiSelect from '..';
 
 import {
@@ -10,6 +9,7 @@ import {
   playground,
   tab,
   tabs,
+  api,
   testkit,
   title,
   code as baseCode,
@@ -88,21 +88,11 @@ export default {
         ],
       }),
 
-      tab({
-        title: 'API',
-        // Not using built-in api because we can not override props' description of InputWithOptions
-        sections: [description(readmeApi)],
-      }),
-
-      tab({
-        title: 'Testkit',
-        sections: [description(readmeTestkit)],
-      }),
-
-      tab({
-        title: 'Playground',
-        sections: [playground()],
-      }),
+      ...[
+        { title: 'API', sections: [api(), description(readmeApi)] },
+        { title: 'Testkit', sections: [description(readmeTestkit), testkit()] },
+        { title: 'Playground', sections: [playground()] },
+      ].map(tab),
     ]),
   ],
 };

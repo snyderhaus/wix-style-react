@@ -23,6 +23,9 @@ const target = {
       groupName: props.groupName,
     };
   },
+  canDrop(props) {
+    return props.droppable;
+  },
   hover(props, monitor, component) {
     const monitorItem = monitor.getItem();
     const dragIndex = monitorItem.index; // position of item that we drag
@@ -38,7 +41,11 @@ const target = {
       return;
     }
     /** in case that we hover over itself - do nothing */
-    if (!component || (hoverIndex === dragIndex && isSameContainer)) {
+    if (
+      !props.droppable ||
+      !component ||
+      (hoverIndex === dragIndex && isSameContainer)
+    ) {
       return;
     }
     /**
@@ -53,6 +60,7 @@ const target = {
       after any hovers, we need to save also real position of monitor, with real links to current container
     */
     monitorItem.realTime.onMoveOut = props.onMoveOut;
+    monitorItem.realTime.onDrop = props.onDrop;
     monitorItem.realTime.containerId = props.containerId;
     /**
       call callback, to ask parent to do some action, for example swap items or add new one,
@@ -90,13 +98,19 @@ class DraggableTarget extends WixComponent {
   }
 }
 
+DraggableTarget.defaultProps = {
+  droppable: true,
+};
+
 DraggableTarget.propTypes = {
   children: PropTypes.any,
   connectDropTarget: PropTypes.func, // from react-dnd
   containerId: PropTypes.string,
+  droppable: PropTypes.bool,
   groupName: PropTypes.string,
   index: PropTypes.number,
   onMoveOut: PropTypes.func,
+  onDrop: PropTypes.func,
   onHover: PropTypes.func,
   setWrapperNode: PropTypes.func,
   item: PropTypes.object,

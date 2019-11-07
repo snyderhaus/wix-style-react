@@ -180,12 +180,13 @@ const ComposerHeader = ({
   children,
   dataHook,
   size,
+  dropShadow,
   backButtonValue,
   onBackClick,
   ...rest
 }) => {
   return (
-    <div data-hook={dataHook} {...styles('root', { size }, rest)}>
+    <div data-hook={dataHook} {...styles('root', { size, dropShadow }, rest)}>
       <BackButton
         size={size}
         backButtonValue={backButtonValue}
@@ -208,6 +209,8 @@ ComposerHeader.propTypes = {
   onBackClick: PropTypes.func,
   /** composer header size */
   size: PropTypes.oneOf(['small', 'medium']),
+  /** shadow effect */
+  dropShadow: PropTypes.bool,
 };
 
 ComposerHeader.defaultProps = {

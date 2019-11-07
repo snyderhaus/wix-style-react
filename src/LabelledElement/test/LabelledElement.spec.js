@@ -90,6 +90,34 @@ describe('LabelledElement', () => {
       const isLabelAtTop = await driver.isLabelAtTop();
       expect(isLabelAtTop).toEqual(false);
     });
+
+    it('should show placeholder when label is on top', async () => {
+      const { driver } = createDriver({
+        children: (
+          <input value="val" data-hook="my-input" placeholder="placeholder" />
+        ),
+        value: 'val',
+      });
+
+      const childrenDriver = driver.getChildren();
+      const childInputDriver = await childrenDriver.$('[data-hook="my-input"]');
+
+      const childInputPlaceholder = await childInputDriver.attr('placeholder');
+      expect(childInputPlaceholder).toEqual('placeholder');
+    });
+
+    it('should hide placeholder when label is on bottom', async () => {
+      const { driver } = createDriver({
+        children: <input data-hook="my-input" placeholder="placeholder" />,
+        value: '',
+      });
+
+      const childrenDriver = driver.getChildren();
+      const childInputDriver = await childrenDriver.$('[data-hook="my-input"]');
+
+      const childInputPlaceholder = await childInputDriver.attr('placeholder');
+      expect(childInputPlaceholder).toEqual('');
+    });
   });
 
   describe('uncontrolled input children', () => {

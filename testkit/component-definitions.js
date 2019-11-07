@@ -269,4 +269,16 @@ export default {
       onClose: () => {},
     },
   },
+
+  MediaOverlay: {
+    props: {
+      media: <div />,
+    },
+  },
+
+  PreviewWidget: {
+    props: {
+      children: <div />,
+    },
+  },
 };

@@ -50,12 +50,18 @@ export const inline = `
 `;
 
 export const custom = `
-<Layout cols={2} gap={0} justifyItems="center">
-  <TextButton as="a">
-      HTML a
-  </TextButton>
-  <TextButton as={Link} skin="premium">
-      React Router Link
-  </TextButton>
+<Layout cols={3} gap={0} justifyItems="center">
+  <Box direction="vertical" align="center">
+    <p>An &lt;a/&gt; tag</p>
+    <TextButton as="a" href="https://www.wix.com" target="_blank">wix.com</TextButton>
+  </Box>
+  <Box direction="vertical" align="center">
+    <p>A react router &lt;Link/&gt; tag</p>
+    <TextButton as={Link} skin="premium" to="/home">Go to Home</TextButton>
+  </Box>
+  <Box direction="vertical" align="center">
+    <p>A native &lt;button/&gt; tag</p>
+    <TextButton as="button" onClick={() => alert('yay')}>Alert yay</TextButton>
+  </Box>
 </Layout>
 `;

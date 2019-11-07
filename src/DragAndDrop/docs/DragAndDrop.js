@@ -12,9 +12,11 @@ import {
   SingleAreaListWithAnimation,
   ListWithDelay,
   NestableListExample,
+  MultiAreaListPreventOfDropping,
   MultiAreaList,
   MultiAreaListWithSortableColumns,
   MultiAreaListWithSortableColumnsWithAnimations,
+  MultiAreaListWithInsertionRules,
   Styles as SortableListStyles,
 } from './SortableList';
 
@@ -45,8 +47,14 @@ storiesOf('WIP/Drag And Drop/SortableList', module)
   ))
   .add('List With Delay', () => <ListWithDelay />)
   .add('Multi Area List', () => <MultiAreaList />)
+  .add('Multi Area List Prevent Of Dropping', () => (
+    <MultiAreaListPreventOfDropping />
+  ))
   .add('Multi Area List with sortable columns', () => (
     <MultiAreaListWithSortableColumns />
+  ))
+  .add('Multi Area List with insertion rules', () => (
+    <MultiAreaListWithInsertionRules />
   ))
   .add('Multi Area List with sortable columns with animations', () => (
     <MultiAreaListWithSortableColumnsWithAnimations />

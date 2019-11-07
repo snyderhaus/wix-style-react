@@ -14,6 +14,7 @@ import {
 import { storySettings } from '../test/storySettings';
 import allComponents from '../../../stories/utils/allComponents';
 import SimpleSidebarRaw from '!raw-loader!./SimpleExample';
+import InnerMenuExampleRaw from '!raw-loader!./InnerMenuExample';
 import SidebarItemContext from './SidebarItemContextExample';
 import SidebarItemContextRaw from '!raw-loader!./SidebarItemContextExample';
 import compoundReadmeApi from '../COMPOUND_README.API.md';
@@ -65,6 +66,16 @@ export default {
             }),
             code({
               source: SimpleSidebarRaw,
+            }),
+          ]),
+          columns([
+            description({
+              title: 'Inner menu',
+              text:
+                'Sidebar supports inner menus, `NOTE:` We support only 1st level hierarchy.',
+            }),
+            code({
+              source: InnerMenuExampleRaw,
             }),
           ]),
           // This example is built differently because <SidebarItemContext/> loose context when it's raw

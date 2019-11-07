@@ -17,10 +17,12 @@ import CloseButton from '..';
 import { Layout } from '../../Layout';
 import { storySettings } from './storySettings';
 import Help from '../../new-icons/Help';
-import { baseScope } from '../../../stories/utils/LiveCodeExample';
+import allComponents from '../../../stories/utils/allComponents';
 import testkit from '!raw-loader!./testkit.md';
 
 import * as examples from './examples';
+
+const Link = ({ children, ...rest }) => <a {...rest}>{children}</a>;
 
 const liveCode = config =>
   baseLiveCode({
@@ -28,7 +30,7 @@ const liveCode = config =>
       style: { backgroundColor: '#f0f4f7' },
     },
     compact: true,
-    components: baseScope,
+    components: { ...allComponents, Link },
     ...config,
   });
 
@@ -97,6 +99,18 @@ export default {
               text:
                 'Additional actions next to the close button can be formed by using close button with a custom icon',
               source: examples.customExamples,
+            },
+            {
+              title: 'Custom HTML tag',
+              text: `
+                  This component can be rendered as any given HTML tag – \`<button/>\`, \`<a/>\`, \`<Link/>\` (from react router), \`<div/>\`, \`<span/>\` etc.<br/>
+                  All props/attributes will pass to the <em>rendered</em> HTML tag.<br/>
+                  <br/>
+                  For example:<br/>
+                  - as an \`<a/>\`, the component can have attributes like \`href\`, \`target\`, etc.<br/>
+                  - as a \`<Link/>\` from react router, the component can have props like \`to\`, \`replace\`, etc.
+                `,
+              source: examples.custom,
             },
           ].map(example),
         ],

@@ -1,6 +1,10 @@
-const createRangeOrig = document.createRange;
+const createRangeOrig =
+  typeof document === 'undefined' ? function() {} : document.createRange;
 
 const install = () => {
+  if (typeof document === 'undefined') {
+    return;
+  }
   if (!document.createRange) {
     document.createRange = () => {
       return (function() {

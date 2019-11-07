@@ -1,0 +1,163 @@
+:import {
+  -st-from: "../Foundation/stylable/colors.st.css";
+  -st-named: D10, F00;
+}
+
+:import {
+  -st-from: "../Foundation/stylable/mixins/calc_rgba.js";
+  -st-default: calc_rgba;
+}
+
+:import {
+  -st-from: "../Foundation/stylable/border.st.css";
+  -st-named: radius08;
+}
+
+:import {
+  -st-from: "../Foundation/stylable/spacing.st.css";
+  -st-named: spacing12, spacing06;
+}
+
+:import {
+  -st-from: "wix-ui-core/dist/src/hocs/Focusable/Focusable.st.css";
+  -st-default: Focusable;
+}
+
+.root {
+  -st-extends: Focusable;
+  -st-states: clickable;
+
+  display: block;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  outline: none;
+  border: none;
+  border-radius: value(radius08);
+  padding: 0;
+  background: none;
+  background-position: center;
+  background-size: cover;
+  min-width: 84px;
+  min-height: 84px;
+}
+
+.root:clickable {
+  cursor: pointer;
+}
+
+.root:focus-visible {
+  box-shadow: 0 0 0 3px value(F00);
+}
+
+.overlay {
+  -st-states: layer(enum(singleSkin, default, hover, top)),
+              skin(enum(none, gradient, dark));
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: value(spacing12);
+  transition: opacity 200ms ease-in-out;
+}
+
+.overlay:layer(hover) {
+  opacity: 0;
+}
+
+.overlay:layer(top),
+.overlay:layer(top) .contentRow,
+.overlay:layer(top) .contentArea {
+  pointer-events: none;
+}
+.overlay:layer(top) .contentArea > * {
+  pointer-events: auto;
+}
+
+.overlay:skin(dark) {
+  background-color: calc_rgba(value(D10), 0.66);
+}
+
+.overlay:skin(gradient) {
+  background: linear-gradient(to bottom, calc_rgba(value(D10), 0) 50%, calc_rgba(value(D10), 0.54));
+}
+
+.contentRow {
+  -st-states: row(enum(top, middle, bottom));
+  display: flex;
+  width: 100%;
+}
+
+.contentRow:row(top),
+.contentRow:row(bottom) {
+  flex: 0 1 50%;
+}
+.contentRow:row(top) {
+  align-items: flex-start;
+}
+.contentRow:row(bottom) {
+  align-items: flex-end;
+}
+
+.contentArea {
+  -st-states: placement(enum(top-start, top-end, middle, bottom-end, bottom-start));
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.contentArea:placement(middle) {
+  width: 100%;
+  justify-content: center;
+}
+
+.contentArea:placement(top-end),
+.contentArea:placement(bottom-end) {
+  margin-left: auto;
+}
+
+:global([dir="rtl"]) .contentArea:placement(top-end),
+:global([dir="rtl"]) .contentArea:placement(bottom-end) {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.contentArea:not(:last-child),
+.contentArea > :not(:last-child) {
+  margin-right: value(spacing06);
+}
+
+:global([dir="rtl"]) .contentArea > :last-child {
+  margin-right: value(spacing06);
+}
+:global([dir="rtl"]) .contentArea > :first-child {
+  margin-right: 0;
+}
+
+/* Hover transitions */
+
+.overlay:layer(hover).hoverEnter {
+  opacity: 0;
+}
+
+.overlay:layer(hover).hoverEnterActive,
+.overlay:layer(hover).hoverEnterDone {
+  opacity: 1;
+}
+
+.overlay:layer(hover).hoverExit {
+  opacity: 0;
+}
+
+.overlay:layer(default).hoverEnter,
+.overlay:layer(default).hoverEnterDone {
+  opacity: 0;
+}
+
+.overlay:layer(default).hoverExit {
+  opacity: 1;
+}

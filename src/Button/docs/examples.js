@@ -76,8 +76,18 @@ export const states = `
 `;
 
 export const custom = `
-<Layout cols={3} gap="10px">
-  <Button as="a">HTML a</Button>
-  <Button skin="premium" as={Link} to="/wix">React Router</Button>
+<Layout cols={3} gap={0} justifyItems="center">
+  <Box direction="vertical" align="center">
+    <p>An &lt;a/&gt; tag</p>
+    <Button as="a" href="https://www.wix.com" target="_blank">wix.com</Button>
+  </Box>
+  <Box direction="vertical" align="center">
+    <p>A react router &lt;Link/&gt; tag</p>
+    <Button as={Link} skin="premium" to="/home">Go to Home</Button>
+  </Box>
+  <Box direction="vertical" align="center">
+    <p>A native &lt;button/&gt; tag</p>
+    <Button as="button" onClick={() => alert('yay')}>Alert yay</Button>
+  </Box>
 </Layout>
 `;

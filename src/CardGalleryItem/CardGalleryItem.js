@@ -1,39 +1,36 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 
-import Hover from './Hover';
 import Card from '../Card';
 import Button from '../Button';
 import TextButton from '../TextButton';
 import Text from '../Text';
 import Heading from '../Heading';
 import Proportion from '../Proportion';
-import DataHooks from './CardGalletyItemDataHooks';
 import Tooltip from '../Tooltip';
+import MediaOverlay from '../MediaOverlay';
+import { DataHook } from './constants';
+import styles from './CardGalleryItem.st.css';
 
-import styles from './CardGalleryItem.scss';
-import animationStyles from './CardGalleryItemAnimation.scss';
-
-class CardGalleryItem extends React.Component {
+class CardGalleryItem extends React.PureComponent {
   static displayName = 'CardGalleryItem';
   static propTypes = {
-    /** Card badge */
+    /** Card badge. */
     badge: PropTypes.node,
 
-    /** Card title */
+    /** Card title. */
     title: PropTypes.node,
 
-    /** Card subtitle */
+    /** Card subtitle. */
     subtitle: PropTypes.node,
 
-    /** Background image of CardGalleryItem */
+    /** Background image URL. */
     backgroundImageUrl: PropTypes.string,
 
-    /** Background image node of CardGalleryItem */
+    /** Background image node. */
     backgroundImageNode: PropTypes.node,
 
-    /** Properties for primary action button */
+    /** Properties for primary action button. */
     primaryActionProps: PropTypes.shape({
       /** Label of primary action button */
       label: PropTypes.node,
@@ -45,7 +42,7 @@ class CardGalleryItem extends React.Component {
       disabledMessage: PropTypes.string,
     }).isRequired,
 
-    /** Properties for secondary action text button */
+    /** Properties for secondary action text button. */
     secondaryActionProps: PropTypes.shape({
       /** Label of secondary action text button */
       label: PropTypes.node,
@@ -53,13 +50,10 @@ class CardGalleryItem extends React.Component {
       onClick: PropTypes.func,
     }).isRequired,
 
-    /** Menu to be displayed on hover */
+    /** Menu to be displayed on hover. */
     settingsMenu: PropTypes.node,
 
-    /** className for root */
-    className: PropTypes.string,
-
-    /** data-hook value */
+    /** Hook for testing purposes. */
     dataHook: PropTypes.string,
   };
 
@@ -72,143 +66,130 @@ class CardGalleryItem extends React.Component {
     },
   };
 
-  _renderBadge(badge) {
+  state = {
+    isHovered: false,
+  };
+
+  _onMouseEnter = () => {
+    this.setState({ isHovered: true });
+  };
+
+  _onMouseLeave = () => {
+    this.setState({ isHovered: false });
+  };
+
+  _hasFooter() {
+    const { title, subtitle } = this.props;
+    return !!(title || subtitle);
+  }
+
+  _renderBadge() {
     return (
-      <div className={styles.badgeWrapper} data-hook={DataHooks.badge}>
-        {badge}
+      <div className={styles.badgeWrapper} data-hook={DataHook.Badge}>
+        {this.props.badge}
       </div>
     );
   }
 
-  _renderFooter(title, subtitle) {
+  _renderFooter() {
+    const { title, subtitle } = this.props;
     return (
-      <div>
+      <>
         <Card.Divider />
         <div className={styles.footer}>
-          <Heading appearance="H3" ellipsis data-hook={DataHooks.title}>
+          <Heading appearance="H3" ellipsis data-hook={DataHook.Title}>
             {title}
           </Heading>
-          <Text size="small" secondary ellipsis data-hook={DataHooks.subtitle}>
+          <Text size="small" secondary ellipsis data-hook={DataHook.Subtitle}>
             {subtitle}
           </Text>
         </div>
-      </div>
+      </>
     );
   }
 
-  _hoveredContent = (footerExists, badge) => {
+  _renderActions() {
     const {
       primaryActionProps: { label, disabled, disabledMessage },
       secondaryActionProps,
-      settingsMenu,
     } = this.props;
-    const isDisabled = disabled === true;
+
     const primaryAction = (
-      <Button dataHook={DataHooks.primaryAction} disabled={isDisabled}>
+      <Button dataHook={DataHook.PrimaryAction} disabled={disabled}>
         {label}
       </Button>
     );
-    const primaryActionWithTooltip = (
-      <Tooltip content={disabledMessage}>{primaryAction}</Tooltip>
-    );
 
     return (
-      <div
-        className={classNames(styles.hoveredContent, {
-          [styles.hoveredContentWithFooter]: footerExists,
-        })}
-        data-hook={DataHooks.hoverContent}
-      >
-        {this._renderSettingsMenu(settingsMenu)}
-        <div className={styles.primaryAction}>
-          {disabled && disabledMessage
-            ? primaryActionWithTooltip
-            : primaryAction}
+      <div className={styles.primaryAction} data-hook={DataHook.HoverContent}>
+        {disabled && disabledMessage ? (
+          <Tooltip upgrade disabled={!disabled} content={disabledMessage}>
+            {primaryAction}
+          </Tooltip>
+        ) : (
+          primaryAction
+        )}
 
-          <div className={styles.secondaryAction}>
-            <TextButton
-              skin="light"
-              onClick={event => {
-                secondaryActionProps.onClick(event);
-                event.stopPropagation();
-              }}
-              dataHook={DataHooks.secondaryAction}
-            >
-              {secondaryActionProps.label}
-            </TextButton>
-          </div>
+        <div className={styles.secondaryAction}>
+          <TextButton
+            skin="light"
+            onClick={event => {
+              secondaryActionProps.onClick(event);
+              event.stopPropagation();
+            }}
+            dataHook={DataHook.SecondaryAction}
+          >
+            {secondaryActionProps.label}
+          </TextButton>
         </div>
-        {badge && this._renderBadge(badge)}
       </div>
-    );
-  };
-
-  _renderSettingsMenu(settingsMenu) {
-    return (
-      settingsMenu && (
-        <div
-          className={styles.settingsMenuContainer}
-          data-hook={DataHooks.settingsMenu}
-        >
-          {settingsMenu}
-        </div>
-      )
     );
   }
 
-  _renderBackground(footerExists) {
-    const { backgroundImageUrl, backgroundImageNode, badge } = this.props;
+  _renderSettingsMenu() {
     return (
-      <div
-        className={classNames(styles.content, {
-          [styles.backgroundImageNode]:
-            !backgroundImageUrl && backgroundImageNode,
-          [styles.contentWithFooter]: footerExists,
-        })}
-        style={{
-          backgroundImage: `url(${backgroundImageUrl})`,
-        }}
-        data-hook={
-          backgroundImageUrl
-            ? DataHooks.backgroundImage
-            : backgroundImageNode && DataHooks.backgroundImageNode
-        }
-      >
-        {backgroundImageNode && !backgroundImageUrl && backgroundImageNode}
-        {badge && this._renderBadge(badge)}
-      </div>
+      <div data-hook={DataHook.SettingsMenu}>{this.props.settingsMenu}</div>
     );
   }
 
   render() {
     const {
-      title,
-      subtitle,
-      badge,
       primaryActionProps,
-      className,
       dataHook,
+      badge,
+      backgroundImageUrl,
+      backgroundImageNode,
+      settingsMenu,
     } = this.props;
 
-    const footerExists = title || subtitle;
-    const hoveredContent = this._hoveredContent(footerExists, badge);
     return (
-      <Proportion>
+      <Proportion dataHook={dataHook}>
         <div
-          className={classNames(styles.root, className)}
+          {...styles('root', { withFooter: !!this._hasFooter() }, this.props)}
+          onMouseEnter={this._onMouseEnter}
+          onMouseLeave={this._onMouseLeave}
           onClick={primaryActionProps.onClick}
-          data-hook={dataHook}
+          data-hook={DataHook.Container}
         >
           <Card stretchVertically>
-            <Hover
-              classNames={animationStyles}
-              timeout={200}
-              hoveredContent={hoveredContent}
-              dataHook={DataHooks.hoverComponent}
+            <MediaOverlay
+              media={backgroundImageUrl || backgroundImageNode || ''}
+              className={styles.overlay}
+              hoverSkin="dark"
+              hovered={this.state.isHovered}
+              dataHook={DataHook.HoverComponent}
             >
-              {this._renderBackground(footerExists)}
-              {footerExists && this._renderFooter(title, subtitle)}
-            </Hover>
+              <MediaOverlay.Content visible="hover">
+                {this._renderActions()}
+              </MediaOverlay.Content>
+              {settingsMenu && (
+                <MediaOverlay.Content visible="hover" placement="top-end">
+                  {this._renderSettingsMenu()}
+                </MediaOverlay.Content>
+              )}
+            </MediaOverlay>
+            {badge && this._renderBadge()}
+            {this._hasFooter() && this._renderFooter()}
           </Card>
         </div>
       </Proportion>
