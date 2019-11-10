@@ -29,10 +29,10 @@ As we apparently know, Wix owns multiple TeamCity servers. Two of them are being
 - [wix-style-react](http://tc.dev.wixpress.com/project.html?projectId=Wix_Angular_WixStyleReact&branch_Wix_Angular_WixStyleReact=__all_branches__) - the main project that's associated with the master branch
 - [FedInfra WixStyleReac WixStyleReactNew Parallel](http://pullrequest-tc.dev.wixpress.com/project.html?projectId=FedInfra_WixStyleReac_WixStyleReactNew_Parallel&branch_FedInfra_WixStyleReac_WixStyleReactNew_Parallel=4401%2Fmerge) - a project that's associated with the other branches and triggered when creating a pull request
 
-Also, there are a few differences between them, which we'll mention during the article, however both consists of similar build configurations.
+Also, there are a few differences between them, which we'll mention during the article, however both consists of pretty much the same build configurations.
 
 The entry **build configuration**, that actually triggers everything, is called [`wix-style-react`](http://tc.dev.wixpress.com/viewType.html?buildTypeId=CommonComponent_WixStyleReact) (what a surprise 😉).
-Notice that we differentiate between the project (which has an identical name) and the build configuration. Builds of this configuration are started and associated with new commits of the branch.
+Notice that we differentiate between the TeamCity project (which has an identical name) and the build configuration. Builds of this configuration are started and associated with new commits of the relevant branch.
 
 Anyway, this build configuration depends on another **composite** build configuration - which is [`wix-style-react-tests-composite`](http://tc.dev.wixpress.com/viewType.html?buildTypeId=Wix_Angular_WixStyleReact_WixStyleReactTests_WixStyleReactTestsComposite). In case you're curious, the dependency is applied when triggering new entry build and defined by the following rules:
 
@@ -64,6 +64,8 @@ In practice, the dependency diagram of the main TeamCity project is the followin
 
 Notice that the major benefit of the composite build configuration is executing **parallel** builds. This also means that the promotion might finish before the tests (however, it doesn't mean the artifacts are actually published). Don't worry - we'll describe later how the promotion guarantees it's the right time to publish and what the benefit at all from executing that in parallel.
 
-Either way, the entry build configuration (and other configurations as well) contains the `Run npmBuild` build step which basically executes a file called [npmBuildWrapper.sh](https://github.com/wix-private/wix-fed-scripts/blob/master/src/npmBuildWrapper/npmBuildWrapper.sh). This file manages and operates stuff that related to npm, including executing npm scripts.
+Either way, the entry build configuration (and other configurations as well) is consist of the `Run npmBuild` build step which basically executes a file called [npmBuildWrapper.sh](https://github.com/wix-private/wix-fed-scripts/blob/master/src/npmBuildWrapper/npmBuildWrapper.sh). This file manages and operates stuff that related to npm, including executing npm scripts.
 
-Moreover, that file uses [`.ci_config`](https://github.com/wix/wix-style-react/blob/master/.ci_config) to convert npm scripts ("batches") into build configurations - which are registered automatically as dependencies of the composite build configuration. Put it simply, any npm script that appears inside `batches`, would be executed in parallel as part of the composite build.
+Moreover, that file uses [`.ci_config`](https://github.com/wix/wix-style-react/blob/master/.ci_config) to convert npm scripts ("batches") into build configurations - which are registered automatically as dependencies of the composite build configuration. Put it simply, any npm script that appears inside `batches`, would be executed in parallel as part of the composite build. That's exactly the way we register our testing configurations.
+
+Now that we know
