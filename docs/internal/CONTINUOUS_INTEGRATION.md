@@ -64,4 +64,4 @@ In practice, the dependency diagram of the main TeamCity project is the followin
 
 Notice that the major benefit of the composite build configuration is executing parallel builds.This also means that the promotion might finish before the tests (however, it doesn't mean the artifacts are actually published). Don't worry - we'll describe later how the promotion guarantees it's the right time to publish and what the benefit at all from executing that in parallel.
 
-Furthermore, the composite build configuration (and the other configurations either) contains a build step that's called `Run npmBuild` which basically executes [this](https://github.com/wix-private/wix-fed-scripts/blob/master/src/npmBuildWrapper/npmBuildWrapper.sh) file.
+Furthermore, the entry build configuration (and the other configurations either) contains the `Run npmBuild` build step which basically executes a file called [npmBuildWrapper.sh](https://github.com/wix-private/wix-fed-scripts/blob/master/src/npmBuildWrapper/npmBuildWrapper.sh).
