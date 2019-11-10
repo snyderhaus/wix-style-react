@@ -62,6 +62,6 @@ In practice, the dependency diagram of the main TeamCity project is the followin
   <img width="80%" src="../assets/wsr-composite-build-dependencies.png">
 </p>
 
-Notice that the major benefit of the composite build configuration is executing parallel builds.This also means that the promotion might finish before the tests (however, it doesn't mean the artifacts are published).
+Notice that the major benefit of the composite build configuration is executing parallel builds.This also means that the promotion might finish before the tests (however, it doesn't mean the artifacts are actually published).
 
 Don't worry - we'll describe later how the promotion guarantees it's the right time to publish and what the benefit at all from executing that in parallel.
