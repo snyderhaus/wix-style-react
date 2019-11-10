@@ -45,7 +45,7 @@ Here's a diagram that demonstrates the dependency:
   <img width="80%" src="../assets/wsr-composite-build.png">
 </p>
 
-The next thing we're going to do is understanding how `wix-style-react-tests-composite` works under the hood.
+The next thing we're going to do is getting into the `wix-style-react-tests-composite`.
 
 ## The Composite Build
 
@@ -62,7 +62,8 @@ In practice, the dependency diagram of the main TeamCity project is the followin
   <img width="80%" src="../assets/wsr-composite-build-dependencies.png">
 </p>
 
-Notice that the major benefit of the composite build configuration is executing parallel builds. This also means that the promotion might finish before the tests (however, it doesn't mean the artifacts are actually published). Don't worry - we'll describe later how the promotion guarantees it's the right time to publish and what the benefit at all from executing that in parallel.
+Notice that the major benefit of the composite build configuration is executing **parallel** builds. This also means that the promotion might finish before the tests (however, it doesn't mean the artifacts are actually published). Don't worry - we'll describe later how the promotion guarantees it's the right time to publish and what the benefit at all from executing that in parallel.
 
-Either way, the entry build configuration (and other configurations as well) contains the `Run npmBuild` build step which basically executes a file called [npmBuildWrapper.sh](https://github.com/wix-private/wix-fed-scripts/blob/master/src/npmBuildWrapper/npmBuildWrapper.sh).
-This file manages the npm scripts and executes them when necessary.
+Either way, the entry build configuration (and other configurations as well) contains the `Run npmBuild` build step which basically executes a file called [npmBuildWrapper.sh](https://github.com/wix-private/wix-fed-scripts/blob/master/src/npmBuildWrapper/npmBuildWrapper.sh). This file manages and operates stuff that related to npm, including executing npm scripts.
+
+Moreover, that file uses [`.ci_config`](https://github.com/wix/wix-style-react/blob/master/.ci_config) to convert npm scripts ("batches") into build configurations - which are registered automatically as dependencies of the composite build configuration. Put it simply, any npm script that appears inside `batches`, would be executed in parallel as part of the composite build.
