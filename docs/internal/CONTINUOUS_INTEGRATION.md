@@ -56,10 +56,12 @@ Let's categorize them:
 - Testing - these configurations are responsible to run build steps that ensure there are no issues in various aspects (unit, visual, e2e, performance, etc.). For example, `test1:unit`.
 - Promotion - these configurations are responsible to run build steps that actually publish artifacts (package, docs, etc.). For example, `wix-style-react-install-build-publish`.
 
-In practice, the dependency diagram is the following:
+In practice, the dependency diagram of the main TeamCity project is the following:
 
 <p align="center">
   <img width="80%" src="../assets/wsr-composite-build-dependencies.png">
 </p>
 
-Notice that the major benefit of the composite build configuration is executing parallel builds. This means that the promotion might finish before the tests.
+Notice that the major benefit of the composite build configuration is executing parallel builds.This also means that the promotion might finish before the tests.
+
+Don't worry - we'll describe later how the promotion guarantees it's the right time to publish and what the benefit at all from executing that in parallel.
