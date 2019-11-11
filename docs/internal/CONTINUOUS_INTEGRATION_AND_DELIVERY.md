@@ -26,8 +26,8 @@ Before we start, we better recognize the following TeamCity terms:
 
 As we apparently know, Wix owns multiple TeamCity servers. Two of them are being used by WSR, and that's actually why we have two different TeamCity projects:
 
-- [wix-style-react](http://tc.dev.wixpress.com/project.html?projectId=Wix_Angular_WixStyleReact&branch_Wix_Angular_WixStyleReact=__all_branches__) - the main project that's associated with the master branch
-- [FedInfra WixStyleReac WixStyleReactNew Parallel](http://pullrequest-tc.dev.wixpress.com/project.html?projectId=FedInfra_WixStyleReac_WixStyleReactNew_Parallel&branch_FedInfra_WixStyleReac_WixStyleReactNew_Parallel=4401%2Fmerge) - a project that's associated with the other branches and triggered when creating a pull request
+- [`wix-style-react`](http://tc.dev.wixpress.com/project.html?projectId=Wix_Angular_WixStyleReact&branch_Wix_Angular_WixStyleReact=__all_branches__) - the main project that's associated with the master branch
+- [`FedInfra WixStyleReac WixStyleReactNew Parallel`](http://pullrequest-tc.dev.wixpress.com/project.html?projectId=FedInfra_WixStyleReac_WixStyleReactNew_Parallel&branch_FedInfra_WixStyleReac_WixStyleReactNew_Parallel=4401%2Fmerge) - a project that's associated with the other branches and triggered when creating a pull request
 
 Also, there are a few differences between them, which we'll mention during the article, however both consists of pretty much the same build configurations.
 
@@ -89,7 +89,7 @@ Well, we can combine at the moment the stuff we covered thus far in order to sim
 
 ### Step 1 - Creating a PR
 
-The first thing we usually do, is creating a pull request for some changes from any branch into master. Then, a new build is added to the entry build configuration ("wix-style-react") within the "FedInfra WixStyleReac WixStyleReactNew Parallel" project.
+The first thing we usually do, is creating a pull request for some changes from any branch into master. Then, a new build is added to the entry build configuration (`wix-style-react` within the `FedInfra WixStyleReac WixStyleReactNew Parallel` project.
 
 This build triggers the appropriate composite build, which executes the tests and promotion builds in parallel.
-Each test build is initialized with `PUBLISH_ARG` that takes `no-publish`.
+Each test build is initialized with `PUBLISH_ARG` that takes `no-publish`. Although, the promotion build is initialized with the same `PUBLISH_ARG` value (merely to install and build the package), however it changes to `temp-publish` afterward.
