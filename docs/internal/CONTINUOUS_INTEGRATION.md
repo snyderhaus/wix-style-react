@@ -64,7 +64,7 @@ In practice, the dependency diagram of the main TeamCity project is the followin
 
 Notice that the major benefit of the composite build configuration is executing **parallel** builds. This also means that the promotion might finish before the tests (however, it doesn't mean the artifacts are actually published). Don't worry - we'll describe later how the promotion guarantees it's the right time to publish and what the benefit at all from executing that in parallel.
 
-Either way, the entry build configuration (and other configurations as well) is consist of the `Run npmBuild` build step which basically executes a file called [npmBuildWrapper.sh](https://github.com/wix-private/wix-fed-scripts/blob/master/src/npmBuildWrapper/npmBuildWrapper.sh). This file manages and operates stuff that related to npm, including executing npm scripts.
+Either way, the entry build configuration (and other configurations as well) is consist of the `Run npmBuild` build step which basically executes a file called [`npmBuildWrapper.sh`](https://github.com/wix-private/wix-fed-scripts/blob/master/src/npmBuildWrapper/npmBuildWrapper.sh). This file manages and operates stuff that related to npm, including executing npm scripts.
 
 Moreover, that file uses [`.ci_config`](https://github.com/wix/wix-style-react/blob/master/.ci_config) to convert npm scripts ("batches") into build configurations - which are registered automatically as dependencies of the composite build configuration. Put it simply, any npm script that appears inside `batches`, would be executed in parallel as part of the composite build. That's exactly the way we register our testing configurations.
 
@@ -72,4 +72,4 @@ Now that we understand the responsibilities of the composite build configuration
 
 ## The Promotion Process
 
-As we mentioned before, the promotion process is what builds and guarantees the artifacts are published at the right time.
+As we mentioned before, the promotion process is what builds and guarantees the artifacts are published at the right time. Also, we mentioned that each build configuration in our TeamCity projects executes `npmBuildWrapper.sh` under the hood.
