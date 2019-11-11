@@ -84,3 +84,5 @@ The argument which relevant for the promotion process called `PUBLISH_ARG` and a
 - `re-publish` - indicates that all composite tests passed successfully and the temporary package is ready to be published with a real version
 
 So, `npmBuildWrapper.sh` mainly uses `PUBLISH_ARG` (and additional arguments, to be honest) to manage the artifact state and decide when it's the time to install, build, test or publish.
+
+Well, we can combine at the moment the stuff we covered thus far in order to simulate a full process until the promotion is done.
