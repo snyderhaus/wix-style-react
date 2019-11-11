@@ -69,3 +69,7 @@ Either way, the entry build configuration (and other configurations as well) is 
 Moreover, that file uses [`.ci_config`](https://github.com/wix/wix-style-react/blob/master/.ci_config) to convert npm scripts ("batches") into build configurations - which are registered automatically as dependencies of the composite build configuration. Put it simply, any npm script that appears inside `batches`, would be executed in parallel as part of the composite build. That's exactly the way we register our testing configurations.
 
 Now that we understand the responsibilities of the composite build configuration and the connection to `npmBuildWrapper.sh`, we can elaborate the promotion process in detail.
+
+## The Promotion Process
+
+As we mentioned before, the promotion process is what builds and guarantees the artifacts are published at the right time.
