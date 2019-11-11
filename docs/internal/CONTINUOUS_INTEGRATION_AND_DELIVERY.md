@@ -96,4 +96,8 @@ Each test build is initialized with `PUBLISH_ARG` that takes `no-publish`. Altho
 
 In this way, while the tests are executed - a package with a temporary version is published into npm. Just to clarify, the version is defined like `0.0.0-ce1b410bc1328c72df5d75d672335a37`.
 
+Clearly, once the composite build finishes successfully, the entry build would pass as well.
+
 _**Note:** The temporary package is a feature that allows us to examine our changes and actually use them unofficially in other projects._
+
+### Step 2 -
