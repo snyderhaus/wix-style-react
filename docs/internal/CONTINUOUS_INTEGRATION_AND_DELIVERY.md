@@ -72,4 +72,6 @@ Now that we understand the responsibilities of the composite build configuration
 
 ## The Promotion Process
 
-As we mentioned before, the promotion process is what builds and guarantees the artifacts are published at the right time. Also, we mentioned that each build configuration in our TeamCity projects executes `npmBuildWrapper.sh` under the hood.
+As we mentioned before, the promotion process is what builds and guarantees our artifacts are published at the right time. Also, we mentioned that each build configuration in our TeamCity projects executes `npmBuildWrapper.sh` under the hood.
+
+Internally, `npmBuildWrapper.sh` uses variety of arguments to trigger conditionally scripts such as nvm, npm, fedops-api and more.
