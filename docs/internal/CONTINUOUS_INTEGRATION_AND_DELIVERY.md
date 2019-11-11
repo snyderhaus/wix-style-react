@@ -42,7 +42,7 @@ Anyway, this build configuration depends on another **composite** build configur
 Here's a diagram that demonstrates the dependency:
 
 <p align="center">
-  <img width="80%" src="../assets/wsr-composite-build.png">
+  <img width="50%" src="../assets/wsr-composite-build.png">
 </p>
 
 The next thing we're going to do is getting into the `wix-style-react-tests-composite`.
@@ -59,7 +59,7 @@ Let's categorize them:
 In practice, the dependency diagram of the main TeamCity project is the following:
 
 <p align="center">
-  <img width="80%" src="../assets/wsr-composite-build-dependencies.png">
+  <img width="50%" src="../assets/wsr-composite-build-dependencies.png">
 </p>
 
 Notice that the major benefit of the composite build configuration is executing **parallel** builds. This also means that the promotion might finish before the tests (however, it doesn't mean the artifacts are actually published). Don't worry - we'll describe later how the promotion guarantees it's the right time to publish and what the benefit at all from executing that in parallel.
@@ -100,4 +100,4 @@ Clearly, once the composite build finishes successfully, the entry build would p
 
 _**Note:** The temporary package is a feature that allows us to examine our changes and actually use them unofficially in other projects._
 
-### Step 2 -
+### Step 2 - Merging into Master
