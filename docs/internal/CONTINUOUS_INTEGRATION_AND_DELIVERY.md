@@ -80,5 +80,5 @@ The argument which relevant for the promotion process called `PUBLISH_ARG` and a
 
 - `no-publish` - indicates to install, build and test (without publishing obviously)
 - `publish` - indicates to publish immediately
+- `temp-publish` - indicates to publish a temporary version of the package, while executing the composite dependencies in parallel, which would be taken later (assuming all tests pass successfully)
 - `re-publish` - indicates
-- `temp-publish` -
