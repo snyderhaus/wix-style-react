@@ -78,7 +78,7 @@ Internally, `npmBuildWrapper.sh` uses variety of arguments to trigger conditiona
 
 The argument which relevant for the promotion process called `PUBLISH_ARG` and accepts the following values:
 
-- `no-publish` -
-- `publish` -
-- `re-publish` -
+- `no-publish` - indicates to install, build and test (without publishing obviously)
+- `publish` - indicates to publish immediately
+- `re-publish` - indicates
 - `temp-publish` -
