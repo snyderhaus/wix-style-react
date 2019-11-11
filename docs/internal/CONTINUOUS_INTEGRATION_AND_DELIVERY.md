@@ -89,4 +89,7 @@ Well, we can combine at the moment the stuff we covered thus far in order to sim
 
 ### Step 1 - Creating a PR
 
-The first thing we usually do, is creating a pull request for some changes from any branch into master.
+The first thing we usually do, is creating a pull request for some changes from any branch into master. Then, a new build is added to the entry build configuration ("wix-style-react") within the "FedInfra WixStyleReac WixStyleReactNew Parallel" project.
+
+This build triggers the appropriate composite build, which executes the tests and promotion builds in parallel.
+Each test build is initialized with `PUBLISH_ARG` that takes `no-publish`.
