@@ -14,7 +14,7 @@ Before we start, we better recognize the following TeamCity terms:
 - Build Step - a task to be executed (for instance, `npm run build`)
 - Build - a process that executes list of build steps
 - Build Chain - a process that refers to several build processes as a single pipeline
-- Build Configuration - a collection of settings that define the build process
+- Build Configuration - a collection of settings that define the build process (which means, build is the actual instance of these configurations)
 - Composite Build Configuration - a type of build configuration that aggregates results from several build processes, which could be executed in parallel
 - Project - a collection of build configurations (a project could be contained inside another project)
 
@@ -86,3 +86,7 @@ The argument which relevant for the promotion process called `PUBLISH_ARG` and a
 So, `npmBuildWrapper.sh` mainly uses `PUBLISH_ARG` (and additional arguments, to be honest) to manage the artifact state and decide when it's the time to install, build, test or publish.
 
 Well, we can combine at the moment the stuff we covered thus far in order to simulate a full process until the promotion is done.
+
+### Step 1 - Creating a PR
+
+The first thing we usually do, is creating a pull request for some changes from any branch into master.
