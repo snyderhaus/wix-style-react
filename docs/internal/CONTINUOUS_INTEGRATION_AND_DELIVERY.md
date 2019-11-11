@@ -95,3 +95,5 @@ This build triggers the appropriate composite build, which executes the tests an
 Each test build is initialized with `PUBLISH_ARG` that takes `no-publish`. Although, the promotion build is initialized with the same `PUBLISH_ARG` value (merely to install and build the package), however it changes to `temp-publish` afterward.
 
 In this way, while the tests are executed - a package with a temporary version is published into npm. Just to clarify, the version is defined like `0.0.0-ce1b410bc1328c72df5d75d672335a37`.
+
+_**Note:** The temporary package is a feature that allows us to examine our changes and actually use them unofficially in other projects._
