@@ -102,6 +102,6 @@ _**Note:** The temporary package is a feature that allows us to examine our chan
 
 ### Step 2 - Merging into Master
 
-After merging the PR into master, the main TeamCity project presumably would detect them - because it checks for changes in master every one minute. Then, a new entry build instance would be created with all of the [pending changes](http://tc.dev.wixpress.com/viewType.html?buildTypeId=CommonComponent_WixStyleReact&tab=pendingChangesDiv&branch_Wix_Angular_WixStyleReact=__all_branches__) (remember that changes are made very frequently so we've to queue them in order to save resources).
+After merging the PR into master, the main TeamCity project presumably would detect them - because it checks for changes in master every one minute.
 
-Although the latest composite build might be successful, a new composite build would start either way because of the changes we made.
+Then, the entry build configuration would trigger a composite build with all of the [pending changes](http://tc.dev.wixpress.com/viewType.html?buildTypeId=CommonComponent_WixStyleReact&tab=pendingChangesDiv&branch_Wix_Angular_WixStyleReact=__all_branches__) (remember that changes are made very frequently so we've to queue them in order to save resources). Although the latest composite build might be successful, a new composite build would start either way in favor of the changes we made.
