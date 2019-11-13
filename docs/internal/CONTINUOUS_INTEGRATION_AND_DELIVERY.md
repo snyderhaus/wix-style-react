@@ -108,6 +108,7 @@ Then, the entry build configuration would trigger a composite build with all of 
 
 Here as well, the composite build triggers the tests and promotion builds in parallel - and these actually behave the same as in the PR process, so that the promotion build initializes `PUBLISH_ARG` which eventually takes `temp-publish` and publishes a temporary package.
 
-In contrast to the PR process, this created entry build is initialized with `PUBLISH_ARG` that takes `re-publish`. This means the build executes `npm publish` and somehow is clever enough to decide if to publish the temporary package as a real one, or not. Let's assume our changes keep the same version for now.
+In contrast to the PR process, this created entry build is initialized with `PUBLISH_ARG` that takes `re-publish`.
+This means the build executes `npm publish` **anyway** and somehow is clever enough to decide if to publish the temporary package as a real one, or not. Let's assume our changes keep the same version for now.
 
-What is going to happen,
+What is going to happen in this case is pretty straightforward - we're trying to publish an existing package version into the npm registry. That's why we'll get a message like "wix-style-react@X.Y.Z already exists on registry" and the package wouldn't be published in any way.
