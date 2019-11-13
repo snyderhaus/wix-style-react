@@ -89,14 +89,14 @@ Well, we can combine at the moment the stuff we covered thus far in order to sim
 
 ### Step 1 - Creating a PR
 
-The first thing we usually do, is creating a pull request for some changes from any branch into master. Then, a new build is added to the entry build configuration (`wix-style-react`) within the `FedInfra WixStyleReac WixStyleReactNew Parallel` project.
+The first thing we usually do, is creating a pull request for some changes from any branch into master. Then, the entry build configuration (`wix-style-react` within the `FedInfra WixStyleReac WixStyleReactNew Parallel` project) triggers a new composite build.
 
-This build triggers the appropriate composite build, which executes the tests and promotion builds in parallel.
+The appropriate composite build triggers the tests and promotion builds in parallel.
 Each test build is initialized with `PUBLISH_ARG` that takes `no-publish`. Although the promotion build is initialized with the same `PUBLISH_ARG` value (merely to install and build the package), it changes to `temp-publish` afterward.
 
 In this way, while the tests are executed - a package with a temporary version is published into npm. Just to clarify, the version is defined like `0.0.0-ce1b410bc1328c72df5d75d672335a37`.
 
-Clearly, once the composite build finishes successfully, the entry build would pass as well.
+Clearly, once the composite build finishes successfully, the entry build configuration creates its own build instance that basically does nothing besides reflecting the composite status.
 
 _**Note:** The temporary package is a feature that allows us to examine our changes and actually consume them unofficially in other projects._
 
