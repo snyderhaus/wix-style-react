@@ -106,4 +106,6 @@ After merging the PR into master, the main TeamCity project presumably would det
 
 Then, the entry build configuration would trigger a composite build with all of the [pending changes](http://tc.dev.wixpress.com/viewType.html?buildTypeId=CommonComponent_WixStyleReact&tab=pendingChangesDiv&branch_Wix_Angular_WixStyleReact=__all_branches__) (remember that changes are made very frequently so we've to queue them in order to save resources). Although the latest composite build might be successful, a new composite build would start either way in favor of the changes we made.
 
-Here as well, the composite build triggers the tests and promotion builds in parallel and each test build is initialized with `PUBLISH_ARG` that takes `no-publish`.
+Here as well, the composite build triggers the tests and promotion builds in parallel - and these actually behave the same as in the PR process, so that the promotion build initializes `PUBLISH_ARG` which eventually takes `temp-publish` and publishes a temporary package.
+
+In contrast to the PR process, this promotion build is a little more clever.
