@@ -102,4 +102,4 @@ _**Note:** The temporary package is a feature that allows us to examine our chan
 
 ### Step 2 - Merging into Master
 
-After merging the PR into master,
+After merging the PR into master, the main TeamCity project presumably would detect them, because it checks for changes in master every one minute.
