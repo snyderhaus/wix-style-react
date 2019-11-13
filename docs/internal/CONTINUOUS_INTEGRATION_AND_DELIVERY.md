@@ -117,4 +117,4 @@ After that, the entry build would pass with the familiar result of "Success; No 
 
 ### Step 3 - Releasing Artifacts
 
-Let's assume now that we merge into master some changes which modify, among other things, the package version to non-existing version.
+Let's assume now that we merge into master some changes which modify, among other things, the package version to non-existing version. In other words, we committed a new package version manually and knowingly.
