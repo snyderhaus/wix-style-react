@@ -114,3 +114,7 @@ This means the build executes `npm publish` **anyway** and somehow is clever eno
 What is going to happen in this case is pretty straightforward - we're trying to publish an existing package version into the npm registry. That's why we'll get a message like "wix-style-react@X.Y.Z already exists on registry" and the package wouldn't be published by no means.
 
 After that, the entry build would pass with the familiar result of "Success; No publish".
+
+### Step 3 - Releasing Artifacts
+
+Let's assume now that we merge into master some changes which modify, among other things, the package version to non-existing version.
