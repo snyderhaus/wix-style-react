@@ -108,4 +108,6 @@ Then, the entry build configuration would trigger a composite build with all of 
 
 Here as well, the composite build triggers the tests and promotion builds in parallel - and these actually behave the same as in the PR process, so that the promotion build initializes `PUBLISH_ARG` which eventually takes `temp-publish` and publishes a temporary package.
 
-In contrast to the PR process, this created entry build is clever enough to identify if the package version was **changed**. Let's assume our changes keep the same version for now.
+In contrast to the PR process, this created entry build is initialized with `PUBLISH_ARG` that takes `re-publish`. This means the build is clever enough to decide to republish the temporary package as a real one, or not. Let's assume our changes keep the same version for now.
+
+What in going to happen,
