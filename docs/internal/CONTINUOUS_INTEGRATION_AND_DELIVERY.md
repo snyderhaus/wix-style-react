@@ -36,7 +36,7 @@ Notice that we differentiate between the TeamCity project (which has an identica
 
 Anyway, this build configuration depends on another **composite** build configuration - which is [`wix-style-react-tests-composite`](http://tc.dev.wixpress.com/viewType.html?buildTypeId=Wix_Angular_WixStyleReact_WixStyleReactTests_WixStyleReactTestsComposite). In case you're curious, the dependency is applied when triggering new entry build and defined by the following rules:
 
-- If the latest composite build success, the entry build would use this build instead of triggering a new (composite) build
+- If the latest composite build success (and suitable), the entry build would use this build instead of triggering a new (composite) build
 - If the latest composite build fails (broken test/fails to start/aborted), the entry build would fail
 
 Here's a diagram that demonstrates the dependency:
@@ -102,6 +102,6 @@ _**Note:** The temporary package is a feature that allows us to examine our chan
 
 ### Step 2 - Merging into Master
 
-After merging the PR into master, the main TeamCity project presumably would detect them, because it checks for changes in master every one minute.
+After merging the PR into master, the main TeamCity project presumably would detect them, because it checks for changes in master every one minute. Then, a new entry build instance would be created with all of the [pending changes](http://tc.dev.wixpress.com/viewType.html?buildTypeId=CommonComponent_WixStyleReact&tab=pendingChangesDiv&branch_Wix_Angular_WixStyleReact=__all_branches__) (remember that changes are made very frequently so we've to queue them in order to save resources).
 
-Next, a new entry build instance would be created with all of the [pending changes](http://tc.dev.wixpress.com/viewType.html?buildTypeId=CommonComponent_WixStyleReact&tab=pendingChangesDiv&branch_Wix_Angular_WixStyleReact=__all_branches__). Remember that changes are made very frequently so we've to queue them in order to save resources.
+Although the latest composite build might be successful, a new composite build would start either way because of the changes we made.
