@@ -111,10 +111,14 @@ Here as well, the composite build triggers the tests and promotion builds in par
 In contrast to the PR process, this created entry build is initialized with `PUBLISH_ARG` that takes `re-publish`.
 This means the build executes `npm publish` **anyway** and somehow is clever enough to decide if to publish the temporary package as a real one, or not. Let's assume our changes keep the same version for now.
 
-What is going to happen in this case is pretty straightforward - we're trying to publish an existing package version into the npm registry. That's why we'll get a message like "wix-style-react@X.Y.Z already exists on registry" and the package wouldn't be published by no means.
+What is going to happen in this case is pretty simple - we try to publish an existing package version into the npm registry. That's why we'll get a message like "wix-style-react@X.Y.Z already exists on registry" and the package wouldn't be published by no means.
 
 After that, the entry build would pass with the familiar result of "Success; No publish".
 
 ### Step 3 - Releasing Artifacts
 
 Let's assume now that we merge into master some changes which modify, among other things, the package version to non-existing version. In other words, we committed a new package version manually and knowingly.
+
+This time, when the entry build is created, the appropriate temporary package would be taken and re-versioned like the specified new version we committed.
+
+We already said that `npm publish` is executed anyway when `PUBLISH_ARG` takes `re-publish`.
