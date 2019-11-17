@@ -125,4 +125,4 @@ This time, when the entry build is created, the appropriate temporary package wo
 
 Sometimes there are unplanned issues that might fail the publish (for example, authentication). In practice, that explains why the script attempts to publish three times (whereas the third attempt result is supposed to be _"Error: You cannot publish over the previously published versions: X.Y.Z. : wix-style-react"_ and indicates the package is truly published).
 
-Right after the `publish` script is done successfully, `postpublish` is executed and responsible to build the Storybook static files, including deploying them into [Zeit](https://wix-style-react.now.sh/).
+Right after the `publish` script is done successfully, `postpublish` is executed and responsible to build the Storybook static files, including deploying them into [Zeit](https://wix-style-react.now.sh/). Notice that Zeit stages those files with a unique URL at first and then just [aliases](https://github.com/wix/wix-style-react/blob/master/scripts/zeit-deploy.js#L17) to the production URL.
