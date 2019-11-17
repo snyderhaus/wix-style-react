@@ -130,3 +130,14 @@ Sometimes there are unplanned issues that might fail the publish (for example, a
 Right after the `publish` script is done successfully, `postpublish` is executed and responsible to build the Storybook static files, including deploying them into [Zeit](https://wix-style-react.now.sh/). Notice that Zeit stages those files with a unique URL at first and then just [aliases](https://github.com/wix/wix-style-react/blob/master/scripts/zeit-deploy.js#L17) to the production URL.
 
 Thereafter, the entry build is expected to pass with a result of _"Success; Published version: wix-style-react@X.Y.Z"_.
+
+## Conclusion
+
+Let's recap the important stuff from what we covered today:
+
+- We've two TeamCity projects integrated with WSR - one for master and another for the rest of branches
+- The composite build configuration is responsible to trigger builds (in parallel) for testing and promotion
+- The composite build uses `.ci_config` to add npm scripts into the build chain
+- `PUBLISH_ARG` is aimed to manage the publish method (none, temporary, real)
+
+That's basically it. 🍾
