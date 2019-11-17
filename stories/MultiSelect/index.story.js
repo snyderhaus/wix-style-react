@@ -14,7 +14,6 @@ import {
 import LinkTo from '@storybook/addon-links/react';
 import * as examples from './examples';
 import ExampleTagInputSelectionRaw from '!raw-loader!../../src/MultiSelect/docs/ExampleTagInputSelection';
-import ExampleReorderableRaw from '!raw-loader!../../src/MultiSelect/docs/ExampleReorderable';
 
 import { Container, Row, Col } from 'wix-style-react/Grid';
 import FormField from 'wix-style-react/FormField';
@@ -145,14 +144,8 @@ export default {
       description({
         title: 'Reordering Tags',
         text: 'You can allow reodering tags using drag and drop functionality.',
-        source: ExampleReorderableRaw, // Needs a working example, I don't know how to properly import it
       }),
-      description({
-        title: 'Styling Options',
-        text:
-          'To provide more information about availale options a list of items can be styled.',
-        source: ExampleTagInputSelectionRaw, // Needs a working example, I don't know how to properly import it
-      }),
+      code({ source: examples.reordable }),
     ]),
   ],
 };
