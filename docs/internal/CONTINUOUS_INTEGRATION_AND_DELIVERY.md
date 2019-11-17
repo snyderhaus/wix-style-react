@@ -119,4 +119,4 @@ After that, the entry build would pass with the familiar result of "Success; No 
 
 Let's assume now that we merge into master some changes which modify, among other things, the package version to non-existing version. In other words, we committed a new package version manually and knowingly.
 
-This time, when the entry build is created, the appropriate temporary package would be taken and re-versioned like the specified new version we committed. We already said that `npm publish` is executed anyway when `PUBLISH_ARG` takes `re-publish - what means the package would be published into npm.
+This time, when the entry build is created, the appropriate temporary package would be taken and re-versioned as the specified new version we committed. We already said that `npm publish` is executed anyway when `PUBLISH_ARG` takes `re-publish` - which means the package would be published directly into npm.
