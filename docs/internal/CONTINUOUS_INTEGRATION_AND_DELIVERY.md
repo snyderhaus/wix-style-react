@@ -121,4 +121,4 @@ Let's assume now that we merge into master some changes which modify, among othe
 
 This time, when the entry build is created, the appropriate temporary package would be taken and re-versioned as the specified new version we committed. We already said that `npm publish` is executed anyway when `PUBLISH_ARG` takes `re-publish` - which means the package would be published directly into npm.
 
-Sometimes there are unplanned issues that might fail the publish (for example, authentication). In fact, that explains why the script attempts to publish three times.
+Sometimes there are unplanned issues that might fail the publish (for example, authentication). In fact, that explains why the script attempts to publish three times (whereas the third attempt result is supposed to be "Error: You cannot publish over the previously published versions: X.Y.Z. : wix-style-react" and indicates the package is truly published).
