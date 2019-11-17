@@ -87,6 +87,8 @@ So, `npmBuildWrapper.sh` mainly uses `PUBLISH_ARG` (and additional arguments, to
 
 Well, we can combine at the moment the stuff we covered thus far in order to simulate a full process until the promotion is done.
 
+_**Note:** The current `PUBLISH_ARG` value appears inside the `Run npmBuild` step log._
+
 ### Step 1 - Creating a PR
 
 The first thing we usually do, is creating a pull request for some changes from any branch into master. Then, the entry build configuration (`wix-style-react` within the `FedInfra WixStyleReac WixStyleReactNew Parallel` project) triggers a new composite build.
