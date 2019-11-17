@@ -115,7 +115,7 @@ This means the build executes `npm publish` **anyway** and somehow is clever eno
 
 What is going to happen in this case is pretty simple - we try to publish an existing package version into the npm registry. That's why we'll get a message like _"wix-style-react@X.Y.Z already exists on registry"_ and the package wouldn't be published by no means.
 
-After that, the entry build would pass with the familiar result of "Success; No publish".
+After that, the entry build would pass with the familiar result of _"Success; No publish"_.
 
 ### Step 3 - Releasing Artifacts
 
@@ -124,3 +124,5 @@ Let's assume now that we merge into master some changes which modify, among othe
 This time, when the entry build is created, the appropriate temporary package would be taken and re-versioned as the specified new version we committed. We already said that `npm publish` is executed anyway when `PUBLISH_ARG` takes `re-publish` - which means the package would be published directly into npm.
 
 Sometimes there are unplanned issues that might fail the publish (for example, authentication). In practice, that explains why the script attempts to publish three times (whereas the third attempt result is supposed to be _"Error: You cannot publish over the previously published versions: X.Y.Z. : wix-style-react"_ and indicates the package is truly published).
+
+Right after the `publish` script is done successfully, `postpublish` is executed and responsible to build the Storybook static files, including deploying them into [Zeit](https://wix-style-react.now.sh/).
