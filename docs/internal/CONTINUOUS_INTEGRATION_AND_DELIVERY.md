@@ -129,4 +129,4 @@ Sometimes there are unplanned issues that might fail the publish (for example, a
 
 Right after the `publish` script is done successfully, `postpublish` is executed and responsible to build the Storybook static files, including deploying them into [Zeit](https://wix-style-react.now.sh/). Notice that Zeit stages those files with a unique URL at first and then just [aliases](https://github.com/wix/wix-style-react/blob/master/scripts/zeit-deploy.js#L17) to the production URL.
 
-Thereafter, the entry build is expected to pass with a result of _"Success; Published version: wix-style-react@X.Y.Z"_, and that practically completes the process.
+Thereafter, the entry build is expected to pass with a result of _"Success; Published version: wix-style-react@X.Y.Z"_.
