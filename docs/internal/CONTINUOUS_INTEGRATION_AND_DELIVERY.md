@@ -111,7 +111,7 @@ Here as well, the composite build triggers the tests and promotion builds in par
 In contrast to the PR process, this created entry build is initialized with `PUBLISH_ARG` that takes `re-publish`.
 This means the build executes `npm publish` **anyway** and somehow is clever enough to decide if to publish the temporary package as a real one, or not. Let's assume our changes keep the same version for now.
 
-What is going to happen in this case is pretty simple - we try to publish an existing package version into the npm registry. That's why we'll get a message like "wix-style-react@X.Y.Z already exists on registry" and the package wouldn't be published by no means.
+What is going to happen in this case is pretty simple - we try to publish an existing package version into the npm registry. That's why we'll get a message like _"wix-style-react@X.Y.Z already exists on registry"_ and the package wouldn't be published by no means.
 
 After that, the entry build would pass with the familiar result of "Success; No publish".
 
@@ -121,4 +121,4 @@ Let's assume now that we merge into master some changes which modify, among othe
 
 This time, when the entry build is created, the appropriate temporary package would be taken and re-versioned as the specified new version we committed. We already said that `npm publish` is executed anyway when `PUBLISH_ARG` takes `re-publish` - which means the package would be published directly into npm.
 
-Sometimes there are unplanned issues that might fail the publish (for example, authentication). In fact, that explains why the script attempts to publish three times (whereas the third attempt result is supposed to be "Error: You cannot publish over the previously published versions: X.Y.Z. : wix-style-react" and indicates the package is truly published).
+Sometimes there are unplanned issues that might fail the publish (for example, authentication). In practice, that explains why the script attempts to publish three times (whereas the third attempt result is supposed to be _"Error: You cannot publish over the previously published versions: X.Y.Z. : wix-style-react"_ and indicates the package is truly published).
