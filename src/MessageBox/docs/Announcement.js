@@ -22,6 +22,9 @@ import PremiumActionRaw from '!raw-loader!./AnnouncementExamples/PremiumAction';
 import DisabledAction from './AnnouncementExamples/DisabledAction';
 import DisabledActionRaw from '!raw-loader!./AnnouncementExamples/DisabledAction';
 
+import PrimaryButtonNode from './AnnouncementExamples/PrimaryButtonNode';
+import PrimaryButtonNodeRaw from '!raw-loader!./AnnouncementExamples/PrimaryButtonNode';
+
 import Footnote from './AnnouncementExamples/Footnote';
 import FootnoteRaw from '!raw-loader!./AnnouncementExamples/Footnote';
 
@@ -63,6 +66,11 @@ export default () => (
             title="Celebratory"
             code={CelebratoryRaw}
             children={<Celebratory />}
+          />
+          <CodeExample
+            title="Primary Button Node"
+            code={PrimaryButtonNodeRaw}
+            children={<PrimaryButtonNode />}
           />
           <CodeExample
             title="Without Header"
