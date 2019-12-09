@@ -3,6 +3,8 @@ import ReactTestUtils from 'react-dom/test-utils';
 const messageBoxMarketerialLayoutDriverFactory = ({ element }) => {
   const primaryButton = () =>
     element.querySelector('[data-hook="primary-button"]');
+  const primaryButtonNode = () =>
+    element.querySelector('[data-hook="primary-button-node"]');
   const secondaryButton = () =>
     element.querySelector('[data-hook="secondary-button"]');
   const closeButton = () => element.querySelector('[data-hook="close-button"]');
@@ -11,6 +13,7 @@ const messageBoxMarketerialLayoutDriverFactory = ({ element }) => {
     exists: () => !!element,
     getPrimaryButtonText: () => primaryButton().textContent,
     getPrimaryButton: primaryButton,
+    getPrimaryButtonNode: primaryButtonNode,
     getSecondaryButtonText: () => secondaryButton().textContent,
     getSecondaryButton: secondaryButton,
     getHeaderCloseButton: closeButton,
