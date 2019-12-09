@@ -1,5 +1,6 @@
 import React from 'react';
 import MessageBoxMarketerialLayout from './MessageBoxMarketerialLayout';
+import Button from '../../Button';
 import MessageBoxMarketerialLayoutPrivateDriverFactory from './MessageBoxMarketerialLayout.private.driver';
 import { messageBoxMarketerialLayoutPrivateUniDriverFactory } from './MessageBoxMarketerialLayout.private.uni.driver';
 import sinon from 'sinon';
@@ -63,6 +64,32 @@ describe('MessageBoxMarketerialLayout', () => {
 
       it('should not display the primary button if primary button label was not passed', async () => {
         const props = Object.assign({}, requiredProps, {});
+        const driver = createDriver(<MessageBoxMarketerialLayout {...props} />);
+        expect(await driver.getPrimaryButton()).toBeNull();
+      });
+
+      it('should display primary button node if passed', async () => {
+        const props = Object.assign(
+          {},
+          requiredProps,
+          {
+            primaryButtonNode: <Button>Hi</Button>,
+          },
+          {},
+        );
+        const driver = createDriver(<MessageBoxMarketerialLayout {...props} />);
+        expect(await driver.getPrimaryButtonNode()).toBeTruthy();
+      });
+
+      it('should not display the primary button if primary button node was passed', async () => {
+        const props = Object.assign(
+          {},
+          requiredProps,
+          {
+            primaryButtonNode: <Button>Hi</Button>,
+          },
+          {},
+        );
         const driver = createDriver(<MessageBoxMarketerialLayout {...props} />);
         expect(await driver.getPrimaryButton()).toBeNull();
       });
