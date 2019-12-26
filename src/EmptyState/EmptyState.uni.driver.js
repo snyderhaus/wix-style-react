@@ -46,5 +46,8 @@ export const emptyStateUniDriverFactory = base => {
 
     /** Returns `true` if children content exists */
     childrenContentExists: () => getChildrenContainer().exists(),
+
+    /** Returns true if the component was configured with given align */
+    hasAlign: align => base.hasClass(`align-${align}`),
   };
 };

@@ -29,11 +29,9 @@ class InnerMenuExample extends React.Component {
             itemKey={'apps'}
             innerMenu={[
               <Sidebar.BackButton>
-                <Box margin="18px 24px">
-                  <TextButton prefixIcon={<Icons.ChevronLeft />} size="small" weight="normal">
-                    Main Menu
-                  </TextButton>
-                </Box>
+                <SidebarBackButton>
+                  Main Menu
+                </SidebarBackButton>
               </Sidebar.BackButton>,
               <SidebarSectionItem>
                 Inner item 1

@@ -3,6 +3,22 @@
   -st-named: sidebarBackgroundColor, sidebarLightBackgroundColor, lightTextColor, textColor;
 }
 
+:import {
+  -st-from: "wix-ui-core/dist/src/hocs/Focusable/Focusable.st.css";
+  -st-default: Focusable;
+  -st-named: focus-box;
+}
+
+:import {
+  -st-from: "../Foundation/stylable/colors.st.css";
+  -st-named: F00
+}
+
+:import {
+  -st-from: "../Sidebar/main.st.css";
+  -st-named: sidebarWidth
+}
+
 @keyframes backAndForth {
   0% {
     transform: translateX(0px);
@@ -20,15 +36,32 @@
 
 
 .BackButton {
+  -st-extends: Focusable;
   -st-states: lightSkin;
   cursor: pointer;
-  padding: 15px 18px;
+  box-sizing: border-box;
+  border: none;
+ 
+  width: 100%;
+  max-width: value(sidebarWidth);
+  padding: 15px 24px 15px 18px;
   display: flex;
   align-items: center;
   background: value(sidebarBackgroundColor);
+
+  /* not supported in IE11 & Edge; 'left' as fallback */
+  text-align: left;
+  text-align: start;
 }
 .BackButton:lightSkin {
   background: value(sidebarLightBackgroundColor); 
+}
+
+.BackButton:focus {
+  -st-mixin: focus-box;
+}
+.BackButton:focus-visible {
+  box-shadow: inset 0 0 0 3px value(F00);
 }
 
 .arrow {
@@ -40,7 +73,7 @@
 .BackButton:lightSkin .arrow {
   color: value(lightTextColor)
 }
-.BackButton:hover .arrow {
+.BackButton:hover .arrow, .BackButton:focus-visible .arrow {
   transition: transform 0.5s;
   transform: translateX(-5px);
 }

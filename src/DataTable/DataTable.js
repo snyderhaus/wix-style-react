@@ -1,15 +1,17 @@
 import React, { Component, memo } from 'react';
 import PropTypes from 'prop-types';
-import styles from './DataTable.scss';
+import SortByArrowUp from 'wix-ui-icons-common/system/SortByArrowUp';
+import SortByArrowDown from 'wix-ui-icons-common/system/SortByArrowDown';
+import { Animator } from 'wix-animations';
 import classNames from 'classnames';
 import defaultTo from 'lodash/defaultTo';
+import { VariableSizeList as List } from 'react-window';
+
+import styles from './DataTable.scss';
 import InfiniteScroll from '../utils/InfiniteScroll';
-import SortByArrowUp from '../new-icons/system/SortByArrowUp';
-import SortByArrowDown from '../new-icons/system/SortByArrowDown';
-import { Animator } from 'wix-animations';
 import Tooltip from '../Tooltip/Tooltip';
 import InfoIcon from '../InfoIcon';
-import { VariableSizeList as List } from 'react-window';
+
 import { virtualRowsAreEqual } from './DataTable.utils';
 
 export const DataTableHeader = props => {
@@ -332,10 +334,16 @@ class DataTable extends React.Component {
   };
 
   renderVirtualizedTable = () => {
-    const { dataHook, data, virtualizedTableHeight } = this.props;
+    const {
+      dataHook,
+      data,
+      virtualizedTableHeight,
+      virtualizedListRef,
+    } = this.props;
     return (
       <div data-hook={dataHook}>
         <List
+          ref={virtualizedListRef}
           className={classNames(this.style.table, this.style.virtualized)}
           height={virtualizedTableHeight}
           itemCount={data.length}
@@ -415,7 +423,7 @@ class TableHeader extends Component {
       color: this.props.thColor,
       opacity: this.props.thOpacity,
       letterSpacing: this.props.thLetterSpacing,
-      cursor: column.sortable === undefined ? 'arrow' : 'pointer',
+      cursor: column.sortable === undefined ? 'auto' : 'pointer',
     };
 
     const optionalHeaderCellProps = {};
@@ -599,10 +607,14 @@ DataTable.propTypes = {
   virtualizedTableHeight: PropTypes.number,
   /** ++EXPERIMENTAL++ Set virtualized table row height */
   virtualizedLineHeight: PropTypes.number,
+  /** ++EXPERIMENTAL++ Set ref on virtualized List containing table rows */
+  virtualizedListRef: PropTypes.any,
   /** array of selected ids in the table. Note that `isRowSelected` prop provides greater selection logic flexibility and is recommended to use instead. */
   selectedRowsIds: PropTypes.arrayOf(
     PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   ),
+  /** A callback function called on each column title click. Signature `onSortClick(colData, colNum)` */
+  onSortClick: PropTypes.func,
 };
 DataTable.displayName = 'DataTable';
 

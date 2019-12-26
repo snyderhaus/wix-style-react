@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { storiesOf } from '@storybook/react';
+import { visualize, snap } from 'storybook-snapper';
 
 import { noBorderInputTestkitFactory } from '../../../testkit';
 import NoBorderInput from '../NoBorderInput';
@@ -16,7 +16,8 @@ const NoBorderInputTest = ({ componentDidMount, ...props }) => {
   const onChange = e => setValue(e.target.value);
 
   useEffect(() => {
-    componentDidMount && componentDidMount();
+    componentDidMount && componentDidMount(props);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [componentDidMount]);
 
   return (
@@ -44,8 +45,9 @@ const tests = [
         props: {
           label: 'Test label',
         },
-        componentDidMount: async () => {
+        async componentDidMount(props) {
           await createDriver().focus();
+          props.onDone();
         },
       },
       {
@@ -53,8 +55,9 @@ const tests = [
         props: {
           label: 'Test label',
         },
-        componentDidMount: async () => {
+        async componentDidMount(props) {
           await createDriver().enterText('Some custom text');
+          props.onDone();
         },
       },
       {
@@ -70,8 +73,14 @@ const tests = [
 
 tests.forEach(({ describe, its }) => {
   its.forEach(({ it, props, componentDidMount }) => {
-    storiesOf(describe, module).add(it, () => (
-      <NoBorderInputTest {...props} componentDidMount={componentDidMount} />
-    ));
+    visualize(describe, () => {
+      snap(it, done => (
+        <NoBorderInputTest
+          {...props}
+          componentDidMount={componentDidMount}
+          onDone={done}
+        />
+      ));
+    });
   });
 });

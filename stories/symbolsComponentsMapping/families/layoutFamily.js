@@ -4,6 +4,9 @@ import {
   sharedComponentsNames,
 } from '../components';
 
+/**
+ * Symbol => Component 3
+ */
 export const layoutSymbolsToComponents = {
   [layoutSymbols.pageLayout]: [
     componentsNames.Page,

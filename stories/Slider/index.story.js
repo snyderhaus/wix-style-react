@@ -15,6 +15,7 @@ import * as examples from './examples';
 import Slider from 'wix-style-react/Slider';
 
 import { storySettings } from './storySettings';
+import { Category } from '../storiesHierarchy';
 
 const liveCode = config =>
   baseLiveCode({
@@ -68,13 +69,16 @@ export default {
         rows: [
           [
             <LinkTo
-              kind="Components"
+              kind={Category.COMPONENTS}
               story="FormField"
             >{`<FormField/>`}</LinkTo>,
             'Layout component for form elements',
           ],
           [
-            <LinkTo kind="Components" story="Slider">{`<Slider/>`}</LinkTo>,
+            <LinkTo
+              kind={Category.COMPONENTS}
+              story="Slider"
+            >{`<Slider/>`}</LinkTo>,
             'Selection component',
           ],
         ],

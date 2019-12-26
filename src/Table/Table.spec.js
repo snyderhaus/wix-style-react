@@ -365,7 +365,7 @@ describe('Table', () => {
       });
 
       describe('onSelectionChanged', () => {
-        it('should call onSelectionChanged when bulk-selection checkbox clicked given non selected', async () => {
+        it('should call onSelectionChanged when bulk-selection checkbox clicked given none selected', async () => {
           const onSelectionChanged = jest.fn();
           const selectedIds = noneSelected();
           const { driver } = render(
@@ -378,6 +378,7 @@ describe('Table', () => {
           await driver.clickBulkSelectionCheckbox();
           expect(onSelectionChanged).toHaveBeenCalledWith(allSelected(), {
             type: 'ALL',
+            origin: 'TableBulkSelectionCheckbox',
           });
         });
 
@@ -394,6 +395,7 @@ describe('Table', () => {
           await driver.clickBulkSelectionCheckbox();
           expect(onSelectionChanged).toHaveBeenCalledWith(noneSelected(), {
             type: 'NONE',
+            origin: 'TableBulkSelectionCheckbox',
           });
         });
 
@@ -412,6 +414,7 @@ describe('Table', () => {
           expect(onSelectionChanged).toHaveBeenCalledWith(allSelected(), {
             type: 'SINGLE_TOGGLE',
             id: ID_2,
+            origin: 'Checkbox',
             value: true,
           });
         });
@@ -505,6 +508,57 @@ describe('Table', () => {
         expect(await driver.getInnerHtml()).toMatch('2 Selected');
         toggle(ID_1);
         expect(await driver.getInnerHtml()).toMatch('1 Selected');
+      });
+
+      it('should enable passing origin to SelectionContext methods', async () => {
+        let selectionContext;
+        const onSelectionChanged = jest.fn();
+        const { driver } = render(
+          <Table
+            {...defaultProps}
+            showSelection
+            selectedIds={noneSelected()}
+            onSelectionChanged={onSelectionChanged}
+          >
+            <Table.ToolbarContainer>
+              {bulkSelectionContext => {
+                selectionContext = bulkSelectionContext;
+                return (
+                  <div>{`${bulkSelectionContext.selectedCount} Selected`}</div>
+                );
+              }}
+            </Table.ToolbarContainer>
+            <Table.Content />
+          </Table>,
+        );
+        selectionContext.toggleSelectionById(
+          ID_1,
+          'toggleSelectionById origin',
+        );
+        expect(onSelectionChanged).toHaveBeenCalledWith(firstSelected(), {
+          type: 'SINGLE_TOGGLE',
+          id: ID_1,
+          origin: 'toggleSelectionById origin',
+          value: true,
+        });
+
+        selectionContext.selectAll('selectAll origin');
+        expect(onSelectionChanged).toHaveBeenCalledWith(allSelected(), {
+          type: 'ALL',
+          origin: 'selectAll origin',
+        });
+
+        selectionContext.deselectAll('deselectAll origin');
+        expect(onSelectionChanged).toHaveBeenCalledWith(noneSelected(), {
+          type: 'NONE',
+          origin: 'deselectAll origin',
+        });
+
+        selectionContext.toggleAll(false, 'toggleAll origin');
+        expect(onSelectionChanged).toHaveBeenCalledWith(allSelected(), {
+          type: 'ALL',
+          origin: 'toggleAll origin',
+        });
       });
 
       it('should have Table.Titlebar', async () => {

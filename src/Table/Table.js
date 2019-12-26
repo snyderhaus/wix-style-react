@@ -39,7 +39,7 @@ export function createColumns({ tableProps, bulkSelectionContext }) {
               disabled={disabled}
               dataHook="row-select"
               checked={isSelected(id)}
-              onChange={() => toggleSelectionById(id)}
+              onChange={() => toggleSelectionById(id, 'Checkbox')}
             />
           </div>
         );
@@ -89,15 +89,11 @@ export class Table extends React.Component {
   }
 
   renderChildren() {
-    const children = this.props.children;
-    return this.props.withWrapper ? (
+    const { children, withWrapper, onRowClick, dataHook } = this.props;
+    return withWrapper ? (
       <div
-        data-hook={this.props.dataHook}
-        {...style(
-          'root',
-          { isRowClickable: !!this.props.onRowClick },
-          this.props,
-        )}
+        data-hook={dataHook}
+        {...style('root', { isRowClickable: !!onRowClick }, this.props)}
       >
         {children}
       </div>
@@ -175,9 +171,11 @@ Table.propTypes = {
   /** Called when row selection changes.
    * Receives 2 arguments: `selectedIds` array, and a `change` object ( in this order).
    * `selectedIds` is the updated selected ids.
-   * `change` object has a `type` property with the following possible values: 'ALL', 'NONE', 'SINGLE_TOGGLE'.
+   * The `change` object has a `type` property with the following possible values: 'ALL', 'NONE', 'SINGLE_TOGGLE'.
    * In case of 'SINGLE_TOGGLE' the `change` object will also include an `id` prop with the item's id,
-   * and a `value` prop with the new boolean selection state of the item. */
+   * and a `value` prop with the new boolean selection state of the item.
+   * The `change` object also contains an `origin` property which indicates what initiated the selection change.
+   * The `origin` property can be set when selection is updated using a `SelectionContext` method. */
   onSelectionChanged: PropTypes.func,
 
   /** Indicates whether to show a selection column (with checkboxes).<br>
@@ -268,7 +266,7 @@ Table.propTypes = {
   loader: PropTypes.node,
   /** A callback when more items are requested by the user. */
   loadMore: PropTypes.func,
-  /** A callback method to be called on row click. Signature: `onRowClick(rowData, rowNum)` */
+  /** A callback method to be called on row click. Signature: `onRowClick(rowData, rowNum)`. To enable hover effect you should set this prop.*/
   onRowClick: PropTypes.func,
   /** A callback method to be called on row mouse enter. Signature: `onMouseEnterRow(rowData, rowNum)` */
   onMouseEnterRow: PropTypes.func,
@@ -296,6 +294,8 @@ Table.propTypes = {
   virtualizedTableHeight: PropTypes.number,
   /** ++EXPERIMENTAL++ Set virtualized table row height */
   virtualizedLineHeight: PropTypes.number,
+  /** ++EXPERIMENTAL++ Set ref on virtualized List containing table rows */
+  virtualizedListRef: PropTypes.any,
   /** The width of the fixed table. Can be in percentages or pixels. */
   width: PropTypes.string,
   /** Table styling. Supports `standard` and `neutral`. */

@@ -6,4 +6,10 @@ export const onlyChildren = `<SidebarHeader><TextButton prefixIcon={<Icons.Arrow
 
 export const ellipsis = `<SidebarHeader title="This is a very long title which exceeds the maximum width of its container" subtitle="Role: Owner" />`;
 
-export const lightSkin = `<Sidebar skin="light"><SidebarHeader title="Site Name" subtitle="Role: Owner" /></Sidebar>`;
+export const lightSkin = `
+<Box height="99px">
+  <Sidebar skin="light">
+    <SidebarHeader title="Site Name" subtitle="Role: Owner" />
+  </Sidebar>
+</Box>
+`;

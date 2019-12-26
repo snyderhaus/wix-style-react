@@ -12,7 +12,7 @@ $buttonMaxWidth: 25%;
   height: 36px;
   padding-left: 12px;
   padding-right: 6px;
-  min-width: 395px;    
+  min-width: 395px;
   max-width: 540px;
   box-sizing: border-box;
 
@@ -21,6 +21,10 @@ $buttonMaxWidth: 25%;
     display: flex;
     align-items: center;
     flex-shrink: 0;
+
+    &.dark {
+      color: $D80;
+    }
   }
 
   .text,
@@ -78,6 +82,11 @@ $buttonMaxWidth: 25%;
   &.preview {
     background-color: $D70;
     border-color: $D50;
+  }
+
+  &.dark{
+    background-color: $D10;
+    border-color: $D10;
   }
 }
 

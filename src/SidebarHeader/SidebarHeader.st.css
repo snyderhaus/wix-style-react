@@ -12,14 +12,19 @@
 
 :import {
   -st-from: "../Foundation/stylable/typography.st.css";
-  -st-named: fontBold;
+  -st-named: weightXBold;
+}
+
+:import {
+  -st-from: "../Sidebar/main.st.css";
+  -st-named: sidebarWidth
 }
 
 .root {
   -st-states: skin(enum(dark, light));
 
-  padding: 24px;
-  max-width: 228px;
+  padding: 27px 24px;
+  max-width: value(sidebarWidth);
   box-sizing: border-box;
 }
 
@@ -35,25 +40,20 @@
 
 .title {
   -st-extends: Text;
-
-  display: block;
-}
-
-.title:size(medium) {
-  font-size: 20px;
 }
 
 .title:size(medium):weight(bold) {
-  font-family: value(fontBold);
+  -st-mixin: weightXBold;
+  display: block;
+  font-size: 20px;
 }
 
 .subtitle {
   -st-extends: Text;
-
-  display: block;
-  margin-top: 3px;
 }
 
-.subtitle:size(tiny) {
+.subtitle:size(tiny):weight(thin) {
+  display: block;
+  margin-top: 3px;
   line-height: 18px;
 }

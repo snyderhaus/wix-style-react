@@ -90,6 +90,18 @@ describe('Search', () => {
         expect(await driver.inputDriver.hasMenuArrow()).toBe(false);
       });
 
+      it('should not render clear text button if clearButton=false', async () => {
+        const driver = createDriver(
+          <ControlledSearch
+            options={options}
+            clearButton={false}
+            value="fox"
+          />,
+        );
+
+        expect(await driver.inputDriver.hasClearButton()).toBe(false);
+      });
+
       it('should render clear text button if input is not empty', async () => {
         const driver = createDriver(
           <ControlledSearch options={options} value="fox" />,

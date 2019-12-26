@@ -10,7 +10,9 @@ import Readme from './README.md';
 import Example from './Example';
 import ExampleRaw from '!raw-loader!./Example';
 
-storiesOf('WIP/Builders', module).add('BadgeSelectItemBuilder', () => (
+import { Category } from '../../../stories/storiesHierarchy';
+
+storiesOf(Category.WIP, module).add('BadgeSelectItemBuilder', () => (
   <TabbedView tabs={['Usage']}>
     <div>
       <Markdown source={Readme} />

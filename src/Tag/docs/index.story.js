@@ -61,7 +61,7 @@ export default {
   },
   sections: [
     header({
-      component: <Tag>Hello World</Tag>,
+      component: <Tag id="tag">Hello World</Tag>,
 
       issueUrl: 'https://github.com/wix/wix-style-react/issues/new',
       sourceUrl: 'https://github.com/wix/wix-style-react/blob/master/src/Tag',
@@ -79,21 +79,25 @@ export default {
 
           title('Examples'),
 
-          ...[{ title: 'Size', source: examples.sizes }].map(
-            ({ title, source }) =>
-              columns([description({ title }), code({ source })]),
+          ...[
+            { title: 'Size', source: examples.sizes },
+          ].map(({ title, source }) =>
+            columns([description({ title }), code({ source })]),
           ),
-          ...[{ title: 'Status', source: examples.themes }].map(
-            ({ title, source }) =>
-              columns([description({ title }), code({ source })]),
+          ...[
+            { title: 'Status', source: examples.themes },
+          ].map(({ title, source }) =>
+            columns([description({ title }), code({ source })]),
           ),
-          ...[{ title: 'Thumb', source: examples.thumbs }].map(
-            ({ title, source }) =>
-              columns([description({ title }), code({ source })]),
+          ...[
+            { title: 'Thumb', source: examples.thumbs },
+          ].map(({ title, source }) =>
+            columns([description({ title }), code({ source })]),
           ),
-          ...[{ title: 'Removable', source: examples.removable }].map(
-            ({ title, source }) =>
-              columns([description({ title }), code({ source })]),
+          ...[
+            { title: 'Removable', source: examples.removable },
+          ].map(({ title, source }) =>
+            columns([description({ title }), code({ source })]),
           ),
         ],
       }),

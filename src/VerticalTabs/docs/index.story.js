@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   header,
   tabs,
@@ -9,7 +8,6 @@ import {
   columns,
   divider,
   code as baseCode,
-  playground,
   api,
   testkit,
 } from 'wix-storybook-utils/Sections';
@@ -60,8 +58,13 @@ export default {
           title('Examples'),
 
           code({
-            title: 'Vertical Tabs With Suffix',
+            title: 'Vertical Tabs With Suffix and one Disabled tab',
             source: examples.verticalTabsSuffixExample,
+          }),
+
+          code({
+            title: 'Vertical Tabs With Suffix - Small Size',
+            source: examples.verticalTabsSmallExample,
           }),
 
           code({

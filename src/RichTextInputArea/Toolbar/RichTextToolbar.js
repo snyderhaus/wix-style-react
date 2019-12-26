@@ -1,5 +1,11 @@
 import React from 'react';
 import classNames from 'classnames';
+import TextAreaBold from 'wix-ui-icons-common/system/TextAreaBold';
+import TextAreaItalic from 'wix-ui-icons-common/system/TextAreaItalic';
+import TextAreaUnderline from 'wix-ui-icons-common/system/TextAreaUnderline';
+import TextAreaLink from 'wix-ui-icons-common/system/TextAreaLink';
+import TextAreaBulletList from 'wix-ui-icons-common/system/TextAreaBulletList';
+import TextAreaNumberedList from 'wix-ui-icons-common/system/TextAreaNumberedList';
 
 import styles from './RichTextToolbar.scss';
 import RichTextToolbarButton from './RichTextToolbarButton';
@@ -11,12 +17,6 @@ import {
   blockTypes,
   entityTypes,
 } from '../RichTextInputAreaTypes';
-import TextAreaBold from '../../new-icons/system/TextAreaBold';
-import TextAreaItalic from '../../new-icons/system/TextAreaItalic';
-import TextAreaUnderline from '../../new-icons/system/TextAreaUnderline';
-import TextAreaLink from '../../new-icons/system/TextAreaLink';
-import TextAreaBulletList from '../../new-icons/system/TextAreaBulletList';
-import TextAreaNumberedList from '../../new-icons/system/TextAreaNumberedList';
 
 const renderButton = (
   index,

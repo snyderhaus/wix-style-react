@@ -1,7 +1,7 @@
 import React from 'react';
 import MultiSelectCheckbox from 'wix-style-react/MultiSelectCheckbox';
+import Facebook from 'wix-ui-icons-common/Facebook';
 import styles from './ExampleStandard.scss';
-import Facebook from 'wix-style-react/new-icons/Facebook';
 
 export const options = [
   { value: 'Alabama', id: 'Alabama' },

@@ -1,6 +1,9 @@
 import { navigationSymbols } from '../symbols';
 import { navigationComponentsNames as componentsNames } from '../components';
 
+/**
+ * Symbol => Component 6
+ */
 export const navigationSymbolsToComponents = {
   [navigationSymbols.sidebarMenu]: [
     componentsNames.Sidebar,

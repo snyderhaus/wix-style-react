@@ -99,7 +99,6 @@ class DropdownLayout extends WixComponent {
     if (!this._isControlled()) {
       this.setState({ selectedId: chosenOption && chosenOption.id });
     }
-    this._markOption(NOT_HOVERED_INDEX);
     return !!onSelect && chosenOption;
   }
 
@@ -168,11 +167,13 @@ class DropdownLayout extends WixComponent {
     switch (event.key) {
       case 'ArrowDown': {
         this._markNextStep(1);
+        event.preventDefault();
         break;
       }
 
       case 'ArrowUp': {
         this._markNextStep(-1);
+        event.preventDefault();
         break;
       }
 

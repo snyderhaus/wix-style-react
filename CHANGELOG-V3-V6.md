@@ -50,7 +50,7 @@ Types of changes:
 - `<Card.Subheader/>` - added neutral skin [#4071](https://github.com/wix/wix-style-react/pull/4071)
 - `<InputWithOptions/>` - supports dynamic dropdown width [#4050](https://github.com/wix/wix-style-react/pull/4050)
 
-### Fixed 
+### Fixed
 - `<Button/>`- fixing isButtonDisabled testkit function [#4063](https://github.com/wix/wix-style-react/pull/4063)
 
 ## 6.55.0 - 2019-09-09
@@ -1968,7 +1968,7 @@ See [Migrating From v5 to v6](https://github.com/wix/wix-style-react/blob/master
 [Migration guide](./docs/migration/v4-v5.md)
 
 - `<Checkbox/>` - remove prop `active`(use `checked` instead) and value `large`(use `medium` instead) for prop `size`
-- `<Icons/>` - remove old icons in favor of [new icons](./docs/migration/NEW_ICONS_MIGRATION.md)
+- `<Icons/>` - remove old icons in favor of new icons
 - `<Button/>` - remove prop `withNewIcons` and make it behavior default
 - `<DataTable/>` - new styles
 - `<Heading/>` - new typography
@@ -2164,7 +2164,7 @@ See [Migrating From v5 to v6](https://github.com/wix/wix-style-react/blob/master
 
 - `<Button/>`- support new icons using the `withNewIcons` prop [#1960](https://github.com/wix/wix-style-react/pull/1960)
 - `<FullTextView/>`- the new component that can show tooltip in ellipsis state [#2000](https://github.com/wix/wix-style-react/pull/2000)
-- **New Icons** - changed all icons assets to new icons. See the [migration guide](./docs/migration/NEW_ICONS_MIGRATION.md) and script. The new icons can be found [here](https://wix-wix-style-react.surge.sh/?selectedKind=1.%20Foundation&selectedStory=1.4%20Icons&full=0&addons=0&stories=1&panelRight=0) and deprecated icons [here](https://wix-wix-style-react.surge.sh/?selectedKind=1.%20Foundation&selectedStory=1.4%20Icons%20-%20deprecated&full=0&addons=0&stories=1&panelRight=0)
+- **New Icons** - changed all icons assets to new icons. The new icons can be found [here](https://wix-wix-style-react.surge.sh/?selectedKind=1.%20Foundation&selectedStory=1.4%20Icons&full=0&addons=0&stories=1&panelRight=0) and deprecated icons [here](https://wix-wix-style-react.surge.sh/?selectedKind=1.%20Foundation&selectedStory=1.4%20Icons%20-%20deprecated&full=0&addons=0&stories=1&panelRight=0)
 
 ### Changed
 

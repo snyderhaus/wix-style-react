@@ -1,13 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { withFocusable } from 'wix-ui-core/dist/src/hocs/Focusable/FocusableHOC';
+import IconAdd from 'wix-ui-icons-common/Add';
+import IconAddSmall from 'wix-ui-icons-common/AddSmall';
 
 import styles from './FillButton.st.css';
 import Tooltip from '../Tooltip';
 import Proportion from '../Proportion';
-import { withFocusable } from 'wix-ui-core/dist/src/hocs/Focusable/FocusableHOC';
-import IconAdd from '../new-icons/Add';
-import IconAddSmall from '../new-icons/AddSmall';
-
 import { dataHooks } from './constants';
 import { parseColor, parseGradient, parseContrastColor } from './utils';
 

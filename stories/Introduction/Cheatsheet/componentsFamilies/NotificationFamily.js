@@ -111,6 +111,7 @@ const FloatingNotificationsExamples = () => {
     { type: 'destructive', text: '"Image.jpg" failed to upload' },
     { type: 'premium', text: 'This feature is for premium users only' },
     { type: 'preview', text: 'A new feature has been enabled' },
+    { type: 'dark', text: 'A new feature has been enabled' },
   ];
 
   const renderNotification = props => (

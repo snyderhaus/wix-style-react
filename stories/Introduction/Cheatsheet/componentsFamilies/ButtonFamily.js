@@ -15,7 +15,7 @@ import {
 } from '../../../symbolsComponentsMapping/symbols';
 
 //Assets
-import More from 'wix-style-react/new-icons/More';
+import More from 'wix-ui-icons-common/More';
 import { Layout, Cell } from 'wix-style-react/Layout';
 import Box from 'wix-style-react/Box';
 

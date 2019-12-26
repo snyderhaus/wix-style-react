@@ -5,13 +5,18 @@ import viewerStyles from './components/ColorViewer.st.css';
 import { swatchesPrivateDriverFactory } from '../Swatches/test/Swatches.private.uni.driver';
 import DATA_HOOKS from './DataHooks';
 import inputUniDriverFactory from '../Input/Input.uni.driver';
-import { ReactBase } from '../../test/utils/unidriver';
+import popoverDriverFactory from '../Popover/Popover.uni.driver';
 
 export const colorInputPrivateDriverFactory = (base, body) => {
   const viewerStylableUtil = new StylableUnidriverUtil(viewerStyles);
   const hashStylableUtil = new StylableUnidriverUtil(hashStyles);
   const swatchesHook = `[data-hook="${DATA_HOOKS.COLOR_PICKER_SWATCHES}"]`;
   const swatchesDriver = swatchesPrivateDriverFactory(base.$(swatchesHook));
+  const colorViewerPopoverHook = `[data-hook="${DATA_HOOKS.COLOR_INPUT_POPOVER}"]`;
+  const colorViewerPopoverTestkit = popoverDriverFactory(
+    base.$(colorViewerPopoverHook),
+    body,
+  );
 
   const isHashDisabled = async () =>
     (await hashStylableUtil.getStyleState(
@@ -49,13 +54,7 @@ export const colorInputPrivateDriverFactory = (base, body) => {
     },
     blur: inputTestkit.blur,
     focus: inputTestkit.focus,
-    clickOutside: async () => {
-      if (base.type === 'react') {
-        ReactBase.clickDocument();
-      } else {
-        throw new Error('Supported only in React/DOM.');
-      }
-    },
+    clickOutside: async () => colorViewerPopoverTestkit.clickOutside(),
     hasPrefix: inputTestkit.hasPrefix,
   };
 };

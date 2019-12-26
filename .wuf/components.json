@@ -424,5 +424,32 @@
   },
   "VerticalTabsItem": {
     "path": "src/VerticalTabsItem"
+  },
+  "MobilePreviewWidget": {
+    "path": "src/MobilePreviewWidget"
+  },
+  "ListItemSection": {
+    "path": "src/ListItemSection"
+  },
+  "BrowserPreviewWidget": {
+    "path": "src/BrowserPreviewWidget"
+  },
+  "ListItemSelect": {
+    "path": "src/ListItemSelect"
+  },
+  "TimeTable": {
+    "path": "src/TimeTable"
+  },
+  "MarketingLayout": {
+    "path": "src/MarketingLayout"
+  },
+  "Palette": {
+    "path": "src/Palette"
+  },
+  "WarningIndicator": {
+    "path": "src/WarningIndicator",
+    "missingFiles": [
+      "docs"
+    ]
   }
 }

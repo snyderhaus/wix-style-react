@@ -517,7 +517,7 @@ describe('DropdownLayout', () => {
         expect(onOptionMarked.mock.calls[1]).toEqual([options[1]]);
       });
 
-      it('should call onOptionMarked with null when an option is selected', async () => {
+      it('should call onOptionMarked with undefined when an option is selected', async () => {
         const onOptionMarked = jest.fn();
         const driver = createDriver(
           <DropdownLayout
@@ -529,7 +529,7 @@ describe('DropdownLayout', () => {
         await driver.mouseEnterAtOption(1);
         expect(onOptionMarked.mock.calls[0]).toEqual([options[1]]);
         await driver.clickAtOption(1);
-        expect(onOptionMarked.mock.calls[1]).toEqual([null]);
+        expect(onOptionMarked.mock.calls[1]).toBeUndefined();
       });
 
       it('should call onOptionMarked with null when options are closed', async () => {

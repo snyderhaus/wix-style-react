@@ -62,7 +62,6 @@
 }
 
 .root:error {
-  background-color: value(D80);
   border-color: value(R10);
   color: value(R10);
 }

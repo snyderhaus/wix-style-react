@@ -96,6 +96,11 @@ export default {
               source: examples.controlled,
             },
             {
+              title: 'Native example',
+              subtitle: 'Component usage in native mode.',
+              source: examples.native,
+            },
+            {
               title: 'Available states',
               subtitle: 'Component supports disabled and error states.',
               source: examples.states,

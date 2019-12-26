@@ -1,11 +1,9 @@
 import React from 'react';
 import sinon from 'sinon';
-
-import Search from '../../new-icons/Search';
-import Input from '..';
-
+import Search from 'wix-ui-icons-common/Search';
 import { mount } from 'enzyme';
 
+import Input from '..';
 import {
   createRendererWithDriver,
   createRendererWithUniDriver,
@@ -173,6 +171,17 @@ describe('Input', () => {
         const { driver } = render(<Input {...props} />);
         expect(await driver.getValue()).toEqual(props.value);
         expect(await driver.getText()).toEqual(props.value);
+      });
+    });
+
+    describe('pattern attribute', () => {
+      it('should pass down to the wrapped input', async () => {
+        const props = {
+          pattern: '[pattern]',
+        };
+
+        const { driver } = render(<Input {...props} />);
+        expect(await driver.getPattern()).toEqual(props.pattern);
       });
     });
 

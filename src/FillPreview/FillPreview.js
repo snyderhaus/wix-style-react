@@ -1,12 +1,21 @@
 import React from 'react';
-import { withFocusable } from 'wix-ui-core/dist/src/hocs/Focusable/FocusableHOC';
-import { bool, func, node, oneOfType, string } from 'prop-types';
+
+import { ButtonNext } from 'wix-ui-core/dist/src/components/button-next';
+import {
+  bool,
+  func,
+  node,
+  oneOfType,
+  string,
+  number,
+  object,
+} from 'prop-types';
 import Proportion from '../Proportion';
 
 import { parseColor, parseGradient, parseUrl, parseElement } from './utils';
 import styles from './FillPreview.st.css';
 
-class FillPreview extends React.Component {
+class FillPreview extends React.PureComponent {
   static displayName = 'FillPreview';
 
   _getBackground = fill => {
@@ -55,29 +64,29 @@ class FillPreview extends React.Component {
       fill,
       onClick,
       selected,
-      focusableOnFocus,
-      focusableOnBlur,
       disabled,
       dataHook,
+      aspectRatio,
+      as,
       ...rest
     } = this.props;
     const background = this._getBackground(fill);
     return (
-      <div data-hook={dataHook}>
-        <Proportion className={styles.proportion}>
-          <button
+      <div {...styles('root', { selected }, rest)}>
+        <Proportion dataHook={dataHook} aspectRatio={aspectRatio}>
+          <ButtonNext
             {...rest}
-            {...styles('root', { selected }, rest)}
+            as={as}
             data-selected={selected}
+            className={styles.button}
+            {...styles('button')}
             data-hook="fill-preview-button"
             style={background}
-            onFocus={focusableOnFocus}
-            onBlur={focusableOnBlur}
             onClick={onClick}
             disabled={disabled}
           >
             {!background && React.isValidElement(fill) && fill}
-          </button>
+          </ButtonNext>
         </Proportion>
       </div>
     );
@@ -85,6 +94,12 @@ class FillPreview extends React.Component {
 }
 
 FillPreview.propTypes = {
+  /** render as some other component or DOM tag */
+  as: oneOfType([func, object, string]),
+
+  /** control focusability */
+  tabIndex: number,
+
   /** Color, gradient, image url or svg to be rendered as a preview content */
   fill: oneOfType([string, node]),
 
@@ -96,10 +111,13 @@ FillPreview.propTypes = {
 
   /** Puts the component into a disabled state */
   disabled: bool,
+
+  /** Control elements aspect ratio value:  */
+  aspectRatio: oneOfType([string, number]),
 };
 
 FillPreview.defaultProps = {
   selected: false,
 };
 
-export default withFocusable(FillPreview);
+export default FillPreview;

@@ -1,6 +1,9 @@
 import { modalsSymbols } from '../symbols';
 import { modalsComponentsNames as componentsNames } from '../components';
 
+/**
+ * Symbol => Component 9
+ */
 export const modalsSymbolsToComponents = {
   [modalsSymbols.alert]: [
     componentsNames.MessageBoxFunctionalLayout,

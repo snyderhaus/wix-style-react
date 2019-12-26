@@ -7,13 +7,20 @@
   background-color: #fff;
   border-radius: 8px;
 }
+
+$no-header-height: 54px;
 $headerHeight: 120px;
 $headerImageHeight: 185px;
-.header {
+
+.headerBase {
   border-radius: 8px 8px 0 0;
+  height: $no-header-height;
+  position: relative;
+}
+
+.header {
   height: $headerHeight;
   margin-bottom: $headerImageHeight - $headerHeight;
-  position: relative;
 }
 
 .header-purple {
@@ -83,22 +90,8 @@ $headerImageHeight: 185px;
   padding-bottom: 0.1px;
 }
 
-.primary-button-container {
-  @include FontLight();
-  font-size: 14px;
-  line-height: 1.29;
-  color: $B10;
-  margin-bottom: 8px;
-}
 .secondary-button-container {
-  @include FontLight();
-  font-size: 14px;
-  line-height: 1.29;
-  margin-top: 21px;
-  color: $B10;
-  & > span {
-    cursor: pointer;
-  }
+  margin-top: 18px;
 }
 
 .flexContainer {

@@ -1,8 +1,9 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import SegmentedToggle from '../SegmentedToggle';
-import LockLocked from '../../new-icons/LockLocked';
+import LockLocked from 'wix-ui-icons-common/LockLocked';
 import { Layout, Cell } from 'wix-style-react/Layout';
+
+import SegmentedToggle from '../SegmentedToggle';
 
 const options = [
   { value: 'option1', text: 'Option1' },

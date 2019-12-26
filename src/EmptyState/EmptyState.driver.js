@@ -44,6 +44,9 @@ const emptyStateDriverFactory = ({ element }) => {
 
     /** Returns `true` if children content exists */
     childrenContentExists: () => !!getChildrenContainer(),
+
+    /** Returns true if the component was configured with given align */
+    hasAlign: align => isClassExists(element, `align-${align}`),
   };
 };
 

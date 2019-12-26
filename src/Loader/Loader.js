@@ -2,14 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Loadable } from 'wix-ui-core/dist/src/components/loadable';
+import FormFieldError from 'wix-ui-icons-common/system/FormFieldError';
+import FormFieldErrorSmall from 'wix-ui-icons-common/system/FormFieldErrorSmall';
+import ToggleOn from 'wix-ui-icons-common/system/ToggleOn';
+import CircleLoaderCheck from 'wix-ui-icons-common/system/CircleLoaderCheck';
+import CircleLoaderCheckSmall from 'wix-ui-icons-common/system/CircleLoaderCheckSmall';
+
 import WixComponent from '../BaseComponents/WixComponent';
 import Arc from './Arc';
 import css from './Loader.scss';
-import FormFieldError from '../new-icons/system/FormFieldError';
-import FormFieldErrorSmall from '../new-icons/system/FormFieldErrorSmall';
-import ToggleOn from '../new-icons/system/ToggleOn';
-import CircleLoaderCheck from '../new-icons/system/CircleLoaderCheck';
-import CircleLoaderCheckSmall from '../new-icons/system/CircleLoaderCheckSmall';
 import Heading from '../Heading';
 
 const arcsAngles = {

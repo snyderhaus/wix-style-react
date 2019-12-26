@@ -1,10 +1,7 @@
+import { Category } from '../../../stories/storiesHierarchy';
+
 const stories = {
-  category: 'Components/Layout',
-  examplesCategory: 'Components/Layout/Examples',
-  holyGrailLayout: 'Holy Grail Layout',
-  listOfCards: 'List of Cards',
-  mainAndSide: 'Main and Side',
-  form: 'Form',
+  category: Category.COMPONENTS,
 };
 
 export default stories;

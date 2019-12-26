@@ -8,7 +8,7 @@
 
 #### [Docs](https://wix-wix-style-react.surge.sh/) | [V6 Docs](https://wix-wix-style-react-v6.surge.sh/) | [Source](https://github.com/wix/wix-style-react)
 
-## Installation
+## Installation [![npm version](https://img.shields.io/badge/wix--style--react-7-blue)](https://github.com/wix/wix-style-react)
 * Install with `npm` or `yarn`:
 ```sh
 npm i wix-style-react
@@ -20,6 +20,8 @@ yarn add wix-style-react
 
 ### Requirements
 
+* React 16.8 and up
+ [![npm version](https://img.shields.io/badge/React-16.8-brightgreen)](https://www.npmjs.com/package/react/v/16.8.6)
 * Load Wix fonts from CDN
     ```html
     <link rel="stylesheet" href="//static.parastorage.com/services/third-party/fonts/Helvetica/fontFace.css">
@@ -45,12 +47,12 @@ const App = () => (
 ```
 
 ## Build Configuration Prerequisites
-`wix-style-react` uses [Stylable](https://stylable.io/), [SASS](https://sass-lang.com/) and [CSS Modules](https://github.com/css-modules/css-modules) configuration by default. 
+`wix-style-react` uses [Stylable](https://stylable.io/), [SASS](https://sass-lang.com/) and [CSS Modules](https://github.com/css-modules/css-modules) configuration by default.
 in order to use `wix-style-react`, your module bundler should be configured accordingly.
 Use [Yoshi](https://github.com/wix/yoshi) as build tool to avoid configuration. Otherwise, you should configure it on your own.
 
 ### Example of `create-react-app` configuration
-- Run 
+- Run
     ```bash
     $ npm run eject
     $ npm i -D node-sass stylable @stylable/webpack-plugin @stylable/core
@@ -58,7 +60,7 @@ Use [Yoshi](https://github.com/wix/yoshi) as build tool to avoid configuration. 
 -  Enhance `webpack` configuration
 
     ```js
-    // config/webpack.config.js    
+    // config/webpack.config.js
     const {StylableWebpackPlugin} = require('@stylable/webpack-plugin');
     //...
     {

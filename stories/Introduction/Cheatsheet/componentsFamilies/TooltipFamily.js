@@ -29,14 +29,14 @@ import TextButton from 'wix-style-react/TextButton';
 import { Layout, Cell } from 'wix-style-react/Layout';
 
 //icons
-import Add from 'wix-style-react/new-icons/Add';
-import Edit from 'wix-style-react/new-icons/Edit';
-import Delete from 'wix-style-react/new-icons/Delete';
-import DeleteSmall from 'wix-style-react/new-icons/DeleteSmall';
-import AddSmall from 'wix-style-react/new-icons/AddSmall';
-import EditSmall from 'wix-style-react/new-icons/EditSmall';
-import ChevronDown from 'wix-style-react/new-icons/ChevronDown';
-import Image from 'wix-ui-icons-common/Image';
+import Add from 'wix-ui-icons-common/Add';
+import Edit from 'wix-ui-icons-common/Edit';
+import Delete from 'wix-ui-icons-common/Delete';
+import DeleteSmall from 'wix-ui-icons-common/DeleteSmall';
+import AddSmall from 'wix-ui-icons-common/AddSmall';
+import EditSmall from 'wix-ui-icons-common/EditSmall';
+import ChevronDown from 'wix-ui-icons-common/ChevronDown';
+import { Category } from '../../../storiesHierarchy';
 
 const groupSymbol = symbolsGroup.tooltipPopovers;
 
@@ -45,7 +45,7 @@ const TooltipExample = () => {
   const components = tooltipPopoverSymbolsToComponents[symbol];
 
   const singleComponentProps = {
-    name: createLinkedSymbolName({ groupSymbol, symbol }),
+    name: createLinkedSymbolName({ groupSymbol: Category.TOOLTIP, symbol }),
     componentsNames: createLinkedComponentsNames(components),
   };
 
@@ -108,7 +108,7 @@ const PopoverMenuExample = () => {
   const components = tooltipPopoverSymbolsToComponents[symbol];
 
   const singleComponentProps = {
-    name: createLinkedSymbolName({ groupSymbol, symbol }),
+    name: createLinkedSymbolName({ groupSymbol: Category.TOOLTIP, symbol }),
     componentsNames: createLinkedComponentsNames(components),
   };
 

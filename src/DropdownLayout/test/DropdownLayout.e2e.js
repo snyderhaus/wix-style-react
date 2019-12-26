@@ -81,7 +81,7 @@ describe('DropdownLayout - Focus behaviour', () => {
     });
     await waitForVisibilityOf(
       driver.element(),
-      'Cant find dropdown-test-story',
+      `Cant find ${storySettings.dataHook}`,
     );
   });
 
@@ -99,17 +99,6 @@ describe('DropdownLayout - Focus behaviour', () => {
     await pressTab();
     expect(await driver.isFocused()).toEqual(true);
   }
-
-  it('should move out focus of dropdown only after 2 tab press when selecting an item', async () => {
-    await focusOnDropdownLayout();
-
-    await driver.hoverItemById(0);
-    await pressTab();
-    expect(await driver.isFocused()).toEqual(true);
-
-    await pressTab();
-    expect(await driver.isFocused()).toEqual(false);
-  });
 
   it('should move out focus of dropdown when pressing tab without any selection', async () => {
     await focusOnDropdownLayout();

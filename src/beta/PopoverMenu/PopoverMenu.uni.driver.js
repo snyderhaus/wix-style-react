@@ -7,8 +7,11 @@ export const PopoverMenuDriver = (base, body) => {
     exists: () => dropdownBaseTestkit.exists(),
     /** Returns trigger element */
     getTriggerElement: dataHook => base.$(`[data-hook="${dataHook}"]`),
-    /** Select a specific option (requires the menu to be opened) */
-    clickAtChild: option => dropdownBaseTestkit.selectOption(option),
+    /** Select a specific option by its index (requires the menu to be opened) */
+    clickAtChild: index => dropdownBaseTestkit.selectOption(index),
+    /** Select a specific option by its data-hook (requires the menu to be opened) */
+    clickAtChildByDataHook: dataHook =>
+      dropdownBaseTestkit.selectOptionByDataHook(dataHook),
     /** Return true if the menu is opened */
     isMenuOpen: () => dropdownBaseTestkit.isDropdownShown(),
     /** Returns children count */

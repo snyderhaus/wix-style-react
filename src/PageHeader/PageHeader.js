@@ -227,6 +227,8 @@ export default class PageHeader extends WixComponent {
 PageHeader.displayName = 'Page.Header';
 
 PageHeader.propTypes = {
+  /** Applied as data-hook HTML attribute that can be used in the tests */
+  dataHook: PropTypes.string,
   /** This property is being supplied by the Page component, it's value changes by the state of the scrolled content */
   minimized: PropTypes.bool,
   /** This property is being supplied by the Page component, it's value reflects if the Page has a background image or not */

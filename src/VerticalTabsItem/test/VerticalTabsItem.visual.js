@@ -1,19 +1,67 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import Add from 'wix-ui-icons-common/Add';
 import VerticalTabsItem from '../VerticalTabsItem';
-
-const commonProps = {
-  //use for repeated props across the tests (e.g. {buttonText: 'example'})
-};
 
 const tests = [
   {
-    describe: 'sanity', // prop name (e.g. size)
+    describe: 'type',
     its: [
       {
-        it: 'default', //prop variation (e.g. small)
+        it: 'tab',
         props: {
-          // the simulation (e.g. {size: "small"})
+          type: 'tab',
+        },
+      },
+      {
+        it: 'action',
+        props: {
+          type: 'action',
+        },
+      },
+      {
+        it: 'title',
+        props: {
+          type: 'title',
+        },
+      },
+    ],
+  },
+  {
+    describe: 'disabled',
+    its: [
+      {
+        it: 'true',
+        props: {
+          disabled: true,
+        },
+      },
+      {
+        it: 'false',
+        props: {
+          disabled: false,
+        },
+      },
+    ],
+  },
+  {
+    describe: 'prefixIcon',
+    its: [
+      {
+        it: 'prefixIcon',
+        props: {
+          prefixIcon: <Add />,
+        },
+      },
+    ],
+  },
+  {
+    describe: 'suffixIcon',
+    its: [
+      {
+        it: 'suffixIcon',
+        props: {
+          suffixIcon: <Add />,
         },
       },
     ],
@@ -23,7 +71,7 @@ const tests = [
 tests.forEach(({ describe, its }) => {
   its.forEach(({ it, props }) => {
     storiesOf(`VerticalTabsItem/${describe}`, module).add(it, () => (
-      <VerticalTabsItem {...commonProps} {...props} />
+      <VerticalTabsItem {...props}>Tab Item</VerticalTabsItem>
     ));
   });
 });

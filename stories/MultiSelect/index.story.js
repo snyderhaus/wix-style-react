@@ -1,6 +1,7 @@
 import React from 'react';
-import { storySettings } from './storySettings';
-import { baseScope } from '../utils/LiveCodeExample';
+import MultiSelect from '../../src/MultiSelect';
+import allComponents from '../utils/allComponents';
+
 import {
   header,
   title,
@@ -13,18 +14,15 @@ import {
 } from 'wix-storybook-utils/Sections';
 import LinkTo from '@storybook/addon-links/react';
 import * as examples from './examples';
-import ExampleTagInputSelectionRaw from '!raw-loader!../../src/MultiSelect/docs/ExampleTagInputSelection';
 
 import { Container, Row, Col } from 'wix-style-react/Grid';
 import FormField from 'wix-style-react/FormField';
-import MultiSelect from 'wix-style-react/MultiSelect';
+import { storySettings } from './storySettings';
+import { Category } from '../storiesHierarchy';
+import { baseScope } from '../utils/LiveCodeExample';
 
 const code = config =>
-  baseCode({
-    components: baseScope,
-    compact: true,
-    ...config,
-  });
+  baseCode({ components: baseScope, compact: true, ...config });
 
 export default {
   category: storySettings.category,
@@ -49,6 +47,7 @@ export default {
         </Container>
       ),
     }),
+
     columns([
       description({
         title: 'Description',
@@ -56,30 +55,36 @@ export default {
           'Tag Input is a composition of 2 individual components – `<FormField/>` and `<MultiSelect/>`. Use it when site owner needs to enter multiple keywords.A component for selecting/creating multiple values, and displaying them as tags.',
       }),
     ]),
+
     columns([
       table({
         title: 'Included Components',
         rows: [
           [
             <LinkTo
-              kind="Components"
+              kind={Category.COMPONENTS}
               story="FormField"
             >{`<FormField/>`}</LinkTo>,
           ],
           [
             <LinkTo
-              kind="Components"
+              kind={Category.COMPONENTS}
               story="Multiselect"
             >{`<MultiSelect/>`}</LinkTo>,
           ],
-          [<LinkTo kind="Components" story="Tag">{`<Tag/>`}</LinkTo>],
+          [<LinkTo kind={Category.COMPONENTS} story="Tag">{`<Tag/>`}</LinkTo>],
           [
             <LinkTo
-              kind="Components"
+              kind={Category.COMPONENTS}
               story="TextButton"
             >{`<TextButton/>`}</LinkTo>,
           ],
-          [<LinkTo kind="Components" story="Avatar">{`<Avatar/>`}</LinkTo>],
+          [
+            <LinkTo
+              kind={Category.COMPONENTS}
+              story="Avatar"
+            >{`<Avatar/>`}</LinkTo>,
+          ],
         ],
       }),
     ]),
@@ -90,51 +95,43 @@ export default {
 
     title('Examples'),
 
-    columns([
-      description({
+    ...[
+      {
         title: 'Size',
         text: 'Tag input can appear in 3 sizes – `small`, `medium`, `large`',
-      }),
-      code({ source: examples.size }),
-    ]),
-    columns([
-      description({
+        source: examples.size,
+      },
+      {
         title: 'Select Mode',
         text:
           'Tag Input has two select modes – select and type with a keyboard',
-      }),
-      code({ source: examples.mode }),
-    ]),
-    columns([
-      description({
+        source: examples.mode,
+      },
+      {
         title: 'Custom Values',
         text:
           'Tag Input can be set to allow only predefined values, custom values or both.',
-      }),
-      code({ source: examples.customValues }), // Needs a working example, I don't know how to properly import it
-    ]),
-    columns([
-      description({
+        source: examples.customValues,
+      },
+      {
         title: 'Action',
         text: 'Encourage user intercation by displaying the call to action',
-      }),
-      code({ source: examples.action }),
-    ]),
-    columns([
-      description({
+        source: examples.action,
+      },
+      {
         title: 'Required',
         text: 'You can add an asterisk if the field is required.',
-      }),
-      code({ source: examples.required }),
-    ]),
-    columns([
-      description({
+        source: examples.required,
+      },
+      {
         title: 'Label Position',
         text:
           'Tag Input’s label can be position on top, left or can be hidden. Additional properties behave accordingly.',
-      }),
-      code({ source: examples.labelPosition }),
-    ]),
+        source: examples.labelPosition,
+      },
+    ].map(({ title, text, source }) =>
+      columns([description({ title, text }), code({ source })]),
+    ),
 
     divider(),
 

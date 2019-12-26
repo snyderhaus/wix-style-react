@@ -1,10 +1,10 @@
 import React, { PureComponent } from 'react';
+import { func, node, object } from 'prop-types';
+import { withFocusable } from 'wix-ui-core/dist/src/hocs/Focusable/FocusableHOC';
+import AddSmall from 'wix-ui-icons-common/AddSmall';
 
 import Color from 'color';
 import styles from './ColorPickerConverter.st.css';
-import { func, node, object } from 'prop-types';
-import { withFocusable } from 'wix-ui-core/dist/src/hocs/Focusable/FocusableHOC';
-import AddSmall from '../new-icons/AddSmall';
 import Tooltip from '../Tooltip';
 
 function getContrastColor(bg, light = '#ffffff', dark = '#162d3d') {

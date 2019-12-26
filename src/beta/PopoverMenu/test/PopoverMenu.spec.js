@@ -1,4 +1,5 @@
 import React from 'react';
+import More from 'wix-ui-icons-common/More';
 import {
   cleanup,
   createRendererWithUniDriver,
@@ -8,7 +9,6 @@ import PopoverMenu from '../PopoverMenu';
 import { PopoverMenuPrivateDriver } from './PopoverMenu.private.uni.driver';
 import IconButton from '../../../IconButton';
 import { iconButtonDriverFactory } from '../../../IconButton/IconButton.uni.driver';
-import More from '../../../new-icons/More';
 
 describe('PopoverMenu', () => {
   const render = createRendererWithUniDriver(PopoverMenuPrivateDriver);
@@ -99,6 +99,26 @@ describe('PopoverMenu', () => {
 
           expect(await driver.isMenuOpen()).toBe(true);
           await driver.clickAtChild(0);
+          expect(onClick).toHaveBeenCalled();
+        });
+
+        it('should be called [when] clicked inside PopoverMenu using dataHook', async () => {
+          const onClick = jest.fn();
+          const { driver } = render(
+            renderPopoverMenu({
+              children: renderPopoverMenuItem({
+                onClick,
+                dataHook: 'testDataHook',
+              }),
+            }),
+          );
+
+          const iconButton = await driver.getTriggerElement('iconbutton');
+          const iconButtonTestkit = iconButtonDriverFactory(iconButton);
+          await iconButtonTestkit.click();
+
+          expect(await driver.isMenuOpen()).toBe(true);
+          await driver.clickAtChildByDataHook('testDataHook');
           expect(onClick).toHaveBeenCalled();
         });
 

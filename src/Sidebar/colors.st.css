@@ -1,6 +1,6 @@
 :import {
   -st-from: "wix-ui-core/dist/src/themes/backoffice/colors.st.css";
-  -st-named: D80, D20, B40, B30, B00
+  -st-named: D80, D20, B40, B30, B00, B10
 }
 
 /* At the moment, it was decided by UX to not include the missing colors below as part of the design system palette */
@@ -8,8 +8,9 @@
   /* Dark skin */
   sidebarBackgroundColor:#23263c;
   textColor: value(D80);
-  hoveredBackgroundColor:#2e3249;
+  hoveredBackgroundColor:#2e3149;
   selectedBackgroundColor:#3b3f57;
+  selectedTextColor: value(B10);
   disabledBackgroundColor:#23263c;
   dividerColor: #434567;
 
@@ -17,7 +18,7 @@
   sidebarLightBackgroundColor: value(D80);
   lightTextColor: value(D20);
   hoveredLightBackgroundColor: value(B40);
-  hoveredLightTextColor: value(B00);
   selectedLightBackgroundColor: value(B30);
+  selectedLightTextColor: value(B00);
   disabledLightBackgroundColor: value(D80);
 }

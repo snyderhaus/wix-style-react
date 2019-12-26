@@ -1,5 +1,5 @@
 import React from 'react';
-import Duplicate from 'wix-style-react/new-icons/Duplicate';
+import Duplicate from 'wix-ui-icons-common/Duplicate';
 import s from './style.scss';
 
 export default () => {

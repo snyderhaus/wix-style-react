@@ -129,6 +129,21 @@ describe('MultiSelect', () => {
         expect(onChange).toBeCalledWith(expectEventTargetValue(''));
       });
 
+      it('should not clear input when clicked-out-side if clearOnBlur is set to false', async () => {
+        const onChange = jest.fn();
+        const { driver, inputDriver } = createDriver(
+          <MultiSelect value={''} onChange={onChange} clearOnBlur={false} />,
+        );
+        await inputDriver.focus('ArrowDown');
+        await inputDriver.enterText('foo');
+        expect(onChange).toHaveBeenCalledTimes(1);
+        expect(onChange).toBeCalledWith(expectEventTargetValue('foo'));
+        onChange.mockReset();
+
+        await driver.outsideClick();
+        expect(onChange).toHaveBeenCalledTimes(0);
+      });
+
       it('should NOT select option when clicked-out-side given option is marked', async () => {
         const onSelect = jest.fn();
 

@@ -11,25 +11,32 @@
 :import {
   -st-from: "../Foundation/stylable/colors.st.css";
   -st-named:
-          B00, B10, B30,
-          D20,
-          R00, R10, R30,
+          B05, R05, G05,
+          D10, D20, D80,
+          D10-10, D80-30,
 }
 
 .root {
-  -st-states: light;
+  -st-states: light, skin(enum(success, standard));
   -st-extends: LinearProgressBar;
   padding: 0 6px;
   height: 30px;
 }
 
 .root::barForeground {
-  background: value(B00);
   transition: width 0.5s ease-in-out;
 }
 
+.root:skin(standard)::barForeground {
+  background: value(B05);
+}
+
+.root:skin(success)::barForeground {
+  background: value(G05);
+}
+
 .root::barBackground {
-  background: value(B30);
+  background: value(D10-10);
 }
 
 .root::barBackground,
@@ -40,15 +47,11 @@
 }
 
 .root:error::barForeground {
-  background: value(R00);
-}
-
-.root:error::barBackground {
-  background: value(R30);
+  background: value(R05);
 }
 
 .root:light::barBackground {
-  background: white;
+  background: value(D80-30);
 }
 
 .root::progressIndicationSection {
@@ -72,16 +75,28 @@
   font-family: value(fontMedium);
 }
 
-.root:success::indicationContainer {
-  background: value(B10);
+.root:skin(standard):success::indicationContainer {
+  background: value(B05);
+}
+
+.root:skin(success):success::indicationContainer {
+  background: value(G05);
 }
 
 .root:error::indicationContainer {
-  background: value(R10);
+  background: value(R05);
 }
 
 .root::indicationContainer svg {
   height: 8px;
   width: 10px;
-  color: white;
+  color: value(D80);
+}
+
+.root::progressPercentage {
+  color: value(D10);
+}
+
+.root:light::progressPercentage {
+  color: value(D80);
 }

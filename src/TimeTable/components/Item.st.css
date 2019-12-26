@@ -1,0 +1,47 @@
+:import {
+  -st-from: "../../Foundation/stylable/colors.st.css";
+  -st-named: D80, D20, D10, D40, D10-30;
+}
+:import {
+  -st-from: "../../Foundation/stylable/typography.st.css";
+  -st-named: sizeTiny, sizeSmall, sizeMedium, weightBold, weightNormal;
+}
+:import {
+  -st-from: "../../Foundation/stylable//mixins/calc_rgba";
+  -st-default: calc_rgba;
+}
+
+.root {
+  -st-states: disabled, draggable;
+  -st-mixin: weightNormal, sizeTiny;
+
+  padding: 6px 7px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  box-shadow:
+    0 2px 4px 0 calc_rgba(value(D10), 0.12),
+    0 0 6px 0 calc_rgba(value(D10), 0.12);
+  background-color: value(D80);
+  color: value(D20);
+  user-select: none;
+}
+
+.root:draggable:hover {
+  color: value(D10);
+  box-shadow:
+    0 6px 6px 0 calc_rgba(value(D10), 0.06),
+    0 0 18px 0 calc_rgba(value(D10), 0.12);
+}
+
+.root:draggable:hover,
+.root:draggable:hover * {
+  cursor: grab;
+}
+
+.root:draggable:disabled:hover {
+  color: value(D40);
+}
+
+.root:disabled {
+  color: value(D10-30);
+}

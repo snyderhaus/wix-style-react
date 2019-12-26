@@ -93,35 +93,39 @@ export class BulkSelection extends React.Component {
     }
   }
 
-  toggleAll = enable => {
+  toggleAll = (enable, origin) => {
     if (enable) {
       if (this.props.hasMoreInBulkSelection) {
-        this.setNotSelectedIds([], { type: ChangeType.ALL });
+        this.setNotSelectedIds([], { type: ChangeType.ALL, origin });
       } else {
-        this.setSelectedIds(this.props.allIds, { type: ChangeType.ALL });
+        this.setSelectedIds(this.props.allIds, {
+          type: ChangeType.ALL,
+          origin,
+        });
       }
     } else {
-      this.setSelectedIds([], { type: ChangeType.NONE });
+      this.setSelectedIds([], { type: ChangeType.NONE, origin });
     }
   };
 
-  toggleBulkSelection = deselectRowsByDefault => {
+  toggleBulkSelection = (deselectRowsByDefault, origin) => {
     const bulkSelectionState = this.state.helpers.bulkSelectionState;
     if (bulkSelectionState === BulkSelectionState.SOME) {
-      this.toggleAll(!deselectRowsByDefault);
+      this.toggleAll(!deselectRowsByDefault, origin);
     } else if (bulkSelectionState === BulkSelectionState.ALL) {
-      this.toggleAll(false);
+      this.toggleAll(false, origin);
     } else {
-      this.toggleAll(true);
+      this.toggleAll(true, origin);
     }
   };
 
-  toggleSelectionById = id => {
+  toggleSelectionById = (id, origin) => {
     const newSelectionValue = !this.state.helpers.isSelected(id);
     const change = {
       type: ChangeType.SINGLE_TOGGLE,
       id,
       value: newSelectionValue,
+      origin,
     };
 
     if (this.state.selectedIds) {
@@ -255,9 +259,9 @@ export class BulkSelection extends React.Component {
       /** Toggles the bulk selection state: NONE -> ALL, SOME -> ALL, ALL -> NONE */
       toggleAll: this.toggleBulkSelection,
       /** Select all items */
-      selectAll: () => this.toggleAll(true),
+      selectAll: origin => this.toggleAll(true, origin),
       /** Deselect all items (clear selection) */
-      deselectAll: () => this.toggleAll(false),
+      deselectAll: origin => this.toggleAll(false, origin),
       /** Set the selection.
        * An optional `change` argument will be passed "as is" to the Table's onSelectionChanged callback.
        */
@@ -281,9 +285,11 @@ BulkSelection.propTypes = {
   allIds: oneOfType([arrayOf(string), arrayOf(number)]).isRequired,
   /** Called when item selection changes.
    * Receives 2 arguments, the updated selectedIds array, and a `change` object.
-   * `change` object has a `type` property with the following possible values: 'ALL', 'NONE', 'SINGLE_TOGGLE'.
+   * The `change` object has a `type` property with the following possible values: 'ALL', 'NONE', 'SINGLE_TOGGLE'.
    * In case of 'SINGLE_TOGGLE' the `change` object will also include an `id` prop with the item's id,
    * and a `value` prop with the new boolean selection state of the item.
+   * The `change` object also contains an `origin` property which indicates what initiated the selection change.
+   * The `origin` property can be set when selection is updated using a `SelectionContext` method.
    * In case `totalSelectableCount` is set and the list is not fully loaded, and the user did bulk selection ("Select All"), the first parameter (selectedIds) will be null.
    * You can use the selection context's getNotSelectedIds() method to get the items that the user unselected after selecting all items. */
   onSelectionChanged: func,

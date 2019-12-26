@@ -9,16 +9,18 @@
 }
 
 .root {
-  -st-states: disabled, action, title, suffixIcon, selected;
-  -st-extends: Focusable;
+  -st-states: disabled, action, title, suffixIcon, prefixIcon, selected;
 
   display: flex;
-  padding: 12px 12px 12px 24px;
+  padding: 12px 30px;
   align-items: center;
   background-color: value(D80);
   cursor: pointer;
   outline:none;
   border: none;
+}
+.root:hover {
+  background-color: value(B50);
 }
 
 .root:disabled {
@@ -27,32 +29,32 @@
 }
 .root:title {
   cursor: default;
-}
-.root:not(:disabled):focus-visible {
-  background-color: value(B40);
-  box-shadow:inset 0 0 0 3px value(F00);
-}
-
-.root:not(:title):hover,
-.root:selected {
-  background-color: value(B50);
-}
-
-.root:title {
   padding-top: 20px;
 }
-.root:action {
-  justify-content: center;
-  padding: 12px;
+.root:title:hover,
+.root:action:hover {
+  background-color: value(D80);
+  cursor: default;
+}
+
+.root:selected {
+  background-color: value(B40);
 }
 .root:suffixIcon {
   justify-content: space-between;
+  padding-right: 12px;
+}
+.root:prefixIcon {
+  padding-left: 24px;
 }
 
 .prefixIcon {
   -st-states: action;
+  margin-right: 6px;
 }
-
+.suffixIcon {
+  margin-left: 6px;
+}
 .prefixIcon,
 .suffixIcon {
   flex-shrink: 0;

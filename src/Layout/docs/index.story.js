@@ -61,7 +61,11 @@ const childrenExample = [
   },
   {
     label: 'various height cells',
-    value: [[2, 30], [3, 60], [7, 90]].map(([span, height]) => (
+    value: [
+      [2, 30],
+      [3, 60],
+      [7, 90],
+    ].map(([span, height]) => (
       <Cell span={span}>
         <GreyBox height={height} children={`${height}px`} />
       </Cell>
@@ -69,7 +73,11 @@ const childrenExample = [
   },
   {
     label: 'vertically aligned cells',
-    value: [[2, 30], [3, 60], [7, 90]].map(([span, height]) => (
+    value: [
+      [2, 30],
+      [3, 60],
+      [7, 90],
+    ].map(([span, height]) => (
       <Cell span={span} vertical>
         <GreyBox height={height} children={`${height}px`} />
       </Cell>
@@ -79,7 +87,7 @@ const childrenExample = [
 
 export default {
   category: storySettings.category,
-  storyName: 'Usage',
+  storyName: 'Layout',
   component: Layout,
   componentPath: '../Layout',
   exampleImport: `import { Layout, Cell } from 'wix-style-react/Layout';`,

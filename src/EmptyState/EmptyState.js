@@ -17,9 +17,14 @@ const EmptyState = ({
   classNames: classNamesProp,
   children,
   dataHook,
+  align,
 }) => (
   <div
-    className={classNames(styles.wrapper, styles[theme])}
+    className={classNames(
+      styles.wrapper,
+      styles[theme],
+      styles[`align-${align}`],
+    )}
     data-hook={dataHook}
   >
     <div className={styles.container}>
@@ -27,6 +32,7 @@ const EmptyState = ({
         <div
           className={classNames(
             styles.imageContainer,
+            styles[`align-${align}`],
             (classNamesProp && classNamesProp.imageContainer) || '',
           )}
           data-hook="empty-state-image-container"
@@ -67,7 +73,10 @@ const EmptyState = ({
 
       {children && (
         <div
-          className={styles.childrenContainer}
+          className={classNames(
+            styles.childrenContainer,
+            styles[`align-${align}`],
+          )}
           data-hook="empty-state-children-container"
         >
           {children}
@@ -101,12 +110,15 @@ EmptyState.propTypes = {
   children: PropTypes.node,
 
   dataHook: PropTypes.string,
+
+  align: PropTypes.oneOf(['start', 'center', 'end']),
 };
 
 EmptyState.defaultProps = {
   theme: 'section',
   image: null,
   children: null,
+  align: 'center',
 };
 
 export default EmptyState;

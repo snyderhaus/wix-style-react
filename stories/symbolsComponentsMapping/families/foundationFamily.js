@@ -4,6 +4,9 @@ import {
   sharedComponentsNames,
 } from '../components';
 
+/**
+ * Symbol => Component 1
+ */
 export const foundationSymbolsToComponents = {
   [foundationSymbols.typography]: [
     componentsNames.Heading,

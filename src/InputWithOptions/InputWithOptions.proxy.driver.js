@@ -2,14 +2,16 @@ export const dropdownLayoutDriverProxy = (
   drodpwnLayoutDummy,
   dropdownLayoutTestkit,
   popoverTestkit,
-  driver,
+  inputTestkit,
 ) => {
   return {
     ...Object.keys(drodpwnLayoutDummy()).reduce((prev, current) => {
       return {
         ...prev,
         [current]: async args => {
-          const isPopoverShown = await (await popoverTestkit()).isContentElementExists();
+          const isPopoverShown = await (
+            await popoverTestkit()
+          ).isContentElementExists();
           if (current === 'isShown' || current === 'exists') {
             return isPopoverShown;
           }
@@ -20,7 +22,7 @@ export const dropdownLayoutDriverProxy = (
               : { isDisplayed: () => false };
           }
 
-          !isPopoverShown && (await driver.pressKey('ArrowDown'));
+          !isPopoverShown && (await inputTestkit.click());
 
           return await (await dropdownLayoutTestkit())[current](args);
         },

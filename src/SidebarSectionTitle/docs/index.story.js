@@ -75,13 +75,14 @@ export default {
 
           columns([
             description({
-              title: 'Title with Ellipsis',
-              text: 'A simple example for an ellipsis in case of long text',
+              title: 'Multiple Lines',
+              text:
+                'An example that demonstrates a long section title that is broken down into multiple lines',
             }),
 
             code({
               compact: true,
-              source: examples.ellipsis,
+              source: examples.longTitle,
             }),
           ]),
 

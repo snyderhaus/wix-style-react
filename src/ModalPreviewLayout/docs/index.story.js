@@ -24,6 +24,7 @@ import SimpleExample from '!raw-loader!./examples/Simple';
 import FullWidthContentExample from '!raw-loader!./examples/FullWidthContent';
 import ScrollableContentExample from '!raw-loader!./examples/ScrollableContent';
 import allComponents from '../../../stories/utils/allComponents';
+import { Category } from '../../../stories/storiesHierarchy';
 
 const code = config => baseCode({ components: allComponents, ...config });
 
@@ -69,7 +70,10 @@ export default {
               title: 'Description',
               text: [
                 'Use this component together with ',
-                <LinkTo kind="Components" story="Modal">{`<Modal />`}</LinkTo>,
+                <LinkTo
+                  kind={Category.COMPONENTS}
+                  story="Modal"
+                >{`<Modal />`}</LinkTo>,
                 ' to display content in preview mode. In the header strip you may place a title and/or a button strip with actions relevant to the displayed content.',
               ],
             }),

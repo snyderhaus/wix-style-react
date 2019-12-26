@@ -10,6 +10,8 @@ const tableDriverFactory = async (component, page) => {
       );
       return await page.evaluate(_cell => _cell.innerText, cell);
     },
+    getRowsCount: async () =>
+      (await tableContent.$$('[data-table-row="dataTableRow"]')).length,
   };
 };
 

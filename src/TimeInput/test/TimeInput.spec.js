@@ -51,7 +51,7 @@ describe('TimeInput', () => {
           parseInt(inputTimeMinutes) - parseInt(currentTimeMinutes),
         );
         expect(inputTimeHours).toBe(currentTimeHours);
-        expect(minutesDiff <= 1).toBeTruthy(); //ignore diff of one minute (minute can be change from the time the object was created to current time)
+        expect(minutesDiff <= 1).toBe(true); //ignore diff of one minute (minute can be change from the time the object was created to current time)
       });
 
       it(`should allow rendering time in 24 hours mode`, async () => {
@@ -69,7 +69,7 @@ describe('TimeInput', () => {
           disableAmPm: false,
         };
         const { driver } = render(<TimePicker {...props} />);
-        expect(await driver.isAmPmIndicatorExist()).toBeTruthy();
+        expect(await driver.isAmPmIndicatorExist()).toBe(true);
       });
 
       it(`should display AM indicator when in 12 hours mode and the time displayed is AM`, async () => {
@@ -97,10 +97,10 @@ describe('TimeInput', () => {
           onChange: sinon.spy(),
         };
         const { driver } = render(<TimePicker {...props} />);
-        expect(await driver.isDisabled()).toBeFalsy();
+        expect(await driver.isDisabled()).toBe(false);
         await driver.clickTickerUp();
         await driver.clickTickerDown();
-        expect(props.onChange.calledTwice).toBeTruthy();
+        expect(props.onChange.calledTwice).toBe(true);
       });
 
       it(`should not do anything upon clicking input's up/down ticker when disabled`, async () => {
@@ -113,8 +113,8 @@ describe('TimeInput', () => {
         await driver.clickTickerUp();
         await driver.clickTickerDown();
 
-        expect(await driver.isDisabled()).toBeTruthy();
-        expect(props.onChange.called).toBeFalsy();
+        expect(await driver.isDisabled()).toBe(true);
+        expect(props.onChange.called).toBe(false);
       });
 
       it(`should increase input value by 20 minutes upon clicking the input's up ticker`, async () => {
@@ -195,7 +195,7 @@ describe('TimeInput', () => {
       it(`should not be created in rtl mode by default`, async () => {
         const props = {};
         const { driver } = render(<TimePicker {...props} />);
-        expect(await driver.isRtl()).toBeFalsy();
+        expect(await driver.isRtl()).toBe(false);
       });
 
       it(`should allow to be created in rtl mode`, async () => {
@@ -203,7 +203,7 @@ describe('TimeInput', () => {
           rtl: true,
         };
         const { driver } = render(<TimePicker {...props} />);
-        expect(await driver.isRtl()).toBeTruthy();
+        expect(await driver.isRtl()).toBe(true);
       });
     });
   }

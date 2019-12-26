@@ -3,6 +3,9 @@ import { storiesOf } from '@storybook/react';
 import LinearProgressBar from '../LinearProgressBar';
 import { storySettings } from './storySettings';
 import { linearProgressBarTestkitFactory } from '../../../testkit';
+import { SKINS } from '../constants';
+import { Layout, Cell } from '../../Layout';
+import Box from '../../Box';
 
 const { dataHook } = storySettings;
 
@@ -20,9 +23,9 @@ class InteractiveEyeTest extends React.PureComponent {
   render() {
     const props = this.props;
     return (
-      <div style={{ padding: '40px' }}>
+      <Box padding="40px">
         <LinearProgressBar dataHook={dataHook} {...props} />
-      </div>
+      </Box>
     );
   }
 }
@@ -74,6 +77,19 @@ const tests = [
         it: 'light with an error',
         props: { value: 20, light: true, error: true },
       },
+      {
+        it: 'light with a progress indication',
+        props: { value: 20, light: true, showProgressIndication: true },
+      },
+      {
+        it: 'light with an error and progress indication',
+        props: {
+          value: 20,
+          light: true,
+          showProgressIndication: true,
+          error: true,
+        },
+      },
     ],
   },
   {
@@ -124,9 +140,25 @@ const interactiveTests = [
 tests.forEach(({ describe, its }) => {
   its.forEach(({ it, props }) => {
     storiesOf(`LinearProgressBar/${describe}`, module).add(it, () => (
-      <div style={{ width: '40%' }}>
-        <LinearProgressBar dataHook={dataHook} {...props} />
-      </div>
+      <Box
+        backgroundColor={props.light ? 'D10' : 'D80'}
+        align="center"
+        verticalAlign="middle"
+        padding="40px"
+      >
+        <Layout>
+          <Cell>
+            <LinearProgressBar dataHook={dataHook} {...props} />
+          </Cell>
+          <Cell>
+            <LinearProgressBar
+              dataHook={dataHook}
+              {...props}
+              skin={SKINS.success}
+            />
+          </Cell>
+        </Layout>
+      </Box>
     ));
   });
 });

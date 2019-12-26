@@ -1,6 +1,6 @@
 import React from 'react';
-import { InfoCircle, Hidden } from 'wix-style-react/new-icons';
-import Input from '../../Input';
+import InfoCircle from 'wix-ui-icons-common/InfoCircle';
+import Hidden from 'wix-ui-icons-common/Hidden';
 import {
   header,
   tabs,
@@ -15,6 +15,8 @@ import {
   api,
   testkit,
 } from 'wix-storybook-utils/Sections';
+
+import Input from '../../Input';
 import { storySettings } from '../test/storySettings';
 import allComponents from '../../../stories/utils/allComponents';
 import InputWithLabel from '..';

@@ -5,7 +5,7 @@ import Button from 'wix-style-react/Button';
 import TextButton from 'wix-style-react/TextButton';
 import EmptyState from 'wix-style-react/EmptyState';
 import Card from 'wix-style-react/Card';
-import { Add } from 'wix-style-react/new-icons';
+import Add from 'wix-ui-icons-common/Add';
 
 import ImagePlaceholder from '../../../stories/utils/ImagePlaceholder';
 

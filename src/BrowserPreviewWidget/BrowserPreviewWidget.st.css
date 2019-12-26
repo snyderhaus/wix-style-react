@@ -1,0 +1,86 @@
+:import {
+  -st-from: "../Foundation/stylable/colors.st.css";
+  -st-named: D50, D60, D80;
+}
+
+.root {
+  -st-states: browserBarSize(enum(size9, size12, size18, size24));
+}
+
+.browserBar {
+  background-color: value(D80);
+  border-bottom: 1px solid value(D60);
+}
+
+.root:browserBarSize(size9) .browserBar {
+  height: 9px;
+}
+
+.root:browserBarSize(size12) .browserBar {
+  height: 12px;
+}
+
+.root:browserBarSize(size18) .browserBar {
+  height: 18px;
+}
+
+.root:browserBarSize(size24) .browserBar {
+  height: 24px;
+}
+
+.circlesContainer{
+  display: flex;
+  flex-direction: row;
+}
+
+.root:browserBarSize(size9) .circlesContainer{
+  padding: 3px 0;
+  margin-left: 1px;
+}
+
+.root:browserBarSize(size12) .circlesContainer{
+   padding: 4px 0;
+   margin-left: 1px;
+}
+
+.root:browserBarSize(size18) .circlesContainer{
+  padding: 6px 0;
+  margin-left: 2px;
+}
+
+.root:browserBarSize(size24) .circlesContainer{
+  padding: 7px 0 8px 0;
+  margin-left: 3px;
+}
+
+.circle {
+  background-color: value(D50);
+}
+
+.root:browserBarSize(size9) .circle{
+  width: 3px;
+  height: 3px;
+  border-radius: 1.5px;
+  margin-left: 2px;
+}
+
+.root:browserBarSize(size12) .circle{
+  width: 4px;
+  height: 4px;
+  border-radius: 2px;
+  margin-left: 3px;
+}
+
+.root:browserBarSize(size18) .circle{
+  width: 6px;
+  height: 6px;
+  border-radius: 3px;
+  margin-left: 4px;
+}
+
+.root:browserBarSize(size24) .circle{
+  width: 9px;
+  height: 9px;
+  border-radius: 4.5px;
+  margin-left: 6px;
+}

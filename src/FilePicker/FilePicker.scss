@@ -10,14 +10,6 @@ $content-width: 250px;
     max-width: $content-width;
 }
 
-.header {
-  display: block;
-  margin-bottom: 13px;
-  font-family: $FontMedium;
-  font-size: 16px;
-  line-height: 1.3;
-}
-
 .label {
   position: relative;
   display: inline-flex;
@@ -36,16 +28,7 @@ $content-width: 250px;
   }
 }
 
-.cta {
-  font-family: $FontRoman;
-  font-size: 20px;
-  color: $B10;
-}
-
 .info {
-  font-family: $FontLight;
-  font-size: 16px;
-  color: $D30;
   margin-top: 5px;
   margin-bottom: 5px;
 }
@@ -63,10 +46,4 @@ $content-width: 250px;
   margin-right: 10px;
   color: $B10;
   padding-top: 3px;
-}
-
-.error {
-  font-family: $FontLight;
-  font-size: 16px;
-  color: $R10;
 }

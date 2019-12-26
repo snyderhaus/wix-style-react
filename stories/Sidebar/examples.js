@@ -55,7 +55,7 @@ class DesignedSidebar extends React.Component {
           </Sidebar.PersistentHeader>
 
           <Sidebar.Item itemKey={'dashboard'}>
-            <SidebarSectionItem>Dashboard</SidebarSectionItem>
+            <SidebarSectionItem selected>Dashboard</SidebarSectionItem>
           </Sidebar.Item>
 
           <Sidebar.Item itemKey={'video-library'}>
@@ -130,7 +130,7 @@ class DesignedSidebar extends React.Component {
 
 export const accountManagerSidebar = `
 <Box height="800px">
-<Sidebar selectedKey={'dashboard'} skin="light">
+<Sidebar skin="light">
   <Sidebar.PersistentHeader>
     <SidebarHeader>
       <TextButton prefixIcon={<Icons.ArrowLeft />} size="tiny" weight="normal" skin="dark">Back to Site Dashboard</TextButton>

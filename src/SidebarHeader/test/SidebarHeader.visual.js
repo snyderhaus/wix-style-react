@@ -1,11 +1,11 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 
 import SidebarHeader from '../SidebarHeader';
 import { SidebarContext } from '../../Sidebar/SidebarAPI';
 import Box from '../../Box';
 import LinearProgressBar from '../../LinearProgressBar';
 import Avatar from '../../Avatar';
+import { snap, visualize } from 'storybook-snapper';
 
 const skins = ['dark', 'light'];
 
@@ -69,20 +69,27 @@ const tests = [
   },
 ];
 
-tests.forEach(({ describe, its }) =>
-  storiesOf(`SidebarHeader`, module).add(describe, () => (
-    <React.Fragment>
-      {its.map(({ props }) => (
-        <Box backgroundColor="D70">
-          {skins.map(skin => (
-            <Box direction="vertical" marginBottom={5} marginRight={5}>
-              <SidebarContext.Provider value={{ getSkin: () => skin }}>
-                <SidebarHeader {...props} />
-              </SidebarContext.Provider>
-            </Box>
-          ))}
-        </Box>
-      ))}
-    </React.Fragment>
-  )),
-);
+tests.forEach(({ describe, its }) => {
+  visualize('SidebarHeader', () => {
+    snap(describe, () => (
+      <React.Fragment>
+        {its.map(({ props }, id) => (
+          <Box backgroundColor="D70" key={id}>
+            {skins.map(skin => (
+              <Box
+                direction="vertical"
+                marginBottom={5}
+                marginRight={5}
+                key={skin}
+              >
+                <SidebarContext.Provider value={{ getSkin: () => skin }}>
+                  <SidebarHeader {...props} />
+                </SidebarContext.Provider>
+              </Box>
+            ))}
+          </Box>
+        ))}
+      </React.Fragment>
+    ));
+  });
+});

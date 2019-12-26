@@ -1,8 +1,4 @@
-:import {
-  -st-from: "./colors.st.css";
-  -st-named: D80;
-}
-
+/**** Will be removed soon ****/
 :vars {
   fontsFallback: '"Helvetica Neue", "Helvetica", "Arial", "メイリオ", "meiryo", "ヒラギノ角ゴ pro w3", "hiragino kaku gothic pro", "sans-serif"'
 }
@@ -15,7 +11,14 @@
   fontMedium: '"HelveticaNeueW01-65Medi", "HelveticaNeueW02-65Medi", "HelveticaNeueW10-65Medi", value(fontsFallback)';
   fontBold: '"HelveticaNeueW01-75Bold", "HelveticaNeueW02-75Bold", "HelveticaNeueW10-75Bold", value(fontsFallback)';
 }
+/******************************/
 
+:import {
+  -st-from: './fonts/helvetica.st.css';
+  -st-named: weight-45, weight-55, weight-65, weight-75;
+}
+
+/* Sizes */
 .sizeMedium {
   font-size: 16px;
   line-height: 24px;
@@ -31,21 +34,20 @@
   line-height: 15px;
 }
 
+/* Weights */
 .weightThin {
-  font-family: value(fontLight);
-  font-weight: normal;
+  -st-mixin: weight-45;
 }
 
 .weightNormal {
-  font-family: value(fontRoman);
-  font-weight: normal;
+  -st-mixin: weight-55;
 }
 
 .weightBold {
-  font-family: value(fontMedium);
-  font-weight: normal;
+  -st-mixin: weight-65;
 }
 
-.light {
-  color: value(D80);
+/* Will be removed with Madefor */
+.weightXBold {
+  -st-mixin: weight-75;
 }

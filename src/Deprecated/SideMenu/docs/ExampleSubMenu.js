@@ -1,8 +1,8 @@
 /* eslint-disable no-console */
 import React from 'react';
 import SideMenu from 'wix-style-react/SideMenu';
-import InfoCircle from 'wix-style-react/new-icons/InfoCircle';
-import Chat from 'wix-style-react/new-icons/Chat';
+import InfoCircle from 'wix-ui-icons-common/InfoCircle';
+import Chat from 'wix-ui-icons-common/Chat';
 
 export default () => (
   <div style={{ width: 220, height: 700, display: 'flex' }}>

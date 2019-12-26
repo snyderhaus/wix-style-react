@@ -1,5 +1,7 @@
 import React from 'react';
-import { storySettings } from '../test/storySettings';
+import LockLocked from 'wix-ui-icons-common/LockLocked';
+import LockUnlocked from 'wix-ui-icons-common/LockUnlocked';
+import { Layout, Cell } from 'wix-style-react/Layout';
 import {
   tab,
   code,
@@ -10,10 +12,8 @@ import {
   tabs,
 } from 'wix-storybook-utils/Sections';
 
+import { storySettings } from '../test/storySettings';
 import SegmentedToggle from '..';
-import LockLocked from 'wix-style-react/new-icons/LockLocked';
-import LockUnlocked from 'wix-style-react/new-icons/LockUnlocked';
-import { Layout, Cell } from 'wix-style-react/Layout';
 
 import * as examples from './examples';
 import testkit from './testkit.md';

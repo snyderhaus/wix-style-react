@@ -31,7 +31,6 @@ class SidebarSectionTitle extends React.PureComponent {
               {...styles('root', { skin }, this.props)}
               size="tiny"
               weight="bold"
-              ellipsis
             >
               {children}
             </Text>

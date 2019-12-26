@@ -15,8 +15,11 @@ import {BadgeSelectDriver} from '../src/BadgeSelect/BadgeSelect.driver';
 import {BoxDriver} from '../src/Box/Box.uni.driver';
 import {SocialButtonDriver} from '../src/SocialButton/SocialButton.uni.driver'
 import {TooltipDriver as TooltipUniDriver} from '../src/Tooltip/TooltipNext/Tooltip.uni.driver';
+import {TimeTableDriver} from '../src/TimeTable/TimeTable.uni.driver';
 import {TooltipDriver} from '../src/Tooltip/Tooltip.driver';
 import {InfoIconDriver} from '../src/InfoIcon/InfoIcon.uni.driver';
+import {ListItemSectionDriver} from '../src/ListItemSection/ListItemSection.uni.driver';
+import {ListItemSelectDriver} from '../src/ListItemSelect/ListItemSelect.uni.driver';
 
 declare namespace EnzymeTestkit {
   type EnzymeTestkitFactory<T extends BaseDriver> = (
@@ -143,6 +146,14 @@ declare namespace EnzymeTestkit {
   export const socialButtonTestkitFactory: EnzymeUniTestkitFactory<SocialButtonDriver>;
   export const verticalTabsTestkitFactory: any;
   export const verticalTabsItemTestkitFactory: any;
+  export const mobilePreviewWidgetTestkitFactory: any;
+  export const listItemSectionTestkitFactory: EnzymeUniTestkitFactory<ListItemSectionDriver>;
+  export const browserPreviewWidgetTestkitFactory: any;
+  export const listItemSelectTestkitFactory: EnzymeUniTestkitFactory<ListItemSelectDriver>;
+  export const timeTableTestkitFactory: EnzymeUniTestkitFactory<TimeTableDriver>;
+  export const marketingLayoutTestkitFactory: any;
+  export const paletteTestkitFactory: any;
+  export const warningIndicatorTestkitFactory: any;
   export const sideMenuDrillTestkitFactory: any;
   export const headerTestkitFactory: any;
   export const sideMenuTestkitFactory: any;

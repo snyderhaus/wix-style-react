@@ -1,10 +1,11 @@
+/* eslint-disable */
+
 import React from 'react';
 import { Container, Row, Col } from 'wix-style-react/Grid';
 import Card from 'wix-style-react/Card';
 import Button from 'wix-style-react/Button';
 import TextButton from 'wix-style-react/TextButton';
 import EmptyState from 'wix-style-react/EmptyState';
-import Icons from 'wix-style-react/new-icons';
 
 class EmptyStateExample extends React.Component {
   render() {

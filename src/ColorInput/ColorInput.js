@@ -5,7 +5,7 @@ import Input from '../Input';
 import { Hash } from './components/Hash';
 import { ColorViewer } from './components/ColorViewer';
 
-import { validateHex, extractHex } from './hex-helpers';
+import { validateHex, normalizeHexInput } from './hex-helpers';
 
 class ColorInput extends React.Component {
   static displayName = 'ColorInput';
@@ -83,7 +83,7 @@ class ColorInput extends React.Component {
   static getDerivedStateFromProps(props, state) {
     if (!state.active && props.value !== state.value) {
       return {
-        value: extractHex(props.value),
+        value: normalizeHexInput(props.value),
       };
     }
     return {};
@@ -137,8 +137,8 @@ class ColorInput extends React.Component {
 
   _onChange = evt => {
     const { onChange } = this.props;
-    const value = extractHex(evt.target.value);
-    this.setState({ value: extractHex(value) }, () => onChange(value));
+    const value = normalizeHexInput(evt.target.value);
+    this.setState({ value }, () => onChange(value));
   };
 
   _onPickerChange = value => {

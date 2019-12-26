@@ -35,7 +35,7 @@ const driverFactory = component => {
     dropdownLayoutDummy,
     getDropdownLayoutDriver,
     () => getPopoverTestkit(component),
-    { pressKey: key => inputDriver.keyDown(key) },
+    { click: () => inputDriver.click() },
   );
   return {
     ...dropdownLayoutDriver,

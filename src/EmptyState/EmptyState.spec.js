@@ -88,5 +88,11 @@ describe('EmptyState', () => {
         'some-class-name',
       );
     });
+
+    it('should have an align', async () => {
+      const { driver } = render(<EmptyState {...defaultProps} align="start" />);
+
+      expect(await driver.hasAlign('start')).toBe(true);
+    });
   }
 });

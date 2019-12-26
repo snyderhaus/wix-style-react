@@ -1,8 +1,8 @@
 import React from 'react';
-import Edit from 'wix-style-react/new-icons/Edit';
-import Delete from 'wix-style-react/new-icons/Delete';
-import Email from 'wix-style-react/new-icons/Email';
-import More from 'wix-style-react/new-icons/More';
+import Edit from 'wix-ui-icons-common/Edit';
+import Delete from 'wix-ui-icons-common/Delete';
+import Email from 'wix-ui-icons-common/Email';
+import More from 'wix-ui-icons-common/More';
 import Badge from 'wix-style-react/Badge';
 import IconButton from 'wix-style-react/IconButton';
 

@@ -122,6 +122,7 @@ class DraggableSource extends React.Component {
       });
     }
     this.updateDiff();
+    this.updateItemWidth();
   }
 
   componentDidUpdate(prevProps) {
@@ -130,6 +131,10 @@ class DraggableSource extends React.Component {
       prevProps.containerId !== this.props.containerId
     ) {
       this.updateDiff();
+    }
+
+    if (prevProps.isDragging !== this.props.isDragging) {
+      this.updateItemWidth();
     }
   }
 
@@ -148,6 +153,12 @@ class DraggableSource extends React.Component {
       });
     }
   }
+
+  updateItemWidth = () => {
+    if (this.rootNode) {
+      this.setState({ itemWidth: this.rootNode.getBoundingClientRect().width });
+    }
+  };
 
   _getWrapperStyles() {
     const {
@@ -217,7 +228,6 @@ class DraggableSource extends React.Component {
     // Don't need to reset the values if node remains the same
     if (node && this.rootNode !== node) {
       this.rootNode = node;
-      this.setState({ itemWidth: this.rootNode.getBoundingClientRect().width });
     }
   };
 
@@ -290,6 +300,8 @@ DraggableSource.propTypes = {
   delayed: PropTypes.bool,
 };
 
-export default DragSource(ItemTypes.DRAGGABLE, source, collect)(
-  DraggableSource,
-);
+export default DragSource(
+  ItemTypes.DRAGGABLE,
+  source,
+  collect,
+)(DraggableSource);

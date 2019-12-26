@@ -1,5 +1,13 @@
 .root {
   padding: 24px 30px 30px;
+
+  &.medium {
+    padding: 30px;
+  }
+
+  &.large {
+    padding: 36px;
+  }
 }
 
 .emptyStateContent {

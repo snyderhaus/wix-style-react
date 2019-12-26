@@ -8,14 +8,22 @@
   -st-named: dividerColor
 }
 
+:import {
+  -st-from: "../Sidebar/main.st.css";
+  -st-named: sidebarWidth
+}
+
 .root {
   border: 0;
   height: 1px;
-  margin: 20px 24px;
+  box-sizing: border-box;
+  padding: 17px 24px 18px 24px;
+  max-width: value(sidebarWidth);
+  width: 100%;
 }
 
 .fullWidth {
-  margin: 0;
+  padding: 0;
 }
 
 .divider {

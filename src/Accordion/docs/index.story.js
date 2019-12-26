@@ -13,11 +13,11 @@ import {
   testkit,
   playground,
 } from 'wix-storybook-utils/Sections';
+import InfoCircle from 'wix-ui-icons-common/InfoCircle';
 
 import { storySettings } from './storySettings';
 import Accordion from '..';
 import RichTextInputArea from '../../RichTextInputArea';
-import { InfoCircle } from '../../new-icons';
 import { buttonTypes } from '../constants';
 
 import allComponents from '../../../stories/utils/allComponents';

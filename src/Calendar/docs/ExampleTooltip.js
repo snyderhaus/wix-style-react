@@ -2,7 +2,7 @@ import React from 'react';
 import Calendar from 'wix-style-react/Calendar';
 import Tooltip from 'wix-style-react/Tooltip';
 import Button from 'wix-style-react/Button';
-import DateIcon from 'wix-style-react/new-icons/Date';
+import DateIcon from 'wix-ui-icons-common/Date';
 
 export default () => (
   <Tooltip

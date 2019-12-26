@@ -1,11 +1,12 @@
 import React from 'react';
+import CropRotate from 'wix-ui-icons-common/CropRotate';
+
 import {
   cleanup,
   createRendererWithUniDriver,
 } from '../../../test/utils/react/index';
 import { toggleButtonPrivateDriverFactory } from '../ToggleButton.private.uni.driver';
 import ToggleButton from '../index';
-import CropRotate from '../../new-icons/CropRotate';
 import { dataHooks } from './storySettings';
 
 describe('ToggleButton', () => {

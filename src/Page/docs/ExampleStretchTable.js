@@ -20,7 +20,9 @@ import Page from 'wix-style-react/Page';
 import Button from 'wix-style-react/Button';
 import TextButton from 'wix-style-react/TextButton';
 import Text from 'wix-style-react/Text';
-import { Edit, Duplicate, Upload } from 'wix-style-react/new-icons';
+import Edit from 'wix-ui-icons-common/Edit';
+import Duplicate from 'wix-ui-icons-common/Duplicate';
+import Upload from 'wix-ui-icons-common/Upload';
 import Highlighter from 'wix-style-react/Highlighter';
 
 import ImagePlaceholder from '../../../stories/utils/ImagePlaceholder';

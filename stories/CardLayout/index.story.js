@@ -13,6 +13,7 @@ import { storySettings } from './storySettings';
 import { baseScope } from '../utils/LiveCodeExample';
 import FormExampleRaw from '!raw-loader!./FormExample';
 import EmptyStateExampleRaw from '!raw-loader!./EmptyStateExample';
+import { Category } from '../storiesHierarchy';
 
 const code = config =>
   baseCode({ components: baseScope, compact: true, ...config });
@@ -32,17 +33,25 @@ export default {
         title: 'Realted Components',
         rows: [
           [
-            <LinkTo kind="Components" story="Card" children="<Card/>" />,
+            <LinkTo
+              kind={Category.COMPONENTS}
+              story="Card"
+              children="<Card/>"
+            />,
             'The Card component',
           ],
 
           [
-            <LinkTo kind="Components" story="Grid" children="<Grid/>" />,
+            <LinkTo
+              kind={Category.COMPONENTS}
+              story="Grid"
+              children="<Grid/>"
+            />,
             'Component that constructs a grid',
           ],
           [
             <LinkTo
-              kind="Components"
+              kind={Category.COMPONENTS}
               story="EmptyState"
               children="<EmptyState/>"
             />,

@@ -1,9 +1,9 @@
 /* eslint-disable no-console */
 import React from 'react';
 import PropTypes from 'prop-types';
+import ChevronRight from 'wix-ui-icons-common/ChevronRight';
 
 import Step from './Step/Step';
-import ChevronRight from '../new-icons/ChevronRight';
 import { MAX_STEPS, MIN_STEPS, STEP_TYPES } from './Consts';
 
 import styles from './Stepper.st.css';

@@ -23,12 +23,20 @@ export const prefix = `
 <SidebarSectionItem prefix={<Box width="8px" height="8px" borderRadius="50%" backgroundColor="G10"></Box>}>Action</SidebarSectionItem>
 `;
 
-export const suffix = `
+export const counterBadgeSuffix = `
 <SidebarSectionItem suffix={<CounterBadge skin="standard">5</CounterBadge>}>Action</SidebarSectionItem>
 `;
 
+export const badgeSuffix = `
+<SidebarSectionItem suffix={<Badge skin="standard" size="small">New</Badge>}>Action</SidebarSectionItem>
+`;
+
 export const lightSkin = `
-<Sidebar skin="light">
-  <SidebarSectionItem>Action</SidebarSectionItem>
-</Sidebar>
+<Box height="36px">
+  <Sidebar skin="light">
+    <Sidebar.Item>
+      <SidebarSectionItem>Action</SidebarSectionItem>
+    </Sidebar.Item>
+  </Sidebar>
+</Box>
 `;

@@ -17,6 +17,7 @@ import { Layout, Cell } from 'wix-style-react/Layout';
 import TextButton from 'wix-style-react/TextButton';
 import Tooltip from 'wix-style-react/Tooltip';
 import SectionHelper from 'wix-style-react/SectionHelper';
+import { Category } from '../storiesHierarchy';
 
 const liveCode = config =>
   code({
@@ -67,18 +68,24 @@ export default {
         title: 'Included Components',
         rows: [
           [
-            <LinkTo kind="Components" story="Tooltip">{`<Tooltip/>`}</LinkTo>,
+            <LinkTo
+              kind={Category.COMPONENTS}
+              story="Tooltip"
+            >{`<Tooltip/>`}</LinkTo>,
             'content element',
           ],
           [
             <LinkTo
-              kind="5. Buttons"
+              kind={Category.BUTTONS}
               story="5.3 TextButton"
             >{`<TextButton/>`}</LinkTo>,
             'trigger element',
           ],
           [
-            <LinkTo kind="Components" story="Text">{`<Text/>`}</LinkTo>,
+            <LinkTo
+              kind={Category.COMPONENTS}
+              story="Text"
+            >{`<Text/>`}</LinkTo>,
             'trigger element',
           ],
         ],

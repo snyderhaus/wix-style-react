@@ -1,5 +1,5 @@
 import React from 'react';
-import { Hint } from 'wix-style-react/new-icons';
+import Hint from 'wix-ui-icons-common/Hint';
 
 import Box from '../../Box';
 

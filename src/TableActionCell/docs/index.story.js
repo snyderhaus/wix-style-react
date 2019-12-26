@@ -1,6 +1,10 @@
 /* eslint-disable no-console */
 import React from 'react';
 import CodeExample from 'wix-storybook-utils/CodeExample';
+import Star from 'wix-ui-icons-common/Star';
+import Download from 'wix-ui-icons-common/Download';
+import Duplicate from 'wix-ui-icons-common/Duplicate';
+import Print from 'wix-ui-icons-common/Print';
 
 import { storySettings } from './storySettings';
 import style from './TableActionCell.story.st.css';
@@ -40,8 +44,6 @@ import DisabledSecondaryExampleRaw from '!raw-loader!./examples/DisabledSecondar
 import DisabledPrimaryExample from './examples/DisabledPrimaryExample';
 import DisabledPrimaryExampleRaw from '!raw-loader!./examples/DisabledPrimaryExample';
 
-import { Star, Download, Duplicate, Print } from 'wix-style-react/new-icons';
-
 const primaryActionOptions1 = {
   text: 'Details',
   theme: 'fullblue',
@@ -57,6 +59,7 @@ const secondaryActionsOption = [
   {
     text: 'Star',
     icon: <Star />,
+    dataHook: 'star-action',
     onClick: () => console.log('Star action called!'),
   },
   {
@@ -67,6 +70,7 @@ const secondaryActionsOption = [
   {
     text: 'Duplicate',
     icon: <Duplicate />,
+    dataHook: 'duplicate-action',
     onClick: () => console.log('Duplicate action called!'),
   },
   {
@@ -79,7 +83,7 @@ const secondaryActionsOption = [
 const ExampleComponent = props => (
   <div {...style('root', {}, props)}>
     <tr className={style.exampleRow}>
-      <TableActionCell {...props} />
+      <TableActionCell {...props} upgrade />
     </tr>
   </div>
 );

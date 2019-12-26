@@ -3,8 +3,8 @@ import { storiesOf } from '@storybook/react';
 import Box from 'wix-style-react/Box';
 import Button from 'wix-style-react/Button';
 import IconButton from 'wix-style-react/IconButton';
-import Print from 'wix-style-react/new-icons/Print';
-import More from 'wix-style-react/new-icons/More';
+import Print from 'wix-ui-icons-common/Print';
+import More from 'wix-ui-icons-common/More';
 
 import ascendInvoice from '../../../test/assets/ascend-invoice.jpg';
 import ModalPreviewLayout from '..';

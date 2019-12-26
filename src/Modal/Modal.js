@@ -2,12 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ReactModal from 'react-modal';
 import classnames from 'classnames';
+import X from 'wix-ui-icons-common/X';
+import defaultTo from 'lodash/defaultTo';
+
 import styles from './Modal.scss';
 import { flexPositions } from './constants';
 import WixComponent from '../BaseComponents/WixComponent';
-import X from '../new-icons/X';
 import { ZIndex } from '../ZIndex';
-import defaultTo from 'lodash/defaultTo';
 
 const CHILDREN_WRAPPER_DIV_ID = 'modal-children-container';
 

@@ -24,7 +24,7 @@ class TableActionCellExample extends React.Component {
                 primaryAction={{
                   text: 'Edit',
                   theme: 'fullblue',
-                  onActionTrigger: rowData => window.alert(`Editing ${rowData.name}`),
+                  onClick: () => window.alert(`Editing ${rowData.firstName}`),
                 }}
                 secondaryActions={[
                   {
@@ -50,14 +50,15 @@ class TableActionCellExample extends React.Component {
                 ]}
                 // How many actions are visible, whereas the rest would be shown within a popover menu
                 numOfVisibleSecondaryActions={2}
-                alwaysShowSecondaryActions={false}
               />
             ),
           },
         ]}
+        onRowClick={(rowData, rowNum) => console.log(`Row data is: ${JSON.stringify(rowData)}. Row num is: ${rowNum}`)}
       >
         <Table.Content />
       </Table>
     );
   }
 }
+export default TableActionCellExample

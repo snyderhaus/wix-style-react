@@ -5,9 +5,9 @@ import SideMenu from 'wix-style-react/SideMenu';
 import Button from 'wix-style-react/Button';
 import Tooltip from 'wix-style-react/Tooltip';
 import Heading from 'wix-style-react/Heading';
-import HelpIcon from 'wix-style-react/new-icons/InfoCircle';
-import ChatIcon from 'wix-style-react/new-icons/Chat';
-import ExternalLink from 'wix-style-react/new-icons/ExternalLink';
+import HelpIcon from 'wix-ui-icons-common/InfoCircle';
+import ChatIcon from 'wix-ui-icons-common/Chat';
+import ExternalLink from 'wix-ui-icons-common/ExternalLink';
 
 let counter = 3;
 

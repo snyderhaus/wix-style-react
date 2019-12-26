@@ -9,6 +9,8 @@
 | options | array | [] | - | Array of objects to display as options when focused. Objects can include *text* and *node*. If the text is `-`, a divider will be rendered at that position. |
 | onSelect | func | noop | - | Callback when the user selects one of the selections. Called with the selection. |
 | onManuallyInput | func | noop | - | Callback when the user pressed the Enter key or Tab key after he wrote in the Input field - meaning the user selected something not in the list, this function will return a suggested option as the second parameter if found one |
+| onOptionsShow | func | - | - | Callback when options show
+| onOptionsHide | func | - | - | Callback when options hide
 | selectedId | string/number | - | - | The id of the selected option in the list |
 | closeOnSelect | bool | true | - | Should the options container close on selection |
 | inputElement | element | - | - | Set the component input element |

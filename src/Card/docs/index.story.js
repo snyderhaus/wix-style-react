@@ -129,6 +129,17 @@ const { Header, Subheader, Content, Divider} = Card;
               compact: false,
             },
             {
+              title: 'Controls',
+              description:
+                'Set the `controls` property to make controls appear on the card',
+              source: `
+                <Card controls={<CloseButton />}>
+                  <Box height="160px"/>
+                </Card>
+                `,
+              compact: false,
+            },
+            {
               title: 'Collapsable',
               description:
                 'A collapsed card behavior can be achieved by using the <Collapse/> component which is a proxy for `react-collapse`',

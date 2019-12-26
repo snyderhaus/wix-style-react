@@ -23,10 +23,10 @@ import Box from 'wix-style-react/Box';
 import CardGalleryItem from 'wix-style-react/CardGalleryItem';
 import Badge from 'wix-style-react/Badge';
 import { Container, Row, Col } from 'wix-style-react/Grid';
-import { Hint } from 'wix-style-react/new-icons';
+import Hint from 'wix-ui-icons-common/Hint';
+import ChevronDown from 'wix-ui-icons-common/ChevronDown';
 import Card from 'wix-style-react/Card';
 import DropdownBase from 'wix-style-react/DropdownBase';
-import ChevronDown from 'wix-style-react/new-icons/ChevronDown';
 import TextButton from 'wix-style-react/TextButton';
 
 // 12. Content Widgets
@@ -34,6 +34,9 @@ import EmptyState from 'wix-style-react/EmptyState';
 import StatisticsWidget from 'wix-style-react/StatisticsWidget';
 import Carousel from 'wix-style-react/Carousel';
 import Accordion from 'wix-style-react/Accordion';
+import PreviewWidget from 'wix-style-react/PreviewWidget';
+import MobilePreviewWidget from 'wix-style-react/MobilePreviewWidget';
+import BrowserPreviewWidget from 'wix-style-react/BrowserPreviewWidget';
 
 const groupSymbol = symbolsGroup.contentWidgets;
 
@@ -426,12 +429,45 @@ const PreviewExample = () => {
 
   const singleComponentProps = {
     name: symbol,
-    componentsNames: components,
+    componentsNames: createLinkedComponentsNames(components),
   };
 
   return (
     <SingleComponentStacked {...singleComponentProps}>
-      <NotDeveloped />
+      <Container>
+        <Row>
+          <Col span={5}>
+            <PreviewWidget>
+              <Box padding="20px" backgroundColor="Y30">
+                <Text>Content goes here</Text>
+              </Box>
+            </PreviewWidget>
+          </Col>
+        </Row>
+        <Row>
+          <Col span={5}>
+            <BrowserPreviewWidget browserBarSize="size9">
+              <Box padding="20px" backgroundColor="Y30">
+                <Text>Content goes here</Text>
+              </Box>
+            </BrowserPreviewWidget>
+          </Col>
+        </Row>
+        <Row>
+          <Col span={5}>
+            <MobilePreviewWidget>
+              <Box
+                align="center"
+                verticalAlign="middle"
+                height="100%"
+                backgroundColor="Y30"
+              >
+                <Text>Content goes here</Text>
+              </Box>
+            </MobilePreviewWidget>
+          </Col>
+        </Row>
+      </Container>
     </SingleComponentStacked>
   );
 };

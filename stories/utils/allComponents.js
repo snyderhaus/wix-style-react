@@ -1,6 +1,6 @@
+import * as Icons from 'wix-ui-icons-common';
+import * as SystemIcons from 'wix-ui-icons-common/system';
 import * as wsr from '../../src/index';
-import * as Icons from '../../src/new-icons';
-import * as SystemIcons from '../../src/new-icons/system';
 
 /*
  * This object contains all wix-style-react components including icons

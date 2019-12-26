@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import WixComponent from '../../BaseComponents/WixComponent';
 import Heading from '../../Heading';
 import Text from '../../Text';
+import TextButton from '../../TextButton';
 import classNames from 'classnames';
 import CloseButton from '../../CloseButton';
 
@@ -26,7 +27,8 @@ class MessageBoxMarketerialLayout extends WixComponent {
     } = this.props;
 
     const headerClasses = classNames({
-      [styles.header]: true,
+      [styles.headerBase]: true,
+      [styles.header]: !!imageComponent || !!imageUrl,
       [styles[`header-${theme}`]]: true,
     });
 
@@ -47,11 +49,11 @@ class MessageBoxMarketerialLayout extends WixComponent {
           </div>
           {imageComponent ? (
             <div className={styles.headerImageComponent}>{imageComponent}</div>
-          ) : (
+          ) : imageUrl ? (
             <div className={styles.headerImage}>
               <img src={imageUrl} data-hook="header-image" />
             </div>
-          )}
+          ) : null}
         </div>
         <div className={styles.title} data-hook="message-box-title">
           <Heading appearance="H1">{title}</Heading>
@@ -92,22 +94,24 @@ class MessageBoxMarketerialLayout extends WixComponent {
     return (
       <div className={styles.buttonsContainer}>
         {primaryButtonLabel ? (
-          <div className={styles.primaryButtonContainer}>
-            <Button
-              theme={`full${primaryButtonTheme || theme}`}
-              onClick={onPrimaryButtonClick}
-              dataHook="primary-button"
-              disabled={primaryButtonDisabled}
-            >
-              {primaryButtonLabel}
-            </Button>
-          </div>
+          <Button
+            theme={`full${primaryButtonTheme || theme}`}
+            onClick={onPrimaryButtonClick}
+            dataHook="primary-button"
+            disabled={primaryButtonDisabled}
+          >
+            {primaryButtonLabel}
+          </Button>
         ) : null}
         {secondaryButtonLabel && !footerBottomChildren ? (
           <div className={styles.secondaryButtonContainer}>
-            <span onClick={onSecondaryButtonClick} data-hook="secondary-button">
+            <TextButton
+              size="small"
+              onClick={onSecondaryButtonClick}
+              dataHook="secondary-button"
+            >
               {secondaryButtonLabel}
-            </span>
+            </TextButton>
           </div>
         ) : null}
       </div>

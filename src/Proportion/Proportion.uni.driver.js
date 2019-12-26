@@ -1,6 +1,8 @@
 import { baseUniDriverFactory } from 'wix-ui-test-utils/base-driver';
 
 export const proportionDriverFactory = base => {
+  const byHook = dataHook => base.$(`[data-hook="${dataHook}"]`);
+
   return {
     ...baseUniDriverFactory(base),
 
@@ -10,5 +12,6 @@ export const proportionDriverFactory = base => {
       const height = await base.attr('offsetHeight');
       return width / height;
     },
+    isAspectRatioDisabled: async () => byHook('proportion-aspect').exists(),
   };
 };

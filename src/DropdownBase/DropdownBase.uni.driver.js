@@ -1,7 +1,5 @@
 import { baseUniDriverFactory } from 'wix-ui-test-utils/base-driver';
 
-import { ReactBase } from '../../test/utils/unidriver';
-
 import { dropdownLayoutDriverFactory } from '../DropdownLayout/DropdownLayout.uni.driver';
 
 import testkit from '../Popover/Popover.uni.driver';
@@ -9,7 +7,6 @@ import popoverCommonDriverFactory from '../Popover/Popover.common.uni.driver';
 
 export const dropdownBaseDriverFactory = (base, body) => {
   const byDataHook = dataHook => base.$(`[data-hook="${dataHook}"]`);
-  const reactBase = ReactBase(base);
   const getTargetElement = dataHook => byDataHook(dataHook);
   const getContentElement = async () =>
     popoverCommonDriverFactory(base, body).getContentElement();
@@ -31,20 +28,24 @@ export const dropdownBaseDriverFactory = (base, body) => {
     hoverTargetElement: dataHook => getTargetElement(dataHook).hover(),
 
     /** Returns `true` if the dropdown is being shown */
-    isDropdownShown: async () => testkit(base, body).isContentElementExists(),
+    isDropdownShown: () => testkit(base, body).isContentElementExists(),
 
     /** Select a specific option (requires the DropdownBase to be opened) */
     selectOption: async index =>
       (await createDropdownLayoutDriver()).clickAtOption(index),
 
+    /** Select a specific option by its data hook (requires the DropdownBase to be opened) */
+    selectOptionByDataHook: async dataHook =>
+      (await createDropdownLayoutDriver()).clickAtOptionByDataHook(dataHook),
+
     /** Click outside of the component */
-    clickOutside: () => ReactBase.clickDocument(),
+    clickOutside: () => testkit(base, body).clickOutside(),
 
     /** Options count */
     optionsCount: async () =>
       (await createDropdownLayoutDriver()).optionsLength(),
 
-    mouseEnter: () => base.hover(),
-    mouseLeave: () => reactBase.mouseLeave(),
+    mouseEnter: () => testkit(base, body).mouseEnter(),
+    mouseLeave: () => testkit(base, body).mouseLeave(),
   };
 };

@@ -1,6 +1,6 @@
 :import {
   -st-from: "../../Foundation/stylable/colors.st.css";
-  -st-named: B50,B30,D60,D70;
+  -st-named: B50,B30,D60,D10-03;
 }
 
 
@@ -20,7 +20,7 @@
 }
 
 .neutral {
-  background-color: value(D70);
+  background-color: value(D10-03);
   border-top: 1px value(D60) solid;
   border-bottom: 1px value(D60) solid;
 }

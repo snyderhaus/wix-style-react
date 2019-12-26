@@ -8,10 +8,7 @@ import ChevronRightLarge from 'wix-ui-icons-common/ChevronRightLarge';
 import YearDropdown from './YearDropdown';
 import MonthDropdown from './MonthDropdown';
 import styles from './styles.scss';
-
-const caption = (text, dataHook) => (
-  <div data-hook={dataHook} className={styles.caption} children={text} />
-);
+import Text from '../../Text';
 
 const getMonthName = (months, month) => months[month] || months[0];
 
@@ -47,16 +44,25 @@ const DatePickerHead = ({
           months={localeUtils.getMonths()}
         />
       ) : (
-        caption(
-          getMonthName(localeUtils.getMonths(), date.getMonth()),
-          'datepicker-month-caption',
-        )
+        <Text
+          className={styles.caption}
+          weight="normal"
+          dataHook={'datepicker-month-caption'}
+        >
+          {getMonthName(localeUtils.getMonths(), date.getMonth())}
+        </Text>
       )}
 
       {showYearDropdown ? (
         <YearDropdown date={date} onChange={onChange} />
       ) : (
-        caption(date.getFullYear(), 'datepicker-year-caption')
+        <Text
+          className={styles.caption}
+          weight="normal"
+          dataHook={'datepicker-year-caption'}
+        >
+          {date.getFullYear()}
+        </Text>
       )}
 
       <div

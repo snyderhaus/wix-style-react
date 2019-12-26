@@ -1,9 +1,10 @@
 import React from 'react';
+import ArrowRight from 'wix-ui-icons-common/ArrowRight';
+import Undo from 'wix-ui-icons-common/Undo';
+import Redo from 'wix-ui-icons-common/Redo';
+
 import TextButton from '../../TextButton';
 import Button from '../../Button';
-import ArrowRight from '../../new-icons/ArrowRight';
-import Undo from '../../new-icons/Undo';
-import Redo from '../../new-icons/Redo';
 import ToggleButton from '../../ToggleButton';
 
 import {

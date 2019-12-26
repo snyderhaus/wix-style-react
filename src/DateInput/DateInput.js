@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import CalendarIcon from 'wix-ui-icons-common/Date';
 import Input from '../Input';
-import CalendarIcon from '../new-icons/Date';
 import { formatDate } from '../LocaleUtils';
 
 class DateInput extends React.PureComponent {

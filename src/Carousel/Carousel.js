@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import ChevronLeftLarge from 'wix-ui-icons-common/ChevronLeftLarge';
+import ChevronRightLarge from 'wix-ui-icons-common/ChevronRightLarge';
 // This is here and not in the test setup because we don't want consumers to need to run it as well
 import '../common/match-media-register';
 import Slider from 'react-slick';
 
 import './Carousel.global.scss';
 import styles from './Carousel.scss';
-import ChevronLeftLarge from '../new-icons/ChevronLeftLarge';
-import ChevronRightLarge from '../new-icons/ChevronRightLarge';
 import Pagination from './Pagination';
 import SliderArrow from './SliderArrow';
 import Loader from '../Loader';

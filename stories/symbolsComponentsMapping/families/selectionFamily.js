@@ -4,6 +4,9 @@ import {
   sharedComponentsNames,
 } from '../components';
 
+/**
+ * Symbol => Component 4
+ */
 export const selectionSymbolsToComponents = {
   [selectionSymbols.dropdown]: [
     sharedComponentsNames.FormField,

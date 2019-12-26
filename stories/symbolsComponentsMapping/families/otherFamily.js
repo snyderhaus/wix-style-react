@@ -4,6 +4,9 @@ import {
   sharedComponentsNames,
 } from '../components';
 
+/**
+ * Symbol => Component 11
+ */
 export const otherSymbolsToComponents = {
   [otherSymbols.avatar]: [componentsNames.Avatar],
 

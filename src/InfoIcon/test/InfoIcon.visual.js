@@ -52,9 +52,9 @@ const tests = [
           content: (
             <div>
               Custom node content!
-              <Box height="24px" align="center" marginTop="tiny">
+              <div style={{ display: 'inline-block', height: '24px' }}>
                 <FillPreview fill="#ffd06c" />
-              </Box>
+              </div>
             </div>
           ),
         },

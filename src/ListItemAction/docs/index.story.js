@@ -38,7 +38,7 @@ const example = ({ source, ...rest }) =>
 
 export default {
   category: storySettings.category,
-  storyName: 'listItemAction',
+  storyName: 'ListItemAction',
 
   component: ListItemAction,
   componentPath: '..',
@@ -70,15 +70,13 @@ export default {
             description({
               title: 'Description',
               text:
-                'ListItemAction is internal component which is used to build dropdown or menu like components. Usually this item should not be used by consumers, though custom options builder is exposed for usage with DropdownBase.',
+                'ListItemAction is an internal component which is used to build dropdown or menu like components. Usually this item should not be used by consumers, though custom options builder is exposed for usage with DropdownBase.',
             }),
           ]),
 
-          columns([
-            importExample(
-              "import {listItemActionBuilder} from 'wix-style-react/ListItemAction';",
-            ),
-          ]),
+          importExample(
+            "import { listItemActionBuilder } from 'wix-style-react/ListItemAction';",
+          ),
 
           divider(),
 

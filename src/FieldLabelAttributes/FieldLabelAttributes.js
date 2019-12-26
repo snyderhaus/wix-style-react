@@ -1,9 +1,9 @@
 import React from 'react';
 import { bool, node } from 'prop-types';
+import InfoCircle from 'wix-ui-icons-common/InfoCircle';
 import styles from './FieldLabelAttributes.scss';
 import WixComponent from '../BaseComponents/WixComponent';
 import Tooltip from '../Tooltip';
-import InfoCircle from '../new-icons/InfoCircle';
 
 class FieldLabelAttributes extends WixComponent {
   static tooltipDefaultProps = {

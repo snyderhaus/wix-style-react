@@ -35,3 +35,8 @@ export const validateHex = hex => {
 
 export const extractHex = hex =>
   `#${hex.toUpperCase().replace(/[^A-F0-9]/g, '')}`;
+
+export const normalizeHexInput = hex => {
+  const value = extractHex(hex);
+  return value === '#' ? '' : value;
+};

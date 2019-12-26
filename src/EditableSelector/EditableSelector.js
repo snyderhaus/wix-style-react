@@ -1,5 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Add from 'wix-ui-icons-common/Add';
+import Delete from 'wix-ui-icons-common/Delete';
+
 import WixComponent from '../BaseComponents/WixComponent';
 import Selector from '../Selector';
 import Text from '../Text';
@@ -8,8 +11,6 @@ import IconButton from '../IconButton';
 import TextButton from '../TextButton';
 import EditableRow from './EditableRow/EditableRow';
 import styles from './EditableSelector.scss';
-import Add from '../new-icons/Add';
-import Delete from '../new-icons/Delete';
 
 class EditableSelector extends WixComponent {
   static propTypes = {

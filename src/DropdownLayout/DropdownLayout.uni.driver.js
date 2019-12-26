@@ -19,6 +19,14 @@ export const dropdownLayoutDriverFactory = base => {
           : optionsDataHook
       }] > *:nth-child(${position + 1})`,
     );
+  const optionElementByDataHook = async dataHook =>
+    await base.$(
+      `[data-hook=${
+        (await infiniteScrollContainer.exists())
+          ? infiniteScrollContainerDataHook
+          : optionsDataHook
+      }] [data-hook="${dataHook}"]`,
+    );
   const options = () =>
     base.$$(`[data-hook=${optionsDataHook}] > *`).map(i => i);
   const optionsLength = async () => (await options()).length;
@@ -39,6 +47,8 @@ export const dropdownLayoutDriverFactory = base => {
     /** @deprecated should be private */
     classes: () => optionsElement._prop('className'),
     clickAtOption: async index => (await optionElementAt(index)).click(),
+    clickAtOptionByDataHook: async dataHook =>
+      (await optionElementByDataHook(dataHook)).click(),
     clickAtOptionWithValue: async value => {
       for (const _option of await options()) {
         if ((await _option._prop('innerHTML')) === value) {

@@ -13,6 +13,7 @@ import LinkTo from '@storybook/addon-links/react';
 import { storySettings } from './storySettings';
 import * as examples from './examples';
 import { baseScope } from '../utils/LiveCodeExample';
+import { Category } from '../storiesHierarchy';
 
 const code = config =>
   baseCode({ components: baseScope, compact: true, ...config });
@@ -38,40 +39,43 @@ export default {
         title: 'Included Components',
         rows: [
           [
-            <LinkTo kind="Components" story="Sidebar">{`<Sidebar/>`}</LinkTo>,
+            <LinkTo
+              kind={Category.COMPONENTS}
+              story="Sidebar"
+            >{`<Sidebar/>`}</LinkTo>,
             'A sidebar menu container for displaying persistent elements and drilling in',
           ],
           [
             <LinkTo
-              kind="Components"
+              kind={Category.COMPONENTS}
               story="SidebarHeader"
             >{`<SidebarHeader/>`}</LinkTo>,
             'A header within the sidebar with title, subtitle and custom content at the bottom',
           ],
           [
             <LinkTo
-              kind="Components"
+              kind={Category.COMPONENTS}
               story="SidebarDivider"
             >{`<SidebarDivider/>`}</LinkTo>,
             'A divider within the sidebar that supports inner and full mode',
           ],
           [
             <LinkTo
-              kind="Components"
+              kind={Category.COMPONENTS}
               story="SidebarSectionTitle"
             >{`<SidebarSectionTitle/>`}</LinkTo>,
             'A title for the section within the sidebar',
           ],
           [
             <LinkTo
-              kind="Components"
+              kind={Category.COMPONENTS}
               story="SidebarSectionItem"
             >{`<SidebarSectionItem/>`}</LinkTo>,
             'An item for the section within the sidebar',
           ],
           [
             <LinkTo
-              kind="Components"
+              kind={Category.COMPONENTS}
               story="SidebarBackButton"
             >{`<SidebarBackButton/>`}</LinkTo>,
             'An animated back button within the sidebar',

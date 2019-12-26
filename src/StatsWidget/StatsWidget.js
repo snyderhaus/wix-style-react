@@ -1,15 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import SortByArrowUp from 'wix-ui-icons-common/system/SortByArrowUp';
+import SortByArrowDown from 'wix-ui-icons-common/system/SortByArrowDown';
+import ChevronDown from 'wix-ui-icons-common/ChevronDown';
+
 import Card from '../Card';
 import WixComponent from '../BaseComponents/WixComponent';
 import styles from './StatsWidget.scss';
 import Heading from '../Heading';
-import SortByArrowUp from '../new-icons/system/SortByArrowUp';
-import SortByArrowDown from '../new-icons/system/SortByArrowDown';
 import Badge from '../Badge';
 import DropdownBase from '../DropdownBase';
 import TextButton from '../TextButton';
-import ChevronDown from '../new-icons/ChevronDown';
 import deprecationLog from '../utils/deprecationLog';
 
 function renderTrend(percent, invertPercentColor) {

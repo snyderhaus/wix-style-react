@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import X from '../new-icons/X';
+import X from 'wix-ui-icons-common/X';
 import IconButton from '../IconButton';
 
 import styles from './ModalMobileLayout.st.css';

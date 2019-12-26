@@ -1,8 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import AddChannel from 'wix-ui-icons-common/AddChannel';
 import TextButton from '../TextButton';
 import { Layout, Cell } from '../../Layout/index';
-import AddChannel from '../../new-icons/AddChannel';
 
 const skins = ['standard', 'light', 'premium', 'dark'];
 const TestContainer = ({ children }) => (

@@ -14,17 +14,26 @@ export const symbolsGroup = {
   contentWidgets: '12. Content Widgets',
 };
 
+/**
+ * Symbols Family 1
+ */
 export const foundationSymbols = {
   typography: '1.2 Typography',
   icons: '1.4 General Use Icons',
 };
 
+/**
+ * Symbols Family 2
+ */
 export const layoutSymbols = {
   pageLayout: '2.1 Page Layout',
   cardLayout: '2.2 Card Layout',
   tableLayout: '2.3 Table Layout',
 };
 
+/**
+ * Symbols Family 3
+ */
 export const inputsSymbols = {
   textInput: '3.1 Text Input',
   textArea: '3.2 Text Area',
@@ -43,6 +52,9 @@ export const inputsSymbols = {
   mediaInput: '3.15 Media Input',
 };
 
+/**
+ * Symbols Family 4
+ */
 export const selectionSymbols = {
   dropdown: '4.1 Dropdown',
   multiSelectDropdown: '4.2 Multi Select Dropdown',
@@ -55,6 +67,9 @@ export const selectionSymbols = {
   checkToggle: '4.9 Check Toggle',
 };
 
+/**
+ * Symbols Family 5
+ */
 export const buttonsSymbols = {
   button: '5.1 Button',
   iconButton: '5.2 Icon Button',
@@ -63,6 +78,9 @@ export const buttonsSymbols = {
   addItem: '5.5 Add Item',
 };
 
+/**
+ * Symbols Family 6
+ */
 export const navigationSymbols = {
   sidebarMenu: '6.1 Sidebar Menu',
   treeNavigation: '6.2 Tree Navigation',
@@ -72,6 +90,9 @@ export const navigationSymbols = {
   stepper: '6.6 Stepper',
 };
 
+/**
+ * Symbols Family 7
+ */
 export const tooltipPopoverSymbols = {
   tooltip: '7.1 Tooltip',
   popover: '7.2 Popover',
@@ -79,12 +100,18 @@ export const tooltipPopoverSymbols = {
   floatingHelper: '7.4 Floating Helper',
 };
 
+/**
+ * Symbols Family 8
+ */
 export const notificationsSymbols = {
   notification: '8.1 Notification',
   floatingNotification: '8.2 Floating Notification',
   sectionHelper: '8.3 Section Helper',
 };
 
+/**
+ * Symbols Family 9
+ */
 export const modalsSymbols = {
   alert: '9.1 Alert',
   content: '9.2 Content',
@@ -93,6 +120,9 @@ export const modalsSymbols = {
   mobile: '9.5 Mobile Modal',
 };
 
+/**
+ * Symbols Family 10
+ */
 export const pickerSymbols = {
   editableSelector: '10.2 Editable Selector',
   modalSelector: '10.3 Modal Selector',
@@ -102,6 +132,9 @@ export const pickerSymbols = {
   swatches: '10.7 Swatches',
 };
 
+/**
+ * Symbols Family 11
+ */
 export const otherSymbols = {
   avatar: '11.1 Avatar',
   badge: '11.2 Badge',
@@ -113,6 +146,9 @@ export const otherSymbols = {
   circularProgressBar: '11.8 Circular Progress Bar',
 };
 
+/**
+ * Symbols Family 12
+ */
 export const contentWidgetsSymbols = {
   imageWidget: '12.1 Image Widget',
   emptyState: '12.2 Empty State',

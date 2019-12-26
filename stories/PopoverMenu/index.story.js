@@ -13,14 +13,15 @@ import {
 import LinkTo from '@storybook/addon-links/react';
 import * as examples from './examples';
 
-import Add from '../../src/new-icons/Add';
-import Edit from '../../src/new-icons/Edit';
-import Delete from '../../src/new-icons/Delete';
-import More from '../../src/new-icons/More';
+import Add from 'wix-ui-icons-common/Add';
+import Edit from 'wix-ui-icons-common/Edit';
+import Delete from 'wix-ui-icons-common/Delete';
+import More from 'wix-ui-icons-common/More';
 import { Layout, Cell } from 'wix-style-react/Layout';
 import IconButton from 'wix-style-react/IconButton';
 import PopoverMenu from 'wix-style-react/beta/PopoverMenu';
 import SectionHelper from 'wix-style-react/SectionHelper';
+import { Category } from '../storiesHierarchy';
 
 const menuItems = [
   <PopoverMenu.MenuItem key="add" text="Add" prefixIcon={<Add />} />,
@@ -86,7 +87,7 @@ export default {
         rows: [
           [
             <LinkTo
-              kind="BETA"
+              kind={Category.BETA}
               story="PopoverMenu"
             >{`<PopoverMenu />`}</LinkTo>,
             'content element',
@@ -100,19 +101,22 @@ export default {
         title: 'Trigger Elements',
         rows: [
           [
-            <LinkTo kind="5. Buttons" story="5.1 Button">{`<Button/>`}</LinkTo>,
+            <LinkTo
+              kind={Category.BUTTONS}
+              story="5.1 Button"
+            >{`<Button/>`}</LinkTo>,
             'trigger element',
           ],
           [
             <LinkTo
-              kind="5. Buttons"
+              kind={Category.BUTTONS}
               story="5.2 IconButton"
             >{`<IconButton/>`}</LinkTo>,
             'trigger element',
           ],
           [
             <LinkTo
-              kind="5. Buttons"
+              kind={Category.BUTTONS}
               story="5.3 TextButton"
             >{`<TextButton/>`}</LinkTo>,
             'trigger element',

@@ -40,6 +40,13 @@
     }
 }
 
+@mixin ThemeWarning($borderColor, $boxShadow: none) {
+    &.hasWarning {
+        border-color: $borderColor;
+        box-shadow: $boxShadow;
+    }
+}
+
 @mixin Selection($color) {
     &::selection      { background: $color; }
     &::-moz-selection { background: $color; }

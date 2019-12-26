@@ -662,6 +662,100 @@ describe('InputWithOptions', () => {
       });
     });
 
+    describe('onClose', () => {
+      it('should call onClose when click on option element', async () => {
+        const onClose = jest.fn();
+        const { driver, dropdownLayoutDriver } = createDriver(
+          <InputWithOptions options={options} onClose={onClose} />,
+        );
+
+        await driver.focus();
+        expect(onClose).not.toHaveBeenCalled();
+        await dropdownLayoutDriver.clickAtOption(0);
+        expect(onClose).toHaveBeenCalled();
+      });
+
+      it('should call onClose when press escape button', async () => {
+        const onClose = jest.fn();
+        const { driver } = createDriver(
+          <InputWithOptions options={options} onClose={onClose} />,
+        );
+
+        await driver.focus();
+        await driver.pressKey('ArrowDown');
+        expect(onClose).not.toHaveBeenCalled();
+        await driver.pressKey('Escape');
+        expect(onClose).toHaveBeenCalled();
+      });
+    });
+
+    describe('onOptionsHide', () => {
+      it('should call onOptionsHide when click on option element', async () => {
+        const onOptionsHide = jest.fn();
+        const { driver, dropdownLayoutDriver } = createDriver(
+          <InputWithOptions options={options} onOptionsHide={onOptionsHide} />,
+        );
+
+        await driver.focus();
+        await dropdownLayoutDriver.clickAtOption(0);
+        expect(onOptionsHide).toHaveBeenCalled();
+      });
+
+      it('should call on onOptionsHide key after options hide when select element by enter', async () => {
+        const onOptionsHide = jest.fn();
+        const { driver } = createDriver(
+          <InputWithOptions options={options} onOptionsHide={onOptionsHide} />,
+        );
+
+        await driver.focus();
+        await driver.pressKey('ArrowDown');
+        await driver.pressKey('Enter');
+        expect(onOptionsHide).toHaveBeenCalled();
+      });
+
+      it('should not call onOptionsHide when closeOnSelect is false and when click by element', async () => {
+        const onOptionsHide = jest.fn();
+
+        const { inputDriver, dropdownLayoutDriver } = createDriver(
+          <InputWithOptions
+            options={options}
+            onOptionsHide={onOptionsHide}
+            closeOnSelect={false}
+          />,
+        );
+
+        await inputDriver.focus();
+        await dropdownLayoutDriver.clickAtOption(0);
+        expect(onOptionsHide).not.toHaveBeenCalled();
+      });
+    });
+
+    describe('onOptionsShow', () => {
+      it('should call onOptionsShow when focusing an element with arrow down', async () => {
+        const onOptionsShow = jest.fn();
+        const { driver } = createDriver(
+          <InputWithOptions options={options} onOptionsShow={onOptionsShow} />,
+        );
+
+        await driver.pressKey('ArrowDown');
+
+        expect(onOptionsShow).toHaveBeenCalled();
+      });
+
+      it('should call onOptionsShow after enter text', async () => {
+        const onOptionsShow = jest.fn();
+        const { inputDriver } = createDriver(
+          <InputWithOptions options={options} onOptionsShow={onOptionsShow} />,
+        );
+
+        expect(onOptionsShow).not.toHaveBeenCalled();
+        await inputDriver.focus();
+        expect(onOptionsShow).not.toHaveBeenCalled();
+        await inputDriver.enterText('some value');
+        expect(onOptionsShow).toHaveBeenCalled();
+      });
+    });
+
     describe('appearance', () => {
       it('should be possible to specify the theme of underlying elements', async () => {
         const props = { theme: 'material', dataHook: 'myDataHook' };

@@ -35,6 +35,15 @@ const omit = (props, remove) => {
     .reduce((res, key) => ({ ...res, [key]: props[key] }), {});
 };
 
+const fallbackEllipsis = {
+  display: 'inline-block',
+  textOverflow: 'ellipsis',
+  overflow: 'hidden',
+  maxWidth: '100%',
+  verticalAlign: 'bottom',
+  whiteSpace: 'noWrap',
+};
+
 const LazyEllipsisHOC = loadable(() => retry(() => import('./EllipsisHOC')));
 
 const Comp /** @autodocs-component */ = Component => {
@@ -46,7 +55,14 @@ const Comp /** @autodocs-component */ = Component => {
         return (
           <LazyEllipsisHOC
             ref={ref}
-            fallback={<Component data-fallback ref={ref} {...rest} />}
+            fallback={
+              <Component
+                style={fallbackEllipsis}
+                data-fallback
+                ref={ref}
+                {...rest}
+              />
+            }
             Component={Component}
             props={props}
           />

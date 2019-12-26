@@ -1,32 +1,30 @@
 import React from 'react';
-import ToggleSwitch from '..';
 import {
-  SIZES,
-  SKINS,
-} from 'wix-ui-backoffice/dist/src/components/ToggleSwitch/constants';
-
-import { storySettings } from './storySettings';
-
-import {
-  api,
-  code as baseCode,
-  columns,
-  description,
-  divider,
   header,
-  importExample,
-  playground,
-  tab,
   tabs,
-  testkit,
+  tab,
+  description,
+  importExample,
   title,
-} from 'wix-storybook-utils/dist/src/Sections';
-import * as examples from './examples';
-import { baseScope } from '../../../stories/utils/LiveCodeExample';
-import ExampleFormField from '!raw-loader!./ExampleFormField';
+  columns,
+  divider,
+  code as baseCode,
+  playground,
+  api,
+  testkit,
+} from 'wix-storybook-utils/Sections';
 
-const code = config =>
-  baseCode({ components: baseScope, compact: true, ...config });
+import { storySettings } from '../test/storySettings';
+import allComponents from '../../../stories/utils/allComponents';
+
+import { SIZES, SKINS } from '../constants';
+
+import ControlledToggleSwitch from '!raw-loader!./ControlledToggleSwitch';
+import * as examples from './examples';
+
+import ToggleSwitch from '..';
+
+const code = config => baseCode({ components: allComponents, ...config });
 
 export default {
   category: storySettings.category,
@@ -49,8 +47,7 @@ export default {
 
   sections: [
     header({
-      component: <ToggleSwitch onChange={() => 'changed'} size="small" />,
-
+      component: <ToggleSwitch onChange={() => 'changed'} />,
       issueUrl: 'https://github.com/wix/wix-style-react/issues/new',
       sourceUrl:
         'https://github.com/wix/wix-style-react/blob/master/src/ToggleSwitch',
@@ -60,34 +57,61 @@ export default {
       tab({
         title: 'Description',
         sections: [
-          description(`Provides a spinner to be used for async operations.`),
+          columns([
+            description({
+              title: 'Description',
+              text:
+                'Toggle Switch changes the state of a single setting on or off.',
+            }),
+          ]),
 
-          importExample(
-            "import ToggleSwitch from 'wix-style-react/ToggleSwitch';",
-          ),
+          columns([
+            importExample(
+              "import ToggleSwitch from 'wix-style-react/ToggleSwitch';",
+            ),
+          ]),
 
           divider(),
 
           title('Examples'),
 
-          ...[{ title: 'Size', source: examples.size }].map(
-            ({ title, source }) =>
-              columns([description({ title }), code({ source })]),
-          ),
+          'standard',
 
-          ...[{ title: 'Skin', source: examples.skin }].map(
-            ({ title, source }) =>
-              columns([description({ title }), code({ source })]),
-          ),
+          columns([
+            description({
+              title: 'Size',
+              text: `ToggleSwitch has 3 sizes: \`${SIZES.small}\`,\`${SIZES.medium}\` and \`${SIZES.large}\` (default).`,
+            }),
 
-          ...[
-            { title: 'Controlled with tooltip', source: ExampleFormField },
-          ].map(({ title, source }) =>
-            columns([
-              description({ title }),
-              code({ source, autoRender: false }),
-            ]),
-          ),
+            code({
+              compact: true,
+              source: examples.sizes,
+            }),
+          ]),
+
+          columns([
+            description({
+              title: 'Skins',
+              text: `ToggleSwitch has 3 skins: \`${SKINS.standard}\` (default),\`${SIZES.success}\` and \`${SKINS.error}\`.`,
+            }),
+
+            code({
+              compact: true,
+              source: examples.skins,
+            }),
+          ]),
+
+          columns([
+            description({
+              title: 'Controlled Toggle Switch',
+              text: 'An example of a controlled Toggle Switch',
+            }),
+
+            code({
+              compact: true,
+              source: ControlledToggleSwitch,
+            }),
+          ]),
         ],
       }),
 

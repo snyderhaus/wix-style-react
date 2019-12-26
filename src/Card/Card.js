@@ -13,6 +13,7 @@ const Card = ({
   hideOverflow,
   className,
   children,
+  controls,
   dataHook,
 }) => (
   <div
@@ -22,7 +23,10 @@ const Card = ({
     })}
     children={children}
     data-hook={dataHook}
-  />
+  >
+    {controls && <div className={styles.controls}>{controls}</div>}
+    {children}
+  </div>
 );
 
 Card.displayName = 'Card';
@@ -30,6 +34,8 @@ Card.displayName = 'Card';
 Card.propTypes = {
   /** any node to render inside card */
   children: node,
+  /** any node that controls card e.g. a close button */
+  controls: node,
   /** makes the card stretch to max height in a container */
   stretchVertically: bool,
   /** makes the card's overflow content to be hidden */

@@ -20,7 +20,9 @@ class MultiSelect extends InputWithOptions {
 
   hideOptions() {
     super.hideOptions();
-    this.clearInput();
+    if (this.props.clearOnBlur) {
+      this.clearInput();
+    }
   }
 
   onClickOutside() {
@@ -243,6 +245,9 @@ MultiSelect.propTypes = {
   /** When set to true this component is disabled */
   disabled: PropTypes.bool,
 
+  /** When set to false, the input will not be cleared on blur */
+  clearOnBlur: PropTypes.bool,
+
   /** A callback function to be called when a tag should be removed.
    * The expected callback signature is `onRemoveTag(tagId: number | string) => void`.
    */
@@ -256,6 +261,7 @@ MultiSelect.defaultProps = {
   predicate: () => true,
   tags: [],
   delimiters: [','],
+  clearOnBlur: true,
   customInput: MultiSelect.autoSizeInputWithRef(),
 };
 

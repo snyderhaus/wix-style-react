@@ -23,9 +23,9 @@ TabsGroup.defaultProps = {
 
 class VerticalTabs extends React.Component {
   render() {
-    const { dataHook, children, size, activeTabId } = this.props;
+    const { dataHook, children, size, activeTabId, onChange } = this.props;
     return (
-      <VerticalTabsContext.Provider value={{ size, activeTabId }}>
+      <VerticalTabsContext.Provider value={{ size, activeTabId, onChange }}>
         <div data-hook={dataHook}>{children}</div>
       </VerticalTabsContext.Provider>
     );

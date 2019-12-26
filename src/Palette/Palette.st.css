@@ -1,0 +1,31 @@
+:import {
+  -st-from: "../Foundation/stylable/colors.st.css";
+  -st-named: G30,R30;
+}
+
+:import {
+  -st-from: "../FillPreview/FillPreview.st.css";
+  -st-default: FillPreview;
+}
+
+.root {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.fillPreview {
+  -st-extends:FillPreview;
+  min-width: 0;
+  min-height: 0;
+}
+
+.fillPreview::button {
+  border-radius: 0px;
+  border: 0px solid white;
+  cursor: unset;
+}
+
+

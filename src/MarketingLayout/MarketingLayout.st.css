@@ -1,0 +1,154 @@
+.root {
+  -st-states: size(enum(small, medium, large)), inverted, actions;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1254px;
+  background-color: transparent;
+}
+
+.root:inverted {
+  justify-content: flex-start;
+}
+
+.contentWrapper {
+  width: 100%;
+}
+
+.root:inverted.root:size(medium) .contentWrapper {
+  padding-right: 18px;
+}
+
+:global([dir="rtl"]) .root:inverted:size(medium) .contentWrapper {
+  padding-right: 0;
+  padding-left: 18px;
+}
+
+.root:inverted.root:size(large) .contentWrapper {
+  padding-right: 30px;
+}
+
+:global([dir="rtl"]) .root:inverted:size(large) .contentWrapper {
+  padding-right: 0;
+  padding-left: 30px;
+}
+
+.contentContainer {
+  padding-left: 18px;
+  max-width: 654px;
+}
+
+:global([dir="rtl"]) .contentContainer {
+  padding-right: 18px;
+  padding-left: 0;
+}
+
+.root:size(medium) .contentContainer {
+  max-width: 498px;
+}
+
+.root:size(large) .contentContainer {
+  max-width: 408px;
+  padding-left: 30px;
+}
+
+:global([dir="rtl"]) .root:size(large) .contentContainer {
+  padding-right: 30px;
+  padding-left: 0;
+}
+
+
+.root:inverted .contentContainer {
+  padding-left: 0;
+}
+
+:global([dir="rtl"]) .root:inverted .contentContainer {
+  padding-right: 0;
+}
+
+.headingContainer {
+  padding-bottom: 18px;
+}
+
+.root:size(small) .headingContainer {
+  padding-bottom: 12px;
+}
+
+.descriptionContainer {
+  padding-bottom: 0;
+}
+
+.root:actions .descriptionContainer {
+  padding-bottom: 36px;
+}
+
+.root:size(small):actions .descriptionContainer {
+  padding-bottom: 24px;
+}
+
+
+.imageContainer {
+  display: flex;
+  align-items: center;
+  max-width: 126px;
+  max-height: 126px;
+  margin-left: 30px;
+}
+
+:global([dir="rtl"]) .imageContainer {
+  margin-right: 30px;
+  margin-left: 0;
+}
+
+:global([dir="rtl"]) .root:inverted .imageContainer {
+  margin-left: 30px;
+  margin-right: 0;
+}
+
+.root:size(medium) .imageContainer {
+  max-width: 282px;
+  max-height: 188px;
+}
+
+.root:size(large) .imageContainer {
+  max-width: 360px;
+  max-height: 240px;
+  padding-right: 6px;
+}
+
+:global([dir="rtl"]) .root:size(large) .imageContainer {
+  padding-left: 6px;
+  padding-right: 0;
+}
+
+.root:inverted:size(large) .imageContainer {
+  padding-right: 0;
+  padding-left: 6px;
+}
+
+:global([dir="rtl"]) .root:inverted:size(large) .imageContainer {
+  padding-left: 0;
+  padding-right: 6px;
+}
+
+.root:inverted .imageContainer {
+  margin-right: 30px;
+  margin-left: 0;
+}
+
+.imagePlaceholder {
+  background-color: #d8d8d8;
+  height: 126px;
+  width: 126px;
+}
+
+.root:size(medium) .imagePlaceholder {
+  width: 282px;
+  height: 188px;
+}
+
+.root:size(large) .imagePlaceholder {
+  width: 360px;
+  height: 240px;
+}

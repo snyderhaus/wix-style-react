@@ -2,6 +2,7 @@ import React from 'react';
 
 import AllComponents from './all-components';
 import { GmapsTestClient } from '../src/GoogleAddressInput/GoogleAddressInput.spec';
+import BrowserPreviewWidget from '../src/BrowserPreviewWidget/BrowserPreviewWidget';
 
 const {
   Popover,
@@ -282,6 +283,18 @@ export default {
   },
 
   PreviewWidget: {
+    props: {
+      children: <div />,
+    },
+  },
+
+  MobilePreviewWidget: {
+    props: {
+      children: <div />,
+    },
+  },
+
+  BrowserPreviewWidget: {
     props: {
       children: <div />,
     },

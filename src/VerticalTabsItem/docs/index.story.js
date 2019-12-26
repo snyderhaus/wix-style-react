@@ -29,9 +29,7 @@ export default {
   componentPath: '..',
 
   componentProps: {
-    onClick: () => {},
     children: 'Playground',
-    size: 'medium',
     type: 'tab',
   },
 
@@ -117,7 +115,7 @@ export default {
           columns([
             description({
               title: 'Vertical Tab With Suffix',
-              text: 'Vertical tab item with prefix icon',
+              text: 'Vertical tab item with suffix icon',
             }),
 
             code({

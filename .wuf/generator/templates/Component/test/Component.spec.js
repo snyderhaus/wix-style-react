@@ -16,7 +16,7 @@ describe('{%ComponentName%}', () => {
   it('should render', async () => {
     const { driver } = render(<{%ComponentName%} />);
 
-    expect(await driver.exists()).toBeTruthy();
+    expect(await driver.exists()).toBe(true);
     expect(await driver.getButtonText()).toEqual('Click me!');
   });
 

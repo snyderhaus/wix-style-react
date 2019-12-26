@@ -35,8 +35,11 @@ export const inputWithOptionsUniDriverFactory = (base, body) => {
         return await ReactBase(nativeSelect).select(selectedIndex);
       }
 
-      await driver.focus();
-      await driver.pressKey('ArrowDown');
+      const isPopoverShown = await popoverTestkit().isContentElementExists();
+      if (!isPopoverShown) {
+        await inputTestkit.click();
+      }
+
       await (await (await dropdownLayoutTestkit()).optionById(id)).click();
     },
     isReadOnly: async () => await inputTestkit.getReadOnly(),
@@ -53,9 +56,9 @@ export const inputWithOptionsUniDriverFactory = (base, body) => {
     outsideClick: async () => await popoverTestkit().clickOutside(),
     isOptionWrappedToHighlighter: async optionId => {
       await driver.pressKey('ArrowDown');
-      const {
-        element: optionElm,
-      } = await (await dropdownLayoutTestkit()).optionById(optionId);
+      const { element: optionElm } = await (
+        await dropdownLayoutTestkit()
+      ).optionById(optionId);
       return (
         (await optionElm().exists()) &&
         (await optionElm()
@@ -70,7 +73,7 @@ export const inputWithOptionsUniDriverFactory = (base, body) => {
     dropdownLayoutDummy,
     dropdownLayoutTestkit,
     popoverTestkit,
-    driver,
+    inputTestkit,
   );
   return {
     exists: () => driver.exists(),

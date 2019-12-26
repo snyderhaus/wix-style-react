@@ -95,6 +95,7 @@
   C4: #FF8E8C;
 
   /* With Opacity */
+  D10-03: calc_rgba(value(D10), 0.03);
   D10-05: calc_rgba(value(D10), 0.05);
   D10-10: calc_rgba(value(D10), 0.1);
   D10-20: calc_rgba(value(D10), 0.2);

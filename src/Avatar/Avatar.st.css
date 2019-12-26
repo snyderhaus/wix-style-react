@@ -12,7 +12,7 @@
 
 :import {
   -st-from: "../Foundation/stylable/colors.st.css";
-  -st-named: A1, A2, A3, A4, A5, A6, F00, D80, G10, R10, Y10, B40;
+  -st-named: A1, A2, A3, A4, A5, A6, F00, D80, G10, R10, Y10, B40, D80;
 }
 
 :import {
@@ -22,7 +22,7 @@
 
 :import {
   -st-from: "../Foundation/stylable/typography.st.css";
-  -st-named: sizeMedium, sizeSmall, sizeTiny, weightNormal, weightBold, light;
+  -st-named: sizeMedium, sizeSmall, sizeTiny, weightNormal, weightBold;
 }
 
 .placeholder {
@@ -304,7 +304,8 @@
 
 /* Sizes text */
 .avatar:contentType(text)::content {
-  -st-mixin: sizeSmall, weightBold, light;
+  -st-mixin: sizeSmall, weightBold;
+  color: value(D80);
 }
 
 

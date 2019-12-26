@@ -1,3 +1,6 @@
+/**
+ * Shared Components
+ */
 export const sharedComponentsNames = {
   FormField: 'FormField',
   EmptyState: 'EmptyState',
@@ -5,11 +8,17 @@ export const sharedComponentsNames = {
   Icon: 'Icon',
 };
 
+/**
+ * Components Family 1
+ */
 export const foundationComponentsNames = {
   Text: 'Text',
   Heading: 'Heading',
 };
 
+/**
+ * Components Family 2
+ */
 export const inputsComponentsNames = {
   Input: 'Input',
   InputArea: 'InputArea',
@@ -24,6 +33,9 @@ export const inputsComponentsNames = {
   GoogleAddressInput: 'GoogleAddressInput',
 };
 
+/**
+ * Components Family 3
+ */
 export const layoutComponentsNames = {
   Page: 'Page',
   PageHeader: 'Page.Header',
@@ -39,6 +51,9 @@ export const layoutComponentsNames = {
   TableToolbar: 'TableToolbar',
 };
 
+/**
+ * Components Family 4
+ */
 export const selectionComponentsNames = {
   Dropdown: 'Dropdown',
   MultiSelectCheckbox: 'MultiSelectCheckbox',
@@ -50,6 +65,9 @@ export const selectionComponentsNames = {
   Slider: 'Slider',
 };
 
+/**
+ * Components Family 5
+ */
 export const buttonsComponentsNames = {
   Button: 'Button',
   IconButton: 'IconButton',
@@ -58,6 +76,9 @@ export const buttonsComponentsNames = {
   AddItem: 'AddItem',
 };
 
+/**
+ * Components Family 6
+ */
 export const navigationComponentsNames = {
   Sidebar: 'Sidebar',
   SidebarHeader: 'SidebarHeader',
@@ -68,6 +89,9 @@ export const navigationComponentsNames = {
   Stepper: 'Stepper',
 };
 
+/**
+ * Components Family 7
+ */
 export const tooltipPopoverComponentsNames = {
   Tooltip: 'Tooltip',
   Popover: 'Popover',
@@ -76,12 +100,18 @@ export const tooltipPopoverComponentsNames = {
   FloatingHelperContent: 'FloatingHelper.Content',
 };
 
+/**
+ * Components Family 8
+ */
 export const notificationsComponentsNames = {
   Notification: 'Notification',
   FloatingNotification: 'FloatingNotification',
   SectionHelper: 'SectionHelper',
 };
 
+/**
+ * Components Family 9
+ */
 export const modalsComponentsNames = {
   MessageBoxFunctionalLayout: 'MessageBoxFunctionalLayout',
   Modal: 'Modal',
@@ -90,6 +120,9 @@ export const modalsComponentsNames = {
   ModalMobileLayout: 'ModalMobileLayout',
 };
 
+/**
+ * Components Family 10
+ */
 export const pickerComponentsNames = {
   EditableSelector: 'EditableSelector',
   ModalSelectorLayout: 'ModalSelectorLayout',
@@ -100,6 +133,9 @@ export const pickerComponentsNames = {
   Swatches: 'Swatches',
 };
 
+/**
+ * Components Family 11
+ */
 export const otherComponentsNames = {
   Avatar: 'Avatar',
   Badge: 'Badge',
@@ -110,9 +146,15 @@ export const otherComponentsNames = {
   CircularProgressBar: 'CircularProgressBar',
 };
 
+/**
+ * Components Family 12
+ */
 export const contentWidgetsComponentsNames = {
   StatisticsWidget: 'StatisticsWidget',
   Carousel: 'Carousel',
   Accordion: 'Accordion',
   CardGalleryItem: 'CardGalleryItem',
+  PreviewWidget: 'PreviewWidget',
+  BrowserPreviewWidget: 'BrowserPreviewWidget',
+  MobilePreviewWidget: 'MobilePreviewWidget',
 };

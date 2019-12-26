@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import X from 'wix-ui-icons-common/X';
+import Check from 'wix-ui-icons-common/Check';
+
 import Input from '../../Input';
 import Tooltip from '../../Tooltip';
 import IconButton from '../../IconButton';
-import X from '../../new-icons/X';
-import Check from '../../new-icons/Check';
 import styles from '../EditableSelector.scss';
 
 class EditableRow extends Component {

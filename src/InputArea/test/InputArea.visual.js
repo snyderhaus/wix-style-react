@@ -51,6 +51,23 @@ const tests = [
       },
     ],
   },
+  {
+    describe: 'status',
+    its: [
+      {
+        it: 'should display error icon',
+        props: {
+          status: 'error',
+        },
+      },
+      {
+        it: 'should display warning icon',
+        props: {
+          status: 'warning',
+        },
+      },
+    ],
+  },
 ];
 
 tests.forEach(({ describe, its }) => {

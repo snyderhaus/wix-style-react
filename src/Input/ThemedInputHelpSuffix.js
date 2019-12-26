@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import InfoCircle from 'wix-ui-icons-common/InfoCircle';
 
 import Tooltip from '../Tooltip';
 import InputHelpSuffix from './InputHelpSuffix';
-
-import InfoCircle from '../new-icons/InfoCircle';
 import styles from './Input.scss';
 
 const placementToMoveBy = {

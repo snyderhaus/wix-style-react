@@ -12,6 +12,7 @@ import {
   title,
   code as baseLiveCode,
 } from 'wix-storybook-utils/Sections';
+import More from 'wix-ui-icons-common/More';
 
 import IconButton from '..';
 import { Layout } from '../../Layout';
@@ -19,7 +20,6 @@ import { storySettings } from '../test/storySettings';
 import icons from '../../../stories/utils/icons-for-story';
 import { baseScope } from '../../../stories/utils/LiveCodeExample';
 import testkit from '!raw-loader!./testkit.md';
-import More from '../../new-icons/More';
 import * as examples from './examples';
 
 const Link = ({ children, ...rest }) => <a {...rest}>{children}</a>;

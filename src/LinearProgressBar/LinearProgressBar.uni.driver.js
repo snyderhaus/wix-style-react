@@ -31,5 +31,8 @@ export const linearProgressBarDriverFactory = (base, body) => {
 
     /** Returns the tooltip error message */
     getTooltipErrorMessage: () => getTooltip().getTooltipText(),
+
+    /** Returns the linear progress bar skin */
+    getSkin: () => base.attr('data-skin'),
   };
 };

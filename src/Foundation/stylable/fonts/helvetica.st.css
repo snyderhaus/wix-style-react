@@ -1,0 +1,24 @@
+:vars {
+  fontsFallback: '"Helvetica Neue", "Helvetica", "Arial", "メイリオ", "meiryo", "ヒラギノ角ゴ pro w3", "hiragino kaku gothic pro", "sans-serif"';
+}
+
+/* Weights */
+.weight-45 {
+  font-family: HelveticaNeueW01-45Ligh, HelveticaNeueW02-45Ligh, value(fontsFallback);
+  font-weight: 400;
+}
+
+.weight-55 {
+  font-family: HelveticaNeueW01-55Roma, HelveticaNeueW02-55Roma, value(fontsFallback);
+  font-weight: 400;
+}
+
+.weight-65 {
+  font-family: HelveticaNeueW01-65Medi, HelveticaNeueW02-65Medi, value(fontsFallback);
+  font-weight: 400;
+}
+
+.weight-75 {
+  font-family: HelveticaNeueW01-75Bold, HelveticaNeueW02-75Bold, value(fontsFallback);
+  font-weight: 400;
+}

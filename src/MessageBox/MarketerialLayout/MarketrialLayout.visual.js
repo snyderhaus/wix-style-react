@@ -38,6 +38,15 @@ const tests = [
           ...baseProps,
         },
       },
+      {
+        it: 'Without header',
+        props: {
+          title: 'No Header',
+          content: 'Some content to show you',
+          theme: 'white',
+          primaryButtonLabel: 'Button',
+        },
+      },
     ],
   },
 ];

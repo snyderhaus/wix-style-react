@@ -9,6 +9,9 @@ import ExampleStandardRaw from '!raw-loader!./ExampleStandard';
 import ExampleError from './ExampleError';
 import ExampleErrorRaw from '!raw-loader!./ExampleError';
 
+import ExampleWarning from './ExampleWarning';
+import ExampleWarningRaw from '!raw-loader!./ExampleWarning';
+
 import ExampleControlled from './ExampleControlled';
 import ExampleControlledRaw from '!raw-loader!./ExampleControlled';
 
@@ -29,10 +32,24 @@ export default {
   componentProps: {
     dataHook: storySettings.dataHook,
     error: false,
+    status: undefined,
     theme: 'normal',
     hasCounter: false,
     resizable: false,
     disabled: false,
+  },
+
+  exampleProps: {
+    status: [
+      {
+        label: 'Warning',
+        value: InputArea.StatusWarning,
+      },
+      {
+        label: 'Error',
+        value: InputArea.StatusError,
+      },
+    ],
   },
 
   examples: (
@@ -43,6 +60,10 @@ export default {
 
       <CodeExample title="Error" code={ExampleErrorRaw}>
         <ExampleError />
+      </CodeExample>
+
+      <CodeExample title="Warning" code={ExampleWarningRaw}>
+        <ExampleWarning />
       </CodeExample>
 
       <CodeExample title="Controlled input" code={ExampleControlledRaw}>

@@ -182,14 +182,27 @@ export default {
 
           columns([
             description({
-              title: 'Item with Suffix',
+              title: 'Item with Suffix (Counter Badge)',
               text:
-                'An example that demonstrates an item with provided suffix element',
+                'An example that demonstrates an item with a `<CounterBadge />` used as a suffix element',
             }),
 
             code({
               compact: true,
-              source: examples.suffix,
+              source: examples.counterBadgeSuffix,
+            }),
+          ]),
+
+          columns([
+            description({
+              title: 'Item with Suffix (Badge)',
+              text:
+                'An example that demonstrates an item with a `<Badge />` used as a suffix element',
+            }),
+
+            code({
+              compact: true,
+              source: examples.badgeSuffix,
             }),
           ]),
 

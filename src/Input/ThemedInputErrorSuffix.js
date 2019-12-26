@@ -1,12 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import FormFieldErrorFilled from 'wix-ui-icons-common/system/FormFieldErrorFilled';
 
 import InputErrorSuffix from './InputErrorSuffix';
 import Tooltip from '../Tooltip';
-
-import FormFieldErrorFilled from '../new-icons/system/FormFieldErrorFilled';
-
 import styles from './Input.scss';
 
 const placementToMoveBy = {

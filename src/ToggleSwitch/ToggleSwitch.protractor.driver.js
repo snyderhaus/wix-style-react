@@ -1,4 +1,3 @@
-// AutoDocs does not support `export from` syntax
-import { toggleSwitchDriverFactory } from 'wix-ui-backoffice/dist/src/components/ToggleSwitch/ToggleSwitch.protractor.driver';
+import { toggleSwitchDriverFactory } from 'wix-ui-core/drivers/protractor';
 
 export default toggleSwitchDriverFactory;

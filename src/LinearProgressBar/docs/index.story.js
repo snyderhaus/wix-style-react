@@ -78,6 +78,13 @@ export default {
           }),
 
           code({
+            title: 'Skins',
+            description:
+              'LinearProgressBar has 2 skins: `"standard"` (default) and `"success"`.',
+            source: examples.skins,
+          }),
+
+          code({
             title: 'Themes',
             description: 'Appear in all different themes.',
             source: examples.themes,

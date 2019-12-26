@@ -4,9 +4,9 @@ import React from 'react';
 import SideMenu from 'wix-style-react/SideMenu';
 import Button from 'wix-style-react/Button';
 import Tooltip from 'wix-style-react/Tooltip';
-import Edit from 'wix-style-react/new-icons/Edit';
-import ChatIcon from 'wix-style-react/new-icons/Chat';
-import ExternalLink from 'wix-style-react/new-icons/ExternalLink';
+import Edit from 'wix-ui-icons-common/Edit';
+import ChatIcon from 'wix-ui-icons-common/Chat';
+import ExternalLink from 'wix-ui-icons-common/ExternalLink';
 
 export default () => (
   <div className="rtl" style={{ direction: 'rtl' }}>

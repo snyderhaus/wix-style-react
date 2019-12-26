@@ -6,13 +6,7 @@ import Text from '../Text';
 import TextButton from '../TextButton';
 import Button from '../Button';
 import CloseButton from '../CloseButton/CloseButton';
-import { NOTIFICATION_TYPES } from './constants';
-import {
-  BUTTON_DATA_HOOK,
-  TEXT_BUTTON_DATA_HOOK,
-  TEXT_DATA_HOOK,
-  CLOSE_BUTTON_DATA_HOOK,
-} from './datahooks.js';
+import { TYPES, dataHooks } from './constants';
 import styles from './FloatingNotification.scss';
 
 const buttonPropTypes = PropTypes.shape({
@@ -33,7 +27,15 @@ class FloatingNotification extends React.PureComponent {
     className: PropTypes.string,
 
     /** the type of notification */
-    type: PropTypes.oneOf(Object.values(NOTIFICATION_TYPES)),
+    type: PropTypes.oneOf([
+      'standard',
+      'success',
+      'destructive',
+      'warning',
+      'premium',
+      'preview',
+      'dark',
+    ]),
 
     /** decides if to show the close button */
     showCloseButton: PropTypes.bool,
@@ -58,7 +60,7 @@ class FloatingNotification extends React.PureComponent {
   };
 
   static defaultProps = {
-    type: NOTIFICATION_TYPES.STANDARD,
+    type: 'standard',
     buttonProps: {},
     textButtonProps: {},
     showCloseButton: true,
@@ -92,17 +94,20 @@ class FloatingNotification extends React.PureComponent {
   }
 
   _getIcon() {
-    const { prefixIcon } = this.props;
-    return prefixIcon ? <div className={styles.icon}>{prefixIcon}</div> : null;
+    const { prefixIcon, type } = this.props;
+    return prefixIcon ? (
+      <div className={classNames(styles.icon, styles[type])}>{prefixIcon}</div>
+    ) : null;
   }
 
   _getContent() {
-    const { text } = this.props;
+    const { text, type } = this.props;
     return (
       <Text
-        size={'small'}
+        size="small"
         ellipsis
-        dataHook={TEXT_DATA_HOOK}
+        light={type === TYPES.dark}
+        dataHook={dataHooks.notificationText}
         className={styles.text}
       >
         {text}
@@ -111,17 +116,17 @@ class FloatingNotification extends React.PureComponent {
   }
 
   _getTextButton() {
-    const { textButtonProps } = this.props;
+    const { textButtonProps, type } = this.props;
     const { label, ...rest } = textButtonProps;
 
     return !isEmpty(textButtonProps) ? (
       <TextButton
         {...rest}
-        underline={'always'}
-        skin={'dark'}
-        size={'small'}
+        underline="always"
+        skin={type !== TYPES.dark ? 'dark' : 'light'}
+        size="small"
         className={styles.textButton}
-        dataHook={TEXT_BUTTON_DATA_HOOK}
+        dataHook={dataHooks.textButton}
       >
         {label}
       </TextButton>
@@ -129,17 +134,17 @@ class FloatingNotification extends React.PureComponent {
   }
 
   _getButton() {
-    const { buttonProps } = this.props;
+    const { buttonProps, type } = this.props;
     const { label, ...rest } = buttonProps;
 
     return !isEmpty(buttonProps) ? (
       <Button
         {...rest}
         className={styles.button}
-        size={'tiny'}
-        priority={'secondary'}
-        skin={'dark'}
-        dataHook={BUTTON_DATA_HOOK}
+        size="tiny"
+        priority={type !== TYPES.dark ? 'secondary' : 'primary'}
+        skin={type !== TYPES.dark ? 'dark' : 'standard'}
+        dataHook={dataHooks.button}
       >
         {label}
       </Button>
@@ -147,13 +152,13 @@ class FloatingNotification extends React.PureComponent {
   }
 
   _getClose() {
-    const { showCloseButton, onClose } = this.props;
+    const { showCloseButton, onClose, type } = this.props;
     return showCloseButton ? (
       <CloseButton
         size="medium"
-        skin="dark"
+        skin={type !== TYPES.dark ? 'dark' : 'light'}
         className={styles.close}
-        dataHook={CLOSE_BUTTON_DATA_HOOK}
+        dataHook={dataHooks.closeButton}
         onClick={onClose}
       />
     ) : null;

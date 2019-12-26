@@ -1,11 +1,9 @@
 import React from 'react';
-import {
-  ExternalLink,
-  Star,
-  Download,
-  Duplicate,
-  Print,
-} from 'wix-style-react/new-icons';
+import ExternalLink from 'wix-ui-icons-common/ExternalLink';
+import Star from 'wix-ui-icons-common/Star';
+import Download from 'wix-ui-icons-common/Download';
+import Duplicate from 'wix-ui-icons-common/Duplicate';
+import Print from 'wix-ui-icons-common/Print';
 
 import { Table } from '..';
 import { TableToolbar } from '../../TableToolbar';

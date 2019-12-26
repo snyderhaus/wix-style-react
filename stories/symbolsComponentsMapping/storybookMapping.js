@@ -11,17 +11,11 @@ import {
 import {
   foundationSymbols,
   inputsSymbols,
-  symbolsGroup,
   navigationSymbols,
   tooltipPopoverSymbols,
   modalsSymbols,
 } from './symbols';
-
-const Category = {
-  COMPONENTS: 'Components',
-  BETA: 'BETA',
-  WIP: 'WIP',
-};
+import { Category } from '../storiesHierarchy';
 
 export const getComponentUrl = ({ componentName }) =>
   componentActualUrl[componentName] ||
@@ -34,7 +28,7 @@ export const getSymbolUrl = ({ groupSymbol, symbol }) =>
  * For misspelled Components stories or Compound components (Card.Header story part of Card story)
  */
 const componentActualUrl = {
-  [sharedComponentsNames.Icon]: linkTo(symbolsGroup.foundation, '1.4 Icons'),
+  [sharedComponentsNames.Icon]: linkTo(Category.FOUNDATION, '1.4 Icons'),
 
   [inputsComponentsNames.TimeInput]: linkTo(Category.COMPONENTS, 'TimePicker'),
   [inputsComponentsNames.DateInput]: linkTo(Category.WIP, 'DateInput'),
@@ -58,7 +52,7 @@ const componentActualUrl = {
   ),
 
   [modalsComponentsNames.MessageBoxMarketerialLayout]: linkTo(
-    symbolsGroup.modals,
+    Category.MODALS,
     '9.4 Announcement',
   ),
 };
@@ -67,20 +61,17 @@ const componentActualUrl = {
  * This is mapping the good names to the bad UX Story names that are actually in the storybook (9.4 Announcement instead of 9.3 Marketing)
  */
 const symbolActualUrl = {
-  [foundationSymbols.icons]: linkTo(symbolsGroup.foundation, '1.4 Icons'),
+  [foundationSymbols.icons]: linkTo(Category.FOUNDATION, '1.4 Icons'),
 
-  [inputsSymbols.tagsInput]: linkTo(symbolsGroup.inputs, '3.12 Tags'),
+  [inputsSymbols.tagsInput]: linkTo(Category.INPUTS, '3.12 Tags'),
 
-  [navigationSymbols.sidebarMenu]: linkTo(
-    symbolsGroup.navigation,
-    '6.1 Sidebar',
-  ),
+  [navigationSymbols.sidebarMenu]: linkTo(Category.NAVIGATION, '6.1 Sidebar'),
 
   [tooltipPopoverSymbols.popoverMenu]: linkTo(
-    symbolsGroup.tooltipPopovers,
+    Category.TOOLTIP,
     '7.3 PopoverMenu',
   ),
 
-  [modalsSymbols.content]: linkTo(symbolsGroup.modals, '9.3 Custom Modal'),
-  [modalsSymbols.marketing]: linkTo(symbolsGroup.modals, '9.4 Announcement'),
+  [modalsSymbols.content]: linkTo(Category.MODALS, '9.3 Custom Modal'),
+  [modalsSymbols.marketing]: linkTo(Category.MODALS, '9.4 Announcement'),
 };

@@ -20,6 +20,7 @@ const exampleAspectRatio = [
   { value: Proportion.PREDEFINED_RATIOS.portrait, label: 'portrait' },
   { value: Proportion.PREDEFINED_RATIOS.cinema, label: 'cinema' },
   { value: Proportion.PREDEFINED_RATIOS.landscape, label: 'landscape' },
+  { value: Proportion.PREDEFINED_RATIOS.none, label: 'none' },
 ];
 
 export default {

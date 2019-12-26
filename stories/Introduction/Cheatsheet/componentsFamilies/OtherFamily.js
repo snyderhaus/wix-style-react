@@ -326,15 +326,27 @@ const LinearProgressBarExample = () => {
 
   return (
     <SingleComponentSideBySide {...singleComponentProps}>
-      <Layout>
-        <Cell>
-          <LinearProgressBar value={25} />
-        </Cell>
-        <Cell>
-          <Box backgroundColor="D10">
-            <LinearProgressBar light value={25} />
-          </Box>
-        </Cell>
+      <Layout cols={2}>
+        <Layout>
+          <Cell>
+            <LinearProgressBar value={25} />
+          </Cell>
+          <Cell>
+            <Box backgroundColor="D10">
+              <LinearProgressBar light value={25} />
+            </Box>
+          </Cell>
+        </Layout>
+        <Layout>
+          <Cell>
+            <LinearProgressBar skin="success" value={25} />
+          </Cell>
+          <Cell>
+            <Box backgroundColor="D10">
+              <LinearProgressBar skin="success" light value={25} />
+            </Box>
+          </Cell>
+        </Layout>
       </Layout>
     </SingleComponentSideBySide>
   );

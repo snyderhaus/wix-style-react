@@ -1,9 +1,9 @@
 import React from 'react';
+import RefreshIcon from 'wix-ui-icons-common/Refresh';
+import DeleteIcon from 'wix-ui-icons-common/Delete';
 
 import Proportion from '../../../Proportion';
 import IconButton from '../../../IconButton';
-import RefreshIcon from '../../../new-icons/Refresh';
-import DeleteIcon from '../../../new-icons/Delete';
 import MediaOverlay from '../..';
 
 export default () => (

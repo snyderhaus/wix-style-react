@@ -1,13 +1,13 @@
 import React from 'react';
 import { withFocusable } from 'wix-ui-core/dist/src/hocs/Focusable/FocusableHOC';
+import SortByArrowUp from 'wix-ui-icons-common/system/SortByArrowUp';
+import SortByArrowDown from 'wix-ui-icons-common/system/SortByArrowDown';
+import InfoCircleSmall from 'wix-ui-icons-common/InfoCircleSmall';
 
 import Heading from '../../Heading';
 import Tooltip from '../../Tooltip';
 import Badge from '../../Badge';
 import AdaptiveHeading from '../../utils/AdaptiveHeading';
-import SortByArrowUp from '../../new-icons/system/SortByArrowUp';
-import SortByArrowDown from '../../new-icons/system/SortByArrowDown';
-import InfoCircleSmall from '../../new-icons/InfoCircleSmall';
 
 import DataHooks from '../dataHooks';
 import DataAttrs from '../dataAttrs';

@@ -11,7 +11,9 @@ import {
 import Card from 'wix-style-react/Card';
 import Search from 'wix-style-react/Search';
 import Button from 'wix-style-react/Button';
-import { Edit, Duplicate, Upload } from 'wix-style-react/new-icons';
+import Edit from 'wix-ui-icons-common/Edit';
+import Duplicate from 'wix-ui-icons-common/Duplicate';
+import Upload from 'wix-ui-icons-common/Upload';
 
 export class BulkActionsExample extends React.Component {
   render() {

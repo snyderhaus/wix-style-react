@@ -1,0 +1,91 @@
+:import {
+  -st-from: "../Foundation/stylable/colors.st.css";
+  -st-named: B10, B30, B50, D10-30, D20, D80;
+}
+
+.root {
+  -st-states: checkbox, selected, disabled;
+
+  background-color: white;
+  display: inline-flex;
+  cursor: pointer;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.root:selected {
+  background-color: value(B10);
+  color: value(D80);
+}
+
+.root:checkbox:selected {
+  background-color: value(B30);
+}
+
+.root:not(:disabled):not(:selected):hover {
+  background-color: value(B50);
+}
+
+.root:disabled {
+  pointer-events: none;
+  cursor: initial;
+}
+
+.root:not(:checkbox) {
+  padding-left: 18px;
+  padding-right: 24px;
+}
+
+:global([dir="rtl"]) .root:not(:checkbox) {
+  padding-left: 24px;
+  padding-right: 18px;
+}
+
+/* Checkbox */
+.fullWidthContent label {
+  margin-left: 18px;
+  margin-right: 24px;
+}
+
+:global([dir="rtl"]) .fullWidthContent label {
+  margin-left: 24px;
+  margin-right: 18px;
+}
+
+.fullWidthContent,
+.fullWidthContent label {
+  width: 100%;
+}
+
+/* Prefix & Suffix */
+.textsWrapper >:not(.title) {
+  margin-top: auto;
+  margin-bottom: auto;
+  flex-shrink: 0;
+  max-width: 30%;
+  overflow: auto;
+}
+
+.prefix {
+  -st-states: subtitle;
+}
+
+.prefix {
+  margin: auto 0;
+}
+
+.prefix:subtitle {
+  margin: auto 6px auto 0;
+}
+
+:global([dir="rtl"]) .prefix:subtitle {
+  margin: auto 0 auto 6px;
+}
+
+.suffix {
+  margin: auto 0 auto auto;
+}
+
+:global([dir="rtl"]) .suffix {
+  margin: auto auto auto 0;
+}

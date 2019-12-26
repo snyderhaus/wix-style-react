@@ -39,6 +39,7 @@ class Search extends Component {
 
   static defaultProps = {
     ...InputWithOptions.defaultProps,
+    clearButton: true,
     placeholder: 'Search',
     expandable: false,
     debounceMs: 0,
@@ -191,10 +192,9 @@ class Search extends Component {
           }
           dataHook="search-inputwithoptions"
           menuArrow={false}
-          clearButton
           closeOnSelect
           options={this._getFilteredOptions()}
-          onClear={this._onClear}
+          onClear={restProps.clearButton ? this._onClear : undefined}
           onChange={this._onChange}
           onBlur={this._onBlur}
           highlight

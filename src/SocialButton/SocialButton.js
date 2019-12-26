@@ -1,16 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import FacebookIcon from 'wix-ui-icons-common/system/SocialButtonFacebook';
+import InstagramIcon from 'wix-ui-icons-common/system/SocialButtonInstagram';
+import LinkedInIcon from 'wix-ui-icons-common/system/SocialButtonLinkedIn';
+import PinterestIcon from 'wix-ui-icons-common/system/SocialButtonPinterest';
+import TwitterIcon from 'wix-ui-icons-common/system/SocialButtonTwitter';
+import { ButtonNext } from 'wix-ui-core/dist/src/components/button-next';
 
 import Text from '../Text';
-import { ButtonNext } from 'wix-ui-core/dist/src/components/button-next';
 import styles from './SocialButton.st.css';
-
-import FacebookIcon from '../new-icons/system/SocialButtonFacebook';
-import InstagramIcon from '../new-icons/system/SocialButtonInstagram';
-import LinkedInIcon from '../new-icons/system/SocialButtonLinkedIn';
-import PinterestIcon from '../new-icons/system/SocialButtonPinterest';
-import TwitterIcon from '../new-icons/system/SocialButtonTwitter';
-
 import { DataHook } from './constants';
 
 const iconMap = {

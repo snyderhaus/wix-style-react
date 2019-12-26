@@ -6,13 +6,13 @@
 :import {
   -st-from: "../Sidebar/colors.st.css";
   -st-named:
-    sidebarBackgroundColor, hoveredBackgroundColor, selectedBackgroundColor, disabledBackgroundColor, textColor,
-    sidebarLightBackgroundColor, lightTextColor, selectedLightBackgroundColor, hoveredLightBackgroundColor, hoveredLightTextColor, disabledLightBackgroundColor
+    sidebarBackgroundColor, hoveredBackgroundColor, selectedBackgroundColor, disabledBackgroundColor, textColor, selectedTextColor,
+    sidebarLightBackgroundColor, hoveredLightBackgroundColor, selectedLightBackgroundColor, disabledLightBackgroundColor, lightTextColor, selectedLightTextColor,
 }
 
 :import {
     -st-from: "../Foundation/stylable/colors.st.css";
-    -st-named: D80, B30, B10
+    -st-named: D80, B30, B10, F00
 }
 
 :import {
@@ -21,10 +21,9 @@
   -st-named: focus-box;
 }
 
-:vars {
-  paddingWithoutSuffix: 6px 24px 6px 24px;
-  paddingWithSuffix: 6px 18px 6px 24px;
-  chevronPartialOpacity: 0.3;
+:import {
+  -st-from: "../Sidebar/main.st.css";
+  -st-named: sidebarWidth
 }
 
 .root {
@@ -34,11 +33,20 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: value(paddingWithoutSuffix);
-  max-width: 228px;
+  padding: 0 24px 0 24px;
+  max-width: value(sidebarWidth);
+  width: 100%;
   min-height: 36px;
   box-sizing: border-box;
-  color: value(D80);
+  border: none;
+
+  /* not supported in IE11 & Edge; 'left' as fallback */
+  text-align: left;
+  text-align: start;
+}
+
+.root:not(:disabled):focus-visible {
+  box-shadow: inset 0 0 0 3px value(F00);
 }
 
 /* Basic */
@@ -55,16 +63,22 @@
 
 /* Selected */
 
-.root:selected {
-  background-color: value(selectedBackgroundColor)
+.root:skin(dark):selected {
+  background-color: value(selectedBackgroundColor);
+  color: value(selectedTextColor);
 }
 
-.root:selected .text:size(small) {
-  color: value(B10);
+.root:skin(dark):selected .text {
+  color: value(selectedTextColor);
 }
 
 .root:skin(light):selected {
-  background-color: value(selectedLightBackgroundColor)
+  background-color: value(selectedLightBackgroundColor);
+  color: value(selectedLightTextColor);
+}
+
+.root:skin(light):selected .text {
+  color: value(selectedLightTextColor);
 }
 
 /* Hovered */
@@ -74,16 +88,8 @@
   cursor: pointer;
 }
 
-.root:hover:not(:disabled) .text:size(small), .root:hover:selected:not(:disabled) .text:size(small) {
-  color: value(B30);
-}
-
 .root:skin(light):hover, .root:skin(light):hover:selected:not(:disabled) {
   background-color: value(hoveredLightBackgroundColor);
-}
-
-.root:skin(light):hover:not(:disabled) .text:size(small), .root:skin(light):hover:selected:not(:disabled) .text:size(small) {
-  color: value(hoveredLightTextColor);
 }
 
 /* Disabled */
@@ -92,7 +98,6 @@
   background-color: value(disabledBackgroundColor);
   cursor: default;
 }
-
 
 .root:skin(light):disabled {
   background-color: value(disabledLightBackgroundColor);
@@ -103,41 +108,26 @@
 .root:focus {
   -st-mixin: focus-box;
 }
-.root:drillable {
-  padding-right: 42px;
-}
-
-.root:drillable:hover, .root:drillable:alwaysDisplayChevron {
-  padding: value(paddingWithSuffix);
-}
 
 .root:drillable .chevron {
-  position: absolute;
   opacity: 0;
 }
 .root:drillable:alwaysDisplayChevron .chevron {
-  position: static;
-  opacity: value(chevronPartialOpacity);
+  opacity: 0.6;
 }
 
-.root:drillable:hover .chevron {
+.root:drillable:hover .chevron, .root:drillable:focus-visible .chevron {
   position: static;
   opacity: 1;
   transition: all .5s;
-  color: value(B30);
 }
 
-.root:prefix:hover:not(:suffix) {
-  padding: value(paddingWithoutSuffix);
-}
-
-.root:suffix, .root:prefix:drillable:hover {
-  padding: value(paddingWithSuffix);
-  min-width: 24px;
+.root:suffix, .root:drillable {
+  padding: 0 18px 0 24px;
 }
 
 .prefix {
-  margin-right: 10px;
+  margin-right: 12px;
 }
 
 .text {
@@ -146,4 +136,11 @@
   display: block;
   flex-grow: 1;
   word-break: break-word;
+  margin: 9px 0 9px 0;
+}
+
+.suffix {
+  display: flex;
+  justify-content: center;
+  min-width: 24px;
 }

@@ -1,6 +1,13 @@
 import React from 'react';
 import color from 'color';
-import { object, string, func, bool, oneOfType, node } from 'prop-types';
+import PropTypes, {
+  object,
+  string,
+  func,
+  bool,
+  oneOfType,
+  node,
+} from 'prop-types';
 
 import WixComponent from '../BaseComponents/WixComponent';
 import ColorPickerHsb from './ColorPickerHsb';
@@ -25,6 +32,9 @@ export default class ColorPicker extends React.PureComponent {
   static displayName = 'ColorPicker';
 
   static propTypes = {
+    /** Applied as data-hook HTML attribute that can be used in the tests  */
+    dataHook: PropTypes.string,
+
     /** Current color, can be given in `string` or `object` format [https://github.com/Qix-/color](https://github.com/Qix-/color) */
     value: oneOfType([string, object]).isRequired,
 

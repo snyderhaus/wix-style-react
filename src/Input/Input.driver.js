@@ -54,6 +54,7 @@ const inputDriverFactory = ({ element }) => {
     getValue: () => input.value,
     getText: () => input.value,
     getPlaceholder: () => input.placeholder,
+    getPattern: () => input.pattern,
     getDefaultValue: () => input.defaultValue,
     getTabIndex: () => input.tabIndex,
     getReadOnly: () => input.readOnly,

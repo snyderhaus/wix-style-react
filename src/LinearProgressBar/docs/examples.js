@@ -34,3 +34,12 @@ export const themes = `<Layout>
     </Box>
   </Cell>
 </Layout>`;
+
+export const skins = `<Layout>
+  <Cell>
+    <LinearProgressBar value={20} />
+  </Cell>
+  <Cell>
+    <LinearProgressBar skin="success" value={20} />
+  </Cell>
+</Layout>`;

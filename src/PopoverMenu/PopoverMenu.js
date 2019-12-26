@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
-import styles from './PopoverMenu.scss';
-import Tooltip from '../Tooltip';
-import Button from '../Deprecated/Button';
-import More from '../new-icons/More';
-import PopoverMenuItem from '../PopoverMenuItem';
+import More from 'wix-ui-icons-common/More';
 import classnames from 'classnames';
 import {
   oneOf,
@@ -16,6 +12,11 @@ import {
   func,
   shape,
 } from 'prop-types';
+
+import styles from './PopoverMenu.scss';
+import Tooltip from '../Tooltip';
+import Button from '../Deprecated/Button';
+import PopoverMenuItem from '../PopoverMenuItem';
 import deprecationLog from '../utils/deprecationLog';
 
 class PopoverMenu extends Component {

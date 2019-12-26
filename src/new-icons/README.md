@@ -2,11 +2,20 @@
 
 > SVG Icon base type.
 
+To use icons, please install a separate [wix-ui-icons-common](https://www.npmjs.com/package/wix-ui-icons-common) package:
+
+```bash
+npm i wix-ui-icons-common
+# or
+yarn add wix-ui-icons-common
+```
+
 ## Usage
-~~~js
+
+```jsx
 import { Component } from 'react';
-import Favorite from 'wix-style-react/new-icons/Favorite';
-import ChevronDown from 'wix-style-react/new-icons/ChevronDown';
+import Favorite from 'wix-ui-icons-common/Favorite';
+import ChevronDown from 'wix-ui-icons-common/ChevronDown';
 
 class MyComponent extends Component {
   render() {
@@ -18,7 +27,7 @@ class MyComponent extends Component {
     );
   }
 }
-~~~
+```
 
 ## Properties
 
@@ -28,4 +37,3 @@ class MyComponent extends Component {
 | size | string |  | - | Set the size of the icon |
 | style | object |  | - | Set style object to svg root of icon |
 | ***All other Props are passed to the SVG element*** | | | | |
-

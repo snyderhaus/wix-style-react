@@ -4,6 +4,9 @@ import {
   sharedComponentsNames,
 } from '../components';
 
+/**
+ * Symbol => Component 2
+ */
 export const inputsSymbolsToComponents = {
   [inputsSymbols.textInput]: [
     sharedComponentsNames.FormField,

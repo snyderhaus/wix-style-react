@@ -13,6 +13,9 @@ import AnnouncementStandardRaw from '!raw-loader!./AnnouncementExamples/Standard
 import Celebratory from './AnnouncementExamples/Celebratory';
 import CelebratoryRaw from '!raw-loader!./AnnouncementExamples/Celebratory';
 
+import WithoutHeader from './AnnouncementExamples/WithoutHeader';
+import WithoutHeaderRaw from '!raw-loader!./AnnouncementExamples/WithoutHeader';
+
 import PremiumAction from './AnnouncementExamples/PremiumAction';
 import PremiumActionRaw from '!raw-loader!./AnnouncementExamples/PremiumAction';
 
@@ -60,6 +63,11 @@ export default () => (
             title="Celebratory"
             code={CelebratoryRaw}
             children={<Celebratory />}
+          />
+          <CodeExample
+            title="Without Header"
+            code={WithoutHeaderRaw}
+            children={<WithoutHeader />}
           />
         </div>
       </RTLWrapper>

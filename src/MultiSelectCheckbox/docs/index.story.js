@@ -17,7 +17,9 @@ export default {
 
   componentProps: (setState, getState) => ({
     options,
+    disableClickOutsideWhenClosed: true,
     selectedOptions: [],
+    onClickOutside: () => {},
     onDeselect: selectedOption => {
       setState({
         selectedOptions: getState().selectedOptions.filter(

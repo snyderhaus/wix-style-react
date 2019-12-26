@@ -62,6 +62,7 @@ describe('Autocomplete', () => {
       const { inputDriver, dropdownLayoutDriver } = createDriver(
         <AutoComplete options={options} predicate={predicate} />,
       );
+      await inputDriver.click();
       await inputDriver.trigger('keyDown', { key: asciiA });
       expect(await dropdownLayoutDriver.optionsLength()).toBe(2);
     });

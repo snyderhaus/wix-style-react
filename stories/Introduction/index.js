@@ -10,21 +10,30 @@ import UsageWithoutYoshiReadme from '../../docs/usage-without-yoshi.md';
 
 import ComponentsCheatsheet from './Cheatsheet/ComponentsCheatsheet';
 
-storiesOf('Introduction', module)
-  .add('Getting started', () => <Markdown source={Readme} />)
-  .add('Components Cheatsheet', () => <ComponentsCheatsheet />)
-  .add('Usage Without Yoshi', () => (
-    <Markdown source={UsageWithoutYoshiReadme} />
-  ))
-  .add('Testing', () => (
-    <div style={{ margin: '0 48px', width: '100%', maxWidth: 1161 }}>
-      <Markdown source={TestingReadme} />
-    </div>
-  ))
-  .add('Troubleshooting', () => (
-    <div style={{ margin: '0 48px', width: '100%', maxWidth: 1161 }}>
-      <Markdown source={TroubleshootingReadme} />
-    </div>
-  ));
+import { Category } from '../storiesHierarchy';
+
+storiesOf(Category.GETTINGSTARTED, module).add('Getting started', () => (
+  <Markdown source={Readme} />
+));
+
+storiesOf(Category.GETTINGSTARTED, module).add('Usage Without Yoshi', () => (
+  <Markdown source={UsageWithoutYoshiReadme} />
+));
+
+storiesOf(Category.CHEATSHEET, module).add('Components Cheatsheet', () => (
+  <ComponentsCheatsheet />
+));
+
+storiesOf(Category.TESTING, module).add('Testing', () => (
+  <div style={{ margin: '0 48px', width: '100%', maxWidth: 1161 }}>
+    <Markdown source={TestingReadme} />
+  </div>
+));
+
+storiesOf(Category.TROUBLESHOOTING, module).add('Troubleshooting', () => (
+  <div style={{ margin: '0 48px', width: '100%', maxWidth: 1161 }}>
+    <Markdown source={TroubleshootingReadme} />
+  </div>
+));
 
 //TODO - add contribution docs links here somehow

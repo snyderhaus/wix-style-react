@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import DropDownArrow from 'wix-ui-icons-common/system/DropDownArrow';
+import Search from 'wix-ui-icons-common/Search';
 
 import CloseButton from '../CloseButton';
-import DropDownArrow from '../new-icons/system/DropDownArrow';
-import Search from '../new-icons/Search';
 import ThemedInputErrorSuffix from './ThemedInputErrorSuffix';
 import ThemedInputHelpSuffix from './ThemedInputHelpSuffix';
 import InputLoaderSuffix from './InputLoaderSuffix';

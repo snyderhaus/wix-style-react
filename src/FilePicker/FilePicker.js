@@ -1,16 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './FilePicker.scss';
-import WixComponent from '../BaseComponents/WixComponent';
-import Add from '../new-icons/Add';
+import Add from 'wix-ui-icons-common/Add';
 import uniqueId from 'lodash/uniqueId';
+
+import styles from './FilePicker.scss';
+import FormField from '../FormField';
+import TextButton from '../TextButton';
+import Text from '../Text';
 
 /**
  * # `<FilePicker/>`
  *
  * Component that opens system browser dialog for choosing files to upload
  */
-class FilePicker extends WixComponent {
+class FilePicker extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -38,26 +41,36 @@ class FilePicker extends WixComponent {
       error,
       errorMessage,
       name,
+      dataHook,
     } = this.props;
 
     return (
-      <div>
-        {header && <span className={styles.header}>{header}</span>}
+      <FormField label={header} dataHook={dataHook}>
         <label className={styles.label} htmlFor={this.id}>
+          {/* Icon */}
           <div className={styles.icon}>
             <Add />
           </div>
+
           <div className={styles.content}>
-            <span className={styles.cta} data-hook="main-label">
-              {mainLabel}
-            </span>
-            <span className={styles.info} data-hook="sub-label">
+            {/* Title */}
+            <TextButton dataHook="main-label">{mainLabel}</TextButton>
+
+            {/* Subtitle */}
+            <Text
+              className={styles.info}
+              size="small"
+              secondary
+              dataHook="sub-label"
+            >
               {this.state.selectedFileName}
-            </span>
+            </Text>
+
+            {/* Error */}
             {error && (
-              <span className={styles.error} data-hook="filePicker-error">
+              <Text skin="error" size="small" dataHook="filePicker-error">
                 {errorMessage}
-              </span>
+              </Text>
             )}
           </div>
         </label>
@@ -69,7 +82,7 @@ class FilePicker extends WixComponent {
           onChange={e => this.onChooseFile(e.target.files[0])}
           name={name}
         />
-      </div>
+      </FormField>
     );
   }
 }
@@ -115,6 +128,9 @@ FilePicker.propTypes = {
 
   /** Name for inner input */
   name: PropTypes.string,
+
+  /** Data attribute for testing purposes */
+  dataHook: PropTypes.string,
 };
 
 export default FilePicker;

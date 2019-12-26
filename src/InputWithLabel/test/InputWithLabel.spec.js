@@ -1,11 +1,9 @@
 import React from 'react';
-import { createRendererWithUniDriver, cleanup } from '../../../test/utils/unit';
+import ChevronDown from 'wix-ui-icons-common/ChevronDown';
 
+import { createRendererWithUniDriver, cleanup } from '../../../test/utils/unit';
 import InputWithLabel from '../InputWithLabel';
 import { inputWithLabelPrivateDriverFactory } from './InputWithLabel.private.uni.driver';
-
-import ChevronDown from 'wix-style-react/new-icons/ChevronDown';
-
 import dataHooks from '../../LabelledElement/dataHooks';
 import Input from '../../Input';
 

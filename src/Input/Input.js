@@ -142,6 +142,7 @@ class Input extends Component {
       errorMessage,
       hideStatusSuffix,
       customInput,
+      pattern,
     } = this.props;
     const onIconClicked = e => {
       if (!disabled) {
@@ -232,6 +233,7 @@ class Input extends Component {
       onCompositionStart: () => this.onCompositionChange(true),
       onCompositionEnd: () => this.onCompositionChange(false),
       customInput,
+      pattern,
       ...ariaAttribute,
       ...inputElementProps,
     });
@@ -638,6 +640,9 @@ Input.propTypes = {
    *  See https://github.com/wix/wix-style-react/issues/3122
    */
   updateControlledOnClear: PropTypes.bool,
+
+  /** Pattern the value must match to be valid (regex) */
+  pattern: PropTypes.string,
 };
 
 export default Input;

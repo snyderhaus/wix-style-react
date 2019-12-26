@@ -4,7 +4,7 @@ import Page from 'wix-style-react/Page';
 import Button from 'wix-style-react/Button';
 import Card from 'wix-style-react/Card';
 import { Container, Row, Col } from 'wix-style-react/Grid';
-import { Add } from 'wix-style-react/new-icons';
+import Add from 'wix-ui-icons-common/Add';
 import { ExamplePageContainer } from './ExamplePageContainer';
 import { LongTextContent } from './SomeContentComponent';
 

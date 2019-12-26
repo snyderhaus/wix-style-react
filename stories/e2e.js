@@ -17,6 +17,7 @@ require('../src/Avatar/docs/AvatarTestStory');
 require('../src/EditableSelector/docs/testStory');
 require('../src/Slider/docs/testStory');
 require('../src/DropdownLayout/docs/testStory');
+require('../src/Dropdown/docs/testStory');
 require('../src/InputWithOptions/docs/testStory');
 require('../src/StatisticsWidget/test/StatisticsWidgetAccessibilityTest');
 require('../src/InputArea/docs/testStory');

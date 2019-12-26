@@ -29,11 +29,15 @@ class LinearProgressBar extends React.PureComponent {
 
     /** load Tooltip async using dynamic import */
     shouldLoadAsync: PropTypes.bool,
+
+    /** Sets the skin of the Linear Progress Bar. */
+    skin: PropTypes.oneOf(['standard', 'success']),
   };
 
   render() {
     const {
       errorMessage,
+      skin,
       light,
       dataHook,
       error,
@@ -44,7 +48,8 @@ class LinearProgressBar extends React.PureComponent {
     return (
       <CoreLinearProgressBar
         data-hook={dataHook}
-        {...styles('root', { light }, this.props)}
+        {...styles('root', { light, skin }, this.props)}
+        data-skin={skin}
         {...otherProps}
         error={error}
         successIcon={<ToggleOn />}
@@ -61,7 +66,7 @@ class LinearProgressBar extends React.PureComponent {
             namedExports={{
               Tooltip: 'Tooltip',
             }}
-            shouldLoadComponent={!!error}
+            shouldLoadComponent={Boolean(error && errorMessage)}
           >
             {({ Tooltip }) => {
               return (
@@ -83,6 +88,7 @@ class LinearProgressBar extends React.PureComponent {
 
 LinearProgressBar.defaultProps = {
   shouldLoadAsync: false,
+  skin: 'standard',
 };
 
 export default LinearProgressBar;

@@ -9,6 +9,7 @@ import Heading from '../../Heading';
 import { Add, Download, StatusComplete } from 'wix-ui-icons-common';
 
 import ImagePlaceholder from '../../../stories/utils/ImagePlaceholder';
+import { Category } from '../../../stories/storiesHierarchy';
 
 const singleAction = <TextButton prefixIcon={<Add />}>New Item</TextButton>;
 
@@ -64,6 +65,11 @@ export default {
       { label: 'Two actions', value: twoActions },
       { label: 'Single action with long text', value: singleActionLongText },
     ],
+    align: [
+      { label: 'left', value: 'left' },
+      { label: 'center', value: 'center' },
+      { label: 'right', value: 'right' },
+    ],
   },
 
   examples: (
@@ -74,30 +80,28 @@ export default {
 
       <ul>
         <li>
-          <TextButton onClick={linkTo('2. Layout', '2.5 Page')}>
+          <TextButton onClick={linkTo(Category.LAYOUT, '2.1 Page Layout')}>
             Page
           </TextButton>
           <br />
         </li>
         <li>
-          <TextButton onClick={linkTo('2. Layout', 'Card')}>Card</TextButton>
-          <br />
-        </li>
-        <li>
-          <TextButton onClick={linkTo('7. Tooltips', '7.2. Popover')}>
-            Popover
+          <TextButton onClick={linkTo(Category.LAYOUT, '2.1 Page Layout')}>
+            Card
           </TextButton>
           <br />
         </li>
         <li>
-          <TextButton onClick={linkTo('9. Modals', '9.1 Alert')}>
+          <TextButton onClick={linkTo(Category.MODALS, '9.1 Alert')}>
             Alert
           </TextButton>
           <br />
         </li>
         <li>
-          <TextButton onClick={linkTo('10. Tables', '10.1 Table')}>
-            Table
+          <TextButton
+            onClick={linkTo(Category.COMPONENTS, 'MessageBoxFunctionalLayout')}
+          >
+            MessageBoxFunctionalLayout
           </TextButton>
           <br />
         </li>

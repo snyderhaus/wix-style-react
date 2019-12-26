@@ -10,7 +10,7 @@ import Tabs from 'wix-style-react/Tabs';
 import Card from 'wix-style-react/Card';
 import EmptyState from 'wix-style-react/EmptyState';
 import TextButton from 'wix-style-react/TextButton';
-import { Add } from 'wix-style-react/new-icons';
+import Add from 'wix-ui-icons-common/Add';
 
 import SomeContentComponent from './SomeContentComponent';
 import ImagePlaceholder from '../../../../stories/utils/ImagePlaceholder';

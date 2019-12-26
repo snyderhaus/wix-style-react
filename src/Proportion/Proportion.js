@@ -13,9 +13,10 @@ class Proportion extends React.PureComponent {
     children: PropTypes.node.isRequired,
     dataHook: PropTypes.string,
     className: PropTypes.string,
+    /** condition for wrapping content with Proportion or return original  */
 
-    /** predefined Proportion.square (1), Proportion.portrait (3/4), Proportion.cinema (16/9), Proportion.landscape (4/3), or a custom number (width / height) */
-    aspectRatio: PropTypes.number,
+    /** predefined Proportion.square (1), Proportion.portrait (3/4), Proportion.cinema (16/9), Proportion.landscape (4/3), or a custom number (width / height) or 'none' for original size */
+    aspectRatio: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   };
 
   static defaultProps = {
@@ -23,22 +24,27 @@ class Proportion extends React.PureComponent {
   };
 
   render() {
-    const { dataHook, className } = this.props;
+    const { dataHook, className, aspectRatio } = this.props;
     const wrapperClass = classnames(styles.root, className);
     const aspectRatioHolder = this._getAspectRatioHolder();
-    const content = this._getContent();
+    const disabled = aspectRatio === PREDEFINED_RATIOS.none ? true : false;
+    const content = this._getContent(disabled);
 
     return (
       <div className={wrapperClass} data-hook={dataHook}>
-        {aspectRatioHolder}
+        {!disabled && aspectRatioHolder}
         {content}
       </div>
     );
   }
 
-  _getContent() {
+  _getContent(disabled) {
     const { children } = this.props;
-    return <div className={styles.contentWrapper}>{children}</div>;
+    return disabled ? (
+      children
+    ) : (
+      <div className={styles.contentWrapper}>{children}</div>
+    );
   }
 
   /**
@@ -53,6 +59,7 @@ class Proportion extends React.PureComponent {
     const svg = `<svg viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg" />`;
     return (
       <img
+        data-hook={'proportion-aspect'}
         className={styles.ratioHolder}
         src={`data:image/svg+xml,${encodeURIComponent(svg)}`}
       />

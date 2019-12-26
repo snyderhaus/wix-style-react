@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import React from 'react';
 import { Container, Row, Col } from 'wix-style-react/Grid';
 import Card from 'wix-style-react/Card';
@@ -9,7 +11,6 @@ import ImageViewer from 'wix-style-react/ImageViewer';
 import InputArea from 'wix-style-react/InputArea';
 import Box from 'wix-style-react/Box';
 import Checkbox from 'wix-style-react/Checkbox';
-import Icons from 'wix-style-react/new-icons';
 
 class FormExample extends React.Component {
   render() {

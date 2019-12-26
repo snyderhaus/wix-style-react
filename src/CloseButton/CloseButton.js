@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { ButtonNext } from 'wix-ui-core/dist/src/components/button-next';
 import cx from 'classnames';
-import Close from '../new-icons/system/Close';
-import CloseLarge from '../new-icons/system/CloseLarge';
+import Close from 'wix-ui-icons-common/system/Close';
+import CloseLarge from 'wix-ui-icons-common/system/CloseLarge';
 import { SIZES } from './constants';
 
 import { closeButton } from 'wix-ui-core/dist/src/themes/backoffice';

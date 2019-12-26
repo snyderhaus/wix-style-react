@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import isUndefined from 'lodash/isUndefined';
 import classNames from 'classnames';
 import moment from 'moment';
+import Text from '../Text';
 
 import Input from '../Input';
 import styles from './TimeInput.scss';
@@ -216,13 +217,15 @@ export default class TimePicker extends Component {
     const suffix = (
       <Input.Group>
         {this.state.ampmMode && (
-          <span
+          <Text
+            weight="normal"
+            skin={this.props.disabled ? 'disabled' : 'standard'}
             className={styles.ampm}
             onClick={this.handleAmPmClick}
-            data-hook="am-pm-indicator"
+            dataHook="am-pm-indicator"
           >
             {this.state.am ? 'am' : 'pm'}
-          </span>
+          </Text>
         )}
         <Input.Ticker
           upDisabled={this.props.disabled}

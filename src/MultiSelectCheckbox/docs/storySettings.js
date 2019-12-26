@@ -8,4 +8,5 @@ export const storySettings = {
 
 export const testStories = {
   multiSelectCheckbox: 'MultiSelectCheckbox',
+  tabsSwitches: 'Tabs switches',
 };

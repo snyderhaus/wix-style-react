@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import InfoCircle from 'wix-ui-icons-common/InfoCircle';
+import InfoCircleSmall from 'wix-ui-icons-common/InfoCircleSmall';
 
-import InfoCircle from '../new-icons/InfoCircle';
-import InfoCircleSmall from '../new-icons/InfoCircleSmall';
 import Tooltip from '../Tooltip';
 import styles from './InfoIcon.st.css';
 import { getTooltipDataHook } from './utils';

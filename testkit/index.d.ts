@@ -10,9 +10,12 @@ import {BaseUniDriver} from 'wix-ui-test-utils/base-driver';
 import {BaseDriver} from 'wix-ui-test-utils/driver-factory';
 import AvatarDriver from '../src/Avatar/Avatar.uni.driver';
 import {TooltipDriver as TooltipUniDriver} from '../src/Tooltip/TooltipNext/Tooltip.uni.driver';
+import {TimeTableDriver} from '../src/TimeTable/TimeTable.uni.driver';
 import {TooltipDriver} from '../src/Tooltip/Tooltip.driver';
 import {InfoIconDriver} from '../src/InfoIcon/InfoIcon.uni.driver';
 import {SocialButtonDriver} from '../src/SocialButton/SocialButton.uni.driver'
+import {ListItemSectionDriver} from '../src/ListItemSection/ListItemSection.uni.driver';
+import {ListItemSelectDriver} from '../src/ListItemSelect/ListItemSelect.uni.driver';
 
 declare namespace VanillaTestkit {
   type VanillaTestkitFactory<T extends BaseDriver> = (
@@ -139,6 +142,14 @@ declare namespace VanillaTestkit {
   export const socialButtonTestkitFactory: VanillaUniTestkitFactory<SocialButtonDriver>;
   export const verticalTabsTestkitFactory: any;
   export const verticalTabsItemTestkitFactory: any;
+  export const mobilePreviewWidgetTestkitFactory: any;
+  export const listItemSectionTestkitFactory: VanillaUniTestkitFactory<ListItemSectionDriver>;
+  export const browserPreviewWidgetTestkitFactory: any;
+  export const listItemSelectTestkitFactory: VanillaUniTestkitFactory<ListItemSelectDriver>;
+  export const timeTableTestkitFactory: VanillaUniTestkitFactory<TimeTableDriver>;
+  export const marketingLayoutTestkitFactory: any;
+  export const paletteTestkitFactory: any;
+  export const warningIndicatorTestkitFactory: any;
   export const sideMenuDrillTestkitFactory: any;
   export const headerTestkitFactory: any;
   export const sideMenuTestkitFactory: any;

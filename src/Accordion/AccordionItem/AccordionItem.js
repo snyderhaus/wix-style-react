@@ -1,13 +1,12 @@
 import React from 'react';
 import { Animator } from 'wix-animations';
 import PropTypes from 'prop-types';
+import ChevronDown from 'wix-ui-icons-common/ChevronDown';
+import ChevronUp from 'wix-ui-icons-common/ChevronUp';
 
 import Text from '../../Text';
 import Button from '../../Button';
 import TextButton from '../../TextButton';
-
-import ChevronDown from '../../new-icons/ChevronDown';
-import ChevronUp from '../../new-icons/ChevronUp';
 import { buttonTypes, dataHooks } from '../constants';
 
 import style from './AccordionItem.st.css';

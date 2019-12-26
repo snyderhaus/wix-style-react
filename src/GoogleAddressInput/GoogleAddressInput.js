@@ -2,6 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import castArray from 'lodash/castArray';
+import Search from 'wix-ui-icons-common/Search';
 
 import Input from '../Input';
 import InputWithOptions from '../InputWithOptions';
@@ -11,7 +12,6 @@ import {
   trySetStreetNumberIfNotReceived,
 } from './google2address';
 import styles from './GoogleAddressInput.scss';
-import Search from '../new-icons/Search';
 
 export const GoogleAddressInputHandler = {
   geocode: 'geocode',

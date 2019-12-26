@@ -28,6 +28,7 @@ A card content component
 | propName | propType | defaultValue | isRequired | description|
 | -------- | -------- | ------------ | ---------- | --------------------------- |
 | `children` | node | | false | any custom content to display |
+| `size` | oneOf [`'medium'`, `'large'`] | | false | controls the appearance of the element |
 
 ### `<Card.Divider/>`
 

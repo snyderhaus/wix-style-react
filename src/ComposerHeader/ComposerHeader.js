@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './ComposerHeader.st.css';
+import ArrowLeft from 'wix-ui-icons-common/ArrowLeft';
 
+import styles from './ComposerHeader.st.css';
 import TextButton from '../TextButton';
 import Text from '../Text/Text';
-import ArrowLeft from '../new-icons/ArrowLeft';
-
 import { dataHooks } from './constants';
 
 const ComposerHeaderActions = () => '';

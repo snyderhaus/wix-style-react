@@ -1,8 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import Button from '../Button';
 import Box from 'wix-style-react/Box';
-import AddChannel from '../../new-icons/AddChannel';
+import AddChannel from 'wix-ui-icons-common/AddChannel';
+import Button from '../Button';
 import { SIZES, SKINS, PRIORITY } from '../constants';
 
 const defaultProps = {

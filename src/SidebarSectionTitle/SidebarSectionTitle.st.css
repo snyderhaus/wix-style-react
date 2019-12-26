@@ -14,13 +14,18 @@
     -st-named: D40
 }
 
+:import {
+  -st-from: "../Sidebar/main.st.css";
+  -st-named: sidebarWidth
+}
+
 .root {
   -st-extends: Text;
   -st-states: skin(enum(dark, light));
 
   display: block;
   padding: 9px 24px;
-  max-width: 228px;
+  max-width: value(sidebarWidth);
   box-sizing: border-box;
 }
 
@@ -32,8 +37,7 @@
   background-color: value(sidebarLightBackgroundColor);
 }
 
-
-.root:size(tiny) {
+.root:size(tiny):weight(bold) {
   color: value(D40);
   line-height: 18px;
 }

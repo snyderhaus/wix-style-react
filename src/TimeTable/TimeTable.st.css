@@ -1,0 +1,198 @@
+:import {
+  -st-from: "wix-ui-core/dist/src/themes/backoffice/colors.st.css";
+  -st-named: B10, D10-30, D20, D80, D60, D10;
+}
+:import {
+  -st-from: "../Foundation/stylable/typography.st.css";
+  -st-named: sizeTiny, sizeMedium, weightBold, weightNormal;
+}
+:import {
+  -st-from: "../AddItem/AddItem.st.css";
+  -st-default: AddItem;
+}
+:import {
+  -st-from: "../Foundation/stylable/mixins/calc_rgba.js";
+  -st-default: calc_rgba;
+}
+
+:vars {
+  notDroppableColor: #f8f8f9;
+  headerHeight: 59px;
+}
+
+.root {
+  -st-states: dragging;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  position: relative;
+  width: 100%;
+  overflow: auto;
+  background-color: value(D80);
+}
+
+.column {
+  -st-states: addItemEnabled, addItemVisible, droppable;
+  flex-shrink: 0;
+  flex-basis: 0;
+  flex-grow: 1;
+  padding: 6px;
+  padding-top: 0;
+  box-sizing: border-box;
+  min-width: 0;
+  margin-top: calc(-1 * value(headerHeight));
+}
+
+/*
+  Used as a placeholder element to make header drop shadow work correctly
+  in both standard white and non-droppable states.
+*/
+.column::before {
+  content: '';
+  display: block;
+  height: value(headerHeight);
+  margin-bottom: 6px;
+}
+
+.root:dragging .column:not(:droppable) {
+  background-color: value(notDroppableColor);
+}
+
+.column:addItemEnabled:not(:addItemVisible) {
+  padding-bottom: 36px;
+}
+
+.header {
+  -st-states: active, disabled, droppable;
+  -st-mixin: weightBold;
+  color: value(D20);
+  text-align: center;
+  box-sizing: border-box;
+  min-width: 0;
+  flex-grow: 1;
+  padding: 12px 6px 0 6px;
+  border-top: 1px solid value(D60);
+  flex-basis: 0;
+  height: value(headerHeight);
+  top: 0;
+  background-image: linear-gradient(
+    to top,
+    calc_rgba(value(D80), 0),
+    calc_rgba(value(D80), 0.97) 12%,
+    calc_rgba(value(D80), 0.96) 28%,
+    value(D80)
+  );
+}
+
+.header:active {
+  border-top: 1px solid value(B10);
+}
+
+.header:active {
+  color: value(B10);
+}
+
+.header:disabled {
+  color: value(D10-30);
+}
+
+.root:dragging .header:not(:droppable) {
+  background-image: linear-gradient(
+    to top,
+    calc_rgba(value(notDroppableColor), 0),
+    calc_rgba(value(notDroppableColor), 0.97) 12%,
+    calc_rgba(value(notDroppableColor), 0.96) 28%,
+    value(notDroppableColor)
+  );
+}
+
+.title {
+  -st-mixin: sizeMedium;
+}
+
+.subtitle {
+  -st-mixin: sizeTiny;
+}
+
+.title, .subtitle {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.item {
+  -st-states: isPlaceholder;
+  margin-bottom: 6px;
+}
+
+.item:isPlaceholder > * {
+  visibility: hidden;
+}
+
+.item:isPlaceholder {
+  border-radius: 4px;
+  background-color: value(D60);
+  box-shadow: none;
+}
+
+.addItemButton {
+  -st-extends: AddItem;
+  padding: 4px;
+  height: 30px;
+}
+
+.addItemButton:theme(dashes) {
+  border-radius: 4px;
+}
+
+.addItemLabel {
+  -st-mixin: sizeTiny, weightNormal;
+}
+
+.addItemIcon {
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
+}
+
+.headerContainer {
+  position: sticky;
+  flex-shrink: 0;
+  width: 100%;
+  top: 0;
+  display: flex;
+  z-index: 1;
+}
+
+.contentContainer {
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 0;
+  width: 100%;
+}
+
+.column, .header {
+  border-left: 1px solid value(D60);
+}
+
+.column:first-child,
+.header:first-child {
+  border-left: none;
+}
+
+:global([dir="rtl"]) .column:last-child,
+:global([dir="rtl"]) .header:last-child {
+  border-left: none;
+}
+
+:global([dir="rtl"]) .column:first-child,
+:global([dir="rtl"]) .header:first-child {
+  border-left: 1px solid value(D60);
+}
+
+.content {
+  box-sizing: border-box;
+}
+.root:dragging .content {
+  min-height: calc(100% - value(headerHeight));
+}

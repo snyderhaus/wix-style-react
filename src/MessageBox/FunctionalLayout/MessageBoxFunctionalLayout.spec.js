@@ -1,4 +1,7 @@
 import React from 'react';
+import { mount } from 'enzyme';
+import ChevronDown from 'wix-ui-icons-common/ChevronDown';
+
 import MessageBoxFunctionalLayout from './MessageBoxFunctionalLayout';
 import MessageBoxFunctionalLayoutFactory from './MessageBoxFunctionalLayout.driver';
 import {
@@ -7,8 +10,6 @@ import {
 } from '../../../test/utils/testkit-sanity';
 import { messageBoxFunctionalLayoutTestkitFactory } from '../../../testkit';
 import { messageBoxFunctionalLayoutTestkitFactory as enzymeMessageBoxTestkitFactory } from '../../../testkit/enzyme';
-import { mount } from 'enzyme';
-import ChevronDown from 'wix-style-react/new-icons/ChevronDown';
 import {
   createRendererWithDriver,
   createRendererWithUniDriver,

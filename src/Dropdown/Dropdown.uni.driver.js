@@ -1,3 +1,1 @@
-export {
-  inputWithOptionsUniDriverFactory as dropdownUniDriverFactory,
-} from '../InputWithOptions/InputWithOptions.uni.driver';
+export { inputWithOptionsUniDriverFactory as dropdownUniDriverFactory } from '../InputWithOptions/InputWithOptions.uni.driver';

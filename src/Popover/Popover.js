@@ -57,8 +57,8 @@ class Popover extends React.Component {
       return childrenArr.reduce((err, child) => {
         if (
           !err &&
-          (child.type.displayName !== 'Popover.Element' &&
-            child.type.displayName !== 'Popover.Content')
+          child.type.displayName !== 'Popover.Element' &&
+          child.type.displayName !== 'Popover.Content'
         ) {
           return new Error(
             `Invalid children provided, unknown child <${child.type
@@ -69,6 +69,14 @@ class Popover extends React.Component {
         return err;
       }, false);
     },
+
+    /**
+     * Breaking change:
+     * When true - onClickOutside will be called only when the dropdown is open
+     *
+     * **NOTE! This is a temporary prop that will be removed in wsr-8**
+     */
+    disableClickOutsideWhenClosed: PropTypes.bool,
   };
 
   static defaultProps = {
@@ -77,7 +85,13 @@ class Popover extends React.Component {
   };
 
   render() {
-    const { dataHook, animate, theme, ...rest } = this.props;
+    const {
+      dataHook,
+      animate,
+      theme,
+      disableClickOutsideWhenClosed,
+      ...rest
+    } = this.props;
 
     const timeout = animate
       ? { enter: ANIMATION_DURATION, exit: 0 }
@@ -85,6 +99,7 @@ class Popover extends React.Component {
 
     return (
       <CorePopover
+        disableClickOutsideWhenClosed={disableClickOutsideWhenClosed}
         timeout={timeout}
         {...(dataHook ? { 'data-hook': dataHook } : undefined)}
         {...rest}

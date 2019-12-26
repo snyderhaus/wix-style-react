@@ -1,4 +1,5 @@
 import React from 'react';
+import CropRotate from 'wix-ui-icons-common/CropRotate';
 import {
   tab,
   tabs,
@@ -19,7 +20,6 @@ import { storySettings } from '../test/storySettings';
 import icons from '../../../stories/utils/icons-for-story';
 import { baseScope } from '../../../stories/utils/LiveCodeExample';
 import testkit from '!raw-loader!./testkit.md';
-import CropRotate from '../../new-icons/CropRotate';
 import * as examples from './examples';
 
 const Link = ({ children, ...rest }) => <a {...rest}>{children}</a>;

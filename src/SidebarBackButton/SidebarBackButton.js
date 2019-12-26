@@ -1,10 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ChevronLeft from '../new-icons/ChevronLeft';
+import ChevronLeft from 'wix-ui-icons-common/ChevronLeft';
+
 import Text from '../Text';
 import styles from './SidebarBackButton.st.css';
 import { SidebarContext } from '../Sidebar/SidebarAPI';
 import { sidebarSkins } from '../Sidebar/constants';
+
+import { withFocusable } from 'wix-ui-core/dist/src/hocs/Focusable';
 
 /**  button with an animated back arrow */
 class SidebarBackButton extends React.PureComponent {
@@ -20,14 +23,21 @@ class SidebarBackButton extends React.PureComponent {
   };
 
   render() {
-    const { children, animateArrow, onClick, dataHook } = this.props;
+    const {
+      children,
+      animateArrow,
+      onClick,
+      dataHook,
+      focusableOnFocus,
+      focusableOnBlur,
+    } = this.props;
 
     return (
       <SidebarContext.Consumer>
         {context => {
           const skin = (context && context.getSkin()) || sidebarSkins.dark;
           return (
-            <div
+            <button
               {...styles(
                 'BackButton',
                 { lightSkin: skin === sidebarSkins.light },
@@ -35,6 +45,10 @@ class SidebarBackButton extends React.PureComponent {
               )}
               data-hook={dataHook}
               onClick={onClick}
+              onFocus={focusableOnFocus}
+              onBlur={focusableOnBlur}
+              type="button"
+              tabIndex="0"
             >
               <ChevronLeft
                 {...styles('arrow', { animated: animateArrow }, this.props)}
@@ -47,7 +61,7 @@ class SidebarBackButton extends React.PureComponent {
               >
                 {children}
               </Text>
-            </div>
+            </button>
           );
         }}
       </SidebarContext.Consumer>
@@ -55,4 +69,4 @@ class SidebarBackButton extends React.PureComponent {
   }
 }
 
-export default SidebarBackButton;
+export default withFocusable(SidebarBackButton);

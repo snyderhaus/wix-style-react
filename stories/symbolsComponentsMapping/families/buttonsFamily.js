@@ -1,6 +1,9 @@
 import { buttonsSymbols } from '../symbols';
 import { buttonsComponentsNames as componentsNames } from '../components';
 
+/**
+ * Symbol => Component 5
+ */
 export const buttonsSymbolsToComponents = {
   [buttonsSymbols.button]: [componentsNames.Button],
 

@@ -4,6 +4,8 @@ import Collapse from '..';
 import FormField from '../../FormField';
 import Input from '../../Input';
 
+import { Category } from '../../../stories/storiesHierarchy';
+
 const exampleChildren = [
   { label: 'Simple text', value: 'Lorem perferendis sapiente quas facilis!' },
   {
@@ -17,7 +19,7 @@ const exampleChildren = [
 ];
 
 export default {
-  category: 'Components',
+  category: Category.COMPONENTS,
   storyName: 'Collapse',
   component: Collapse,
   componentPath: '..',

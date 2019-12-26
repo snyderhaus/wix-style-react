@@ -1,6 +1,6 @@
 :import {
-  -st-from: "wix-ui-core/dist/src/hocs/Focusable/Focusable.st.css";
-  -st-default: Focusable;
+  -st-from: "wix-ui-core/dist/src/components/button-next/button-next.st.css";
+  -st-default: Button;
 }
 
 :import {
@@ -14,9 +14,20 @@
 }
 
 .root {
-  -st-extends: Focusable;
   -st-states: selected;
+  display: flex;
+  min-width: 24px;
+  min-height: 24px;
+  width: 100%;
+  height: 100%;
+}
 
+.root:selected .button {
+  box-shadow: 0 0 0 2px hsl(0, 0%, 100%), 0 0 0 3px value(B10);
+}
+
+.button {
+  -st-extends: Button;
   border-radius: 6px;
   width: 100%;
   height: 100%;
@@ -30,19 +41,13 @@
   outline: none;
 }
 
-.root:not(:disabled):selected {
-  box-shadow: 0 0 0 2px #ffffff, 0 0 0 3px value(B10);
-}
-
-.root:not(:disabled):focus-visible {
-  box-shadow: 0 0 0 3px value(F00);
-}
-
-.root:disabled {
+.button:disabled {
   background-color: calc_rgba(value(D10),0.1);
   border: none;
 }
 
-.proportion {
-  min-width: 24px;
+.button:not(:disabled):focus-visible  {
+  box-shadow: 0 0 0 3px value(F00);
 }
+
+

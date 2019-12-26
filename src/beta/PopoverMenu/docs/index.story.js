@@ -15,16 +15,17 @@ import {
   title,
 } from 'wix-storybook-utils/Sections';
 
+import More from 'wix-ui-icons-common/More';
+import Add from 'wix-ui-icons-common/Add';
+import Edit from 'wix-ui-icons-common/Edit';
+import Delete from 'wix-ui-icons-common/Delete';
+
 import { storySettings } from '../test/storySettings';
 import allComponents from '../../../../stories/utils/allComponents';
 
 import PopoverMenu from '..';
 
 import IconButton from '../../../IconButton';
-import More from '../../../new-icons/More';
-import Add from '../../../new-icons/Add';
-import Edit from '../../../new-icons/Edit';
-import Delete from '../../../new-icons/Delete';
 
 import { placements } from '../../../Popover';
 import testkitDesc from './testkit.md';

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Category } from '../../../storiesHierarchy';
 
 import {
   FamilyStructure,
@@ -22,22 +23,21 @@ import Text from 'wix-style-react/Text';
 import Heading from 'wix-style-react/Heading';
 
 //Icons
-import Edit from 'wix-style-react/new-icons/Edit';
-import Delete from 'wix-style-react/new-icons/Delete';
-import Confirm from 'wix-style-react/new-icons/Confirm';
-import Dismiss from 'wix-style-react/new-icons/Dismiss';
-import More from 'wix-style-react/new-icons/More';
-import DownloadImport from 'wix-style-react/new-icons/DownloadImport';
-import Visible from 'wix-style-react/new-icons/Visible';
-import Attachement from 'wix-style-react/new-icons/Attachement';
-import ChevronUp from 'wix-style-react/new-icons/ChevronUp';
-import ChevronDown from 'wix-style-react/new-icons/ChevronDown';
-import HeartFilled from 'wix-style-react/new-icons/HeartFilled';
-import FlagFilled from 'wix-style-react/new-icons/FlagFilled';
+import Edit from 'wix-ui-icons-common/Edit';
+import Delete from 'wix-ui-icons-common/Delete';
+import Confirm from 'wix-ui-icons-common/Confirm';
+import Dismiss from 'wix-ui-icons-common/Dismiss';
+import More from 'wix-ui-icons-common/More';
+import DownloadImport from 'wix-ui-icons-common/DownloadImport';
+import Visible from 'wix-ui-icons-common/Visible';
+import Attachement from 'wix-ui-icons-common/Attachement';
+import ChevronUp from 'wix-ui-icons-common/ChevronUp';
+import ChevronDown from 'wix-ui-icons-common/ChevronDown';
+import HeartFilled from 'wix-ui-icons-common/HeartFilled';
+import FlagFilled from 'wix-ui-icons-common/FlagFilled';
 
 //Assets
 import { Layout, Cell } from 'wix-style-react/Layout';
-import { Container, Row, Col } from 'wix-style-react/Grid';
 import Box from 'wix-style-react/Box';
 import { capitalize } from '../../../../src/Typography/docs/utils.js';
 
@@ -144,7 +144,7 @@ const TypographyExamples = () => {
   const components = foundationSymbolsToComponents[symbol];
 
   const singleComponentProps = {
-    name: createLinkedSymbolName({ groupSymbol, symbol }),
+    name: createLinkedSymbolName({ groupSymbol: Category.FOUNDATION, symbol }),
     componentsNames: createLinkedComponentsNames(components),
   };
 
@@ -163,7 +163,7 @@ const IconsExamples = () => {
   const components = foundationSymbolsToComponents[symbol];
 
   const singleComponentProps = {
-    name: createLinkedSymbolName({ groupSymbol, symbol }),
+    name: createLinkedSymbolName({ groupSymbol: Category.FOUNDATION, symbol }),
     componentsNames: createLinkedComponentsNames(components),
   };
 

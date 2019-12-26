@@ -1,6 +1,6 @@
 import { linearProgressBarDriverFactory as coreLinearProgressBarDriverFactory } from 'wix-ui-core/drivers/vanilla';
 import { tooltipDriverFactory } from 'wix-ui-backoffice/dist/src/components/Tooltip/Tooltip.driver';
-import { dataHooks } from './constants';
+import { dataHooks, SKINS } from './constants';
 
 const linearProgressBarDriverFactory = ({ element, eventTrigger, wrapper }) => {
   const createTooltipDriver = () =>
@@ -9,11 +9,13 @@ const linearProgressBarDriverFactory = ({ element, eventTrigger, wrapper }) => {
       wrapper,
       eventTrigger,
     });
+
   const coreProgressBarDriver = coreLinearProgressBarDriverFactory({
     element,
     wrapper,
     eventTrigger,
   });
+
   const errorIcon = () =>
     element.querySelector(`[data-hook='${dataHooks.errorIcon}']`);
   const successIcon = () =>
@@ -30,6 +32,7 @@ const linearProgressBarDriverFactory = ({ element, eventTrigger, wrapper }) => {
       await getTooltip().mouseEnter();
       return getTooltip().getContentElement().textContent;
     },
+    getSkin: () => element.getAttribute('data-skin'),
   };
 };
 

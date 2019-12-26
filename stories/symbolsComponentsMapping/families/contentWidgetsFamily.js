@@ -4,6 +4,9 @@ import {
   sharedComponentsNames,
 } from '../components';
 
+/**
+ * Symbol => Component 12
+ */
 export const contentWidgetsSymbolsToComponents = {
   [contentWidgetsSymbols.imageWidget]: [],
 
@@ -21,7 +24,11 @@ export const contentWidgetsSymbolsToComponents = {
     contentWidgetsComponentsNames.CardGalleryItem,
   ],
 
-  [contentWidgetsSymbols.preview]: [],
+  [contentWidgetsSymbols.preview]: [
+    contentWidgetsComponentsNames.PreviewWidget,
+    contentWidgetsComponentsNames.BrowserPreviewWidget,
+    contentWidgetsComponentsNames.MobilePreviewWidget,
+  ],
 
   [contentWidgetsSymbols.omniSetup]: [],
 };

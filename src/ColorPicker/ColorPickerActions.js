@@ -1,10 +1,9 @@
 import React from 'react';
 import { func } from 'prop-types';
+import X from 'wix-ui-icons-common/X';
+import Check from 'wix-ui-icons-common/Check';
 
 import IconButton from '../IconButton';
-import X from '../new-icons/X';
-import Check from '../new-icons/Check';
-
 import css from './ColorPickerActions.scss';
 
 const ColorPickerActions = ({ onCancel, onConfirm, disabled }) => (

@@ -11,17 +11,20 @@ const ROOT_DIR = process.cwd();
 const resolvePath = (...args) => path.resolve(ROOT_DIR, ...args);
 const components_meta = require(resolvePath('.wuf/components.json'));
 
-const components = Object.keys(components_meta).reduce(
-  (accu, comp) => ({
+const components = Object.keys(components_meta).reduce((accu, comp) => {
+  /** TODO: Carousel is failling on some external stuff */
+  if (comp === 'Carousel') {
+    return accu;
+  }
+  return {
     ...accu,
     [comp]: `${components_meta[comp].path.replace('src/', '')}/index`,
-  }),
-  {},
-);
+  };
+}, {});
 
 module.exports.defaultConfig = {
   ...config,
-  context: resolvePath('dist'),
+  mode: 'production',
   entry: {
     ...components,
   },

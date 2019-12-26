@@ -6,7 +6,7 @@ import { withFocusable } from 'wix-ui-core/dist/src/hocs/Focusable/FocusableHOC'
 import AddItemLarge from 'wix-ui-icons-common/system/AddItemLarge';
 import AddItemMedium from 'wix-ui-icons-common/system/AddItemMedium';
 import AddItemSmall from 'wix-ui-icons-common/system/AddItemSmall';
-import Add from '../new-icons/Add';
+import Add from 'wix-ui-icons-common/Add';
 
 import Tooltip from '../Tooltip';
 import Text from '../Text';
@@ -14,7 +14,6 @@ import TooltipHOC from './components/TooltipHOC';
 import AddMedia from 'wix-ui-icons-common/system/AddMedia';
 
 import style from './AddItem.st.css';
-import colors from '../Foundation/stylable/colors.st.css';
 
 const ICONS = {
   large: <AddItemLarge />,
@@ -86,16 +85,13 @@ class AddItem extends Component {
     removePadding: false,
   };
 
-  _getTextColor = () => (this.props.disabled ? colors['D10-30'] : colors.B10);
-
   _renderIcon = () => {
     const { size, theme } = this.props;
 
     const image = theme === 'image';
-    const color = this._getTextColor();
     const iconElement = ICONS[image ? 'custom' : size];
 
-    return React.cloneElement(iconElement, { style: { color } });
+    return iconElement;
   };
 
   _renderText = () => {
@@ -108,14 +104,8 @@ class AddItem extends Component {
     const textSize = size === 'tiny' ? 'small' : 'medium';
 
     return (
-      <div {...style('text', { size }, this.props)}>
-        <Text
-          style={{ color: this._getTextColor() }}
-          weight="thin"
-          size={textSize}
-          dataHook="additem-text"
-          ellipsis
-        >
+      <div {...style('text', { size })}>
+        <Text weight="thin" size={textSize} dataHook="additem-text" ellipsis>
           {children}
         </Text>
       </div>

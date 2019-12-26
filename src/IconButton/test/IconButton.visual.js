@@ -1,8 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import More from 'wix-ui-icons-common/More';
+import MoreSmall from 'wix-ui-icons-common/MoreSmall';
 import IconButton from '../IconButton';
-import More from '../../new-icons/More';
-import MoreSmall from '../../new-icons/MoreSmall';
 import { SKINS } from '../constants';
 
 const skins = Object.keys(SKINS);

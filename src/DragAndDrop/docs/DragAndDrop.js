@@ -24,13 +24,15 @@ import { Introduction } from './Introduction';
 import Styles from './Styles';
 import DragDropContextProvider from './DragDropContextProvider';
 
-storiesOf('WIP/Drag And Drop', module)
+import { Category } from '../../../stories/storiesHierarchy';
+
+storiesOf(`${Category.WIP}/Drag And Drop`, module)
   .add('Introduction', () => <Introduction />)
   .add('Styles', () => <Styles />)
   .add('DragDropContextProvider', () => <DragDropContextProvider />)
   .add('NestableList', () => <NestableListExample />);
 
-storiesOf('WIP/Drag And Drop/SortableList', module)
+storiesOf(`${Category.WIP}/SortableList`, module)
   .add('API', () => (
     <div>
       <Heading>

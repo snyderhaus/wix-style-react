@@ -35,8 +35,7 @@
 }
 
 .inputContainer input {
-  height: value(input-height) !important;
-  padding-top: 18px !important;
+  padding: 18px 0 0 9px !important;
 }
 
 .statusMessagePlaceholder {
@@ -44,6 +43,13 @@
 }
 
 .statusMessage {
-  display: block;
+  display: flex;
+  align-items: center;
   line-height: value(status-message-height) !important;
+}
+
+.statusMessageIcon {
+  margin-right: 5px;
+  display: flex;
+  margin-left: -2px;
 }

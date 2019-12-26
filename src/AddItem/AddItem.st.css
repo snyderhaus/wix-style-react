@@ -22,6 +22,11 @@
   -st-default: Focusable;
 }
 
+:import {
+  -st-from: "../Text/Text.st.css";
+  -st-default: Text;
+}
+
 .root {
   -st-extends: Focusable;
   -st-states: theme(enum(dashes, plain, filled, image)), removePadding;
@@ -212,4 +217,12 @@
 .text:size(large) {
   width: 100%;
   padding-top: 12px;
+}
+
+.text Text {
+  color: value(B10);
+}
+
+.root:disabled .text Text {
+  color: value(D10-30);
 }

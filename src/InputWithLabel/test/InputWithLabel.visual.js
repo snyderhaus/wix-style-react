@@ -1,9 +1,10 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import ChevronDown from 'wix-ui-icons-common/ChevronDown';
+
 import InputWithLabel from '../InputWithLabel';
 import { inputWithLabelTestkitFactory } from '../../../testkit';
 import Input from '../../Input';
-import ChevronDown from 'wix-style-react/new-icons/ChevronDown';
 
 const commonProps = {
   label: 'First Name',

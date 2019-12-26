@@ -9,13 +9,13 @@ const testkitsWarning = `
 To learn how to initialize and use testkits, see <a href="/?selectedKind=Introduction&selectedStory=Testing" target="_blank">Testing guide</a>
 `;
 
-module.exports = (config, env, defaultConfig) => {
-  defaultConfig.module.rules[0].use[0].loader = require.resolve('babel-loader');
-  defaultConfig.plugins
-    .find(plugin => plugin.constructor.name === 'ProgressPlugin')
-    .handler = () => undefined
+module.exports = ({ config }) => {
+  config.module.rules[0].use[0].loader = require.resolve('babel-loader');
+  config.plugins.find(
+    plugin => plugin.constructor.name === 'ProgressPlugin',
+  ).handler = () => undefined;
 
-  const newConfig = wixStorybookConfig(defaultConfig);
+  const newConfig = wixStorybookConfig(config);
 
   return merge(newConfig, {
     context: path.resolve(__dirname, '..', 'src'),

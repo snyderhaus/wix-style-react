@@ -107,7 +107,7 @@ export default {
                     <PreviewWidget skin='gradient'>${childNodeString}</PreviewWidget>
                 </Cell>
                 <Cell>
-                    <PreviewWidget skin='custom' backgroundColor='linear-gradient(#e66465, #9198e5)'>${childNodeString}</PreviewWidget>
+                    <PreviewWidget skin='custom' backgroundColor='B10'>${childNodeString}</PreviewWidget>
                 </Cell>
               </Layout>`,
             }),

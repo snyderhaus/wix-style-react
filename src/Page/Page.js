@@ -17,6 +17,7 @@ import {
   BACKGROUND_COVER_CONTENT_PX,
   MINIMIZED_HEADER_WRAPPER_HEIGHT_PX,
   MINIMIZED_HEADER_WRAPPER_WITH_TAIL_HEIGHT_PX,
+  HEADER_BOTTOM_PADDING_PX,
 } from './constants';
 import {
   mainContainerMinWidthPx as GRID_MIN_WIDTH,
@@ -350,14 +351,6 @@ class Page extends WixComponent {
     return !!this._getNamedChildren().PageTail;
   }
 
-  _fixedContainerStyle() {
-    const { scrollBarWidth } = this.state;
-    if (scrollBarWidth) {
-      return { width: `calc(100% - ${scrollBarWidth}px` };
-    }
-    return null;
-  }
-
   _renderMinimizationPlaceholder() {
     const { headerContainerHeight, minimized } = this.state;
     return (
@@ -429,8 +422,14 @@ class Page extends WixComponent {
 
     const { pageHeight } = this.state;
 
+    const pageContentMarginTop = tailHeight ? HEADER_BOTTOM_PADDING_PX : 0;
+
     const stretchToHeight =
-      pageHeight - headerWrapperHeight - tailHeight - PAGE_BOTTOM_PADDING_PX;
+      pageHeight -
+      headerWrapperHeight -
+      tailHeight -
+      pageContentMarginTop -
+      PAGE_BOTTOM_PADDING_PX;
 
     return (
       <PageContext.Provider

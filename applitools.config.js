@@ -7,5 +7,7 @@ try {
 } catch (e) {}
 
 module.exports = applitoolsConfig({
-  config: merge(privateConfig, { concurrency: 20 }),
+  config: merge(privateConfig, {
+    concurrency: 20,
+  }),
 });

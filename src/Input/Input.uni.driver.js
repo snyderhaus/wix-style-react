@@ -54,6 +54,7 @@ export const testkit = base => {
     clickClear: async () => await clearButtonNode.click(),
     getValue: async () => await input.value(),
     getText: async () => await input.value(),
+    getPattern: async () => await input.attr('pattern'),
     getPlaceholder: async () => await input.attr('placeholder'),
     isOfStyle: async style => await base.hasClass(styles[`theme-${style}`]),
     isOfSize: async size => await base.hasClass(styles[`size-${size}`]),

@@ -57,6 +57,9 @@ export default class ModalSelectorLayout extends WixComponent {
      *    disabled?: boolean // show item as disabled, dont count it in "select all", exclude from `onOk`
      *    selected?: boolean // force item as selected
      *    image?: node
+     *    subtitleNode?: Node,
+     *    belowNode?: Node,
+     *    showBelowNodeOnSelect?: boolean,
      *  }>,
      *  totalCount: number
      * }>
@@ -129,6 +132,16 @@ export default class ModalSelectorLayout extends WixComponent {
 
     /** string to be displayed in footer when `multiple` prop is used and some or all items ar selected */
     deselectAllText: string,
+
+    /** to disable confirm button */
+    disableConfirmation: bool,
+
+    /** callback that triggers on select and return selected item object*/
+    onSelect: func,
+
+    /** Used to display some side component in the footer.
+     * Will override element select all in the footer when multiple=true */
+    sideActions: node,
   };
 
   static defaultProps = {
@@ -150,6 +163,7 @@ export default class ModalSelectorLayout extends WixComponent {
     ),
     selectAllText: 'Select All',
     deselectAllText: 'Deselect All',
+    disableConfirmation: false,
   };
 
   state = {
@@ -260,11 +274,11 @@ export default class ModalSelectorLayout extends WixComponent {
 
   _renderItems() {
     const { items, selectedItems } = this.state;
-    const { imageSize, imageShape, multiple } = this.props;
+    const { imageSize, imageShape, multiple, onSelect } = this.props;
 
     const isSelected = item => !!selectedItems.find(({ id }) => item.id === id);
 
-    const onToggle = item =>
+    const onToggle = item => {
       this.setState({
         selectedItems: multiple
           ? isSelected(item)
@@ -272,6 +286,11 @@ export default class ModalSelectorLayout extends WixComponent {
             : selectedItems.concat(item)
           : [item],
       });
+
+      if (onSelect) {
+        onSelect(item);
+      }
+    };
 
     if (items.length > 0) {
       return (
@@ -288,15 +307,18 @@ export default class ModalSelectorLayout extends WixComponent {
               title={item.title}
               subtitle={item.subtitle}
               extraNode={
-                item.extraNode ? (
-                  item.extraNode
-                ) : (
-                  <Text secondary>{item.extraText}</Text>
-                )
+                item.extraNode
+                  ? item.extraNode
+                  : item.extraText && <Text secondary>{item.extraText}</Text>
               }
+              subtitleNode={item.subtitleNode}
+              belowNode={item.belowNode}
+              showBelowNodeOnSelect={item.showBelowNodeOnSelect}
               isSelected={isSelected(item)}
               isDisabled={item.disabled}
-              onToggle={() => !item.disabled && onToggle(item)}
+              onToggle={() => {
+                !item.disabled && onToggle(item);
+              }}
             />
           ))}
         </ul>
@@ -365,6 +387,8 @@ export default class ModalSelectorLayout extends WixComponent {
       cancelButtonText,
       okButtonText,
       multiple,
+      disableConfirmation,
+      sideActions,
     } = this.props;
 
     const enabledItems = this._getEnabledItems(selectedItems);
@@ -375,8 +399,9 @@ export default class ModalSelectorLayout extends WixComponent {
         onOk={() => onOk(multiple ? enabledItems : enabledItems[0])}
         cancelText={cancelButtonText}
         confirmText={okButtonText}
-        enableOk={!!selectedItems.length}
-        children={multiple && this._renderFooterSelector()}
+        enableOk={!disableConfirmation && !!selectedItems.length}
+        children={!sideActions && multiple && this._renderFooterSelector()}
+        sideActions={sideActions}
       />
     );
   };

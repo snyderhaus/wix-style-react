@@ -1,12 +1,12 @@
 import React from 'react';
+import More from 'wix-ui-icons-common/More';
+import MoreSmall from 'wix-ui-icons-common/MoreSmall';
 import {
   createRendererWithUniDriver,
   cleanup,
 } from '../../../test/utils/react/index';
 import { iconButtonPrivateDriverFactory } from '../IconButton.private.uni.driver';
 import IconButton from '../index';
-import More from '../../new-icons/More';
-import MoreSmall from '../../new-icons/MoreSmall';
 import { dataHooks } from './storySettings';
 
 describe('IconButton', () => {

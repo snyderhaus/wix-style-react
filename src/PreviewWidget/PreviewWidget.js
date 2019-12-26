@@ -37,7 +37,7 @@ class PreviewWidget extends React.PureComponent {
   static defaultProps = {
     skin: 'neutral',
     contentOutline: 'shadow',
-    height: '100%',
+    height: 'auto',
     width: '100%',
     children: <Box height="50px" width="50px" />,
   };

@@ -1,9 +1,8 @@
 import React from 'react';
+import Confirm from 'wix-ui-icons-common/Confirm';
+import FormFieldErrorSmall from 'wix-ui-icons-common/system/FormFieldErrorSmall';
 
 import Text from '../../../Text';
-import Confirm from '../../../new-icons/Confirm';
-import FormFieldErrorSmall from '../../../new-icons/system/FormFieldErrorSmall';
-
 import styles from './StepCircle.st.css';
 import { STEP_TYPES } from '../../Consts';
 

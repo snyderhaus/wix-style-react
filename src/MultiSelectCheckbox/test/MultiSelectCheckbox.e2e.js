@@ -1,4 +1,6 @@
+import { waitForVisibilityOf, isFocused } from 'wix-ui-test-utils/protractor';
 import { multiSelectCheckboxTestkitFactory } from '../../../testkit/protractor';
+import { createTestStoryUrl } from '../../../test/utils/storybook-helpers';
 import eyes from 'eyes.it';
 
 import { storySettings, testStories } from '../docs/storySettings';
@@ -42,4 +44,57 @@ describe('MultiSelectCheckbox', () => {
       expect((await driver.getDropdown()).isDisplayed()).toBe(false);
     },
   );
+});
+
+describe('MultiSelectCheckbox - Focus behaviour', () => {
+  let driver;
+
+  const navigateToTestUrl = async testName => {
+    const testStoryUrl = createTestStoryUrl({
+      category: storySettings.category,
+      storyName: storySettings.storyName,
+      dataHook: storySettings.dataHook,
+      testName,
+    });
+    await browser.get(testStoryUrl);
+  };
+
+  beforeEach(async () => {
+    await navigateToTestUrl(testStories.tabsSwitches);
+
+    driver = multiSelectCheckboxTestkitFactory({
+      dataHook: storySettings.dataHook,
+    });
+    await waitForVisibilityOf(
+      driver.element(),
+      `Cant find ${storySettings.dataHook}`,
+    );
+  });
+
+  const pressTab = () =>
+    browser
+      .actions()
+      .sendKeys(protractor.Key.TAB)
+      .perform();
+
+  async function focusOnDropdown() {
+    const firstElement = $(`[data-hook="input-for-initial-focus"]`);
+
+    await pressTab();
+    expect(await isFocused(firstElement)).toEqual(true);
+
+    await pressTab();
+    expect(await driver.isFocused()).toEqual(true);
+  }
+
+  it('should not move out focus of dropdown after tab presses', async () => {
+    await focusOnDropdown();
+    await driver.hoverItemById(0);
+    await pressTab();
+    expect(await driver.isFocused()).toEqual(true);
+    await pressTab();
+    expect(await driver.isFocused()).toEqual(true);
+    await pressTab();
+    expect(await driver.isFocused()).toEqual(true);
+  });
 });

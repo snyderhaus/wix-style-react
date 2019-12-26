@@ -21,13 +21,16 @@ class Selector extends WixComponent {
       'cinema',
     ]),
     imageShape: PropTypes.oneOf(['rectangular', 'circle']),
-    title: PropTypes.string.isRequired,
+    title: PropTypes.node.isRequired,
     isSelected: PropTypes.bool,
     isDisabled: PropTypes.bool,
     subtitle: PropTypes.string,
     extraNode: PropTypes.node,
     onToggle: PropTypes.func,
     toggleType: PropTypes.oneOf(['checkbox', 'radio']),
+    showBelowNodeOnSelect: PropTypes.bool,
+    belowNode: PropTypes.node,
+    subtitleNode: PropTypes.node,
   };
 
   static defaultProps = {
@@ -37,6 +40,7 @@ class Selector extends WixComponent {
     imageSize: 'large',
     imageShape: 'rectangular',
     onToggle: i => i,
+    showBelowNodeOnSelect: false,
   };
 
   radioButtonAndImageMargins = '57px';
@@ -54,56 +58,71 @@ class Selector extends WixComponent {
       isSelected,
       isDisabled,
       toggleType,
+      showBelowNodeOnSelect,
+      subtitleNode,
+      belowNode,
     } = this.props;
 
     return (
       <li className={styles.root} onClick={this._onClick}>
-        {toggleType === 'checkbox' ? (
-          <Checkbox
-            dataHook="toggle"
-            checked={isSelected}
-            disabled={isDisabled}
-          />
-        ) : (
-          <RadioButton
-            dataHook="toggle"
-            checked={isSelected}
-            disabled={isDisabled}
-          />
-        )}
+        <div className={styles.mainPart}>
+          {toggleType === 'checkbox' ? (
+            <Checkbox
+              dataHook="toggle"
+              checked={isSelected}
+              disabled={isDisabled}
+            />
+          ) : (
+            <RadioButton
+              dataHook="toggle"
+              checked={isSelected}
+              disabled={isDisabled}
+            />
+          )}
 
-        {image && (
-          <div
-            data-hook="selector-image"
-            className={classNames(
-              styles.image,
-              styles[imageSize],
-              styles[imageShape],
+          {image && (
+            <div
+              data-hook="selector-image"
+              className={classNames(
+                styles.image,
+                styles[imageSize],
+                styles[imageShape],
+              )}
+              children={image}
+            />
+          )}
+
+          <div className={styles.titles}>
+            <Text dataHook="selector-title" ellipsis children={title} />
+
+            {subtitle && (
+              <Text
+                size="small"
+                secondary
+                dataHook="selector-subtitle"
+                ellipsis
+                children={subtitle}
+              />
             )}
-            children={image}
-          />
-        )}
 
-        <div className={styles.titles}>
-          <Text dataHook="selector-title" ellipsis children={title} />
+            {subtitleNode && (
+              <div data-hook="subtitle-node">{subtitleNode}</div>
+            )}
+          </div>
 
-          {subtitle && (
-            <Text
-              size="small"
-              secondary
-              dataHook="selector-subtitle"
-              ellipsis
-              children={subtitle}
+          {extraNode && (
+            <div
+              className={styles.extra}
+              data-hook="selector-extra-node"
+              children={extraNode}
             />
           )}
         </div>
 
-        {extraNode && (
-          <div
-            className={styles.extra}
-            data-hook="selector-extra-node"
-            children={extraNode}
-          />
+        {showBelowNodeOnSelect && belowNode && isSelected && (
+          <div data-hook="below-section" className={styles.belowSection}>
+            {belowNode}
+          </div>
         )}
       </li>
     );

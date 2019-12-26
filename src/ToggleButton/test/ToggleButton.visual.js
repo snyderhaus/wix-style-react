@@ -1,7 +1,7 @@
 import React from 'react';
+import CropRotate from 'wix-ui-icons-common/CropRotate';
 import { storiesOf } from '@storybook/react';
 import ToggleButton from '../ToggleButton';
-import CropRotate from '../../new-icons/CropRotate';
 
 const tests = [
   {

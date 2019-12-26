@@ -1,12 +1,12 @@
 import React from 'react';
+import Check from 'wix-ui-icons-common/Check';
+import X from 'wix-ui-icons-common/X';
 
 import styles from './RichTextInputAreaForm.scss';
 import { RichTextInputAreaContext } from '../RichTextInputAreaContext';
 import Tooltip from '../../Tooltip';
 import Box from '../../Box';
 import IconButton from '../../IconButton';
-import Check from '../../new-icons/Check';
-import X from '../../new-icons/X';
 
 class RichTextInputAreaForm extends React.PureComponent {
   render() {

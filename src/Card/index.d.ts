@@ -6,6 +6,7 @@ import Divider from "./Divider";
 
 export interface CardProps {
   children?: React.ReactNode,
+  controls?: React.ReactNode,
   stretchVertically?: boolean,
   hideOverflow?: boolean,
   dataHook?: string,

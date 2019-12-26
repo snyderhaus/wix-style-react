@@ -29,7 +29,7 @@ export const verticalTabsSuffixExample = `
             <VerticalTabs.TabItem suffixIcon={<Icons.ChevronRight />}>
               Profile
             </VerticalTabs.TabItem>
-            <VerticalTabs.TabItem suffixIcon={<Icons.ChevronRight />}>
+            <VerticalTabs.TabItem suffixIcon={<Icons.ChevronRight />} disabled>
               Account
             </VerticalTabs.TabItem>
             <VerticalTabs.TabItem suffixIcon={<Icons.ChevronRight />}>
@@ -38,6 +38,22 @@ export const verticalTabsSuffixExample = `
           </VerticalTabs.TabsGroup>
         </VerticalTabs>
       </div>`;
+
+export const verticalTabsSmallExample = `<div style={{ width: 200 }}>
+      <VerticalTabs size="small" onChange={(/*id*/) => {}}>
+        <VerticalTabs.TabsGroup title="Settings">
+          <VerticalTabs.TabItem suffixIcon={<Icons.ChevronRight />}>
+            Profile
+          </VerticalTabs.TabItem>
+          <VerticalTabs.TabItem suffixIcon={<Icons.ChevronRight />}>
+            Account
+          </VerticalTabs.TabItem>
+          <VerticalTabs.TabItem suffixIcon={<Icons.ChevronRight />}>
+            Support
+          </VerticalTabs.TabItem>
+        </VerticalTabs.TabsGroup>
+      </VerticalTabs>
+    </div>`;
 
 export const verticalTabsFooterExample = `
       <div style={{ width: 200 }}>
