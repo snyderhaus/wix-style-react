@@ -1,10 +1,18 @@
 :import {
   -st-from: "../../Foundation/stylable/colors.st.css";
-  -st-named: B60,B10,D10;
+  -st-named: B60,B10,D10,D60;
+}
+
+:import {
+  -st-from: "../../Foundation/stylable/shadows.st.css";
+  -st-named: shadow30;
+}
+
+.root { 
+  -st-states: hover, disabled, open;
 }
 
 .header {
-  -st-states: hover, disabled;
   box-sizing: border-box;
   position: relative;
   display: flex;
@@ -15,12 +23,16 @@
   outline: none;
 }
 
-.header:not(:disabled):hover {
+.root:not(:disabled):hover .header {
   background-color: value(B60);
   cursor: pointer;
 }
 
-.header:disabled .arrow {
+.root:open .header {
+  box-shadow: value(shadow30);
+}
+
+.root:disabled .header .arrow {
   color: value(D10);
 }
 

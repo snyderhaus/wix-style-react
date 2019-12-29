@@ -106,15 +106,13 @@ class AccordionItem extends React.PureComponent {
         data-hook={dataHooks.item}
         onMouseEnter={this._onMouseEnter}
         onMouseLeave={this._onMouseLeave}
+        {...style(
+          'root',
+          { disabled, hover: this.state.hover, open },
+          this.props,
+        )}
       >
-        <div
-          {...style(
-            'header',
-            { disabled, hover: this.state.hover, open },
-            this.props,
-          )}
-          onClick={!disabled ? onToggle : null}
-        >
+        <div onClick={!disabled ? onToggle : null} className={style.header}>
           {icon && (
             <div className={style.icon} data-hook="icon">
               {icon}
