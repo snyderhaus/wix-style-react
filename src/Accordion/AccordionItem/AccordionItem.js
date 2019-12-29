@@ -80,7 +80,7 @@ class AccordionItem extends React.PureComponent {
   };
 
   _renderCloseButton = () => {
-    const { collapseLabel, buttonType, onToggle, disabled } = this.props;
+    const { collapseLabel, buttonType, disabled } = this.props;
 
     const shouldRenderButton =
       collapseLabel && buttonType === buttonTypes.button;
@@ -88,7 +88,6 @@ class AccordionItem extends React.PureComponent {
     const commonProps = {
       disabled,
       children: collapseLabel,
-      onClick: onToggle,
       dataHook: dataHooks.toggleButton,
     };
 
@@ -107,14 +106,14 @@ class AccordionItem extends React.PureComponent {
         data-hook={dataHooks.item}
         onMouseEnter={this._onMouseEnter}
         onMouseLeave={this._onMouseLeave}
-        onClick={!open && !disabled ? onToggle : null}
       >
         <div
           {...style(
             'header',
-            { disabled, hover: !open && this.state.hover },
+            { disabled, hover: this.state.hover, open },
             this.props,
           )}
+          onClick={!disabled ? onToggle : null}
         >
           {icon && (
             <div className={style.icon} data-hook="icon">
