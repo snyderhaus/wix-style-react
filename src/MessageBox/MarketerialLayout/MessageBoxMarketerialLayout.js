@@ -93,9 +93,9 @@ class MessageBoxMarketerialLayout extends WixComponent {
     } = this.props;
     return (
       <div className={styles.buttonsContainer}>
-        {!!primaryButtonNode ? (
+        {!!primaryButtonNode && (
           <div data-hook="primary-button-node">{primaryButtonNode}</div>
-        ) : null}
+        )}
         {!primaryButtonNode && primaryButtonLabel ? (
           <div className={styles.primaryButtonContainer}>
             <Button
