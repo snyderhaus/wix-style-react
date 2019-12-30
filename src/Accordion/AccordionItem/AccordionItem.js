@@ -112,7 +112,11 @@ class AccordionItem extends React.PureComponent {
           this.props,
         )}
       >
-        <div onClick={!disabled ? onToggle : null} className={style.header}>
+        <div
+          onClick={!disabled ? onToggle : null}
+          className={style.header}
+          data-hook="header"
+        >
           {icon && (
             <div className={style.icon} data-hook="icon">
               {icon}
