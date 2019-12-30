@@ -12,7 +12,10 @@ import Text from '../../src/Text';
 
 import { storySettings } from './storySettings';
 
-const options = [{ id: 1, value: '1' }, { id: 2, value: '2' }];
+const options = [
+  { id: 1, value: '1' },
+  { id: 2, value: '2' },
+];
 
 export default class Form extends Component {
   constructor(props) {

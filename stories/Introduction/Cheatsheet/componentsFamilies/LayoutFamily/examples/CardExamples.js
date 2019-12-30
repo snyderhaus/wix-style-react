@@ -17,15 +17,14 @@ import Card from 'wix-style-react/Card';
 import Box from 'wix-style-react/Box';
 import TextButton from 'wix-style-react/TextButton';
 import Add from 'wix-ui-icons-common/Add';
-
-const groupSymbol = symbolsGroup.layout;
+import { Category } from '../../../../../storiesHierarchy';
 
 const CardExamples = () => {
   const symbol = layoutSymbols.cardLayout;
   const components = layoutSymbolsToComponents[symbol];
 
   const singleComponentProps = {
-    name: createLinkedSymbolName({ groupSymbol, symbol }),
+    name: createLinkedSymbolName({ groupSymbol: Category.LAYOUT, symbol }),
     componentsNames: createLinkedComponentsNames(components),
   };
 

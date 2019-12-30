@@ -59,7 +59,10 @@ const interactiveTests = [
         it: 'focused',
         props: {
           label: 'my label',
-          options: [{ id: 1, value: 'option' }, { id: 2, value: 'option 2' }],
+          options: [
+            { id: 1, value: 'option' },
+            { id: 2, value: 'option 2' },
+          ],
         },
         componentDidMount: async () => {
           const driver = createDriver(interactiveDataHook);
@@ -70,7 +73,10 @@ const interactiveTests = [
         it: 'auto completes',
         props: {
           label: 'my label',
-          options: [{ id: 1, value: 'option' }, { id: 2, value: 'option 2' }],
+          options: [
+            { id: 1, value: 'option' },
+            { id: 2, value: 'option 2' },
+          ],
         },
         componentDidMount: async () => {
           const driver = createDriver(interactiveDataHook);

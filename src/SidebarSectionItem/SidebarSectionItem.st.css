@@ -39,6 +39,9 @@
   min-height: 36px;
   box-sizing: border-box;
   border: none;
+
+  /* not supported in IE11 & Edge; 'left' as fallback */
+  text-align: left;
   text-align: start;
 }
 

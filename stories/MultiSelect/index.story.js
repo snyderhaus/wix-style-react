@@ -28,6 +28,7 @@ import ExampleThumbVariations from '../../src/MultiSelect/docs/ExampleThumbVaria
 import ExampleThumbVariationsRaw from '!raw-loader!../../src/MultiSelect/docs/ExampleThumbVariations';
 
 import { storySettings } from './storySettings';
+import { Category } from '../storiesHierarchy';
 
 const code = config =>
   baseCode({
@@ -58,11 +59,16 @@ export default {
           rows: [
             [
               <LinkTo
-                kind="Components"
+                kind={Category.COMPONENTS}
                 story="MultiSelect"
               >{`<MultiSelect/>`}</LinkTo>,
             ],
-            [<LinkTo kind="Components" story="Tag">{`<Tag/>`}</LinkTo>],
+            [
+              <LinkTo
+                kind={Category.COMPONENTS}
+                story="Tag"
+              >{`<Tag/>`}</LinkTo>,
+            ],
           ],
         }),
 

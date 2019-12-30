@@ -118,6 +118,18 @@ describe('AutoCompleteWithLabel', () => {
     expect(onSelect).toHaveBeenCalledWith({ id: 0, value: 'aaa' });
   });
 
+  it('should render as enabled', async () => {
+    const { driver } = render(<AutoCompleteWithLabel />);
+    const isDisabled = await driver.isDisabled();
+    expect(isDisabled).toBeFalsy();
+  });
+
+  it('should render as disabled', async () => {
+    const { driver } = render(<AutoCompleteWithLabel disabled label="label" />);
+    const isDisabled = await driver.isDisabled();
+    expect(isDisabled).toBeTruthy();
+  });
+
   describe('controlled mode', () => {
     it('should render dictated value', async () => {
       const options = [

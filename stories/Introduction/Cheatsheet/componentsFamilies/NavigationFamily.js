@@ -36,6 +36,7 @@ import SidebarHeader from 'wix-style-react/SidebarHeader';
 import SidebarDivider from 'wix-style-react/SidebarDivider';
 import Tabs from 'wix-style-react/Tabs';
 import Stepper from 'wix-style-react/Stepper';
+import { Category } from '../../../storiesHierarchy';
 
 const groupSymbol = symbolsGroup.navigation;
 
@@ -44,7 +45,7 @@ const SidebarExample = () => {
   const components = navigationSymbolsToComponents[symbol];
 
   const singleComponentProps = {
-    name: createLinkedSymbolName({ groupSymbol, symbol }),
+    name: createLinkedSymbolName({ groupSymbol: Category.NAVIGATION, symbol }),
     componentsNames: createLinkedComponentsNames(components),
   };
 

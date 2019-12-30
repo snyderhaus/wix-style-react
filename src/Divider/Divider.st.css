@@ -13,7 +13,7 @@
 }
 
 .root:direction(horizontal) {
-  height: 1px;
+  min-height: 1px;
   width: 100%;
 }
 

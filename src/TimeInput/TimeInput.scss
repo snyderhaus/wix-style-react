@@ -8,49 +8,43 @@
   width: 120px; // Inferred from Zeplin spec.
 
   &.rtl {
-      flex-direction: row-reverse;
+    flex-direction: row-reverse;
   }
 }
 
-
 .time {
-    cursor: pointer;
-    display: block;
-    width: inherit;
-    white-space: nowrap;
-    flex-direction: row;
-    box-sizing: border-box;
+  cursor: pointer;
+  display: block;
+  width: inherit;
+  white-space: nowrap;
+  flex-direction: row;
+  box-sizing: border-box;
 
-    &.focus {
-        outline: 1px solid black;
-    }
+  &.focus {
+    outline: 1px solid black;
+  }
 
-    &.hover {
-        outline: 1px solid blue;
-    }
+  &.hover {
+    outline: 1px solid blue;
+  }
 
-    &.rtl {
-        flex-direction: row-reverse;
-    }
+  &.rtl {
+    flex-direction: row-reverse;
+  }
 }
 
 .ampm {
-    margin-top: 1px;
-    margin-right: 3px;
-    margin-left: 3px;
-    font-size: 16px;
-    line-height: 16px;
-    text-transform: uppercase;
-    color: $D10;
-    @include FontRoman();
-    &:hover { color: $B10; }
+  margin: 1px 3px 0 3px;
+  text-transform: uppercase;
 }
 
-.disabled .ampm {
-    cursor: default;
-    color: $D10-30;
+.ampm.ampm:hover { color: $B10; }
+
+.disabled {
+  cursor: default;
+  pointer-events: none;
 }
 
 .input {
-    cursor: pointer;
+  cursor: pointer;
 }

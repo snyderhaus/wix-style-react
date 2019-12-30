@@ -6,6 +6,7 @@ import {
   createRendererWithUniDriver,
   cleanup,
 } from '../../../test/utils/react';
+import { SKINS } from '../constants';
 
 import { linearProgressBarDriverFactory as linearProgressBarUniDriverFactory } from '../LinearProgressBar.uni.driver';
 
@@ -87,6 +88,20 @@ describe('LinearProgressBar', () => {
       it('should display success icon', async () => {
         const { driver } = render(createLinearProgressBar({ ...successProps }));
         expect(await driver.isSuccessIconShown()).toBe(true);
+      });
+    });
+
+    describe('skin prop', () => {
+      it('should have "standard" skin by defualt', async () => {
+        const { driver } = render(createLinearProgressBar({ ...defaultProps }));
+        expect(await driver.getSkin()).toBe(SKINS.standard);
+      });
+
+      it.each(Object.values(SKINS))(`should have "%s" skin`, async skin => {
+        const { driver } = render(
+          createLinearProgressBar({ ...defaultProps, skin }),
+        );
+        expect(await driver.getSkin()).toBe(skin);
       });
     });
   }

@@ -1,0 +1,12 @@
+.root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 6px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+
+  color: #fdb10c;
+}

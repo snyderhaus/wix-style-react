@@ -1,5 +1,6 @@
 import styles from './InputArea.scss';
 import { errorIndicatorDriverFactory } from '../ErrorIndicator/ErrorIndicator.uni.driver';
+import { warningIndicatorDriverFactory } from '../WarningIndicator/WarningIndicator.uni.driver';
 import { baseUniDriverFactory, ReactBase } from '../../test/utils/unidriver';
 import { dataHooks } from './constants';
 
@@ -7,9 +8,11 @@ export const inputAreaUniDriverFactory = (base, body) => {
   const textAreaElement = base.$(`.${styles.root}`);
   const textArea = base.$('textarea');
   const counterSelector = '[data-hook="counter"]';
-  const errorIndicatorSelector = `[data-hook="${dataHooks.tooltip}"]`;
+  const indicatorSelector = `[data-hook="${dataHooks.tooltip}"]`;
   const errorIndicatorTestkit = () =>
-    errorIndicatorDriverFactory(base.$(errorIndicatorSelector), body);
+    errorIndicatorDriverFactory(base.$(indicatorSelector), body);
+  const warningIndicatorTestkit = () =>
+    warningIndicatorDriverFactory(base.$(indicatorSelector), body);
 
   const textAreaBase = ReactBase(textArea);
 
@@ -34,6 +37,7 @@ export const inputAreaUniDriverFactory = (base, body) => {
     getCounterValue: () => base.$(counterSelector).text(),
     hasExclamation: () => base.$$(`.${styles.exclamation}`).length === 1,
     hasError: () => textAreaElement.hasClass(styles.hasError),
+    hasWarning: () => textAreaElement.hasClass(styles.hasWarning),
     isFocusedStyle: () => textAreaElement.hasClass(styles.hasFocus),
     isSizeSmall: () => textArea.hasClass(styles.sizeSmall),
     isHoveredStyle: () => textAreaElement.hasClass(styles.hasHover),
@@ -48,6 +52,10 @@ export const inputAreaUniDriverFactory = (base, body) => {
     getTooltipElement: () => base,
     isErrorMessageShown: () => errorIndicatorTestkit().isShown(),
     mouseEnterErrorIndicator: () => errorIndicatorTestkit().mouseEnter(),
+    // getErrorMessage - deprecated
     getErrorMessage: () => errorIndicatorTestkit().getErrorMessage(),
+    getStatusMessage: () =>
+      errorIndicatorTestkit().getErrorMessage() ||
+      warningIndicatorTestkit().getWarningMessage(),
   };
 };

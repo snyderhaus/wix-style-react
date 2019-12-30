@@ -6,6 +6,8 @@ import CodeExample from 'wix-storybook-utils/CodeExample';
 import ExampleStandard from './ExampleStandard';
 import ExampleStandardRaw from '!raw-loader!./ExampleStandard';
 
+import { Category } from '../../../stories/storiesHierarchy';
+
 const exampleImageUrl = [
   { label: 'No Image', value: '' },
   {
@@ -21,7 +23,7 @@ const exampleImageUrl = [
 ];
 
 export default {
-  category: 'Components',
+  category: Category.COMPONENTS,
   storyName: 'ImageViewer',
 
   component: ImageViewer,

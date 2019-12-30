@@ -104,7 +104,9 @@ describe('CalendarPanel', () => {
       expect(
         await (await driver.presetsDropdownLayoutDriver()).optionsLength(),
       ).toBe(presets.length);
-      const optionsContent = await (await driver.presetsDropdownLayoutDriver()).optionsContent();
+      const optionsContent = await (
+        await driver.presetsDropdownLayoutDriver()
+      ).optionsContent();
       presets
         .map(preset => preset.value)
         .forEach(presetValue => {

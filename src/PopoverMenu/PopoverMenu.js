@@ -6,11 +6,11 @@ import {
   oneOfType,
   bool,
   element,
-  instanceOf,
   number,
   string,
   func,
   shape,
+  object,
 } from 'prop-types';
 
 import styles from './PopoverMenu.scss';
@@ -48,7 +48,7 @@ class PopoverMenu extends Component {
     /** An element which will contain the popover  */
     appendTo: oneOfType([
       element,
-      instanceOf(Element),
+      object,
       func,
       oneOf(['window', 'scrollParent', 'viewPort', 'parent']),
     ]),
@@ -65,6 +65,9 @@ class PopoverMenu extends Component {
       x: number,
       y: number,
     }),
+
+    /** Applied as data-hook HTML attribute that can be used in the tests*/
+    dataHook: string,
   };
 
   static defaultProps = {

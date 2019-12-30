@@ -1,8 +1,9 @@
 import FullTextView from '..';
+import { storySettings } from './storySettings';
 
 export default {
-  category: 'Components',
-  storyName: 'FullTextView',
+  category: storySettings.category,
+  storyName: storySettings.storyName,
   component: FullTextView,
   componentPath: '..',
 

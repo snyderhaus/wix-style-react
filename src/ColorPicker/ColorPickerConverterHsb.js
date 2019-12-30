@@ -63,12 +63,7 @@ export default class ColorPickerConverterHsb extends WixComponent {
     this.setState(getHsbOrEmpty(props.current));
   }
 
-  change(
-    part,
-    {
-      target: { value },
-    },
-  ) {
+  change(part, { target: { value } }) {
     this.setState({ [part]: value }, () => {
       const { h, s, l } = this.state;
       const isMissingData = [h, s, l].some(_value => _value === '');

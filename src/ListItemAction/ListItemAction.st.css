@@ -30,7 +30,10 @@
 
   background-color: value(D80);
   cursor: pointer;
-  text-align: start;
+
+  /* not supported in IE11 & Edge; 'left' as fallback */
+  text-align: left;
+  text-align: start;  
 
   outline:none;
   border: none;

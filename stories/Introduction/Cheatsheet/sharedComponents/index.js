@@ -7,9 +7,7 @@ import NotDeveloped from './NotDeveloped';
 import singleComponentSizes from './constants';
 
 export { default as FamilyStructure } from './FamilyStructure';
-export {
-  default as SingleComponentSideBySide,
-} from './SingleComponentSideBySide';
+export { default as SingleComponentSideBySide } from './SingleComponentSideBySide';
 export { default as SingleComponentStacked } from './SingleComponentStacked';
 
 export { default as Preview } from './Preview';

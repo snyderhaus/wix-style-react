@@ -3,9 +3,9 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import IconButton from '../IconButton';
 import deprecationLog from '../utils/deprecationLog';
-import { avatarColorList } from './Avatar.const';
+import { avatarColorList, avatarShapes, dataHooks } from './Avatar.const';
 import { Avatar as CoreAvatar } from 'wix-ui-core/dist/src/components/avatar';
-
+import { placeholderSVGs } from './assets';
 import styles from './Avatar.st.css';
 import { capitalize } from '../utils/cssClassUtils';
 import stringToColor from './string-to-color';
@@ -29,9 +29,11 @@ const Avatar = props => {
     className,
     shape,
     text,
+    placeholder,
     name,
     ...rest
   } = props;
+
   if (deprecatedColorList.indexOf(colorProp) > -1) {
     deprecationLog(
       `Avatar component prop "color" with the value ${colorProp} is deprecated, and will be removed in next major release, please use instead one of these color: [${avatarColorList.toString()}]`,
@@ -40,6 +42,7 @@ const Avatar = props => {
   const color = colorProp || stringToColor(text || name); //if color is provided as a prop use it, otherwise, generate a color based on the text
   const sizeNumber = getSizeNumber(size);
   const renderIndication = indication && sizeNumber > minIndicationRenderSize;
+
   return (
     <div
       data-hook={dataHook}
@@ -56,7 +59,16 @@ const Avatar = props => {
       >
         <div className={styles.coreAvatar}>
           <CoreAvatar
-            {...{ ...rest, text, name }}
+            {...{
+              ...rest,
+              placeholder: placeholder ? (
+                placeholder
+              ) : (
+                <AvatarDefaultPlaceholder shape={shape} size={size} />
+              ),
+              text,
+              name,
+            }}
             className={classNames(
               styles.avatar,
               color && styles[`color${capitalize(color)}`],
@@ -68,7 +80,7 @@ const Avatar = props => {
           <div className={styles.indication}>
             <IconButton
               className={styles.iconButtonShadow}
-              dataHook="avatar-indication"
+              dataHook={dataHooks.indication}
               onClick={onIndicationClick}
               skin="inverted"
               shape={shape}
@@ -128,21 +140,12 @@ Avatar.propTypes = {
   onIndicationClick: PropTypes.func,
 };
 
-// Extracted icon as a component, in order to AutoDocs API to show a nice default value.
-function AvatarDefaultPlaceholder() {
-  return (
-    <svg
-      className={styles.placeholder}
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 48 48"
-    >
-      <path d="M40,46.6666667 C40,39.827681 35.7091909,33.9908675 29.6727884,31.7014418 C32.67293,29.8137334 34.6666667,26.4730311 34.6666667,22.6666667 C34.6666667,16.7756293 29.8910373,12 24,12 C18.1089627,12 13.3333333,16.7756293 13.3333333,22.6666667 C13.3333333,26.4730311 15.32707,29.8137334 18.3272116,31.7014418 C12.2908091,33.9908675 8,39.827681 8,46.6666667 L8,48 L40,48 L40,46.6666667 Z" />
-    </svg>
-  );
-}
+const AvatarDefaultPlaceholder = ({ shape, size }) =>
+  shape !== avatarShapes.square
+    ? placeholderSVGs[size][avatarShapes.circle]
+    : placeholderSVGs[size][avatarShapes.square];
 
 Avatar.defaultProps = {
-  placeholder: <AvatarDefaultPlaceholder />,
   size: 'size48',
   shape: 'circle',
 };

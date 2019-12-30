@@ -61,13 +61,15 @@ export default {
 
           title('Examples'),
 
-          ...[{ title: 'Size', source: examples.sizes }].map(
-            ({ title, source }) =>
-              columns([description({ title }), code({ source })]),
+          ...[
+            { title: 'Size', source: examples.sizes },
+          ].map(({ title, source }) =>
+            columns([description({ title }), code({ source })]),
           ),
-          ...[{ title: 'Status', source: examples.status }].map(
-            ({ title, source }) =>
-              columns([description({ title }), code({ source })]),
+          ...[
+            { title: 'Status', source: examples.status },
+          ].map(({ title, source }) =>
+            columns([description({ title }), code({ source })]),
           ),
         ],
       }),

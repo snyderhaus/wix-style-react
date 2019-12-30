@@ -36,6 +36,7 @@ import DeleteSmall from 'wix-ui-icons-common/DeleteSmall';
 import AddSmall from 'wix-ui-icons-common/AddSmall';
 import EditSmall from 'wix-ui-icons-common/EditSmall';
 import ChevronDown from 'wix-ui-icons-common/ChevronDown';
+import { Category } from '../../../storiesHierarchy';
 
 const groupSymbol = symbolsGroup.tooltipPopovers;
 
@@ -44,7 +45,7 @@ const TooltipExample = () => {
   const components = tooltipPopoverSymbolsToComponents[symbol];
 
   const singleComponentProps = {
-    name: createLinkedSymbolName({ groupSymbol, symbol }),
+    name: createLinkedSymbolName({ groupSymbol: Category.TOOLTIP, symbol }),
     componentsNames: createLinkedComponentsNames(components),
   };
 
@@ -107,7 +108,7 @@ const PopoverMenuExample = () => {
   const components = tooltipPopoverSymbolsToComponents[symbol];
 
   const singleComponentProps = {
-    name: createLinkedSymbolName({ groupSymbol, symbol }),
+    name: createLinkedSymbolName({ groupSymbol: Category.TOOLTIP, symbol }),
     componentsNames: createLinkedComponentsNames(components),
   };
 

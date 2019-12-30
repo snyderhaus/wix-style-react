@@ -1,4 +1,6 @@
 import React from 'react';
+import { Category } from '../../../stories/storiesHierarchy';
+
 import {
   header,
   tabs,
@@ -137,7 +139,10 @@ export default {
               title: 'Description',
               text: [
                 'Use this component together with ',
-                <LinkTo kind="Components" story="Modal">{`<Modal />`}</LinkTo>,
+                <LinkTo
+                  kind={Category.COMPONENTS}
+                  story="Modal"
+                >{`<Modal />`}</LinkTo>,
                 ' to display content in this layout. You may place a title and/or a footer with actions relevant to the displayed content.',
               ],
             }),

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Category } from '../../../storiesHierarchy';
 
 import {
   FamilyStructure,
@@ -143,7 +144,7 @@ const TypographyExamples = () => {
   const components = foundationSymbolsToComponents[symbol];
 
   const singleComponentProps = {
-    name: createLinkedSymbolName({ groupSymbol, symbol }),
+    name: createLinkedSymbolName({ groupSymbol: Category.FOUNDATION, symbol }),
     componentsNames: createLinkedComponentsNames(components),
   };
 
@@ -162,7 +163,7 @@ const IconsExamples = () => {
   const components = foundationSymbolsToComponents[symbol];
 
   const singleComponentProps = {
-    name: createLinkedSymbolName({ groupSymbol, symbol }),
+    name: createLinkedSymbolName({ groupSymbol: Category.FOUNDATION, symbol }),
     componentsNames: createLinkedComponentsNames(components),
   };
 

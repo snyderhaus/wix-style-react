@@ -10,7 +10,6 @@ $disabledColor: $D55;
   position: relative;
   align-items: center;
   @include BoxSizing();
-  @include FontRoman();
 
   .nbinput, input, .label + div {
     padding-left: 0;
@@ -20,17 +19,7 @@ $disabledColor: $D55;
   .nbinput, input {
     opacity: 0;
     height: 36px;
-    @include FontRoman();
     @include Placeholder($D55);
-  }
-
-  .message {
-    font-size: 12px;
-    line-height: 18px;
-  }
-
-  .errorMessage {
-    color: $errorColor;
   }
 
   .label {
@@ -66,7 +55,7 @@ $disabledColor: $D55;
   &.noLabel {
     .nbinput, input {
       border-bottom: 0;
-      transition: opacity .3s ease-in-out;	
+      transition: opacity .3s ease-in-out;
       opacity: 1;
     }
 

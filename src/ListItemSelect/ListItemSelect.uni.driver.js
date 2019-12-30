@@ -7,7 +7,7 @@ export const listItemSelectDriverFactory = base => {
   return {
     ...baseUniDriverFactory(base),
 
-    /** Get suffix */
+    /** Check whether the checkbox appears */
     hasCheckbox: base.$(dataHook(DATAHOOKS.CHECKBOX)).exists,
 
     /** Get prefix */

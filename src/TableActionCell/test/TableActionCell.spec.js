@@ -219,4 +219,89 @@ describe('Table Action Cell', () => {
 
     expect(driver.getIsPrimaryActionButtonDisabled()).toBe(true);
   });
+
+  describe('when a secondary action is disabled', () => {
+    it('should mark the a visible secondary actions as disabled', () => {
+      const actionTrigger = jest.fn();
+
+      const disabledAction = {
+        text: `Disabled Action`,
+        icon: <span>Icon</span>,
+        onClick: actionTrigger,
+        disabled: true,
+      };
+
+      const driver = createDriver(
+        <TableActionCell
+          {...primaryActionProps()}
+          secondaryActions={[disabledAction]}
+          numOfVisibleSecondaryActions={1}
+        />,
+      );
+
+      const isDisabled = driver
+        .getVisibleActionButtonDriver(0)
+        .isButtonDisabled();
+      expect(isDisabled).toBe(true);
+    });
+
+    describe('when disabledTooltipText is supplied', () => {
+      it('should show correct tooltip text', async () => {
+        const actionTrigger = jest.fn();
+
+        const disabledAction = {
+          text: `Disabled Action`,
+          icon: <span>Icon</span>,
+          onClick: actionTrigger,
+          disabled: true,
+          disabledDescription: 'disabled item tooltip text',
+        };
+
+        const driver = createDriver(
+          <TableActionCell
+            {...primaryActionProps()}
+            secondaryActions={[disabledAction]}
+            numOfVisibleSecondaryActions={1}
+          />,
+        );
+
+        const tooltipDriver = driver.getVisibleActionTooltipDriver(0);
+        tooltipDriver.mouseEnter();
+
+        await eventually(() =>
+          expect(tooltipDriver.getContent()).toEqual(
+            'disabled item tooltip text',
+          ),
+        );
+      });
+    });
+
+    describe('when disabledTooltipText is not supplied', () => {
+      it('should show correct tooltip text', async () => {
+        const actionTrigger = jest.fn();
+
+        const disabledAction = {
+          text: `Disabled Action`,
+          icon: <span>Icon</span>,
+          onClick: actionTrigger,
+          disabled: true,
+        };
+
+        const driver = createDriver(
+          <TableActionCell
+            {...primaryActionProps()}
+            secondaryActions={[disabledAction]}
+            numOfVisibleSecondaryActions={1}
+          />,
+        );
+
+        const tooltipDriver = driver.getVisibleActionTooltipDriver(0);
+        tooltipDriver.mouseEnter();
+
+        await eventually(() =>
+          expect(tooltipDriver.getContent()).toEqual('Disabled Action'),
+        );
+      });
+    });
+  });
 });

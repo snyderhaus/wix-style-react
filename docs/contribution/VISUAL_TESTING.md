@@ -62,11 +62,12 @@ See [#3304](https://github.com/wix/wix-style-react/issues/3304)
 ## Can I run tests locally?
 
 Yes you can!
-Simply create a file called `applitools.private.config.js` (on the root level) and add our API key:
+Simply create a file called `applitools.private.config.js` (on the root level) and add our API key and server URL:
 
 ```js
 module.exports = {
-  apiKey: 'INTERNAL_KEY_SO_ASK_THE_TEAM'
+  apiKey: 'INTERNAL_KEY_SO_ASK_THE_TEAM',
+  serverUrl: 'https://wixeyesapi.applitools.com'
 };
 ```
 

@@ -32,25 +32,34 @@ function renderPrimaryAction({ text, theme, onClick, disabled }) {
 /* eslint-enable react/prop-types */
 
 function renderVisibleActions(actions) {
-  return actions.map(({ text, icon, onClick, dataHook }, index) => (
-    <Tooltip
-      key={index}
-      dataHook={dataHook || 'table-action-cell-visible-action-tooltip'}
-      content={text}
-      theme="dark"
-    >
-      <Button
-        theme="icon-greybackground"
-        onClick={event => {
-          onClick();
-          event.stopPropagation();
-        }}
-        withNewIcons
+  return actions.map(
+    (
+      { text, icon, onClick, dataHook, disabled, disabledDescription },
+      index,
+    ) => (
+      <Tooltip
+        upgrade
+        key={index}
+        dataHook={dataHook || 'table-action-cell-visible-action-tooltip'}
+        content={
+          disabled && Boolean(disabledDescription) ? disabledDescription : text
+        }
+        theme="dark"
       >
-        {icon}
-      </Button>
-    </Tooltip>
-  ));
+        <Button
+          disabled={disabled}
+          theme="icon-greybackground"
+          onClick={event => {
+            onClick();
+            event.stopPropagation();
+          }}
+          withNewIcons
+        >
+          {icon}
+        </Button>
+      </Tooltip>
+    ),
+  );
 }
 
 function renderHiddenActions(actions, popoverMenuProps, upgrade) {
@@ -195,6 +204,7 @@ TableActionCell.propTypes = {
    * signature is `onClick(rowData, rowNum)`.
    * `disabled` is an optional prop for the secondary action to be disabled
    * `dataHook` is an optional prop for accessing the action in tests
+   * 'disabledDescription' is an optional prop that indicates what string to display in tooltip when action is visible and disabled (if non is provided, the text prop is used)
    */
   secondaryActions: PropTypes.arrayOf(
     PropTypes.shape({
@@ -203,6 +213,7 @@ TableActionCell.propTypes = {
       onClick: PropTypes.func.isRequired,
       disabled: PropTypes.bool,
       dataHook: PropTypes.string,
+      disabledDescription: PropTypes.string,
     }),
   ),
 

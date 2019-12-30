@@ -121,7 +121,10 @@ export default {
 
   Breadcrumbs: {
     props: {
-      items: [{ id: 0, value: 'Option 1' }, { id: 1, value: 'Option 2' }],
+      items: [
+        { id: 0, value: 'Option 1' },
+        { id: 1, value: 'Option 2' },
+      ],
     },
   },
 

@@ -172,6 +172,7 @@ class TimeTable extends React.PureComponent {
                   }}
                 >
                   <SortableList
+                    usePortal
                     className={styles.content}
                     groupName={groupName}
                     onDragStart={this._handleDragStart}

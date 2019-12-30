@@ -15,7 +15,10 @@ class ExampleStandard extends Component {
     dataHook: PropTypes.string,
   };
 
-  rangeTypes = [{ id: 0, value: 'InputRange' }, { id: 1, value: 'DateRange' }];
+  rangeTypes = [
+    { id: 0, value: 'InputRange' },
+    { id: 1, value: 'DateRange' },
+  ];
 
   state = {
     rangeType: this.rangeTypes[0],

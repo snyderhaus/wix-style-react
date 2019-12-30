@@ -423,7 +423,7 @@ class TableHeader extends Component {
       color: this.props.thColor,
       opacity: this.props.thOpacity,
       letterSpacing: this.props.thLetterSpacing,
-      cursor: column.sortable === undefined ? 'arrow' : 'pointer',
+      cursor: column.sortable === undefined ? 'auto' : 'pointer',
     };
 
     const optionalHeaderCellProps = {};
@@ -613,6 +613,8 @@ DataTable.propTypes = {
   selectedRowsIds: PropTypes.arrayOf(
     PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   ),
+  /** A callback function called on each column title click. Signature `onSortClick(colData, colNum)` */
+  onSortClick: PropTypes.func,
 };
 DataTable.displayName = 'DataTable';
 

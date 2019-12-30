@@ -1,8 +1,8 @@
 import React from 'react';
-import Avatar from '.';
-import { createRendererWithUniDriver } from '../../test/utils/unit';
-import avatarUniDriverFactory from './Avatar.uni.driver';
-import { PhotoCamera } from 'wix-ui-icons-common';
+import Avatar from '..';
+import { createRendererWithUniDriver } from '../../../test/utils/unit';
+import avatarUniDriverFactory from '../Avatar.uni.driver';
+import PhotoCamera from 'wix-ui-icons-common/PhotoCamera';
 
 describe('Avatar', () => {
   const createDriver = createRendererWithUniDriver(avatarUniDriverFactory);

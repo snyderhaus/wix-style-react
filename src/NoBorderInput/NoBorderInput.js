@@ -5,6 +5,8 @@ import PropTypes from 'prop-types';
 import Input from '../Input/Input';
 import inputStyles from '../Input/Input.scss';
 import styles from './NoBorderInput.scss';
+import Text from '../Text';
+import dataHooks from './dataHooks';
 
 class NoBorderInput extends React.Component {
   static StatusError = Input.StatusError;
@@ -12,7 +14,7 @@ class NoBorderInput extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      focus: props.autoFocus ? true : false,
+      focus: !!props.autoFocus,
     };
   }
 
@@ -55,17 +57,19 @@ class NoBorderInput extends React.Component {
       [styles.hasValue]: hasValue,
       [styles.noLabel]: !label,
     };
-    const statusClass = status && statusMessage ? styles.errorMessage : '';
-    const statusText = status && statusMessage;
 
     const renderStatusLine = () =>
-      !disabled && (
-        <div
-          data-hook="status-message"
-          className={classNames(statusClass, styles.message)}
+      !disabled &&
+      status &&
+      statusMessage && (
+        <Text
+          dataHook={dataHooks.statusMessage}
+          size="tiny"
+          weight="thin"
+          skin="error"
         >
-          {statusText}
-        </div>
+          {statusMessage}
+        </Text>
       );
 
     return (
@@ -78,7 +82,11 @@ class NoBorderInput extends React.Component {
         )}
         data-hook={dataHook}
       >
-        <label data-hook="label" className={styles.label} htmlFor={id}>
+        <label
+          data-hook={dataHooks.label}
+          className={styles.label}
+          htmlFor={id}
+        >
           {label}
         </label>
         <Input

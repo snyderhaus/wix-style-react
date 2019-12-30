@@ -20,7 +20,7 @@ const timeInputDriverFactory = ({ element }) => {
     clickTickerDown: () => inputTicker().clickDown(),
     isAmPmIndicatorExist: () => !!amPmIndicator(),
     toggleAmPmIndicator: () => ReactTestUtils.Simulate.click(amPmIndicator()),
-    getAmPmIndicatorText: () => amPmIndicator().textContent,
+    getAmPmIndicatorText: () => amPmIndicator().innerHTML,
     isRtl: () => !!element.querySelector(`.${styles.rtl}`),
     setValue: value => input().enterText(value),
     blur: () => input().blur(),

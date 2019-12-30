@@ -100,9 +100,10 @@ export default {
 
           title('Examples'),
 
-          ...[{ title: 'Sizes', source: examples.sizes }].map(
-            ({ title, source }) =>
-              columns([description({ title }), code({ source })]),
+          ...[
+            { title: 'Sizes', source: examples.sizes },
+          ].map(({ title, source }) =>
+            columns([description({ title }), code({ source })]),
           ),
         ],
       }),

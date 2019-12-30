@@ -121,9 +121,10 @@ export default {
 
           title('Examples'),
 
-          ...[{ title: 'Image', source: examples.image }].map(
-            ({ title, source }) =>
-              columns([description({ title }), code({ source })]),
+          ...[
+            { title: 'Image', source: examples.image },
+          ].map(({ title, source }) =>
+            columns([description({ title }), code({ source })]),
           ),
 
           ...[
@@ -144,18 +145,21 @@ export default {
             columns([description({ title }), code({ source })]),
           ),
 
-          ...[{ title: 'Size', source: examples.sizes }].map(
-            ({ title, source }) =>
-              columns([description({ title }), code({ source })]),
+          ...[
+            { title: 'Size', source: examples.sizes },
+          ].map(({ title, source }) =>
+            columns([description({ title }), code({ source })]),
           ),
-          ...[{ title: 'Square Shape', source: examples.squareShape }].map(
-            ({ title, source }) =>
-              columns([description({ title }), code({ source })]),
+          ...[
+            { title: 'Square Shape', source: examples.squareShape },
+          ].map(({ title, source }) =>
+            columns([description({ title }), code({ source })]),
           ),
 
-          ...[{ title: 'Colors', source: examples.colors }].map(
-            ({ title, source }) =>
-              columns([description({ title }), code({ source })]),
+          ...[
+            { title: 'Colors', source: examples.colors },
+          ].map(({ title, source }) =>
+            columns([description({ title }), code({ source })]),
           ),
 
           ...[
@@ -164,19 +168,22 @@ export default {
             columns([description({ title }), code({ source })]),
           ),
 
-          ...[{ title: 'Custom text', source: examples.customText }].map(
-            ({ title, source }) =>
-              columns([description({ title }), code({ source })]),
+          ...[
+            { title: 'Custom text', source: examples.customText },
+          ].map(({ title, source }) =>
+            columns([description({ title }), code({ source })]),
           ),
 
-          ...[{ title: 'Presence', source: examples.presence }].map(
-            ({ title, source }) =>
-              columns([description({ title }), code({ source })]),
+          ...[
+            { title: 'Presence', source: examples.presence },
+          ].map(({ title, source }) =>
+            columns([description({ title }), code({ source })]),
           ),
 
-          ...[{ title: 'Indication', source: examples.indication }].map(
-            ({ title, source }) =>
-              columns([description({ title }), code({ source })]),
+          ...[
+            { title: 'Indication', source: examples.indication },
+          ].map(({ title, source }) =>
+            columns([description({ title }), code({ source })]),
           ),
         ],
       }),

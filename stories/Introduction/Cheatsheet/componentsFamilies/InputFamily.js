@@ -39,6 +39,7 @@ import FormField from 'wix-style-react/FormField';
 import GoogleAddressInput from 'wix-style-react/GoogleAddressInput';
 import Search from 'wix-style-react/Search';
 import ImageViewer from 'wix-style-react/ImageViewer';
+import { Category } from '../../../storiesHierarchy';
 
 const groupSymbol = symbolsGroup.inputs;
 
@@ -47,7 +48,7 @@ const TextInputExample = () => {
   const components = inputsSymbolsToComponents[symbol];
 
   const singleComponentProps = {
-    name: createLinkedSymbolName({ groupSymbol, symbol }),
+    name: createLinkedSymbolName({ groupSymbol: Category.INPUTS, symbol }),
     componentsNames: createLinkedComponentsNames(components),
     size: singleComponentSizes.compact,
   };
@@ -66,7 +67,7 @@ const TextAreaExample = () => {
   const components = inputsSymbolsToComponents[symbol];
 
   const singleComponentProps = {
-    name: createLinkedSymbolName({ groupSymbol, symbol }),
+    name: createLinkedSymbolName({ groupSymbol: Category.INPUTS, symbol }),
     componentsNames: createLinkedComponentsNames(components),
     size: singleComponentSizes.compact,
   };
@@ -85,7 +86,7 @@ const RichTextAreaExample = () => {
   const components = inputsSymbolsToComponents[symbol];
 
   const singleComponentProps = {
-    name: createLinkedSymbolName({ groupSymbol, symbol }),
+    name: createLinkedSymbolName({ groupSymbol: Category.INPUTS, symbol }),
     componentsNames: createLinkedComponentsNames(components),
     size: singleComponentSizes.compact,
   };
@@ -109,7 +110,7 @@ class NumberInputExample extends PureComponent {
     const components = inputsSymbolsToComponents[symbol];
 
     const singleComponentProps = {
-      name: createLinkedSymbolName({ groupSymbol, symbol }),
+      name: createLinkedSymbolName({ groupSymbol: Category.INPUTS, symbol }),
       componentsNames: createLinkedComponentsNames(components),
       size: singleComponentSizes.compact,
     };
@@ -279,7 +280,7 @@ class TagsInputExample extends PureComponent {
     const components = inputsSymbolsToComponents[symbol];
 
     const singleComponentProps = {
-      name: createLinkedSymbolName({ groupSymbol, symbol }),
+      name: createLinkedSymbolName({ groupSymbol: Category.INPUTS, symbol }),
       componentsNames: createLinkedComponentsNames(components),
       size: singleComponentSizes.compact,
     };

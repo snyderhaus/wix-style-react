@@ -24,7 +24,10 @@ describe('SortableList', () => {
     dataHook: 'sortable-list',
     containerId: 'sortable-list',
     groupName: 'group',
-    items: [{ id: '1', text: 'item 1' }, { id: '2', text: 'item 2' }],
+    items: [
+      { id: '1', text: 'item 1' },
+      { id: '2', text: 'item 2' },
+    ],
     renderItem: ({ item }) => <div data-hook={item.id}>{item.text}</div>,
   };
 
@@ -46,7 +49,10 @@ describe('SortableList', () => {
 
   it('should exists', () => {
     const dataHook = 'sortable-list';
-    const items = [{ id: '1', text: 'item 1' }, { id: '2', text: 'item 2' }];
+    const items = [
+      { id: '1', text: 'item 1' },
+      { id: '2', text: 'item 2' },
+    ];
     const onDrop = jest.fn();
     const renderItem = ({ item }) => <div>{item.text}</div>; // eslint-disable-line react/prop-types
 
@@ -68,7 +74,10 @@ describe('SortableList', () => {
 
   it('should call onDragStart and onDragEnd', () => {
     const dataHook = 'sortable-list';
-    const items = [{ id: '1', text: 'item 1' }, { id: '2', text: 'item 2' }];
+    const items = [
+      { id: '1', text: 'item 1' },
+      { id: '2', text: 'item 2' },
+    ];
     const onDrop = jest.fn();
     const onDragStart = jest.fn();
     const onDragEnd = jest.fn();
@@ -117,7 +126,10 @@ describe('SortableList', () => {
 
   it('should call onDrop', () => {
     const dataHook = 'sortable-list';
-    const items = [{ id: '1', text: 'item 1' }, { id: '2', text: 'item 2' }];
+    const items = [
+      { id: '1', text: 'item 1' },
+      { id: '2', text: 'item 2' },
+    ];
     const onDrop = jest.fn();
     const renderItem = ({ item }) => <div>{item.text}</div>; // eslint-disable-line react/prop-types
 
@@ -148,7 +160,10 @@ describe('SortableList', () => {
 
   it('should call onDrop(with portal)', () => {
     const dataHook = 'sortable-list';
-    const items = [{ id: '1', text: 'item 1' }, { id: '2', text: 'item 2' }];
+    const items = [
+      { id: '1', text: 'item 1' },
+      { id: '2', text: 'item 2' },
+    ];
     const onDrop = jest.fn();
     const renderItem = ({ item }) => <div>{item.text}</div>; // eslint-disable-line react/prop-types
 
@@ -180,7 +195,10 @@ describe('SortableList', () => {
 
   it('should call onDrop(inside of the modal)', () => {
     const dataHook = 'sortable-list';
-    const items = [{ id: '1', text: 'item 1' }, { id: '2', text: 'item 2' }];
+    const items = [
+      { id: '1', text: 'item 1' },
+      { id: '2', text: 'item 2' },
+    ];
     const onDrop = jest.fn();
     const renderItem = ({ item }) => <div>{item.text}</div>; // eslint-disable-line react/prop-types
 
@@ -213,7 +231,10 @@ describe('SortableList', () => {
 
   it('should call onDrop(inside of the tooltip)', done => {
     const dataHook = 'sortable-list';
-    const items = [{ id: '1', text: 'item 1' }, { id: '2', text: 'item 2' }];
+    const items = [
+      { id: '1', text: 'item 1' },
+      { id: '2', text: 'item 2' },
+    ];
     const onDrop = jest.fn();
     const renderItem = ({ item }) => <div>{item.text}</div>; // eslint-disable-line react/prop-types
 
@@ -254,7 +275,10 @@ describe('SortableList', () => {
 
   it('should call onDrop(inside of the tooltip with portal)', done => {
     const dataHook = 'sortable-list-inside-of-a-tooltip';
-    const items = [{ id: '1', text: 'item 1' }, { id: '2', text: 'item 2' }];
+    const items = [
+      { id: '1', text: 'item 1' },
+      { id: '2', text: 'item 2' },
+    ];
     const onDrop = jest.fn();
     const renderItem = ({ item }) => <div>{item.text}</div>; // eslint-disable-line react/prop-types
 
@@ -295,7 +319,10 @@ describe('SortableList', () => {
 
   it('should call onDrop(inside of the modal with nested DragDropContextProvider)', () => {
     const dataHook = 'sortable-list';
-    const items = [{ id: '1', text: 'item 1' }, { id: '2', text: 'item 2' }];
+    const items = [
+      { id: '1', text: 'item 1' },
+      { id: '2', text: 'item 2' },
+    ];
     const onDrop = jest.fn();
     const renderItem = ({ item }) => <div>{item.text}</div>; // eslint-disable-line react/prop-types
 
@@ -438,7 +465,10 @@ describe('SortableList', () => {
 
   describe('with delay prop', () => {
     let privateDriver, onDragStart, onDragEnd;
-    const items = [{ id: '1', text: 'item 1' }, { id: '2', text: 'item 2' }];
+    const items = [
+      { id: '1', text: 'item 1' },
+      { id: '2', text: 'item 2' },
+    ];
     const renderItem = ({ item }) => <div>{item.text}</div>; // eslint-disable-line react/prop-types
 
     const configureWrapperWithDelay = delay => {
@@ -503,7 +533,10 @@ describe('SortableList', () => {
 describe('Enzyme: SortableList', () => {
   it('should call onDrop', () => {
     const dataHook = 'sortable-list';
-    const items = [{ id: '1', text: 'item 1' }, { id: '2', text: 'item 2' }];
+    const items = [
+      { id: '1', text: 'item 1' },
+      { id: '2', text: 'item 2' },
+    ];
     const onDrop = jest.fn();
     const renderItem = ({ item }) => <div>{item.text}</div>; // eslint-disable-line react/prop-types
 
@@ -534,7 +567,10 @@ describe('Enzyme: SortableList', () => {
 
   it('should not call onDrop when drag between columns in case of droppable false', () => {
     const dataHook = 'sortable-list';
-    const items = [{ id: '1', text: 'item 1' }, { id: '2', text: 'item 2' }];
+    const items = [
+      { id: '1', text: 'item 1' },
+      { id: '2', text: 'item 2' },
+    ];
     const items2 = [
       { id: '11', text: 'item 11' },
       { id: '21', text: 'item 21' },
@@ -585,7 +621,10 @@ describe('Enzyme: SortableList', () => {
 
   it('should call onDrop when drag between columns', () => {
     const dataHook = 'sortable-list';
-    const items = [{ id: '1', text: 'item 1' }, { id: '2', text: 'item 2' }];
+    const items = [
+      { id: '1', text: 'item 1' },
+      { id: '2', text: 'item 2' },
+    ];
     const items2 = [
       { id: '11', text: 'item 11' },
       { id: '21', text: 'item 21' },
@@ -640,7 +679,10 @@ describe('Enzyme: SortableList', () => {
 
   it('should not call onDrop when drag between columns with different groupName', () => {
     const dataHook = 'sortable-list';
-    const items = [{ id: '1', text: 'item 1' }, { id: '2', text: 'item 2' }];
+    const items = [
+      { id: '1', text: 'item 1' },
+      { id: '2', text: 'item 2' },
+    ];
     const items2 = [
       { id: '11', text: 'item 11' },
       { id: '21', text: 'item 21' },
@@ -689,7 +731,10 @@ describe('Enzyme: SortableList', () => {
 
   it('should not call onDrop when drag between columns without group name', () => {
     const dataHook = 'sortable-list';
-    const items = [{ id: '1', text: 'item 1' }, { id: '2', text: 'item 2' }];
+    const items = [
+      { id: '1', text: 'item 1' },
+      { id: '2', text: 'item 2' },
+    ];
     const items2 = [
       { id: '11', text: 'item 11' },
       { id: '21', text: 'item 21' },
@@ -736,7 +781,10 @@ describe('Enzyme: SortableList', () => {
 
   it('should call onDrop when drag&drop columns', () => {
     const dataHook = 'sortable-list';
-    const items = [{ id: '1', text: 'item 1' }, { id: '2', text: 'item 2' }];
+    const items = [
+      { id: '1', text: 'item 1' },
+      { id: '2', text: 'item 2' },
+    ];
     const items2 = [
       { id: '11', text: 'item 11' },
       { id: '21', text: 'item 21' },
@@ -796,7 +844,10 @@ describe('Enzyme: SortableList', () => {
 
   it('should call onDrop(with portal)', () => {
     const dataHook = 'sortable-list';
-    const items = [{ id: '1', text: 'item 1' }, { id: '2', text: 'item 2' }];
+    const items = [
+      { id: '1', text: 'item 1' },
+      { id: '2', text: 'item 2' },
+    ];
     const onDrop = jest.fn();
     const renderItem = ({ item }) => <div>{item.text}</div>; // eslint-disable-line react/prop-types
 
@@ -828,7 +879,10 @@ describe('Enzyme: SortableList', () => {
 
   it('should call renderItem when props changed', () => {
     const dataHook = 'sortable-list';
-    const items = [{ id: '1', text: 'item 1' }, { id: '2', text: 'item 2' }];
+    const items = [
+      { id: '1', text: 'item 1' },
+      { id: '2', text: 'item 2' },
+    ];
     const onDrop = jest.fn();
 
     class MyComponent extends React.Component {

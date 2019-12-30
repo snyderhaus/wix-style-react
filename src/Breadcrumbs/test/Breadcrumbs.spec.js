@@ -11,7 +11,10 @@ import { breadcrumbsUniDriverFactory } from '../Breadcrumbs.uni.driver';
 
 import Breadcrumbs from '../Breadcrumbs';
 
-const items = [{ id: 0, value: 'Option 1' }, { id: 1, value: 'Option 2' }];
+const items = [
+  { id: 0, value: 'Option 1' },
+  { id: 1, value: 'Option 2' },
+];
 let onClick;
 
 describe('Breadcrumbs', () => {

@@ -7,7 +7,9 @@ import CustomModal from './CustomModal';
 import { storySettings } from './storySettings';
 import PremiumModal from './PremiumModal';
 
-storiesOf('9. Modals', module)
+import { Category } from '../../../stories/storiesHierarchy';
+
+storiesOf(Category.MODALS, module)
   .add(storySettings.alert.story, () => <Alert />)
   .add(storySettings.destructive.story, () => <DestructiveAlert />)
   .add(storySettings.custom.story, () => <CustomModal />)

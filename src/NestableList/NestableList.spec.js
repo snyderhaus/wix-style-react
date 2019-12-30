@@ -30,7 +30,10 @@ const getDroppedItemMock = (item, overrides) => ({
 describe('NestableList', () => {
   it('nestable should exists', () => {
     const dataHook = 'nestable-list';
-    const items = [{ id: '1', text: 'item 1' }, { id: '2', text: 'item 2' }];
+    const items = [
+      { id: '1', text: 'item 1' },
+      { id: '2', text: 'item 2' },
+    ];
     const onUpdate = jest.fn();
     const renderItem = ({ item }) => <div>{item.text}</div>; // eslint-disable-line react/prop-types
 
@@ -54,7 +57,10 @@ describe('NestableList', () => {
 
   it('should call onUpdate on drag and drop', () => {
     const dataHook = 'nestable-list';
-    const items = [{ id: '1', text: 'item 1' }, { id: '2', text: 'item 2' }];
+    const items = [
+      { id: '1', text: 'item 1' },
+      { id: '2', text: 'item 2' },
+    ];
     const onUpdate = jest.fn();
     const renderItem = ({ item }) => <div>{item.text}</div>; // eslint-disable-line react/prop-types
 
@@ -79,7 +85,10 @@ describe('NestableList', () => {
 
   it('should be able to drag & drop item vertically', () => {
     const dataHook = 'nestable-list';
-    const items = [{ id: '1', text: 'item 1' }, { id: '2', text: 'item 2' }];
+    const items = [
+      { id: '1', text: 'item 1' },
+      { id: '2', text: 'item 2' },
+    ];
     const onUpdate = jest.fn();
     const renderItem = ({ item }) => <div>{item.text}</div>; // eslint-disable-line react/prop-types
 
@@ -107,7 +116,10 @@ describe('NestableList', () => {
 
   it('should call startDrag and endDrag as part of drag process', () => {
     const dataHook = 'nestable-list';
-    const items = [{ id: '1', text: 'item 1' }, { id: '2', text: 'item 2' }];
+    const items = [
+      { id: '1', text: 'item 1' },
+      { id: '2', text: 'item 2' },
+    ];
     const onDragStart = jest.fn();
     const onDragEnd = jest.fn();
     const onUpdate = jest.fn();
@@ -136,7 +148,10 @@ describe('NestableList', () => {
 
   it('should be adding nesting if user moved item horizontally above threshold', () => {
     const dataHook = 'nestable-list';
-    const items = [{ id: '1', text: 'item 1' }, { id: '2', text: 'item 2' }];
+    const items = [
+      { id: '1', text: 'item 1' },
+      { id: '2', text: 'item 2' },
+    ];
     const onUpdate = jest.fn();
     const threshold = 30;
     const renderItem = ({ item }) => <div>{item.text}</div>; // eslint-disable-line react/prop-types
@@ -169,7 +184,10 @@ describe('NestableList', () => {
 
   it('should not do nesting if dropped item not horizontally enough', () => {
     const dataHook = 'nestable-list';
-    const items = [{ id: '1', text: 'item 1' }, { id: '2', text: 'item 2' }];
+    const items = [
+      { id: '1', text: 'item 1' },
+      { id: '2', text: 'item 2' },
+    ];
     const onUpdate = jest.fn();
     const threshold = 30;
     const renderItem = ({ item }) => <div>{item.text}</div>; // eslint-disable-line react/prop-types

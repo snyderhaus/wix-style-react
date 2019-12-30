@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import StatusComplete from 'wix-ui-icons-common/StatusComplete';
+import { TYPES } from '../constants';
 
 import FloatingNotification from '..';
 
@@ -13,48 +14,13 @@ const defaultProps = {
   buttonProps: { label: 'Undo' },
 };
 
+const types = Object.values(TYPES);
+const test = (it, props) => ({ it, props });
+
 const tests = [
   {
-    describe: 'themes',
-    its: [
-      {
-        it: 'standard',
-        props: {
-          type: 'standard',
-        },
-      },
-      {
-        it: 'success',
-        props: {
-          type: 'success',
-        },
-      },
-      {
-        it: 'warning',
-        props: {
-          type: 'warning',
-        },
-      },
-      {
-        it: 'destructive',
-        props: {
-          type: 'premium',
-        },
-      },
-
-      {
-        it: 'premium',
-        props: {
-          type: 'destructive',
-        },
-      },
-      {
-        it: 'preview',
-        props: {
-          type: 'preview',
-        },
-      },
-    ],
+    describe: 'Types',
+    its: types.map(type => test(type, { type })),
   },
   {
     describe: 'Long text',

@@ -1,11 +1,11 @@
 import { avatarDriverFactory } from 'wix-ui-core/dist/src/components/avatar/avatar.uni.driver';
 import { iconButtonDriverFactory } from '../IconButton/IconButton.uni.driver';
 
-import DATA_HOOKS from './DataHooks';
+import { dataHooks } from './Avatar.const';
 
 export default base => {
   const getIndication = () =>
-    iconButtonDriverFactory(base.$(`[data-hook="${DATA_HOOKS.INDICATION}"]`));
+    iconButtonDriverFactory(base.$(`[data-hook="${dataHooks.indication}"]`));
 
   return {
     ...avatarDriverFactory(base),

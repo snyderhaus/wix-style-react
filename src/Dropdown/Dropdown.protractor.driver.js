@@ -1,3 +1,1 @@
-export {
-  default,
-} from '../InputWithOptions/InputWithOptions.protractor.driver';
+export { default } from '../InputWithOptions/InputWithOptions.protractor.driver';

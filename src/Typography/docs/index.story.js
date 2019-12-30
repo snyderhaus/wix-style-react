@@ -48,15 +48,21 @@ export default {
         title: 'Included Components',
         rows: [
           [
-            <LinkTo kind="Components" story="Heading">{`<Heading/>`}</LinkTo>,
+            <LinkTo
+              kind={Category.COMPONENTS}
+              story="Heading"
+            >{`<Heading/>`}</LinkTo>,
             'Component for big headers',
           ],
           [
-            <LinkTo kind="Components" story="Text">{`<Text/>`}</LinkTo>,
+            <LinkTo
+              kind={Category.COMPONENTS}
+              story="Text"
+            >{`<Text/>`}</LinkTo>,
             'Component for regular text',
           ],
           [
-            <LinkTo kind="Styling" story="1.2 Typography Classes">
+            <LinkTo kind={Category.STYLING} story="1.2 Typography Classes">
               CSS classes
             </LinkTo>,
             'For edge cases when neither `<Heading/>` nor `<Text/>` can be used.',

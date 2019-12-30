@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import Avatar from '..';
-import { PhotoCamera } from 'wix-ui-icons-common';
+import PhotoCamera from 'wix-ui-icons-common/PhotoCamera';
 
 const allSizesAvatarWithProps = props => (
   <div
@@ -97,5 +97,17 @@ storiesOf(`Avatar/Props`, module).add('Colors', () => (
       <Avatar name="Cody Carr" />
       <Avatar name="Evelyn Lindsey" />
     </div>
+  </div>
+));
+
+storiesOf(`Avatar/Props`, module).add('Placeholder', () => (
+  <div>
+    {allSizesAvatarWithProps({ shape: 'square' })}
+    <br />
+    {allSizesAvatarWithProps({ shape: 'circle' })}
+    <br />
+    {allSizesAvatarWithProps({ shape: 'square', placeholder: <div /> })}
+    <br />
+    {allSizesAvatarWithProps({ shape: 'circle', placeholder: <div /> })}
   </div>
 ));

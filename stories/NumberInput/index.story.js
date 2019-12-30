@@ -15,6 +15,7 @@ import * as examples from './examples';
 
 import NumberInput from 'wix-style-react/NumberInput';
 import FormField from 'wix-style-react/FormField';
+import { Category } from '../storiesHierarchy';
 
 const code = config =>
   baseCode({ components: baseScope, compact: true, ...config });
@@ -51,14 +52,14 @@ export default {
         rows: [
           [
             <LinkTo
-              kind="Components"
+              kind={Category.COMPONENTS}
               story="FormField"
             >{`<FormField/>`}</LinkTo>,
             'Layout component for form elements',
           ],
           [
             <LinkTo
-              kind="Components"
+              kind={Category.COMPONENTS}
               story="NumberInput"
             >{`<NumberInput/>`}</LinkTo>,
             'Component that receives data',

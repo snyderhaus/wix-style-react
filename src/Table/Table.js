@@ -34,8 +34,12 @@ export function createColumns({ tableProps, bulkSelectionContext }) {
       render: (row, rowNum) => {
         const id = defaultTo(row.id, rowNum);
         return row.unselectable ? null : (
-          <div onClick={e => e.stopPropagation()}>
+          <div
+            onClick={e => e.stopPropagation()}
+            className={style.checkboxContainer}
+          >
             <Checkbox
+              className={style.checkbox}
               disabled={disabled}
               dataHook="row-select"
               checked={isSelected(id)}
@@ -45,6 +49,7 @@ export function createColumns({ tableProps, bulkSelectionContext }) {
         );
       },
       width: '12px',
+      style: { padding: 0, height: '60px', width: '50px' },
     };
   };
 
@@ -89,15 +94,11 @@ export class Table extends React.Component {
   }
 
   renderChildren() {
-    const children = this.props.children;
-    return this.props.withWrapper ? (
+    const { children, withWrapper, onRowClick, dataHook } = this.props;
+    return withWrapper ? (
       <div
-        data-hook={this.props.dataHook}
-        {...style(
-          'root',
-          { isRowClickable: !!this.props.onRowClick },
-          this.props,
-        )}
+        data-hook={dataHook}
+        {...style('root', { isRowClickable: !!onRowClick }, this.props)}
       >
         {children}
       </div>
@@ -270,7 +271,7 @@ Table.propTypes = {
   loader: PropTypes.node,
   /** A callback when more items are requested by the user. */
   loadMore: PropTypes.func,
-  /** A callback method to be called on row click. Signature: `onRowClick(rowData, rowNum)` */
+  /** A callback method to be called on row click. Signature: `onRowClick(rowData, rowNum)`. To enable hover effect you should set this prop.*/
   onRowClick: PropTypes.func,
   /** A callback method to be called on row mouse enter. Signature: `onMouseEnterRow(rowData, rowNum)` */
   onMouseEnterRow: PropTypes.func,

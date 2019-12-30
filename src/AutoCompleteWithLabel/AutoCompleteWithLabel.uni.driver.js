@@ -29,6 +29,7 @@ export const autoCompleteWithLabelDriverFactory = base => {
       return dropdownLayoutDriver.clickAtOptionWithValue(value);
     },
     clickMenuArrow: () => inputDriver.clickMenuArrow(),
+    isDisabled: async () => inputDriver.isDisabled(),
     blur: () => inputDriver.blur(),
     hasError: () => inputDriver.hasError(),
   };

@@ -42,6 +42,7 @@ import More from 'wix-ui-icons-common/More';
 import Print from 'wix-ui-icons-common/Print';
 import { Container, Row, Col } from 'wix-style-react/Grid';
 import ascendInvoice from '../../../../test/assets/ascend-invoice.jpg';
+import { Category } from '../../../storiesHierarchy';
 
 const groupSymbol = symbolsGroup.modals;
 
@@ -50,7 +51,7 @@ const AlertExamples = () => {
   const components = modalsSymbolsToComponents[symbol];
 
   const singleComponentProps = {
-    name: createLinkedSymbolName({ groupSymbol, symbol }),
+    name: createLinkedSymbolName({ groupSymbol: Category.MODALS, symbol }),
     componentsNames: createLinkedComponentsNames(components),
   };
 
@@ -147,7 +148,7 @@ class CustomModalExample extends PureComponent {
     const components = modalsSymbolsToComponents[symbol];
 
     const singleComponentProps = {
-      name: createLinkedSymbolName({ groupSymbol, symbol }),
+      name: createLinkedSymbolName({ groupSymbol: Category.MODALS, symbol }),
       componentsNames: createLinkedComponentsNames(components),
     };
 
@@ -203,7 +204,7 @@ const MarketingExample = () => {
   const components = modalsSymbolsToComponents[symbol];
 
   const singleComponentProps = {
-    name: createLinkedSymbolName({ groupSymbol, symbol }),
+    name: createLinkedSymbolName({ groupSymbol: Category.MODALS, symbol }),
     componentsNames: createLinkedComponentsNames(components),
   };
 
@@ -378,7 +379,7 @@ const ModalMobileLayoutExample = () => {
   const components = modalsSymbolsToComponents[symbol];
 
   const singleComponentProps = {
-    name: createLinkedSymbolName({ groupSymbol, symbol }),
+    name: createLinkedSymbolName({ groupSymbol: Category.MODALS, symbol }),
     componentsNames: createLinkedComponentsNames(components),
   };
   return (

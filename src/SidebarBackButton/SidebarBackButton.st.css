@@ -41,13 +41,17 @@
   cursor: pointer;
   box-sizing: border-box;
   border: none;
-  text-align: start;
+ 
   width: 100%;
   max-width: value(sidebarWidth);
   padding: 15px 24px 15px 18px;
   display: flex;
   align-items: center;
   background: value(sidebarBackgroundColor);
+
+  /* not supported in IE11 & Edge; 'left' as fallback */
+  text-align: left;
+  text-align: start;
 }
 .BackButton:lightSkin {
   background: value(sidebarLightBackgroundColor); 

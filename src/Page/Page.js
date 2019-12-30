@@ -351,14 +351,6 @@ class Page extends WixComponent {
     return !!this._getNamedChildren().PageTail;
   }
 
-  _fixedContainerStyle() {
-    const { scrollBarWidth } = this.state;
-    if (scrollBarWidth) {
-      return { width: `calc(100% - ${scrollBarWidth}px` };
-    }
-    return null;
-  }
-
   _renderMinimizationPlaceholder() {
     const { headerContainerHeight, minimized } = this.state;
     return (

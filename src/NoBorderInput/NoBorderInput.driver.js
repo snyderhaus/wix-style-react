@@ -1,4 +1,5 @@
 import inputDriverFactory from '../Input/Input.driver';
+import DataHooks from './dataHooks';
 
 const noBorderInputDriverFactory = ({ element, wrapper }) => {
   const inputDriver = inputDriverFactory({
@@ -8,10 +9,12 @@ const noBorderInputDriverFactory = ({ element, wrapper }) => {
 
   return {
     getLabel: () =>
-      element && element.querySelector(`[data-hook="label"]`).textContent,
+      element &&
+      element.querySelector(`[data-hook="${DataHooks.label}"]`).textContent,
     getStatusMessage: () =>
       element &&
-      element.querySelector(`[data-hook="status-message"]`).textContent,
+      element.querySelector(`[data-hook="${DataHooks.statusMessage}"]`)
+        .textContent,
     ...inputDriver,
   };
 };

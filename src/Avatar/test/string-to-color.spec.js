@@ -1,5 +1,5 @@
 import React from 'react';
-import stringToColor from './string-to-color';
+import stringToColor from '../string-to-color';
 
 describe('Avatar string to color', () => {
   const someName = 'Some name';

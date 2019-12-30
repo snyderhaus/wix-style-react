@@ -37,7 +37,7 @@
   background-color: value(sidebarLightBackgroundColor);
 }
 
-.root:size(tiny) {
+.root:size(tiny):weight(bold) {
   color: value(D40);
   line-height: 18px;
 }

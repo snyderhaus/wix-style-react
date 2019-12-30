@@ -1,122 +1,124 @@
-<h1 style="text-align: center;">
-    <a href="https://wix.github.com/wix-style-react">
-        <img src="https://raw.githubusercontent.com/wix/wix-style-react/master/.storybook/logo.svg?sanitize=true" alt="Wix Style React" width="300">
-    </a>
-</h1>
+<p align="center">
 
-`wix-style-react` is a collection of [React](https://facebook.github.io/react/) components that conform to Wix Style created by Wix UX guild.
+  <a href="https://wix.github.com/wix-style-react">
+      <img src="https://raw.githubusercontent.com/wix/wix-style-react/master/.storybook/logo.svg?sanitize=true" alt="Wix Style React" width="400">
+  </a>
+  </br>
+<span>
+A collection of React components that conform to Wix Style.
+</span>
 
-#### [Docs](https://wix-wix-style-react.surge.sh/) | [V6 Docs](https://wix-wix-style-react-v6.surge.sh/) | [Source](https://github.com/wix/wix-style-react)
+</p>
 
-## Installation
-* Install with `npm` or `yarn`:
-```sh
-npm i wix-style-react
-# OR
+<div align="center">
+
+![](https://flat.badgen.net/badge/React/16.8.3/blue)
+[![](https://badgen.net/npm/v/wix-style-react/latest)](https://www.npmjs.com/package/wix-style-react)
+[![Dependencies](https://img.shields.io/david/wix/wix-style-react.svg?style=flat-square)](https://david-dm.org/wix/wix-style-react)
+[![DevDependencies](https://img.shields.io/david/dev/ant-design/ant-design.svg?style=flat-square)](https://david-dm.org/wix/wix-style-react?type=dev)
+
+</div>
+
+<div align="center">
+ <a href="https://wix-style-react.now.sh">https://wix-style-react.now.sh/</a>
+</div>
+
+## 📦 Install
+
+```bash
+npm install wix-style-react
+```
+
+```bash
 yarn add wix-style-react
 ```
 
-## Usage
+## 🔨 Setup
 
-### Requirements
+If 🐉yoshi build runner is used for your application then all required loaders are already defined. If you'd rather set up your project manually, take a look at our [webpack guide](https://github.com/wix/wix-style-react/blob/master/docs/usage-without-yoshi.md).
 
-* Load Wix fonts from CDN
-    ```html
-    <link rel="stylesheet" href="//static.parastorage.com/services/third-party/fonts/Helvetica/fontFace.css">
-    ```
-* Enable font smoothing with browser specific css properties, for example:
-    ```css
-    html {
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-    ```
-### Example
+Load Wix fonts from CDN:
+  ```html
+  <link
+    rel="stylesheet"
+    href="//static.parastorage.com/services/third-party/fonts/Helvetica/fontFace.css"
+  />
+  ```
+Enable font smoothing with browser specific css properties:
+  ```css
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  ```
+
+Make sure that react and react-dom versions are not higher then:
+  ```html
+    //package.json
+   .
+   .
+   "react":"16.8.3",
+   "react-dom":"16.8.3"
+   .
+   .
+   
+  ```
+
+**wix-style-react v6.x migration note**:
+
+If you're using wix-style-react 6.x and want to shift to 7.x version then read our [migration guide](https://github.com/wix/wix-style-react/blob/master/docs/migration/v6-v7.md).
+
+Previous version documentation: https://wix-wix-style-react-v6.surge.sh/
+  
+## 🚀 Usage
 
 ```jsx
-import React from 'react';
 import Button from 'wix-style-react/Button';
 
 const App = () => (
-    <Button onClick={() => console.log('thanks for clicking :)')}>
-      Click me!
-    </Button>
+  <Button>
+    Click me!
+  </Button>
 );
 ```
 
-## Build Configuration Prerequisites
-`wix-style-react` uses [Stylable](https://stylable.io/), [SASS](https://sass-lang.com/) and [CSS Modules](https://github.com/css-modules/css-modules) configuration by default. 
-in order to use `wix-style-react`, your module bundler should be configured accordingly.
-Use [Yoshi](https://github.com/wix/yoshi) as build tool to avoid configuration. Otherwise, you should configure it on your own.
+## 💫 Testkits
 
-### Example of `create-react-app` configuration
-- Run 
-    ```bash
-    $ npm run eject
-    $ npm i -D node-sass stylable @stylable/webpack-plugin @stylable/core
-    ```
--  Enhance `webpack` configuration
+All our components are provided with testkits that help our users test them.  
 
-    ```js
-    // config/webpack.config.js    
-    const {StylableWebpackPlugin} = require('@stylable/webpack-plugin');
-    //...
-    {
-      //...
-      module: {
-        rules: [
-          {
-            exclude: /\.st.css$/, //This must appear before the "oneOf" property
-            oneOf: [
-              //...
-              {
-                test: sassRegex,
-                include: [
-                  path.join(__dirname, '../node_modules/wix-animations'),
-                  path.join(__dirname, '../node_modules/wix-style-react'),
-                  path.join(__dirname, '../node_modules/bootstrap-sass')
-                ],
-                exclude: sassModuleRegex,
-                use: getStyleLoaders(
-                  {
-                    modules: true,
-                    importLoaders: 2,
-                    sourceMap: isEnvProduction && shouldUseSourceMap,
-                    camelCase: true,
-                    localIdentName:'[name]__[local]___[hash:base64:5]',
-                  },
-                  'sass-loader'
-                ),
-                sideEffects: true,
-              },
-            ]
-          },
-        ],
-        plugins: [
-          //...
-          new StylableWebpackPlugin({
-             experimentalHMR: true,
-             useEntryModuleInjection: true
-           }),
-        ]
-      //...
-      }
-    }
-    ```
-### Typescript support
-- Refer to [Stylable Docs](https://stylable.io/docs/getting-started/install-configure#types) regarding Typescript configuration
+A component testkit provides an interface to the component, enabling automated tests to access component functions without needing to know precise details of the technology being used.
 
-## Test drivers
-All of `wix-style-react` components are 100% tested and supplies test drivers for easy interactions in your tests. Read more about [Components Drivers](./docs/usage/COMPONENTS_DRIVERS.md)
+```jsx
+//  Here is an example
 
-## Troubleshooting
+// 1. import
+import { inputTestkitFactory } from 'wix-style-react/dist/testkit';
 
-Please refer to the [Troubleshooting page](https://github.com/wix/wix-style-react/blob/master/docs/usage/Troubleshooting.md)
+// 2. initialize
+const inputDriver = inputTestkitFactory({
+  wrapper: document.body,
+  dataHook: 'name-input',
+});
 
-## Contributing
+// 3. interact
+await inputDriver.enterText('hello world');
+```
+All methods are documented in our storybook components stories and some can be viewed through typescript interface.
 
-Please refer to the [Contributing page](./CONTRIBUTING.md)
+Our testkits currently support four major testing frameworks: `react-jsdom`, `protractor`, `puppeteer` and `selenium`. Read our [testing guidelines](https://github.com/wix/wix-style-react/blob/master/docs/usage/testing.md)
 
-## License
+## ⌨️ Typescript
+
+The library is javascript based but types are supported with `d.ts` files. Not all components have types defined, but it is ongoing process to make it so. 
+
+Additional type interfaces are added in a separate repo called: `wsr-types` in order not to break our existing users. Read more on the repo description: https://github.com/wix/wix-ui/tree/master/packages/wsr-types
+
+## 🤝 Contributing [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+
+We welcome contributions to Wix-Style-React!
+
+Read our [contributing guide](./CONTRIBUTING.md) and help us build or improve our components.
+
+## 📝 License
 
 This project is offered under [MIT License](https://github.com/wix/wix-style-react/blob/master/LICENSE).

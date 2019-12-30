@@ -5,8 +5,7 @@ export const swatchesDriverFactory = base => {
   const getSwatch = async index =>
     base.$$('[data-hook="color-swatches-swatch"]').get(index);
 
-  const getEmptySwatch = async () =>
-    base.$(`[data-hook="${dataHooks.empty}"]`);
+  const getEmptySwatch = async () => base.$(`[data-hook="${dataHooks.empty}"]`);
 
   return {
     exists: async () => base.exists(),

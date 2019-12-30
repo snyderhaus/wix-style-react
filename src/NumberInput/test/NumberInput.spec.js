@@ -15,6 +15,13 @@ describe('NumberInput', () => {
     expect(await driver.exists()).toBeTruthy();
   });
 
+  it('should render correct initial value', async () => {
+    const driver = createDriver(<NumberInput value={12} />);
+    expect(await driver.getValue()).toEqual('12');
+    const driverDefaultValue = createDriver(<NumberInput defaultValue={13} />);
+    expect(await driverDefaultValue.getValue()).toEqual('13');
+  });
+
   it('should increment value', async () => {
     const value = 0,
       onChange = jest.fn();
@@ -247,5 +254,23 @@ describe('NumberInput', () => {
     await driver.enterText('-2');
     expect(onChange).toHaveBeenCalledWith(min);
     expect(await driver.getValue()).toEqual('0');
+  });
+
+  it('should take into account `defaultValue`', async () => {
+    const onChange = jest.fn();
+    const min = 0;
+    const max = 100;
+    const defaultValue = 42;
+    const driver = createDriver(
+      <NumberInput
+        defaultValue={defaultValue}
+        min={min}
+        max={max}
+        onChange={onChange}
+      />,
+    );
+    expect(await driver.getValue()).toEqual('42');
+    await driver.clickOnDecrement();
+    expect(await driver.getValue()).toEqual('41');
   });
 });

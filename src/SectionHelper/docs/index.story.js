@@ -93,9 +93,10 @@ export default {
 
           title('Examples'),
 
-          ...[{ title: 'Appearance', source: examples.appearance }].map(
-            ({ title, source }) =>
-              columns([description({ title }), code({ source })]),
+          ...[
+            { title: 'Appearance', source: examples.appearance },
+          ].map(({ title, source }) =>
+            columns([description({ title }), code({ source })]),
           ),
         ],
       }),

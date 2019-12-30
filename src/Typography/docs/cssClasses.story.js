@@ -32,7 +32,7 @@ export default {
         <div>
           See
           <LinkTo
-            kind="1. Foundation"
+            kind={Category.FOUNDATION}
             story="1.2 Typography"
           >{`1. Foundation > 1.2 Typography`}</LinkTo>
         </div>

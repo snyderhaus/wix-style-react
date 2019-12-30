@@ -5,10 +5,6 @@ import Input from '../Input';
 class NumberInput extends React.PureComponent {
   static displayName = 'NumberInput';
 
-  state = {
-    value: '',
-  };
-
   constructor(props) {
     super(props);
     const { value } = props;
@@ -27,28 +23,28 @@ class NumberInput extends React.PureComponent {
     return ['.', '-', undefined, ''].includes(value);
   }
 
-  _defaultValueNullIfEmpty(value) {
-    return value == null || value === '' ? null : +value;
+  _defaultValueNullIfEmpty(value = this.props.defaultValue) {
+    return value == null || value === '' ? null : Number(value);
   }
 
   _defaultValueToNullIfInvalidNumber(value) {
-    return this._isInvalidNumber(value) ? null : +value;
+    return this._isInvalidNumber(value) ? null : Number(value);
   }
 
   _getInputValueFromState() {
     const { value } = this.state;
-    return value == null ? '' : value;
+    const { defaultValue } = this.props;
+
+    if (value != null) {
+      return value;
+    }
+
+    return defaultValue || '';
   }
 
   _isInRange(value) {
     const { min, max } = this.props;
-    if (!isNaN(min) && value < min) {
-      return false;
-    }
-    if (!isNaN(max) && value > max) {
-      return false;
-    }
-    return true;
+    return !(!isNaN(min) && value < min) && !(!isNaN(max) && value > max);
   }
 
   _increment = () => {
@@ -113,7 +109,8 @@ class NumberInput extends React.PureComponent {
   };
 
   render() {
-    const { suffix, ...props } = this.props;
+    // <Input/> should always be controlled. Therefore, not passing defaultValue to <Input/>.
+    const { suffix, defaultValue, ...props } = this.props;
 
     return (
       <Input
@@ -139,6 +136,8 @@ class NumberInput extends React.PureComponent {
 
 NumberInput.propTypes = {
   ...Input.propTypes,
+  /** Default value for those who wants to use this component un-controlled */
+  defaultValue: PropTypes.number,
   /** If set to true - typing values beyond `min`/`max` values will round to nearest range  */
   strict: PropTypes.bool,
 };

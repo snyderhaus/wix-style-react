@@ -15,6 +15,7 @@ import * as examples from './examples';
 
 import Input from 'wix-style-react/Input';
 import FormField from 'wix-style-react/FormField';
+import { Category } from '../storiesHierarchy';
 
 const code = config =>
   baseCode({ components: baseScope, compact: true, ...config });
@@ -49,13 +50,16 @@ export default {
         rows: [
           [
             <LinkTo
-              kind="Components"
+              kind={Category.COMPONENTS}
               story="FormField"
             >{`<FormField/>`}</LinkTo>,
             'Layout component for form elements',
           ],
           [
-            <LinkTo kind="Components" story="Input">{`<Input/>`}</LinkTo>,
+            <LinkTo
+              kind={Category.COMPONENTS}
+              story="Input"
+            >{`<Input/>`}</LinkTo>,
             'Component that receives data',
           ],
         ],
@@ -77,12 +81,6 @@ export default {
         title: 'Affix',
         text: 'Text Input has additional container in prefix and suffix area',
         source: examples.affix,
-      },
-
-      {
-        title: 'Disabled + Affix',
-        text: '',
-        source: examples.disabledAffix,
       },
 
       {

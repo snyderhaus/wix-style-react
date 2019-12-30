@@ -62,9 +62,10 @@ export default {
 
           title('Examples'),
 
-          ...[{ title: 'Basic use', source: examples.base }].map(
-            ({ title, source }) =>
-              columns([description({ title }), code({ source })]),
+          ...[
+            { title: 'Basic use', source: examples.base },
+          ].map(({ title, source }) =>
+            columns([description({ title }), code({ source })]),
           ),
           ...[
             { title: 'Without bottom divider', source: examples.hasDivider },

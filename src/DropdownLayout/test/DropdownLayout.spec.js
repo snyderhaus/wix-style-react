@@ -133,9 +133,9 @@ describe('DropdownLayout', () => {
       expect(await driver.optionContentAt(0)).toBe('Option 1');
       expect(await driver.isOptionADivider(4)).toBeTruthy();
       expect(
-        await (await driver.optionByHook(
-          'dropdown-divider-divider1',
-        )).isDivider(),
+        await (
+          await driver.optionByHook('dropdown-divider-divider1')
+        ).isDivider(),
       ).toBeTruthy();
       expect(await driver.optionContentAt(5)).toBe('Option 4');
 
@@ -351,9 +351,9 @@ describe('DropdownLayout', () => {
 
       expect(await driver.isOptionSelectedWithGlobalClassName(0)).toBeTruthy();
       expect(
-        await (await driver.optionByHook(
-          'dropdown-item-0',
-        )).isSelectedWithGlobalClassName(),
+        await (
+          await driver.optionByHook('dropdown-item-0')
+        ).isSelectedWithGlobalClassName(),
       ).toBeTruthy();
     });
 
@@ -680,16 +680,16 @@ describe('DropdownLayout', () => {
         await driver.mouseEnterAtOption(0);
         expect(await driver.isOptionHoveredWithGlobalClassName(0)).toBeTruthy();
         expect(
-          await (await driver.optionByHook(
-            'dropdown-item-0',
-          )).isHoveredWithGlobalClassName(),
+          await (
+            await driver.optionByHook('dropdown-item-0')
+          ).isHoveredWithGlobalClassName(),
         ).toBeTruthy();
         await driver.mouseLeaveAtOption(0);
         expect(await driver.isOptionHoveredWithGlobalClassName(0)).toBeFalsy();
         expect(
-          await (await driver.optionByHook(
-            'dropdown-item-0',
-          )).isHoveredWithGlobalClassName(),
+          await (
+            await driver.optionByHook('dropdown-item-0')
+          ).isHoveredWithGlobalClassName(),
         ).toBeFalsy();
       });
 

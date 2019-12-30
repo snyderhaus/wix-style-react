@@ -18,6 +18,7 @@ import ExampleGeneralLayoutRaw from '!raw-loader!./ExampleGeneralLayout';
 import ExampleSplitLayoutRaw from '!raw-loader!./ExampleSplitLayout';
 import ExampleGalleryLayoutRaw from '!raw-loader!./ExampleGalleryLayout';
 import ExampleEmptyStateRaw from '!raw-loader!./ExampleEmptyState';
+import { Category } from '../storiesHierarchy';
 
 const code = config =>
   baseCode({ components: baseScope, compact: true, ...config });
@@ -37,13 +38,17 @@ export default {
         title: 'Included Components',
         rows: [
           [
-            <LinkTo kind="Components" story="Page" children="<Page/>" />,
+            <LinkTo
+              kind={Category.COMPONENTS}
+              story="Page"
+              children="<Page/>"
+            />,
             'Business Manager’s root component',
           ],
 
           [
             <LinkTo
-              kind="Components"
+              kind={Category.COMPONENTS}
               story="PageHeader"
               children="<Page.Header/>"
             />,
@@ -51,13 +56,17 @@ export default {
           ],
 
           [
-            <LinkTo kind="Components" story="Grid" children="<Grid/>" />,
+            <LinkTo
+              kind={Category.COMPONENTS}
+              story="Grid"
+              children="<Grid/>"
+            />,
             'Component that constructs a grid',
           ],
 
           [
             <LinkTo
-              kind="2. Layout"
+              kind={Category.LAYOUT}
               story="2.2 Card Layout"
               children="<Card/>"
             />,
@@ -66,8 +75,8 @@ export default {
 
           [
             <LinkTo
-              kind="2. Layout"
-              story="2.4 EmptyState"
+              kind={Category.COMPONENTS}
+              story="EmptyState"
               children="<EmptyState/>"
             />,
             'Component that render Empty state layout',

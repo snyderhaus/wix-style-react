@@ -63,12 +63,7 @@ export default class ColorPickerConverterRGB extends WixComponent {
     this.setState(getRgbOrEmpty(props.current));
   }
 
-  change(
-    part,
-    {
-      target: { value },
-    },
-  ) {
+  change(part, { target: { value } }) {
     this.setState({ [part]: value }, () => {
       const isMissingData =
         this.state.r === '' || this.state.g === '' || this.state.b === '';

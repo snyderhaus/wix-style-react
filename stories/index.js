@@ -7,37 +7,6 @@
 require('./Introduction');
 require('./Playground/Playground');
 
-// 1. Foundations
-require('../src/Typography/docs/index.story'); // 1.2 Typography
-require('../src/new-icons/docs'); // 1.4 Icons
-
-require('./ScrollBar'); // 1.8 ScrollBar
-
-// 2. Layout
-require('./PageLayout/index.story'); // 2.1 Page Layout
-require('./CardLayout/index.story'); // 2.1 Card Layout
-
-// 3. Inputs
-require('./TextInput/index.story'); // 3.1. Text Input
-require('./TextArea/index.story'); // 3.2 Text Area
-require('./NumberInput/index.story'); // 3.4 NumberInput
-require('./MultiSelect/index.story'); // 3.12 Tags
-
-// 4. Selection
-require('./SegmentedToggle/index.story'); // 4.5 SegmentedToggle
-require('./Slider/index.story'); // 4.8 Slider
-
-// 6. Navigation
-require('./Sidebar/index.story'); // 6.1 Sidebar
-
-// 7. Tooltips
-require('./Tooltip/index.story'); // 7.1 Tooltip
-require('./PopoverMenu/index.story'); // 7.3 PopoverMenu
-
-// 9. Modals
-require('../src/MessageBox/docs');
-require('./ModalMobileLayout/index.story'); // 9.5 Mobile Modal
-
 // Components API
 require('../src/Accordion/docs/index.story');
 require('../src/AddItem/docs/index.story');
@@ -105,7 +74,6 @@ require('../src/InputWithLabel/docs/index.story');
 require('../src/InputWithOptions/docs/index.story');
 require('../src/Label/docs/index.story');
 require('../src/LabelledElement/docs/index.story');
-require('../src/Layout/docs');
 require('../src/Layout/docs/index.story');
 require('../src/LinearProgressBar/docs/index.story');
 require('../src/ListItemAction/docs/index.story');
@@ -167,25 +135,50 @@ require('../src/ToggleSwitch/docs/index.story');
 require('../src/Tooltip/TooltipNext/docs/index.story');
 require('../src/VerticalTabs/docs/index.story');
 require('../src/VerticalTabsItem/docs/index.story');
+require('../src/VerticalTabs/docs/index.story');
+require('../src/VerticalTabsItem/docs/index.story');
+require('../src/MarketingLayout/docs/index.story');
+require('../src/Palette/docs/index.story');
 require('./WIP');
+
+// Next API
+require('../src/beta/PopoverMenu/docs/index.story');
 
 // Styling
 require('../src/Typography/docs/cssClasses.story');
+
+// 1. Foundations
+require('../src/Typography/docs/index.story'); // 1.2 Typography
+require('../src/new-icons/docs'); // 1.4 Icons
+
+require('./ScrollBar'); // 1.8 ScrollBar
+
+// 2. Layout
+require('./PageLayout/index.story'); // 2.1 Page Layout
+require('./CardLayout/index.story'); // 2.1 Card Layout
+
+// 3. Inputs
+require('./TextInput/index.story'); // 3.1. Text Input
+require('./TextArea/index.story'); // 3.2 Text Area
+require('./NumberInput/index.story'); // 3.4 NumberInput
+require('./MultiSelect/index.story'); // 3.12 Tags
+
+// 4. Selection
+require('./SegmentedToggle/index.story'); // 4.5 SegmentedToggle
+require('./Slider/index.story'); // 4.8 Slider
+
+// 6. Navigation
+require('./Sidebar/index.story'); // 6.1 Sidebar
+
+// 7. Tooltips
+require('./Tooltip/index.story'); // 7.1 Tooltip
+require('./PopoverMenu/index.story'); // 7.3 PopoverMenu
+
+// 9. Modals
+require('../src/MessageBox/docs');
+require('./ModalMobileLayout/index.story'); // 9.5 Mobile Modal
 
 // DEPRECATED
 require('./FieldWithSelectionComposite');
 require('../src/Deprecated/SideMenu/docs');
 require('../src/Deprecated/SideMenu/docs/SideMenu');
-
-// BETA
-require('../src/beta/PopoverMenu/docs/index.story');
-
-// TODO: move to correct position
-require('../src/VerticalTabs/docs/index.story');
-
-// TODO: move to correct position
-require('../src/VerticalTabsItem/docs/index.story');
-
-// TODO: move to correct position
-require('../src/MarketingLayout/docs/index.story');
-require('../src/Palette/docs/index.story');

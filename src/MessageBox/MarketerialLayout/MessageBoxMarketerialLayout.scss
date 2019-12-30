@@ -90,22 +90,8 @@ $headerImageHeight: 185px;
   padding-bottom: 0.1px;
 }
 
-.primary-button-container {
-  @include FontLight();
-  font-size: 14px;
-  line-height: 1.29;
-  color: $B10;
-  margin-bottom: 8px;
-}
 .secondary-button-container {
-  @include FontLight();
-  font-size: 14px;
-  line-height: 1.29;
-  margin-top: 21px;
-  color: $B10;
-  & > span {
-    cursor: pointer;
-  }
+  margin-top: 18px;
 }
 
 .flexContainer {

@@ -27,7 +27,10 @@ describe('Table', () => {
 
     const createDefaultProps = () => ({
       id: 'id',
-      data: [{ a: 'value 1', b: 'value 2' }, { a: 'value 3', b: 'value 4' }],
+      data: [
+        { a: 'value 1', b: 'value 2' },
+        { a: 'value 3', b: 'value 4' },
+      ],
       columns: [
         { title: 'Row Num', render: (row, rowNum) => rowNum },
         { title: 'A', render: row => row.a },
@@ -555,7 +558,10 @@ describe('Table', () => {
   describe('row keys', () => {
     const createDefaultProps = () => ({
       id: 'id',
-      data: [{ a: 'value 1', b: 'value 2' }, { a: 'value 3', b: 'value 4' }],
+      data: [
+        { a: 'value 1', b: 'value 2' },
+        { a: 'value 3', b: 'value 4' },
+      ],
       columns: [
         { title: 'Row Num', render: (row, rowNum) => rowNum },
         { title: 'A', render: row => row.a },

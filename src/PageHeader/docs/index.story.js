@@ -75,13 +75,15 @@ export default {
 
           title('Examples'),
 
-          ...[{ title: 'Breadcrumbs', source: examples.breadcrumbs }].map(
-            ({ title, source }) =>
-              columns([description({ title }), code({ source })]),
+          ...[
+            { title: 'Breadcrumbs', source: examples.breadcrumbs },
+          ].map(({ title, source }) =>
+            columns([description({ title }), code({ source })]),
           ),
-          ...[{ title: 'Actionbar', source: examples.actionBar }].map(
-            ({ title, source }) =>
-              columns([description({ title }), code({ source })]),
+          ...[
+            { title: 'Actionbar', source: examples.actionBar },
+          ].map(({ title, source }) =>
+            columns([description({ title }), code({ source })]),
           ),
         ],
       }),

@@ -18,6 +18,7 @@ import LinkTo from '@storybook/addon-links/react';
 import { baseScope } from '../utils/LiveCodeExample';
 
 import * as examples from './examples';
+import { Category } from '../storiesHierarchy';
 
 const BasicExample = () => (
   <Layout>
@@ -80,14 +81,14 @@ export default {
         rows: [
           [
             <LinkTo
-              kind="Components"
+              kind={Category.COMPONENTS}
               story="FormField"
             >{`<FormField/>`}</LinkTo>,
             'Layout component for form elements',
           ],
           [
             <LinkTo
-              kind="Components"
+              kind={Category.COMPONENTS}
               story="SegmentedToggle"
             >{`<SegmentedToggle/>`}</LinkTo>,
             'Selection component',

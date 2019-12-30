@@ -17,7 +17,9 @@ import CustomIconSizeRaw from '!raw-loader!./CustomIconSize';
 import RTLIcon from './RTLIcon';
 import RTLIconRaw from '!raw-loader!./RTLIcon';
 
-storiesOf('1. Foundation', module).add('1.4 Icons', () => (
+import { Category } from '../../../stories/storiesHierarchy';
+
+storiesOf(Category.FOUNDATION, module).add('1.4 Icons', () => (
   <div data-hook="new-icons">
     <Markdown source={Readme} />
 

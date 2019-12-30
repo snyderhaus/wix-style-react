@@ -36,6 +36,7 @@ import ExampleStatsWidgetWithFilterWithNoBorderRaw from '!raw-loader!./ExampleSt
 
 import { storySettings } from './storySettings';
 import LinkTo from '@storybook/addon-links/react';
+import { Category } from '../../../stories/storiesHierarchy';
 
 export default {
   category: storySettings.category,
@@ -52,7 +53,7 @@ export default {
           <br />
           Instead, we advise you to use the newer{' '}
           <LinkTo
-            kind="Components"
+            kind={Category.COMPONENTS}
             story="StatisticsWidget"
           >{`<StatisticsWidget/>`}</LinkTo>{' '}
           component.

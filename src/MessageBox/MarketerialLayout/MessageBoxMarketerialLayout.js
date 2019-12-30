@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import WixComponent from '../../BaseComponents/WixComponent';
 import Heading from '../../Heading';
 import Text from '../../Text';
+import TextButton from '../../TextButton';
 import classNames from 'classnames';
 import CloseButton from '../../CloseButton';
 
@@ -96,25 +97,27 @@ class MessageBoxMarketerialLayout extends WixComponent {
         {!!primaryButtonNode && (
           <div data-hook="primary-button-node">{primaryButtonNode}</div>
         )}
-        {!primaryButtonNode && primaryButtonLabel ? (
-          <div className={styles.primaryButtonContainer}>
-            <Button
-              theme={`full${primaryButtonTheme || theme}`}
-              onClick={onPrimaryButtonClick}
-              dataHook="primary-button"
-              disabled={primaryButtonDisabled}
-            >
-              {primaryButtonLabel}
-            </Button>
-          </div>
-        ) : null}
-        {secondaryButtonLabel && !footerBottomChildren ? (
+        {!primaryButtonNode && primaryButtonLabel && (
+          <Button
+            theme={`full${primaryButtonTheme || theme}`}
+            onClick={onPrimaryButtonClick}
+            dataHook="primary-button"
+            disabled={primaryButtonDisabled}
+          >
+            {primaryButtonLabel}
+          </Button>
+        )}
+        {secondaryButtonLabel && !footerBottomChildren && (
           <div className={styles.secondaryButtonContainer}>
-            <span onClick={onSecondaryButtonClick} data-hook="secondary-button">
+            <TextButton
+              size="small"
+              onClick={onSecondaryButtonClick}
+              dataHook="secondary-button"
+            >
               {secondaryButtonLabel}
-            </span>
+            </TextButton>
           </div>
-        ) : null}
+        )}
       </div>
     );
   };

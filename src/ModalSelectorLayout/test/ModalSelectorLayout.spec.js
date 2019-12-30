@@ -476,7 +476,10 @@ describe('ModalSelectorLayout', () => {
   });
 
   describe('radio', () => {
-    const items = [{ id: 1, title: 'first' }, { id: '2', title: 'second' }];
+    const items = [
+      { id: 1, title: 'first' },
+      { id: '2', title: 'second' },
+    ];
     const dataSource = paginatedDataSourceFactory(items);
 
     it('should render radio buttons', async () => {
@@ -551,7 +554,10 @@ describe('ModalSelectorLayout', () => {
   });
 
   describe('given `multiple` prop`', () => {
-    const items = [{ id: 1, title: 'first' }, { id: '2', title: 'second' }];
+    const items = [
+      { id: 1, title: 'first' },
+      { id: '2', title: 'second' },
+    ];
 
     const dataSource = paginatedDataSourceFactory(items);
 

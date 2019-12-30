@@ -5,13 +5,13 @@ export const image = `
 `;
 
 export const imageError = `
-<Avatar 
+<Avatar
   imgProps={{src: 'https://1234.me/4321.jpg'}}
 />;
 `;
 
 export const imageErrorInitials = `
-<Avatar 
+<Avatar
   name="John Doe"
   imgProps={{src: 'https://1234.me/4321.jpg'}}/>
 `;
@@ -20,13 +20,13 @@ export const sizes = `
 <Box align="space-between" width="500">
   <Avatar size="size90" name={'John Doe'} />
   <Avatar size="size72" name={'John Doe'} />
-  <Avatar size="size60" name={'John Doe'} />    
+  <Avatar size="size60" name={'John Doe'} />
   <Avatar size="size48" name={'John Doe'} />
   <Avatar size="size36" name={'John Doe'} />
   <Avatar size="size30" name={'John Doe'} />
   <Avatar size="size24" name={'John Doe'} />
   <Avatar size="size18" name={'John Doe'} />
-</Box>  
+</Box>
 `;
 
 export const squareShape = `
@@ -54,9 +54,14 @@ export const colors = `
 `;
 
 export const placeholder = `
-<Avatar 
-  imgProps={{src: 'https://1234.me/4321.jpg'}}
-/>;
+<Layout justifyItems='center'>
+  <Cell span={6}>
+    <Avatar />
+  </Cell>
+  <Cell span={6}>
+    <Avatar shape='square' />
+  </Cell>
+</Layout>
 `;
 
 export const customText = `

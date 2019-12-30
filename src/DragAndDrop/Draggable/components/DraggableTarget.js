@@ -116,6 +116,8 @@ DraggableTarget.propTypes = {
   item: PropTypes.object,
 };
 
-export default DropTarget(ItemTypes.DRAGGABLE, target, collect)(
-  DraggableTarget,
-);
+export default DropTarget(
+  ItemTypes.DRAGGABLE,
+  target,
+  collect,
+)(DraggableTarget);

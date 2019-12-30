@@ -31,8 +31,8 @@ describe('ColorPicker', () => {
           {...{ value: '#000000', onChange, onCancel, onConfirm }}
         />,
       );
-      expect(await driver.exists()).toBeTruthy();
-      expect(await driver.historyPanelExists()).toBeFalsy();
+      expect(await driver.exists()).toBe(true);
+      expect(await driver.historyPanelExists()).toBe(false);
     });
 
     describe('History', () => {
@@ -52,7 +52,7 @@ describe('ColorPicker', () => {
             }}
           />,
         );
-        expect(await driver.historyPanelExists()).toBeTruthy();
+        expect(await driver.historyPanelExists()).toBe(true);
         expect(color(await driver.historyCurrentColor()).hex()).toBe(value);
         expect(color(await driver.historyPreviousColor()).hex()).toBe(value);
       });

@@ -34,6 +34,7 @@ import LockLocked from 'wix-ui-icons-common/LockLocked';
 import LockUnlocked from 'wix-ui-icons-common/LockUnlocked';
 import { Layout, Cell } from 'wix-style-react/Layout';
 import Box from 'wix-style-react/Box';
+import { Category } from '../../../storiesHierarchy';
 
 const groupSymbol = symbolsGroup.selection;
 
@@ -224,7 +225,7 @@ const SegmentedToggleExample = () => {
   const components = selectionSymbolsToComponents[symbol];
 
   const singleComponentProps = {
-    name: createLinkedSymbolName({ groupSymbol, symbol }),
+    name: createLinkedSymbolName({ groupSymbol: Category.SELECTION, symbol }),
     componentsNames: createLinkedComponentsNames(components),
   };
 
@@ -330,7 +331,7 @@ class SliderExample extends PureComponent {
     const components = selectionSymbolsToComponents[symbol];
 
     const singleComponentProps = {
-      name: createLinkedSymbolName({ groupSymbol, symbol }),
+      name: createLinkedSymbolName({ groupSymbol: Category.SELECTION, symbol }),
       componentsNames: createLinkedComponentsNames(components),
       size: singleComponentSizes.compact,
     };

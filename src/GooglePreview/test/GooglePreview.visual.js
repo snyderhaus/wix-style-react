@@ -39,6 +39,17 @@ const tests = [
       },
     ],
   },
+  {
+    describe: 'url',
+    its: [
+      {
+        it: 'ellipsed url',
+        props: {
+          previewUrl: 'long url should be ellipsed '.repeat(20),
+        },
+      },
+    ],
+  },
 ];
 
 tests.forEach(({ describe, its }) => {

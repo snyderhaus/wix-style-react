@@ -5,10 +5,7 @@ const formFieldDriverFactory = async (component, page, { dataHook }) => {
     element: () => component,
     getLabelValue: async () => {
       const label = await component.$('[data-hook="formfield-label"]');
-      return page.evaluate(
-        _label => _label.innerText,
-        label,
-      );
+      return page.evaluate(_label => _label.innerText, label);
     },
     getTooltipInfoValue: async delay => {
       const infoIcon = await component.$('[data-hook="formfield-infoicon"]');

@@ -130,9 +130,9 @@ describe('Dropdown', () => {
         rerender(<Dropdown options={[{ id: 1, value: 'Option 2' }]} />);
 
         const options = await dropdownLayoutDriver.options();
-        const isAnyOptionSelected = (await Promise.all(
-          options.map(option => option.isSelected()),
-        )).some(val => val);
+        const isAnyOptionSelected = (
+          await Promise.all(options.map(option => option.isSelected()))
+        ).some(val => val);
 
         expect(isAnyOptionSelected).toBeFalsy();
         expect(await inputDriver.getValue()).toBe('');
@@ -145,9 +145,9 @@ describe('Dropdown', () => {
         const { inputDriver, dropdownLayoutDriver } = _driver;
 
         const options = await dropdownLayoutDriver.options();
-        const isAnyOptionSelected = (await Promise.all(
-          options.map(option => option.isSelected()),
-        )).some(val => val);
+        const isAnyOptionSelected = (
+          await Promise.all(options.map(option => option.isSelected()))
+        ).some(val => val);
 
         expect(isAnyOptionSelected).toBeFalsy();
         expect(await inputDriver.getValue()).toBe('');

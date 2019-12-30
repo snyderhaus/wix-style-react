@@ -25,9 +25,11 @@ export default (base, body) => {
     getLinkButton: () => getButtonByType('link'),
     isFormConfirmButtonDisabled: async () =>
       Boolean(
-        (await base
-          .$('[data-hook=richtextarea-form-confirm-button]')
-          .getNative()).attributes.disabled,
+        (
+          await base
+            .$('[data-hook=richtextarea-form-confirm-button]')
+            .getNative()
+        ).attributes.disabled,
       ),
     isFormDisplayed: () => base.$('[data-hook=richtextarea-form]').exists(),
     clickBoldButton: () => getButtonByType('bold').click(),

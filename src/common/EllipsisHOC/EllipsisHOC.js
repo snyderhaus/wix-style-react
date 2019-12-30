@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { withEllipsedTooltip } from 'wix-ui-core/dist/src/hocs/EllipsedTooltip';
 import { ZIndex } from '../../ZIndex';
 import tooltip from './EllipsisHOC.st.css';
@@ -19,21 +19,28 @@ export default React.forwardRef(({ Component, props }, ref) => {
     ...rest
   } = props;
 
-  const EllipsedComponent = withEllipsedTooltip({
-    showTooltip,
-    tooltipProps: {
-      className: tooltip.root,
-      appendTo,
-      flip,
-      fixed,
-      placement,
-      timeout,
-      maxWidth,
-      zIndex,
-      hideDelay,
-      showDelay,
-    },
-  })(Component);
+  const tooltipProps = {
+    className: tooltip.root,
+    appendTo,
+    flip,
+    fixed,
+    placement,
+    timeout,
+    maxWidth,
+    zIndex,
+    hideDelay,
+    showDelay,
+  };
+
+  const EllipsedComponent = useMemo(
+    () =>
+      withEllipsedTooltip({
+        showTooltip,
+        tooltipProps,
+      })(Component),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [...Object.values(tooltipProps), Component, showTooltip],
+  );
 
   return <EllipsedComponent ref={ref} {...rest} />;
 });

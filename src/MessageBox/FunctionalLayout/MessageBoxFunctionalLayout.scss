@@ -19,10 +19,6 @@ $minimum-modal-margin: 48px;
 }
 
 .body {
-  @include FontLight();
-  color: $D10;
-  font-size: 16px;
-  line-height: 24px;
   padding: 36px 30px 12px;
   box-sizing: border-box;
 

@@ -128,9 +128,23 @@ describe('InputArea', () => {
         expect(await driver.getDisabled()).toBeFalsy();
       });
 
-      it('should not display an error icon even if the error is true', async () => {
+      it('depreacted - should not display an error icon even if the error is true', async () => {
         const driver = createDriver(<InputAreaForTesting disabled error />);
         expect(await driver.hasExclamation()).toBeFalsy();
+      });
+
+      it('should not display a status icon even if status="error"', async () => {
+        const driver = createDriver(
+          <InputAreaForTesting disabled status="error" />,
+        );
+        expect(await driver.hasExclamation()).toBe(false);
+      });
+
+      it('should not display a status icon even if status="warning"', async () => {
+        const driver = createDriver(
+          <InputAreaForTesting disabled status="warning" />,
+        );
+        expect(await driver.hasExclamation()).toBe(false);
       });
 
       it('should not be resizable', async () => {
@@ -187,11 +201,25 @@ describe('InputArea', () => {
       });
     });
 
-    describe('error attribute', () => {
+    describe('deprecated - error attribute', () => {
       it('should display an error icon if error is true', async () => {
         const driver = createDriver(<InputAreaForTesting error />);
 
         expect(await driver.hasError()).toBeTruthy();
+      });
+    });
+
+    describe('status attribute', () => {
+      it('should display an error icon if status="error"', async () => {
+        const driver = createDriver(<InputAreaForTesting status="error" />);
+
+        expect(await driver.hasError()).toBe(true);
+      });
+
+      it('should display an warning icon if status="warning"', async () => {
+        const driver = createDriver(<InputAreaForTesting status="warning" />);
+
+        expect(await driver.hasWarning()).toBe(true);
       });
     });
 

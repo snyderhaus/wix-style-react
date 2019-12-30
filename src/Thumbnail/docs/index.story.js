@@ -16,7 +16,10 @@ import exampleControlled from '!raw-loader!./exampleControlled';
 import thumbnailReadme from '../README.md';
 import { baseScope } from '../../../stories/utils/LiveCodeExample';
 
-const sizes = [{ value: 100, label: '100' }, { value: 300, label: '300' }];
+const sizes = [
+  { value: 100, label: '100' },
+  { value: 300, label: '300' },
+];
 
 const code = config =>
   baseCode({
