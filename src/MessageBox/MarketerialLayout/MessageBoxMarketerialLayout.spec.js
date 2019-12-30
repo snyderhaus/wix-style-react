@@ -78,7 +78,7 @@ describe('MessageBoxMarketerialLayout', () => {
           {},
         );
         const driver = createDriver(<MessageBoxMarketerialLayout {...props} />);
-        expect(await driver.getPrimaryButtonNode()).toBeTruthy();
+        expect(await driver.getPrimaryButtonNode()).toBe(true);
       });
 
       it('should not display the primary button if primary button node was passed', async () => {
