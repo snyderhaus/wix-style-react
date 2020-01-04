@@ -38,6 +38,7 @@
     "storybook": "npm run prestorybook && start-storybook -p 6006",
     "storybook:visual": "start-storybook -c ./.storybook/visual -p 6007",
     "storybook:e2e": "start-storybook -c ./.storybook/e2e -p 6008",
+    "storybook:visual-es": "start-storybook -c ./.storybook/visual-es -p 6009",
     "------test": "",
     "pretest": "if [ ! \"$agentType\" = \"pullrequest\" ]; then npm run lint && ./scripts/ensure-dist.sh; fi",
     "test": "if [ ! \"$agentType\" = \"pullrequest\" ]; then npm run test:unit && npm run test:visual && npm run test:e2e && npm run test:types && npm run sanity; fi",
