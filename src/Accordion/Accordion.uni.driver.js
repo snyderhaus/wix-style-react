@@ -20,6 +20,11 @@ const accordionDriverFactory = base => ({
       .$('[data-hook="children"]')
       .exists(),
 
+  clickToggleButtonAt: idx =>
+    getItemAt(idx, base)
+      .$('[data-hook="toggle-accordion-wrapper"]')
+      .click(),
+
   clickHeaderAt: idx =>
     getItemAt(idx, base)
       .$('[data-hook="header"]')

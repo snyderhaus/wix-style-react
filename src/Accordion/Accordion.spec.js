@@ -6,6 +6,7 @@ import { accordionPrivateDriverFactory } from './Accordion.private.uni.driver';
 
 import { eventually } from '../../test/utils/unit/eventually';
 import { buttonTypes } from './constants';
+import { rejects } from 'assert';
 
 describe('Accordion', () => {
   const FakeIcon = () => <div>fake icon</div>;
@@ -104,10 +105,12 @@ describe('Accordion', () => {
       expect(await driver.isItemExpandedAt(0)).toBe(true);
     });
 
-    it('should collapse an open item on click', async () => {
+    it('should collapse an expanded item on click', async () => {
       const driver = createDriver(<Accordion items={singleItem} />);
       await driver.clickHeaderAt(0);
+      expect(await driver.isItemExpandedAt(0)).toBe(true);
       await driver.clickHeaderAt(0);
+      await new Promise(resolve => setTimeout(resolve, 350));
       expect(await driver.isItemExpandedAt(0)).toBe(false);
     });
 
