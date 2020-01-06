@@ -38,7 +38,7 @@ storiesOf('Accordion', module).add('withButton', () => (
     ]}
   />
 ));
-/*
+
 storiesOf('Accordion', module).add('multiple', () => (
   <Accordion
     multiple
@@ -69,7 +69,6 @@ storiesOf('Accordion', module).add('multiple', () => (
     ]}
   />
 ));
-*/
 
 storiesOf('Accordion', module).add('inCard', () => (
   <Card>
