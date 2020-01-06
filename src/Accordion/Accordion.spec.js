@@ -6,7 +6,6 @@ import { accordionPrivateDriverFactory } from './Accordion.private.uni.driver';
 
 import { eventually } from '../../test/utils/unit/eventually';
 import { buttonTypes } from './constants';
-import { rejects } from 'assert';
 
 describe('Accordion', () => {
   const FakeIcon = () => <div>fake icon</div>;
