@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import styles from './Accordion.st.css';
 import AccordionItem from './AccordionItem';
-import { buttonTypes } from './constants';
+import { buttonTypes, skins } from './constants';
 
 class Accordion extends React.Component {
   static displayName = 'Accordion';
@@ -14,6 +14,9 @@ class Accordion extends React.Component {
 
     /** allow multiple rows to be opened simultaneously */
     multiple: PropTypes.bool,
+
+    /** allow light skin with white background */
+    skin: PropTypes.oneOf(Object.values(skins)),
 
     /** accordion items nodes */
     items: PropTypes.arrayOf(
@@ -31,6 +34,7 @@ class Accordion extends React.Component {
   static defaultProps = {
     items: [],
     multiple: false,
+    skin: skins.standard,
   };
 
   constructor(props) {
@@ -54,7 +58,7 @@ class Accordion extends React.Component {
 
   render() {
     const { openIndexes } = this.state;
-    const { dataHook, items } = this.props;
+    const { dataHook, items, skin } = this.props;
 
     return (
       <div data-hook={dataHook}>
@@ -69,6 +73,7 @@ class Accordion extends React.Component {
             onToggle={this._toggle(index)}
             {...item}
             open={openIndexes.includes(index)}
+            skin={skin}
           />
         ))}
       </div>

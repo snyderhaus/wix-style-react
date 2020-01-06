@@ -3,11 +3,12 @@ import { Animator } from 'wix-animations';
 import PropTypes from 'prop-types';
 import ChevronDown from 'wix-ui-icons-common/ChevronDown';
 import ChevronUp from 'wix-ui-icons-common/ChevronUp';
+import classNames from 'classnames';
 
 import Text from '../../Text';
 import Button from '../../Button';
 import TextButton from '../../TextButton';
-import { buttonTypes, dataHooks } from '../constants';
+import { buttonTypes, dataHooks, skins } from '../constants';
 
 import style from './AccordionItem.st.css';
 
@@ -24,6 +25,7 @@ class AccordionItem extends React.PureComponent {
     open: PropTypes.bool,
     disabled: PropTypes.bool,
     onToggle: PropTypes.func,
+    skin: PropTypes.oneOf(Object.values(skins)),
   };
 
   static defaultProps = {
@@ -100,8 +102,19 @@ class AccordionItem extends React.PureComponent {
   };
 
   render() {
-    const { icon, title, open, children, onToggle, disabled } = this.props;
-
+    const {
+      icon,
+      title,
+      open,
+      children,
+      onToggle,
+      disabled,
+      skin,
+    } = this.props;
+    const childrenClassName = classNames(style.children, {
+      [style.standard]: skin === skins.standard,
+      [style.light]: skin === skins.light,
+    });
     return (
       <div
         data-hook={dataHooks.item}
@@ -142,7 +155,7 @@ class AccordionItem extends React.PureComponent {
         </div>
 
         <Animator show={open} height>
-          <div data-hook="children" className={style.children}>
+          <div data-hook="children" className={childrenClassName}>
             {children}
           </div>
         </Animator>

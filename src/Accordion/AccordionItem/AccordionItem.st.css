@@ -34,9 +34,16 @@
   min-width: 0;
 }
 
-.children {
+.children{
   padding: 24px 30px 30px;
+}
+
+.standard {
   background-color: value(B60);
+}
+
+.light {
+  background-color: white;
 }
 
 .toggleButton {
