@@ -1,4 +1,3 @@
-// component internal data-hooks
 export const dataHooks = {
   addItem: 'add-image',
   overlay: 'image-viewer-overlay',
