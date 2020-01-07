@@ -1,4 +1,4 @@
-import { dataHooks } from './constants';
+import { dataHooks } from '../constants';
 
 const imageViewerPrivateDriver = ({ element, eventTrigger }) => {
   const byHook = dataHook => element.querySelector(`[data-hook="${dataHook}"]`);
