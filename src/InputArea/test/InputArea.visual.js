@@ -41,17 +41,6 @@ const tests = [
     ],
   },
   {
-    describe: 'height',
-    its: [
-      {
-        it: 'should grow when give long text',
-        props: {
-          autoGrow: true,
-        },
-      },
-    ],
-  },
-  {
     describe: 'status',
     its: [
       {

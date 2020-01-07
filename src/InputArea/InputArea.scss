@@ -1,6 +1,7 @@
 @import '../common.scss';
 @import './InputAreaMixins.scss';
 @import '../typography-helpers.scss';
+@import '../mixins.scss';
 
 $input-area-padding-exclamation: 34px;
 $input-area-padding-horizontal: 12px;
@@ -43,10 +44,15 @@ $gap: 6px;
   border: 0;
   outline: 0;
   background: transparent;
+  cursor: auto;
   @include TextSizeAndFontFamily($size: medium, $weight: normal);
 
   @include Placeholder(getTextColor($light: true, $secondary: true));
   @include Selection($paletteB4);
+  @include default-scroll-bar();
+  &::-webkit-scrollbar-thumb {
+    height: 30px;
+  }
 
   &.sizeSmall {
     @include TextSizeAndFontFamily($size: small, $weight: normal);
