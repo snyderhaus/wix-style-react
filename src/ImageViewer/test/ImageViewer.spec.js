@@ -1,14 +1,14 @@
 import React from 'react';
 import { fireEvent } from '@testing-library/react';
-import ImageViewer from './ImageViewer';
-import ImageViewerDriver from './ImageViewer.driver';
-import { imageViewerUniDriverFactory } from './ImageViewer.uni.driver';
+import ImageViewer from '../ImageViewer';
+import ImageViewerDriver from '../ImageViewer.driver';
+import { imageViewerUniDriverFactory } from '../ImageViewer.uni.driver';
 import imageViewerPrivateDriver from './ImageViewer.private.driver';
 import {
   createRendererWithDriver,
   createRendererWithUniDriver,
   cleanup,
-} from '../../test/utils/react';
+} from '../../../test/utils/react';
 
 describe('ImageViewer', () => {
   const buildComponent = (props = {}) => <ImageViewer {...props} />;
