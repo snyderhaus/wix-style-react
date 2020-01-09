@@ -71,6 +71,38 @@ storiesOf('Accordion', module).add('multiple', () => (
 ));
 */
 
+storiesOf('Accordion', module).add('light skin', () => (
+  <Accordion
+    multiple
+    skin="light"
+    items={[
+      {
+        title: 'First Initially Open Row',
+        children: <Text>${text}</Text>,
+        open: true,
+        collapseLabel: 'Less',
+      },
+      {
+        title: 'Second Row',
+        children: <Text>${text}</Text>,
+        open: true,
+        collapseLabel: 'Less',
+      },
+      {
+        title: 'Third Row',
+        children: <Text>${text}</Text>,
+        collapseLabel: 'Less',
+      },
+      {
+        title: 'Disable Row',
+        children: <Text>${text}</Text>,
+        collapseLabel: 'Less',
+        disabled: true,
+      },
+    ]}
+  />
+));
+
 storiesOf('Accordion', module).add('inCard', () => (
   <Card>
     <Card.Header title="Card with Accordion" />
