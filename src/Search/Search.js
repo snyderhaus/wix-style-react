@@ -31,6 +31,8 @@ class Search extends Component {
     ...InputWithOptions.propTypes,
     /** Will display the search icon only until clicked */
     expandable: PropTypes.bool,
+    /** Width used for expanded state */
+    expandWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     /** Custom function for filtering options */
     predicate: PropTypes.func,
     /** onChange debounce in milliseconds */
@@ -42,6 +44,7 @@ class Search extends Component {
     clearButton: true,
     placeholder: 'Search',
     expandable: false,
+    expandWidth: '100%',
     debounceMs: 0,
     onChange: () => {},
   };
@@ -119,6 +122,7 @@ class Search extends Component {
 
     if (expandable && !collapsed) {
       stateChanges.collapsed = true;
+      this.searchInput.input.blur();
     }
 
     if (!isEmpty(stateChanges)) {
@@ -129,7 +133,19 @@ class Search extends Component {
 
   _currentValue = () => this.state.inputValue;
 
-  _onBlur = () => {
+  _onFocus = event => {
+    const { onFocus } = this.props;
+
+    if (this.state.collapsed && this.props.expandable) {
+      this.setState({
+        collapsed: false,
+      });
+    }
+
+    onFocus && onFocus(event);
+  };
+
+  _onBlur = event => {
     const { onBlur } = this.props;
 
     if (!this.state.collapsed && this.props.expandable) {
@@ -142,13 +158,12 @@ class Search extends Component {
       }
     }
 
-    onBlur && onBlur();
+    onBlur && onBlur(event);
   };
 
   _onWrapperClick = () => {
     if (this.props.expandable && this.state.collapsed) {
       this.searchInput.input.focus();
-      this.setState({ collapsed: false });
     }
   };
 
@@ -165,13 +180,18 @@ class Search extends Component {
   };
 
   render() {
-    const { defaultValue, dataHook, ...restProps } = this.props;
+    const { defaultValue, dataHook, expandWidth, ...restProps } = this.props;
+    const { expandable } = restProps;
+    const { collapsed, inputValue } = this.state;
 
     const wrapperClasses = classNames({
-      [styles.expandableStyles]: this.props.expandable,
-      [styles.collapsed]: this.state.collapsed && this.props.expandable,
-      [styles.expanded]: !this.state.collapsed && this.props.expandable,
+      [styles.expandableStyles]: expandable,
+      [styles.collapsed]: collapsed && expandable,
+      [styles.expanded]: !collapsed && expandable,
     });
+
+    const contentStyle =
+      expandable && !collapsed ? { width: expandWidth } : undefined;
 
     return (
       <div
@@ -180,25 +200,28 @@ class Search extends Component {
         onClick={this._onWrapperClick}
         onMouseDown={this._onWrapperMouseDown}
       >
-        <InputWithOptions
-          {...restProps}
-          value={this.state.inputValue}
-          ref={r => (this.searchInput = r)}
-          roundInput
-          prefix={
-            <Input.IconAffix>
-              <SearchIcon />
-            </Input.IconAffix>
-          }
-          dataHook="search-inputwithoptions"
-          menuArrow={false}
-          closeOnSelect
-          options={this._getFilteredOptions()}
-          onClear={restProps.clearButton ? this._onClear : undefined}
-          onChange={this._onChange}
-          onBlur={this._onBlur}
-          highlight
-        />
+        <div className={styles.content} style={contentStyle}>
+          <InputWithOptions
+            {...restProps}
+            value={inputValue}
+            ref={r => (this.searchInput = r)}
+            roundInput
+            prefix={
+              <Input.IconAffix>
+                <SearchIcon />
+              </Input.IconAffix>
+            }
+            dataHook="search-inputwithoptions"
+            menuArrow={false}
+            closeOnSelect
+            options={this._getFilteredOptions()}
+            onClear={restProps.clearButton ? this._onClear : undefined}
+            onChange={this._onChange}
+            onFocus={this._onFocus}
+            onBlur={this._onBlur}
+            highlight
+          />
+        </div>
       </div>
     );
   }
