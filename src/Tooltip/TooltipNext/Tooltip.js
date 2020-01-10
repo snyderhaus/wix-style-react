@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Tooltip as CoreTooltip } from 'wix-ui-core/dist/src/components/tooltip';
+import { TooltipNext } from 'wix-ui-core';
 import Text from '../../Text';
 import styles from './Tooltip.st.css';
 
@@ -105,7 +105,7 @@ class Tooltip extends React.PureComponent {
     } = this.props;
 
     return (
-      <CoreTooltip
+      <TooltipNext
         {...rest}
         {...(dataHook ? { 'data-hook': dataHook } : {})}
         {...styles('root', { size }, this.props)}
@@ -120,7 +120,7 @@ class Tooltip extends React.PureComponent {
         showArrow
       >
         {children}
-      </CoreTooltip>
+      </TooltipNext>
     );
   }
 }
