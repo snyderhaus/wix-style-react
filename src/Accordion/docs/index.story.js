@@ -112,6 +112,7 @@ export default {
             },
             { title: 'Disabled Accordion Rows', source: examples.disabled },
             { title: 'Usage in Card', source: examples.inCard },
+            { title: 'Skins', source: examples.skins },
           ].map(({ title, source }) =>
             columns([description({ title }), code({ source })]),
           ),
