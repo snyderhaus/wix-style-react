@@ -102,51 +102,53 @@ class AccordionItem extends React.PureComponent {
     const { icon, title, open, children, onToggle, disabled } = this.props;
 
     return (
-      <div
-        data-hook={dataHooks.item}
-        onMouseEnter={this._onMouseEnter}
-        onMouseLeave={this._onMouseLeave}
-        {...style(
-          'root',
-          { disabled, hover: this.state.hover, open },
-          this.props,
-        )}
-      >
+      <div className={style.itemWrapper}>
         <div
-          onClick={!disabled ? onToggle : null}
-          className={style.header}
-          data-hook="header"
+          data-hook={dataHooks.item}
+          onMouseEnter={this._onMouseEnter}
+          onMouseLeave={this._onMouseLeave}
+          {...style(
+            'root',
+            { disabled, hover: this.state.hover, open },
+            this.props,
+          )}
         >
-          {icon && (
-            <div className={style.icon} data-hook="icon">
-              {icon}
-            </div>
-          )}
-          {title && (
-            <div className={style.title} data-hook="title-container">
-              {typeof title === 'string' ? (
-                <Text data-hook="title" ellipsis weight="normal">
-                  {title}
-                </Text>
-              ) : (
-                title
-              )}
-            </div>
-          )}
           <div
-            className={style.toggleButton}
-            data-hook="toggle-accordion-wrapper"
-            children={
-              open ? this._renderCloseButton() : this._renderOpenButton()
-            }
-          />
-        </div>
-
-        <Animator show={open} height>
-          <div data-hook="children" className={style.children}>
-            {children}
+            onClick={!disabled ? onToggle : null}
+            className={style.header}
+            data-hook="header"
+          >
+            {icon && (
+              <div className={style.icon} data-hook="icon">
+                {icon}
+              </div>
+            )}
+            {title && (
+              <div className={style.title} data-hook="title-container">
+                {typeof title === 'string' ? (
+                  <Text data-hook="title" ellipsis weight="normal">
+                    {title}
+                  </Text>
+                ) : (
+                  title
+                )}
+              </div>
+            )}
+            <div
+              className={style.toggleButton}
+              data-hook="toggle-accordion-wrapper"
+              children={
+                open ? this._renderCloseButton() : this._renderOpenButton()
+              }
+            />
           </div>
-        </Animator>
+
+          <Animator show={open} height>
+            <div data-hook="children" className={style.children}>
+              {children}
+            </div>
+          </Animator>
+        </div>
       </div>
     );
   }

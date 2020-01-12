@@ -28,6 +28,11 @@
   cursor: pointer;
 }
 
+.itemWrapper{
+  overflow: hidden;
+  background-color: transparent;
+}
+
 .root:open .header {
   box-shadow: value(shadow30);
 }
