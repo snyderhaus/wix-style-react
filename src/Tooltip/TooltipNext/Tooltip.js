@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { TooltipNext } from 'wix-ui-core';
+import { TooltipNext } from 'wix-ui-core/dist/src/components/tooltip-next';
 import Text from '../../Text';
 import styles from './Tooltip.st.css';
 
