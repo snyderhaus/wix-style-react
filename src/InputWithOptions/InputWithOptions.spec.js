@@ -423,12 +423,18 @@ describe('InputWithOptions', () => {
 
     it('should trigger callback function on clicking outside', async () => {
       const handleClickOutside = jest.fn();
-      const { driver } = createDriver(
+
+      const { driver, dropdownLayoutDriver } = createDriver(
         <InputWithOptions
           options={options}
+          closeOnSelect={false}
           onClickOutside={handleClickOutside}
         />,
       );
+
+      await driver.pressKey('ArrowDown');
+      expect(await dropdownLayoutDriver.isShown()).toBe(true);
+
       await driver.outsideClick();
       expect(handleClickOutside).toHaveBeenCalled();
     });

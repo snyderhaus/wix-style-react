@@ -127,7 +127,7 @@ describe('DropdownBase', () => {
     const onClickOutsideFn = jest.fn();
 
     const driver = createDriver(
-      <DropdownBase {...defaultProps} onClickOutside={onClickOutsideFn}>
+      <DropdownBase {...defaultProps} open onClickOutside={onClickOutsideFn}>
         <div>Hello</div>
       </DropdownBase>,
     );
