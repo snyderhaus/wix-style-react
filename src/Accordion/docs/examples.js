@@ -76,13 +76,15 @@ export const inCard = `
 `;
 
 export const skins = `
-<div>
+<div style={{display: 'flex', flexDirection: 'column'}}>
+  <div style={{marginBottom: '10px'}}>
   <Accordion
     items={[
       { title: 'Accordion with standard skin', children: <Text>${text}</Text>, open: true, collapseLabel: 'Less' },
       { title: 'Second Row', children: <Text>${text}</Text>, collapseLabel: 'Less', expandLabel: 'More' },
     ]}
-  /> 
+  />
+  </div>
   <Accordion
     skin='light'
     items={[
