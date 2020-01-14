@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { withEllipsedTooltip } from 'wix-ui-core/dist/src/hocs/EllipsedTooltip';
+import { withEllipsedTooltipNext } from 'wix-ui-core/dist/src/hocs/EllipsedTooltip';
 import { ZIndex } from '../../ZIndex';
 import tooltip from './EllipsisHOC.st.css';
 
@@ -34,7 +34,7 @@ export default React.forwardRef(({ Component, props }, ref) => {
 
   const EllipsedComponent = useMemo(
     () =>
-      withEllipsedTooltip({
+      withEllipsedTooltipNext({
         showTooltip,
         tooltipProps,
       })(Component),
