@@ -1,4 +1,5 @@
 import React from 'react';
+import { Loadable } from 'wix-ui-core/dist/src/components/loadable';
 
 import {
   bool,
@@ -9,8 +10,6 @@ import {
   string,
   number,
 } from 'prop-types';
-
-import Ellipsed from './EllipsisHOC';
 
 const validTooltipProps = [
   'flip',
@@ -45,25 +44,39 @@ const Comp /** @autodocs-component */ = Component => {
     React.forwardRef(({ ellipsis, ...props }, ref) => {
       const rest = omit(props, validTooltipProps);
 
-      if (ellipsis) {
-        return (
-          <Ellipsed
-            ref={ref}
-            fallback={
-              <Component
-                style={fallbackEllipsis}
-                data-fallback
+      return (
+        <Loadable
+          loader={{
+            EllipsisHOC: () =>
+              // because variables are not parsed by webpack transpiler
+              process.env.NODE_ENV === 'test' ||
+              process.env.NODE_ENV === 'development'
+                ? require('./EllipsisHOC')
+                : import('./EllipsisHOC'),
+          }}
+          namedExports={{ EllipsisHOC: 'EllipsisHOC' }}
+          defaultComponent={<Component ref={ref} {...rest} />}
+          shouldLoadComponent={ellipsis}
+        >
+          {({ EllipsisHOC }) => {
+            return (
+              <EllipsisHOC
                 ref={ref}
-                {...rest}
+                fallback={
+                  <Component
+                    style={fallbackEllipsis}
+                    data-fallback
+                    ref={ref}
+                    {...rest}
+                  />
+                }
+                Component={Component}
+                props={props}
               />
-            }
-            Component={Component}
-            props={props}
-          />
-        );
-      }
-
-      return <Component ref={ref} {...rest} />;
+            );
+          }}
+        </Loadable>
+      );
     }),
   );
 };

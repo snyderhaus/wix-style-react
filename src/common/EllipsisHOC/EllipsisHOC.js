@@ -3,7 +3,7 @@ import { withEllipsedTooltipNext } from 'wix-ui-core/dist/src/hocs/EllipsedToolt
 import { ZIndex } from '../../ZIndex';
 import tooltip from './EllipsisHOC.st.css';
 
-export default React.forwardRef(({ Component, props }, ref) => {
+export const EllipsisHOC = React.forwardRef(({ Component, props }, ref) => {
   const {
     flip,
     fixed,
